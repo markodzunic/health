@@ -1,0 +1,4 @@
+<?php
+ /**
+ *	PublicPart Helper  
+ */
