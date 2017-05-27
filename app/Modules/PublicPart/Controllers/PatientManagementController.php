@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class PublicPartController extends Controller {
+class PatientManagementController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +15,7 @@ class PublicPartController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::home.index');
+		return view('PublicPart::PatientManagement.index');
 	}
 
 	/**
@@ -26,7 +26,7 @@ class PublicPartController extends Controller {
 	public function create()
 	{
 		//
-	} 
+	}
 
 	/**
 	 * Store a newly created resource in storage.
