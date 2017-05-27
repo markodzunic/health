@@ -1,0 +1,69 @@
+#page-2 {
+  background: #fff;
+}
+#loader {
+  z-index: 100000;
+}
+.svg-container {
+  visibility: hidden;
+}
+.svg-container.show {
+  visibility: visible;
+}
+.svg-container {
+  min-height: 100%;
+}
+.pageload-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  visibility: hidden;
+}
+.pageload-overlay.show {
+  visibility: visible;
+}
+.pageload-overlay svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+.pageload-overlay svg path {
+  fill: #00b0f0;
+}
+.pageload-overlay::after {
+    content: '';
+    width:600px;
+    height:600px; /*logo-height*/
+    position:absolute;
+    left:50%; 
+    top:50%; 
+    background-image:url(../../img/loader.png); /* path to your loading animation */
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: cover;
+    margin:-300px 0 0 -300px; /* change top margin to center it */
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1001;
+    -webkit-transition: opacity 0.15s, visibility 0s 0.15s;
+    transition: opacity 0.15s, visibility 0s 0.15s;
+}
+@media screen and (max-width: 992px) {
+  .pageload-overlay::after {
+      width:250px;
+      height:250px;
+      margin:-125px 0 0 -125px; /* is width and height divided by two */
+  }
+}
+
+.pageload-loading.pageload-overlay::after,
+.pageload-loading.pageload-overlay::before{
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
