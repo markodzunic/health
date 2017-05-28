@@ -31,7 +31,7 @@
 <!-- CSS & JS Library -->
 <link href="{{ URL::asset('/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 <link href="{{ URL::asset('/plugins/wow/animate.css') }}" rel="stylesheet">
-<link href="{{ URL::asset('/fonts/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('/fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 
 <!-- LOADING FONTS AND ICONS -->
 <link href="http://fonts.googleapis.com/css?family=Fredoka+One:400%7CPoppins:500%2C400%2C700" rel="stylesheet" property="stylesheet" type="text/css" media="all">

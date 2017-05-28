@@ -7,6 +7,7 @@
 <body id="home">
 	@yield('StartPreloader')
 	@include('PublicPart::layouts.header')
+	@yield('SideMenu')
 
 	@yield('PageBanner')
 

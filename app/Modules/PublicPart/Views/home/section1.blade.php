@@ -25,7 +25,7 @@
 				<a href="#" class="btn full-btn im-btn pink-btn">Health & Safety</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="#" class="btn full-btn im-btn lblue-btn">Emergency Planning</a>
+				<a href="/EmergencyPlanning" class="btn full-btn im-btn lblue-btn">Emergency Planning</a>
 			</div>
 
 			<div class="col-md-4 col-sm-6 col-xs-12">

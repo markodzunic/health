@@ -8,6 +8,8 @@
 	<script src="{{ URL::asset('/plugins/smooth-scroll/jquery.smooth-scroll.js') }}"></script>
 	<!-- ANIMATIONS --> 
     <script src="{{ URL::asset('/plugins/wow/wow.min.js') }}"></script>
+    <!-- PARALLAX --> 
+    <script src="{{ URL::asset('/plugins/parallax/parallax.min.js') }}"></script>
     
 	<script type="text/javascript">
 		$(function(){
