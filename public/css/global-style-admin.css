@@ -341,7 +341,8 @@ textarea {
   min-height: auto;
 }
 label input[type=text], 
-label input[type=email] {
+label input[type=email],
+label input[type=password] {
   font-size: 16px;
   letter-spacing: 0.5px;
   line-height: 40px;
@@ -359,7 +360,9 @@ label input[type=email] {
 label input[type=text]:hover, 
 label input[type=email]:hover,
 label input[type=text]:focus, 
-label input[type=email]:focus{
+label input[type=email]:focus,
+label input[type=password]:hover, 
+label input[type=password]:focus{
   border-bottom: 2px solid #ff66ff;
 }
 label input {

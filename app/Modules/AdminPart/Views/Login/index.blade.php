@@ -1,4 +1,4 @@
-@extends('AdminPart::layouts.default-admin-template')
+@extends('AdminPart::layouts.login-default')
 @section('AditionalHead')
 
 @stop
@@ -13,30 +13,30 @@
 		<input id="token" type="hidden" value="{{$encrypted_token}}">
 
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-sm-6 col-sm-offset-3">
 				<p><strong>Fields marked with an asterisk are required</strong></p>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-6 col-xs-12">
+			<div class="col-sm-6 col-xs-12 col-sm-offset-3">
 				<label>						
 					<input type="text" id="username" name="username" placeholder="User Name">
 				</label>
 			</div>
-			<div class="col-sm-6 col-xs-12">
+			<div class="col-sm-6 col-xs-12 col-sm-offset-3">
 				<label>						
 					<input type="password" id="password" name="password" placeholder="Password">
 				</label>
 			</div>
 			
-			<div class="col-xs-12">
+			<div class="col-xs-12 col-sm-6 col-sm-offset-3">
 				<div class="control-group">
 	              <div class="controls"> 
 	                <input id="remember" type="checkbox" name="checkbox" value="1" ><label for="UrgentForm">Remember Me<span></span></label>
 	              </div>
 	            </div>
 			</div>						
-			<div class="col-xs-12">
+			<div class="col-xs-12 col-sm-6 col-sm-offset-3">
 				<div style="height: 30px"></div>
 				<button href="#" onclick="Login.LoginSubmit(this);return false;" class="btn im-btn pink-btn">Login</button>
 			</div>
