@@ -8,13 +8,13 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="/">iMedical</a>
+                <a class="navbar-brand" href="/PublicPart">iMedical</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/PublicPart">Home</a></li>
                     <li><a href="/Content">Content</a></li>
                     <li><a href="/Blog">Blog</a></li>
                     <li><a href="/Contact">Contact</a></li>

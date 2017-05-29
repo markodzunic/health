@@ -34,6 +34,9 @@
 		</a>
 	</li>
 		{{-- Templates (specific to each section) --}}
+		<div id="nav-Templates" class="nav-side-submenu">
+			<ul><ul>
+		</div>
 	<li id="im-FAQs">
 		<a href="#FAQs"><i class="fa  fa-question-circle" aria-hidden="true"></i>
 			<span>FAQs</span>
@@ -49,5 +52,8 @@
 		</a>
 	</li>
 		{{-- Useful Resources  --}}
+		<div id="nav-UsefulResources" class="nav-side-submenu">
+			<ul><ul>
+		</div>
 </ul>
 </div>

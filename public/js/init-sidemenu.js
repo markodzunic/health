@@ -28,11 +28,11 @@ function sideNavigationPosition() {
 	$('#im-SideNavigation').css('margin-top', sideNavHeightNew);
 }
 function sideNavigationSubmenu() {
-  // $('.nav-side-submenu').removeClass('im-show');  
-  // if (($('.side-submenu-item').hasClass('active')) && (!$('#im-SideNavigation > ul > li').hasClass('active'))){
-  //   $('.nav-side-submenu').addClass('im-show');    
-  // }  
-  // if($('.nav-side-submenu'))
+  $('.nav-side-submenu').removeClass('im-show');  
+  if (($('.side-submenu-item').hasClass('active')) && (!$('#im-SideNavigation > ul > li').hasClass('active'))){
+    $('.nav-side-submenu').addClass('im-show');    
+  }  
+  if($('.nav-side-submenu'))
   sideNavigationPosition();
 }
 function sideNavigationActiveItem() {					

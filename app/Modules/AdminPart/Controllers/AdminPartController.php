@@ -15,7 +15,7 @@ class AdminPartController extends Controller {
 	 */
 	public function index()
 	{
-		return view("AdminPart::index");
+		return view("AdminPart::home.index");
 	}
 
 	/**

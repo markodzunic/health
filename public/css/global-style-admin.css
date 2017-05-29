@@ -1,0 +1,478 @@
+body {
+  font-family: "Poppins", serif;
+  font-size: 18px;
+  line-height: 26px;
+  color: #2e2e2e;
+}
+
+::-webkit-selection {
+  color: #ffffff;
+  background: #28bbf8;
+}
+
+::-moz-selection {
+  color: #ffffff;
+  background: #28bbf8;
+}
+
+::selection {
+  color: #ffffff;
+  background: #28bbf8;
+}
+a, .im-animation {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+a:hover, a:active, a:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+figure.fh5co-with-caption {
+  float: left;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+figure.fh5co-with-caption img {
+  margin-bottom: 0 !important;
+}
+figure.fh5co-with-caption figcaption {
+  font-style: italic;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #7b7b7b;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  margin: 0 0 20px 0;
+  padding: 0;
+  font-family: "Fredoka One", sans-serif;
+  font-weight: 400;
+}
+
+h1, .h1 {
+  font-size: 50px;
+  line-height: 64px;
+}
+
+h2, .h2 {
+  font-size: 35px;
+  line-height: 50px;
+}
+
+h3, .h3 {
+  font-size: 30px;
+  line-height: 40px;
+}
+
+h4, .h4 {
+  font-size: 25px;
+  line-height: 35px;
+}
+
+h5, .h5 {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+h6, .h6 {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+ul, ol {
+  padding-left: 0;
+  line-height: 1.5;
+}
+ul ul, ul ol, ol ul, ol ol {
+  padding-left: 25px;
+}
+
+p, img {
+  margin: 0 0 20px 0;
+}
+
+ul, ol {
+  padding-left: 0;
+  line-height: 1.5;
+  list-style: none;
+}
+ul ul, ul ol, ol ul, ol ol {
+  padding-left: 25px;  
+  list-style: none;
+}
+ul li, ol li {  
+  list-style: none;
+}
+section {
+  float: left;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+a {
+  color: #2e2e2e;
+}
+a:hover,
+a:focus {
+  color: #000;
+}
+.im-full-width {
+  width: 100% !important;
+}
+.white-text,
+.white-text p,
+.white-text h1,
+.white-text h2,
+.white-text h3,
+.white-text h4,
+.white-text h5,
+.white-text h6,
+.white-text ul,
+.white-text li,
+.white-text span {
+  color: #fff;
+}
+.im-left {
+  text-align: left;
+}
+.im-right {
+  text-align: right;
+}
+.im-center {
+  text-align: center;
+}
+.big-padding {
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+.small-padding {
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+.no-padding-top {
+  padding-top: 0;
+}
+.no-padding-bottom {
+  padding-bottom: 0;
+}
+.im-pink,
+.im-list-pink li:before  {
+  color: rgba(255,102,255,1);
+}
+.im-lblue,
+.im-list-lblue li:before  {
+  color: rgba(0,176,240,1);
+}
+.im-blue,
+.im-list-blue li:before  {
+  color: rgba(0,32,96,1);
+}
+.bg-pink {
+  background-color: rgba(255,102,255,1);
+}
+.bg-lblue {
+  background-color: rgba(0,176,240,1);
+}
+.bg-blue {
+  background-color: rgba(0,32,96,1);
+}
+.im-btn {
+  text-align: center;
+  font-family: "Fredoka One", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 10px 15px;
+  border: 2px solid;
+  border-radius: 0;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+.full-btn {
+  width: 100%;
+}
+.white-btn {
+  background-color: transparent;
+  color: #fff;
+}
+.white-btn:hover,
+.white-btn:focus {
+  background-color: rgba(255,255,255,0.8);
+  border-color: rgba(255,255,255,1);
+}
+.bg-pink .white-btn:hover,
+.bg-pink .white-btn:focus {
+  color: rgba(255,102,255,1);
+}
+.bg-lblue .white-btn:hover,
+.bg-lblue .white-btn:focus {
+  color: rgba(0,176,240,1);
+}
+.bg-blue .white-btn:hover,
+.bg-blue .white-btn:focus {
+  color: rgba(0,32,96,1);
+}
+.pink-btn {
+  background-color: rgba(255,102,255,1);
+  color: #fff;
+  border-color: rgba(255,102,255,1);
+}
+.pink-btn:hover,
+.pink-btn:focus {
+  background-color: rgba(255,102,255,0.8);
+  color: #fff;
+}
+.pink-btn.im-border-btn:hover,
+.pink-btn.im-border-btn:focus {
+  background-color: transparent;
+  color: rgba(255,102,255,1);
+  border-color: rgba(255,102,255,1);
+}
+.lblue-btn {
+  background-color: rgba(0,176,240,1);
+  color: #fff;
+  border-color: rgba(0,176,240,1);
+}
+.lblue-btn:hover,
+.lblue-btn:focus {
+  background-color: rgba(0,176,240,0.8);
+  color: #fff;
+}
+.lblue-btn.im-border-btn:hover,
+.lblue-btn.im-border-btn:focus {
+  background-color: transparent;
+  color: rgba(0,176,240,1);
+  border-color: rgba(0,176,240,1);
+}
+.blue-btn {
+  background-color: rgba(0,32,96,1);
+  color: #fff;
+  border-color: rgba(0,32,96,1);
+}
+.blue-btn:hover,
+.blue-btn:focus {
+  background-color: rgba(0,32,96,0.8);
+  color: #fff;
+}
+.blue-btn.im-border-btn:hover,
+.blue-btn.im-border-btn:focus {
+  background-color: transparent;
+  color: rgba(0,32,96,1);
+  border-color: rgba(0,32,96,1);
+}
+ul.im-list {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+ol.im-list-num {
+  list-style: decimal;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+ol.im-list-num li {
+  list-style: decimal;
+}
+ul.im-list li {
+  padding-left: 1.3em;
+}
+ul.im-list li:before {
+  content: "\f10c"; /* FontAwesome Unicode */
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: -1.3em; /* same as padding-left set on li */
+  width: 1.3em; /* same as padding-left set on li */
+}
+ul.im-list ul li:before{
+   content: "\f111"; /* FontAwesome Unicode */
+}
+#page-wrapper {
+    min-height: 90vh;
+}
+/*SIDE NAV*/
+.side-nav>li>a {
+	font-size: 16px;
+	line-height: 22px;
+}
+.nav>li>h5 {
+    position: relative;
+    display: block;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-bottom: 0;
+}
+#profile-image {
+	padding: 15px;
+}
+#profile-image img {
+	max-width: 100%;
+	margin-bottom: 0;
+}
+/*FORM*/
+label {
+  color: #002060;
+}
+label span {
+  font-weight: 700;
+  color: #ff66ff;
+}
+#form-brochure label{
+  width: 100%;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+}
+textarea {
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  line-height: 40px;
+  outline: 0 !important;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 2px solid #002060;
+  margin-bottom: 10px;
+  width: 100%;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  min-height: auto;
+}
+label input[type=text], 
+label input[type=email] {
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  line-height: 40px;
+  height: 40px;
+  outline: 0 !important;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 2px solid #002060;
+  margin-bottom: 10px;
+  width: 100%;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+}
+label input[type=text]:hover, 
+label input[type=email]:hover,
+label input[type=text]:focus, 
+label input[type=email]:focus{
+  border-bottom: 2px solid #ff66ff;
+}
+label input {
+  color: #00b0f0;
+}
+.search {
+    width: 100%;
+    position: relative;
+    float: left;
+}
+.search input {
+    width: 200px;
+    float: left;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    line-height: 45px;
+    height: 45px;
+    border: 2px solid #ff66ff;
+    outline: 0 !important;
+    border-radius: 0;
+}
+.search button{
+  float: left;
+  text-transform: uppercase;
+}
+/*POPUP LOGIN*/
+.checkbox input[type=checkbox],
+.checkbox-inline input[type=checkbox],
+.radio input[type=radio],
+.radio-inline input[type=radio] {
+  margin-top: 6px;
+  margin-left: 20px;
+}
+.form-control {
+    height: 45px;
+    font-size: 16px;
+    line-height: 45px;
+    padding: 0 15px;
+    border: 2px solid #00b0f0;
+    outline: 0 !important;
+    border-radius: 0;
+}
+input[type=checkbox]:not(old),
+input[type=radio   ]:not(old){
+  width     : 40px;
+  margin    : 0;
+  padding   : 0;
+  font-size : 20px;
+  opacity   : 0;
+}
+input[type=checkbox]:not(old) + label,
+input[type=radio   ]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -40px;
+  line-height  : 24px;
+}
+input[type=checkbox]:not(old) + label > span,
+input[type=radio   ]:not(old) + label > span{
+  display          : inline-block;
+  width            : 20px;
+  height           : 20px;
+  margin           : 8px 12px 2px 8px;
+  border           : 2px solid rgb(0,176,240);
+  border-radius    : 0;
+  background       : rgb(255,255,255);
+  background-image :    -moz-linear-gradient(rgb(255,255,255),rgb(255,255,255));
+  background-image :     -ms-linear-gradient(rgb(255,255,255),rgb(255,255,255));
+  background-image :      -o-linear-gradient(rgb(255,255,255),rgb(255,255,255));
+  background-image : -webkit-linear-gradient(rgb(255,255,255),rgb(255,255,255));
+  background-image :         linear-gradient(rgb(255,255,255),rgb(255,255,255));
+  vertical-align   : bottom;
+}
+input[type=checkbox]:not(old):checked + label > span,
+input[type=radio   ]:not(old):checked + label > span{
+  background-image :    -moz-linear-gradient(rgb(255,255,255),rgb(255,255,255));
+  background-image :     -ms-linear-gradient(rgb(255,255,255),rgb(255,255,255));
+  background-image :      -o-linear-gradient(rgb(255,255,255),rgb(255,255,255));
+  background-image : -webkit-linear-gradient(rgb(255,255,255),rgb(255,255,255));
+  background-image :         linear-gradient(rgb(255,255,255),rgb(255,255,255));
+}
+input[type=checkbox]:not(old):checked + label > span:before{
+  content     : '✓';
+  display     : block;
+  width       : 24px;
+  color       : rgb(255,102,255);
+  font-size   : 30px;
+  line-height : 16px;
+  text-align  : center;
+  text-shadow : 0 0 0.0714em rgb(255,102,255);
+  font-weight : bold;
+}
+input[type=radio]:not(old):checked +  label > span > span{
+  display          : block;
+  width            : 12px;
+  height           : 12px;
+  margin           : 2px;
+  border           : 1px solid rgb255,102,255);
+  border-radius    : 2px;
+  background       : rgb(255,102,255);
+  background-image :    -moz-linear-gradient(rgb255,102,255),rgb255,102,255));
+  background-image :     -ms-linear-gradient(rgb255,102,255),rgb255,102,255));
+  background-image :      -o-linear-gradient(rgb255,102,255),rgb255,102,255));
+  background-image : -webkit-linear-gradient(rgb255,102,255),rgb255,102,255));
+  background-image :         linear-gradient(rgb255,102,255),rgb255,102,255));
+}
+input[type=checkbox]:not(old) + label.im-label-sm,
+input[type=radio ]:not(old) + label.im-label-sm {
+    display: inline-block;
+    margin-left: 0px;
+    line-height: 10px;
+}
+.im-label-sm {
+  font-size: 14px;
+  line-height: 1.3;
+}
+

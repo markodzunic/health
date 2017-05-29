@@ -9,33 +9,33 @@
 
 		<div class="row small-padding">
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="#" class="btn full-btn im-btn pink-btn">Data Protection</a>
+				<a href="/DataProtection" class="btn full-btn im-btn pink-btn">Data Protection</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="#" class="btn full-btn im-btn lblue-btn">Information Security</a>
+				<a href="/InformationSecurity" class="btn full-btn im-btn lblue-btn">Information Security</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="#" class="btn full-btn im-btn blue-btn">Infection Prevention & Control</a>
+				<a href="/InfectionPreventionControl" class="btn full-btn im-btn blue-btn">Infection Prevention & Control</a>
 			</div>
 
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="#" class="btn full-btn im-btn blue-btn">Human Resources</a>
+				<a href="/HumanResources" class="btn full-btn im-btn blue-btn">Human Resources</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="#" class="btn full-btn im-btn pink-btn">Health & Safety</a>
+				<a href="/HealthSafety" class="btn full-btn im-btn pink-btn">Health & Safety</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<a href="/EmergencyPlanning" class="btn full-btn im-btn lblue-btn">Emergency Planning</a>
 			</div>
 
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="#" class="btn full-btn im-btn lblue-btn">Patient Management</a>
+				<a href="/PatientManagement" class="btn full-btn im-btn lblue-btn">Patient Management</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="#" class="btn full-btn im-btn blue-btn">Practice Operations</a>
+				<a href="/PracticeOperations" class="btn full-btn im-btn blue-btn">Practice Operations</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="#" class="btn full-btn im-btn pink-btn">Clinical Management</a>
+				<a href="/ClinicalManagement" class="btn full-btn im-btn pink-btn">Clinical Management</a>
 			</div>
 		</div>
 

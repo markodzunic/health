@@ -1,4 +1,4 @@
-@extends('PublicPart::layouts.default-template')
+@extends('PublicPart::layouts.page-layout')
 @section('AditionalHead')
 
 @stop
@@ -12,8 +12,9 @@
 @stop
 
 @section('MainContent')
-<div id="RecommendedBestPractice" class="MainContentSection">
 	@include('PublicPart::EmergencyPlanning.section1')
+@stop
+@section('RecommendedBestPractice')
 	@include('PublicPart::EmergencyPlanning.section2')
 	@include('PublicPart::EmergencyPlanning.section3')
 	@include('PublicPart::EmergencyPlanning.section4')
@@ -26,12 +27,18 @@
 	@include('PublicPart::EmergencyPlanning.section11')
 	@include('PublicPart::EmergencyPlanning.section12')
 	@include('PublicPart::EmergencyPlanning.section13')
-</div>
-<div id="HowOurPracticeDiffersFromRBP" class="MainContentSection"></div>
-<div id="Checklists" class="MainContentSection"></div>
-<div id="Templates" class="MainContentSection"></div>
-<div id="FAQs" class="MainContentSection"></div>
-<div id="UsefulResources" class="MainContentSection"></div>
+@stop
+@section('HowOurPracticeDiffersFromRBP')
+
+@stop
+@section('Checklists')
+
+@stop
+@section('Templates')
+
+@stop
+@section('FAQs')
+
 @stop
 
 
