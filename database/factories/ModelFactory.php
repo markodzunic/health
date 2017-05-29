@@ -29,5 +29,6 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 		'occupation' => $faker->word,
 		'med_reg_number' => $faker->word,
 		'authorised_user' => 0,
+		'active' => 0,
     ];
 });

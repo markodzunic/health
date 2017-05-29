@@ -11,7 +11,26 @@ class DefaultUsersDataSeeder extends Seeder
      */
     public function run()
     {	
-    	factory(\App\User::class,7)->create();
+        \App\User::insert([
+            [
+                'title' => 'title',
+                'email' => 'admin@admin.com',
+                'password' => 'test',
+                'remember_token' => str_random(10),
+                'first_name' => 'Test Admin',
+                'last_name' => 'Test',
+                'date_of_birth' => \Carbon\Carbon::now()->toDateTimeString(),
+                'position_type' => 'Administrator',
+                'gender' => 'Male',
+                'phone' => '5252811122',
+                'occupation' => 'None',
+                'med_reg_number' => '8282828',
+                'authorised_user' => 0,
+                'active' => 1,
+            ],
+        ]);
+
+    	factory(\App\User::class,6)->create();
 
     	\App\Modules\AdminPart\Models\Permission::insert([
             [
