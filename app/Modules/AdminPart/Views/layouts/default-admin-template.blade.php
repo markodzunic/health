@@ -20,6 +20,10 @@
 	@include('AdminPart::layouts.footer')	
 
 	@include('AdminPart::layouts.foot')
+	<!-- Morris Charts JavaScript -->
+	<script src="{{ URL::asset('/plugins/morris/raphael.min.js') }}"></script>
+    <script src="{{ URL::asset('/plugins/morris/morris.min.js') }}"></script>
+    <script src="{{ URL::asset('/plugins/morris/morris-data.js') }}"></script>
 	@yield('AditionalFoot')	
 
 	</div>{{-- /#wrapper --}}
