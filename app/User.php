@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * This is to indicated that many users can be given a list of roles
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('App\Modules\AdminPart\Models\Role', 'role_user')->withPivot('list_agents_id');
+    }
 }

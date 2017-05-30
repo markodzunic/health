@@ -1,25 +1,12 @@
 <?php 
-namespace App\Modules\AdminPart\Controllers;
+namespace App\Http\Controllers\Public;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\Middleware\Authenticate;
+
 use Illuminate\Http\Request;
-use App\User;
-use Auth;
-use Session;
 
-class AdminPartController extends Controller {
-
-	/**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+class EmergencyPlanningController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -27,10 +14,8 @@ class AdminPartController extends Controller {
 	 * @return Response
 	 */
 	public function index()
-	{	//$user = Auth::user()->with('roles')->first();
-	var_dump(Auth::user());
-	// 	var_dump(Auth::user());die();
-		return view("AdminPart::home.index");
+	{
+		return view('PublicPart::EmergencyPlanning.index');
 	}
 
 	/**
@@ -41,7 +26,7 @@ class AdminPartController extends Controller {
 	public function create()
 	{
 		//
-	}
+	} 
 
 	/**
 	 * Store a newly created resource in storage.

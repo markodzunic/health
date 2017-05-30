@@ -5,12 +5,8 @@
 
 @section('MainContent')
 	<div id="form-brochure" class="small-padding">
-	{{-- <form method="post"> --}}
-		<?php
-			$encrypter = app('Illuminate\Encryption\Encrypter');
-		    $encrypted_token = $encrypter->encrypt(csrf_token());
-		?>
-		<input id="token" type="hidden" value="{{$encrypted_token}}">
+	<form method="post" action="/loginA">
+		{{ csrf_field() }}
 
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-3">
@@ -38,10 +34,10 @@
 			</div>						
 			<div class="col-xs-12 col-sm-6 col-sm-offset-3">
 				<div style="height: 30px"></div>
-				<button href="#" onclick="Login.LoginSubmit(this);return false;" class="btn im-btn pink-btn">Login</button>
+				<button href="#" class="btn im-btn pink-btn">Login</button>
 			</div>
 		</div>
-	{{-- </form> --}}
+	</form>
 	</div>
 
 	<script src="{{ URL::asset('/js/login/index.js') }}"></script>

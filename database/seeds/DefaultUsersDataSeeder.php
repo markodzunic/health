@@ -15,7 +15,7 @@ class DefaultUsersDataSeeder extends Seeder
             [
                 'title' => 'title',
                 'email' => 'admin@admin.com',
-                'password' => 'test',
+                'password' => bcrypt('test'),
                 'remember_token' => str_random(10),
                 'first_name' => 'Test Admin',
                 'last_name' => 'Test',

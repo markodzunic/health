@@ -4,15 +4,13 @@ namespace App\Modules\AdminPart\Controllers\Auth;
 
 use Validator;
 use Mail;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
-use App\Models\User;
-use App\Models\Role;
-use App\Models\Group;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class AuthController extends Controller
 {
@@ -26,8 +24,7 @@ class AuthController extends Controller
     | a simple trait to add these behaviors. Why don't you explore it?
     |
     */
-
-    use ThrottlesLogins;
+    use AuthenticatesUsers;
 
     /**
      * This is used to redirect to the home link when validation pass
@@ -38,7 +35,7 @@ class AuthController extends Controller
      * This is the login path for the application
      * @var string
      */
-    protected $loginPath = '/login';
+    protected $loginPath = '/loginA';
 
     /**
      * Create a new authentication controller instance.
@@ -47,7 +44,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('guest', ['only' => 'getLogin']);
+        // $this->middleware('auth', ['only' => 'getLogin']);
     }
 
     /**
@@ -55,15 +52,41 @@ class AuthController extends Controller
      * 
      * @return view Homepage when user is logged in | Login Form
      */
-    public function getLogin() {
+    public function getLogin(Request $request) {
+
+        // Extracting the login credentials from the request object
+        if ($request->isMethod('post')) {
+            $credentials = [
+                'email'    => $request->username,
+                'password' => $request->password
+            ];
+
+            // Trying to login the user automatically, but if it fails
+            // Redirect the user to login manually
+            if (Auth::attempt($credentials, true, true)) {
+                
+                return redirect($this->redirectTo);
+            }
+
+            return redirect($this->loginPath);
+        }
 
         // If the user has already klgge in go to the homepage
-        if (Auth::check()) {
-            return redirect($this->redirectTo);
-        }
+        // if (Auth::check()) {
+        //     return redirect($this->redirectTo);
+        // }
 
         // Returning the login page if user is not already logged in
         return view('AdminPart::Login.index');
+    }
+
+    public function getLogout()
+    {
+        // logging out user
+        Auth::logout(); 
+
+        // redirection to login screen
+        return redirect($this->loginPath); 
     }
 
     /**
@@ -247,8 +270,7 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'email'    => 'required|email|max:255|unique:users',
-            'role_id'  => 'required',
-            'group_id' => 'required',
+            'password'  => 'required',
         ]);
     }
 }
