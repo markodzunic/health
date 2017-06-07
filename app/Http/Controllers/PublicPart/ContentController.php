@@ -1,12 +1,12 @@
 <?php 
-namespace App\Http\Controllers\Public;
+namespace App\Http\Controllers\PublicPart;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class HumanResourcesController extends Controller {
+class ContentController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +15,7 @@ class HumanResourcesController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::HumanResources.index');
+		return view('PublicPart::Content.index');
 	}
 
 	/**

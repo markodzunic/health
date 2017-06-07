@@ -1,12 +1,12 @@
 <?php 
-namespace App\Http\Controllers\Public;
+namespace App\Http\Controllers\PublicPart;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class ContentController extends Controller {
+class PublicPartController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ContentController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::Content.index');
+		return view('PublicPart::home.index');
 	}
 
 	/**
@@ -26,7 +26,7 @@ class ContentController extends Controller {
 	public function create()
 	{
 		//
-	}
+	} 
 
 	/**
 	 * Store a newly created resource in storage.

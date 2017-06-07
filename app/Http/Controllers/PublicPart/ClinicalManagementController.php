@@ -1,12 +1,12 @@
 <?php 
-namespace App\Http\Controllers\Public;
+namespace App\Http\Controllers\PublicPart;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class InformationSecurityController extends Controller {
+class ClinicalManagementController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +15,7 @@ class InformationSecurityController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::InformationSecurity.index');
+		return view('PublicPart::ClinicalManagement.index');
 	}
 
 	/**

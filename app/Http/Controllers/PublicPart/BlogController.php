@@ -1,12 +1,13 @@
-<?php 
-namespace App\Http\Controllers\Public;
+<?php
 
-use App\Http\Requests;
+namespace App\Http\Controllers\PublicPart;
+
+use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
-use Illuminate\Http\Request;
-
-class DataProtectionController extends Controller {
+class BlogController extends Controller
+{
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +16,7 @@ class DataProtectionController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::DataProtection.index');
+		return view('Blog.index');
 	}
 
 	/**

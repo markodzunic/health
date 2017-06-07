@@ -1,12 +1,12 @@
 <?php 
-namespace App\Http\Controllers\Public;
+namespace App\Http\Controllers\PublicPart;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class FaqsController extends Controller {
+class HealthSafetyController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +15,7 @@ class FaqsController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::Faqs.index');
+		return view('PublicPart::HealthSafety.index');
 	}
 
 	/**
