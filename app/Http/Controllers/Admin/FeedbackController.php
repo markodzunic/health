@@ -15,7 +15,7 @@ class FeedbackController extends Controller {
 	 */
 	public function index()
 	{
-		return view("AdminPart::UserAccount.Feedback.index");
+		return view("Admin.UserAccount.Feedback.index");
 	}
 
 	/**

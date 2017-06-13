@@ -1,4 +1,4 @@
-@extends('PublicPart::layouts.default-template')
+@extends('public.layouts.default-template')
 @section('AditionalHead')
 	<!-- PRELOADER -->
 	<link href="{{ URL::asset('/plugins/preloader/preloader.css') }}" rel="stylesheet">
@@ -15,15 +15,15 @@
 @stop
 
 @section('PageBanner')
-	@include('PublicPart::home.banner')
+	@include('public.home.banner')
 @stop
 
 @section('MainContent')
-	@include('PublicPart::home.section1')
-	@include('PublicPart::home.section2')
-	@include('PublicPart::home.section3')
-	@include('PublicPart::home.section4')
-	@include('PublicPart::home.section5')
+	@include('public.home.section1')
+	@include('public.home.section2')
+	@include('public.home.section3')
+	@include('public.home.section4')
+	@include('public.home.section5')
 @stop
 
 

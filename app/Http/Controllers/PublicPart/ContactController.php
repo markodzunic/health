@@ -15,7 +15,7 @@ class ContactController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::Contact.index');
+		return view('public.Contact.index');
 	}
 
 	/**

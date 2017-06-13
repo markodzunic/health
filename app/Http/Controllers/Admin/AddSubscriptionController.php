@@ -15,7 +15,7 @@ class AddSubscriptionController extends Controller {
 	 */
 	public function index()
 	{
-		return view("AdminPart::AddSubscription.index");
+		return view("Admin.AddSubscription.index");
 	}
 
 	/**

@@ -15,7 +15,7 @@ class PublicPartController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::home.index');
+		return view('public.home.index');
 	}
 
 	/**

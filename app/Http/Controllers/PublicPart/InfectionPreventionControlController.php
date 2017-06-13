@@ -15,7 +15,7 @@ class InfectionPreventionControlController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::InfectionPreventionControl.index');
+		return view('public.InfectionPreventionControl.index');
 	}
 
 	/**

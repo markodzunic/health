@@ -1,11 +1,11 @@
-@extends('AdminPart::layouts.default-admin-template')
+@extends('admin.layouts.default-admin-template')
 @section('AditionalHead')
 
 @stop
 
 @section('MainContent')
-@include('AdminPart::UserAccount.Feedback.title')
-@include('AdminPart::UserAccount.Feedback.form')
+@include('admin.UserAccount.Feedback.title')
+@include('admin.UserAccount.Feedback.form')
 @stop
 
 	

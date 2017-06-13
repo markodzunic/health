@@ -15,7 +15,7 @@ class HealthSafetyController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::HealthSafety.index');
+		return view('public.HealthSafety.index');
 	}
 
 	/**

@@ -1,6 +1,6 @@
 body {
   font-family: "Poppins", serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 26px;
   color: #2e2e2e;
 }
@@ -55,32 +55,32 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 h1, .h1 {
-  font-size: 50px;
-  line-height: 64px;
-}
-
-h2, .h2 {
-  font-size: 35px;
+  font-size: 40px;
   line-height: 50px;
 }
 
+h2, .h2 {
+  font-size: 32px;
+  line-height: 45px;
+}
+
 h3, .h3 {
-  font-size: 30px;
+  font-size: 28px;
   line-height: 40px;
 }
 
 h4, .h4 {
-  font-size: 25px;
+  font-size: 23px;
   line-height: 35px;
 }
 
 h5, .h5 {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 28px;
 }
 
 h6, .h6 {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 26px;
 }
 
@@ -292,6 +292,9 @@ ul.im-list ul li:before{
 #page-wrapper {
     min-height: 90vh;
 }
+#page-wrapper .content-wrapper {  
+    max-width: 1140px;
+}
 /*SIDE NAV*/
 .side-nav>li>a {
 	font-size: 16px;
@@ -320,22 +323,36 @@ label span {
   font-weight: 700;
   color: #ff66ff;
 }
-#form-brochure label{
+.form-box label{
   width: 100%;
   font-family: "Poppins", serif;
   font-weight: 400;
+}
+.form-box {
+  max-width: 600px;
+  padding: 30px;
+  border: 2px solid #00b0f0;
+  box-shadow: 2px 2px 5px #00b0f0;
+}
+.form-box .col-sm-6,
+.form-box .col-xs-12 {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+.form-box .btn {
+  min-width: 160px;
+  margin-bottom: 0;
 }
 textarea {
   font-size: 16px;
   letter-spacing: 0.5px;
   line-height: 40px;
   outline: 0 !important;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  border-bottom: 2px solid #002060;
+  border: 2px solid #00b0f0;
+  padding:5px 15px;
   margin-bottom: 10px;
   width: 100%;
+  max-width: 100%;
   font-family: "Poppins", serif;
   font-weight: 400;
   min-height: auto;
@@ -348,10 +365,8 @@ label input[type=password] {
   line-height: 40px;
   height: 40px;
   outline: 0 !important;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  border-bottom: 2px solid #002060;
+  border: 2px solid #00b0f0;
+  padding:5px 15px;
   margin-bottom: 10px;
   width: 100%;
   font-family: "Poppins", serif;
@@ -363,7 +378,7 @@ label input[type=text]:focus,
 label input[type=email]:focus,
 label input[type=password]:hover, 
 label input[type=password]:focus{
-  border-bottom: 2px solid #ff66ff;
+  border: 2px solid #ff66ff;
 }
 label input {
   color: #00b0f0;
@@ -479,3 +494,26 @@ input[type=radio ]:not(old) + label.im-label-sm {
   line-height: 1.3;
 }
 
+.editable-info .editable-field{
+  width: 100%;
+  border: 1px solid;
+  margin: 5px auto;
+}
+.editable-info .btn {
+  min-width: 100px;
+  max-width: 100%;
+}
+.editable-info .editable-field > div {
+  width: 49%;
+  padding: 5px 10px;
+  display: inline-block;
+}
+.editable-info .editable-field > div:first-child {
+  border-right: 1px solid;
+  font-weight: bold;
+  text-align: right;
+  text-transform: uppercase;
+}
+.editable-info .editable-field > div:last-child {
+  text-align: left;
+}

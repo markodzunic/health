@@ -1,13 +1,13 @@
-@extends('AdminPart::layouts.default-admin-template')
+@extends('admin.layouts.default-admin-template')
 @section('AditionalHead')
 
 @stop
 
 @section('MainContent')
-@include('AdminPart::UserAccount.Profile.title')
-@include('AdminPart::UserAccount.Profile.personal-info')
-@include('AdminPart::UserAccount.Profile.password')
-@include('AdminPart::UserAccount.Profile.delete-account')
+@include('admin.UserAccount.Profile.title')
+@include('admin.UserAccount.Profile.personal-info')
+@include('admin.UserAccount.Profile.password')
+@include('admin.UserAccount.Profile.delete-account')
 @stop
 
 	

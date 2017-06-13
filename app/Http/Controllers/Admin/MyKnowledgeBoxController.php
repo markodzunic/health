@@ -15,7 +15,7 @@ class MyKnowledgeBoxController extends Controller {
 	 */
 	public function index()
 	{
-		return view("AdminPart::MyKnowledgeBox.index");
+		return view("Admin.MyKnowledgeBox.index");
 	}
 
 	/**

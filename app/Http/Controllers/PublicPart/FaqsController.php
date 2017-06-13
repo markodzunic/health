@@ -15,7 +15,7 @@ class FaqsController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::Faqs.index');
+		return view('public.Faqs.index');
 	}
 
 	/**

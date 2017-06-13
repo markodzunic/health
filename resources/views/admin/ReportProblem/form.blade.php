@@ -1,4 +1,4 @@
-<div id="form-brochure" class="small-padding">
+<div class="form-box">
 	<form>
 		<div class="row">
 			<div class="col-md-12">

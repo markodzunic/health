@@ -15,7 +15,7 @@ class PracticeOperationsController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::PracticeOperations.index');
+		return view('public.PracticeOperations.index');
 	}
 
 	/**

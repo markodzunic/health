@@ -17,7 +17,7 @@
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu message-dropdown">
 
-                @include('AdminPart::layouts.header-message-menu')
+                @include('admin.layouts.header-message-menu')
                 <li class="message-footer">
                     <a href="javascript:;">Read All New Messages</a>
                 </li>
@@ -28,7 +28,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu alert-dropdown">
                 
-                @include('AdminPart::layouts.header-alert-menu')
+                @include('admin.layouts.header-alert-menu')
 
                 <li class="divider"></li>
                 <li>
@@ -40,7 +40,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
             <ul class="dropdown-menu">
 
-                @include('AdminPart::layouts.header-user-menu')
+                @include('admin.layouts.header-user-menu')
 
             </ul>
         </li>
@@ -49,7 +49,7 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
 
-            @include('AdminPart::layouts.header-main-menu')
+            @include('admin.layouts.header-main-menu')
 
         </ul>
     </div>

@@ -1,4 +1,4 @@
-@extends('PublicPart::layouts.default-template')
+@extends('public.layouts.default-template')
 @section('AditionalHead')
 
 @stop

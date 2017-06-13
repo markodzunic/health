@@ -15,7 +15,7 @@ class PatientManagementController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::PatientManagement.index');
+		return view('public.PatientManagement.index');
 	}
 
 	/**

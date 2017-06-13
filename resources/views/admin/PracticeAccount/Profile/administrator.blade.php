@@ -1,9 +1,13 @@
 <div class="small-padding no-padding-top">
 	<div class="row">
 	    <div class="col-md-12">
-	        <p><strong>Practice Administrator</strong></p>
+	        <h4><strong>Practice Administrator</strong></h4>
 	        <br />
-	        <button class="btn im-btn pink-btn">Update Information</button>
+	        <div class="form-box">
+		        <div align="right">
+		        	<button class="btn im-btn pink-btn">Update Information</button>
+		        </div>
+	        </div>
 	    </div>
 	</div>
 </div>

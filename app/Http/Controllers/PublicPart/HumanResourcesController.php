@@ -15,7 +15,7 @@ class HumanResourcesController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::HumanResources.index');
+		return view('public.HumanResources.index');
 	}
 
 	/**

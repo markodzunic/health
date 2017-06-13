@@ -1,4 +1,4 @@
-@extends('AdminPart::layouts.default-admin-template')
+@extends('admin.layouts.default-admin-template')
 @section('AditionalHead')
 
 @stop

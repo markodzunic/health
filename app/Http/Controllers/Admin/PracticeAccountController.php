@@ -15,7 +15,7 @@ class PracticeAccountController extends Controller {
 	 */
 	public function index()
 	{
-		return view("AdminPart::PracticeAccount.Profile.index");
+		return view("Admin.PracticeAccount.Profile.index");
 	}
 
 	/**

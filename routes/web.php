@@ -16,14 +16,17 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 
 # admin part routes
+Route::resource('dashboard', 'Admin\DashboardController');
 Route::resource('billing', 'Admin\BillingAndPaymentController');
 Route::resource('feedback', 'Admin\FeedbackController');
 Route::resource('my_knowledge_box', 'Admin\MyKnowledgeBoxController');
-// Route::resource('prectice', 'Admin\PracticeController');
+Route::resource('practice_account', 'Admin\PracticeAccountController');
 Route::resource('report_problem', 'Admin\ReportProblemController');
 Route::resource('user_account', 'Admin\UserAccountController');
+Route::resource('add_subscription', 'Admin\AddSubscriptionController');
 
 # public part routes
+Route::resource('home', 'PublicPart\PublicPartController');
 Route::resource('blog', 'PublicPart\BlogController');
 Route::resource('clinical_management', 'PublicPart\ClinicalManagementController');
 Route::resource('contact', 'PublicPart\ContactController');
@@ -36,5 +39,5 @@ Route::resource('human_resources', 'PublicPart\HumanResourcesController');
 Route::resource('infection_prevention', 'PublicPart\InfectionPreventionControlController');
 Route::resource('information_security', 'PublicPart\InformationSecurityController');
 Route::resource('patient_management', 'PublicPart\PatientManagementController');
-Route::resource('patience_operation', 'PublicPart\PatienceOperationsController');
+Route::resource('practice_operations', 'PublicPart\PracticeOperationsController');
 Route::resource('public_part', 'PublicPart\PublicPartController');

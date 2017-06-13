@@ -15,7 +15,7 @@ class DataProtectionController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::DataProtection.index');
+		return view('public.DataProtection.index');
 	}
 
 	/**

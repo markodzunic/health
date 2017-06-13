@@ -15,7 +15,7 @@ class BillingAndPaymentController extends Controller {
 	 */
 	public function index()
 	{
-		return view("AdminPart::PracticeAccount.BillingAndPayment.index");
+		return view("Admin.PracticeAccount.BillingAndPayment.index");
 	}
 
 	/**

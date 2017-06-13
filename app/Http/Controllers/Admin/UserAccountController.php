@@ -15,7 +15,7 @@ class UserAccountController extends Controller {
 	 */
 	public function index()
 	{
-		return view("AdminPart::UserAccount.Profile.index");
+		return view("Admin.UserAccount.Profile.index");
 	}
 
 	/**

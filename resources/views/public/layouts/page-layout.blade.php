@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	@include('PublicPart::layouts.head')	
+	@include('public.layouts.head')	
 	@yield('AditionalHead')
 </head>
 <body id="home">
 	@yield('StartPreloader')
-	@include('PublicPart::layouts.header')
+	@include('public.layouts.header')
 	@yield('SideMenu')
 
 	@yield('PageBanner')
@@ -99,16 +99,16 @@
 				</div>
 			</div>
 			<!-- INCLUDE SECTION CONTETN -->
-			@include('PublicPart::layouts.useful-resources')
+			@include('public.layouts.useful-resources')
 
 		</section>
 	</div>
 
-	@include('PublicPart::layouts.footer')
-	@include('PublicPart::layouts.modal-login')
+	@include('public.layouts.footer')
+	@include('public.layouts.modal-login')
 	@yield('EndPreloader')
 
-	@include('PublicPart::layouts.foot')
+	@include('public.layouts.foot')
 	@yield('AditionalFoot')	
 
 </body>

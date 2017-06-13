@@ -1,12 +1,12 @@
 <?php 
-namespace App\Http\Controllers\PublicPart;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class EmergencyPlanningController extends Controller {
+class DashboardController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +15,7 @@ class EmergencyPlanningController extends Controller {
 	 */
 	public function index()
 	{
-		return view('public.EmergencyPlanning.index');
+		return view("Admin.home.index");
 	}
 
 	/**
@@ -26,7 +26,7 @@ class EmergencyPlanningController extends Controller {
 	public function create()
 	{
 		//
-	} 
+	}
 
 	/**
 	 * Store a newly created resource in storage.

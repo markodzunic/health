@@ -1,32 +1,32 @@
-@extends('PublicPart::layouts.page-layout')
+@extends('public.layouts.page-layout')
 @section('AditionalHead')
 
 @stop
 
 @section('SideMenu')
-@include('PublicPart::layouts.side-navigation')
+@include('public.layouts.side-navigation')
 @stop
 
 @section('PageBanner')
-@include('PublicPart::layouts.banner-title')
+@include('public.layouts.banner-title')
 @stop
 
 @section('MainContent')
-	@include('PublicPart::EmergencyPlanning.section1')
+	@include('public.EmergencyPlanning.section1')
 @stop
 @section('RecommendedBestPractice')
-	@include('PublicPart::EmergencyPlanning.section2')
-	@include('PublicPart::EmergencyPlanning.section3')
-	@include('PublicPart::EmergencyPlanning.section4')
-	@include('PublicPart::EmergencyPlanning.section5')
-	@include('PublicPart::EmergencyPlanning.section6')
-	@include('PublicPart::EmergencyPlanning.section7')
-	@include('PublicPart::EmergencyPlanning.section8')
-	@include('PublicPart::EmergencyPlanning.section9')
-	@include('PublicPart::EmergencyPlanning.section10')
-	@include('PublicPart::EmergencyPlanning.section11')
-	@include('PublicPart::EmergencyPlanning.section12')
-	@include('PublicPart::EmergencyPlanning.section13')
+	@include('public.EmergencyPlanning.section2')
+	@include('public.EmergencyPlanning.section3')
+	@include('public.EmergencyPlanning.section4')
+	@include('public.EmergencyPlanning.section5')
+	@include('public.EmergencyPlanning.section6')
+	@include('public.EmergencyPlanning.section7')
+	@include('public.EmergencyPlanning.section8')
+	@include('public.EmergencyPlanning.section9')
+	@include('public.EmergencyPlanning.section10')
+	@include('public.EmergencyPlanning.section11')
+	@include('public.EmergencyPlanning.section12')
+	@include('public.EmergencyPlanning.section13')
 @stop
 @section('HowOurPracticeDiffersFromRBP')
 

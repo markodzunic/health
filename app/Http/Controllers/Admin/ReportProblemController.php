@@ -15,7 +15,7 @@ class ReportProblemController extends Controller {
 	 */
 	public function index()
 	{
-		return view("AdminPart::ReportProblem.index");
+		return view("Admin.ReportProblem.index");
 	}
 
 	/**

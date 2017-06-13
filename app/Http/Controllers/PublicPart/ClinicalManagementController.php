@@ -15,7 +15,7 @@ class ClinicalManagementController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::ClinicalManagement.index');
+		return view('public.ClinicalManagement.index');
 	}
 
 	/**

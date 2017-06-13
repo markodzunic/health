@@ -1,14 +1,14 @@
-@extends('PublicPart::layouts.page-layout')
+@extends('public.layouts.page-layout')
 @section('AditionalHead')
 
 @stop
 
 @section('SideMenu')
-@include('PublicPart::layouts.side-navigation')
+@include('public.layouts.side-navigation')
 @stop
 
 @section('PageBanner')
-@include('PublicPart::layouts.banner-title')
+@include('public.layouts.banner-title')
 @stop
 
 @section('MainContent')

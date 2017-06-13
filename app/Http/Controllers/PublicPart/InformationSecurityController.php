@@ -15,7 +15,7 @@ class InformationSecurityController extends Controller {
 	 */
 	public function index()
 	{
-		return view('PublicPart::InformationSecurity.index');
+		return view('public.InformationSecurity.index');
 	}
 
 	/**
