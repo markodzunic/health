@@ -20,7 +20,7 @@
 
 	@include('admin.layouts.foot')
 	@yield('AditionalFoot')	
-
+	
 </body>
 </html>
 
