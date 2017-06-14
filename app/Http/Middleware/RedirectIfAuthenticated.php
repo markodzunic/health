@@ -16,9 +16,9 @@ class RedirectIfAuthenticated
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
-    {
+    {   
         if (Auth::guard($guard)->check() && Auth::user()->active == 1) {
-            return redirect('/home');
+            return redirect('/dashboard');
         }
 
         return $next($request);

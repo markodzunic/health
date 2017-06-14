@@ -21,7 +21,7 @@ class User extends Authenticatable
         'title', 
         'first_name', 
         'last_name', 
-        'date_of_birth' 
+        'date_of_birth',
         'position_type', 
         'gender', 
         'phone', 
@@ -40,10 +40,28 @@ class User extends Authenticatable
     ];
 
     /**
-     * This is to indicated that many users can be given a list of roles
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return User
      */
-    public function roles()
+    protected function create(array $data)
     {
-        return $this->belongsToMany('App\Modules\AdminPart\Models\Role', 'role_user')->withPivot('list_agents_id');
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'title' => $data['title'], 
+            'first_name' => $data['first_name'], 
+            'last_name' => $data['last_name'], 
+            'date_of_birth' => $data['date_of_birth'], 
+            'position_type' => 'User', 
+            'gender' => $data['gender'], 
+            'phone' => $data['phone'], 
+            'occupation' => $data['occupation'], 
+            'med_reg_number' => $data['med_reg_number'],
+            'authorised_user' => 0,
+            'active' => 0,
+        ]);
     }
 }

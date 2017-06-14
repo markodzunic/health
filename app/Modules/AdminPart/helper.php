@@ -1,4 +1,0 @@
-<?php
- /**
- *	AdminPart Helper  
- */

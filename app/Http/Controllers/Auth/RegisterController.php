@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'first_name' => 'required|string', 
             'last_name' => 'required|string', 
             'date_of_birth' => 'required|date', 
-            'position_type' => 'required|string', 
+            // 'position_type' => 'required|string', 
             'gender' => 'required|string', 
             'phone' => 'required|string', 
             'occupation' => 'required|string', 
@@ -69,21 +69,25 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'title' => $data['title'], 
-            'first_name' => $data['first_name'], 
-            'last_name' => $data['last_name'], 
-            'date_of_birth' => $data['date_of_birth'], 
-            'position_type' => $data['position_type'], 
-            'gender' => $data['gender'], 
-            'phone' => $data['phone'], 
-            'occupation' => $data['occupation'], 
-            'med_reg_number' => $data['med_reg_number'],
-        ]);
+    public function create($data)
+    {   
+        $user = new User;
+        
+        $user->email = $data['email'];
+        $user->password = bcrypt($data['password']);
+        $user->title = $data['title']; 
+        $user->first_name = $data['first_name']; 
+        $user->last_name = $data['last_name']; 
+        $user->date_of_birth = $data['date_of_birth']; 
+        $user->position_type = 'User'; 
+        $user->gender = $data['gender']; 
+        $user->phone = $data['phone']; 
+        $user->occupation = $data['occupation']; 
+        $user->med_reg_number = $data['med_reg_number'];
+        $user->authorised_user = 0;
+        $user->active = 0;
+        $user->save();
+
+        return $user;
     }
 }

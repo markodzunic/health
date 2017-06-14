@@ -3,7 +3,7 @@
 <meta name="description" content="SLOGAN" />
 <meta name="author" content="iMedical&trade;" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Favicon -->
 <link rel="shortcut icon" href=""/>
 <!-- CSS & JS Library -->

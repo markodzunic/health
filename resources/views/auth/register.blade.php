@@ -10,20 +10,6 @@
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">User Name</label>
-
-                                <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                    @if ($errors->has('name'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('name') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
                             <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                                 <label for="title" class="col-md-4 control-label">Title</label>
 
@@ -71,20 +57,20 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('datebirth') ? ' has-error' : '' }}">
-                                <label for="datebirth" class="col-md-4 control-label">Date of Birth</label>
+                            <div class="form-group{{ $errors->has('date_of_birth') ? ' has-error' : '' }}">
+                                <label for="date_of_birth" class="col-md-4 control-label">Date of Birth</label>
 
                                 <div class="col-md-6">
-                                   <div class='input-group date' id='datebirth'>
-                                        <input type='text' name="datebirth" class="form-control" />
+                                   <div class='input-group date' id='date_of_birth'>
+                                        <input type='text' name="date_of_birth" class="form-control" />
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
                                     </div>
 
-                                    @if ($errors->has('datebirth'))
+                                    @if ($errors->has('date_of_birth'))
                                         <span class="help-block">
-                                            <strong>{{ $errors->first('datebirth') }}</strong>
+                                            <strong>{{ $errors->first('date_of_birth') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -198,10 +184,12 @@
             </div>
         </div>
     </div>
+@stop
 
+@section('AditionalFoot')
     <script type="text/javascript">
         $(function() {
-            $('#datebirth').datetimepicker();
+            $('#date_of_birth').datetimepicker();
         });
     </script>
 @stop
