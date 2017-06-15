@@ -25,9 +25,9 @@ class PracticeAccountController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Request $request)
 	{
-		//
+		
 	}
 
 	/**
@@ -35,9 +35,25 @@ class PracticeAccountController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		$data = $request->all();
+
+		$this->validate($request, [
+			'name' => 'required',
+			'address' => 'required',
+			'email' => 'required',
+	    ]);
+
+		$prectice = new Practice;
+		$prectice->user_id = Auth::user()->id;
+		$prectice->name = $data['name'];
+		$prectice->description = $data['description'];
+		$prectice->address = $data['address'];
+		$prectice->fax = $data['fax'];
+		$prectice->email = $data['email'];
+		$prectice->site = $data['site'];
+		$prectice->save();
 	}
 
 	/**
@@ -70,7 +86,23 @@ class PracticeAccountController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$data = $request->all();
+
+		$this->validate($request, [
+			'name' => 'required',
+			'address' => 'required',
+			'email' => 'required',
+	    ]);
+
+		$prectice = Practice::find($id);
+		$prectice->user_id = Auth::user()->id;
+		$prectice->name = $data['name'];
+		$prectice->description = $data['description'];
+		$prectice->address = $data['address'];
+		$prectice->fax = $data['fax'];
+		$prectice->email = $data['email'];
+		$prectice->site = $data['site'];
+		$prectice->save();
 	}
 
 	/**

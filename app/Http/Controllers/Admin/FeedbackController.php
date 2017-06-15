@@ -3,7 +3,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Auth;
+use App\Models\Feedback;
 use Illuminate\Http\Request;
 
 class FeedbackController extends Controller {
@@ -23,9 +24,22 @@ class FeedbackController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
-	{
-		//
+	public function create(Request $request)
+	{	
+		$data = $request->all();
+
+		$this->validate($request, [
+	        'description' => 'required|max:255',
+	    ]);
+
+		$feedback = new Feedback;
+		$feedback->user_id = Auth::user()->id;
+		$feedback->description = $data['description'];
+		$feedback->save();
+
+		$request->session()->flash('alert-success', 'Feedback was successful added!');
+
+		return redirect('/feedback');
 	}
 
 	/**
@@ -33,9 +47,18 @@ class FeedbackController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		$data = $request->all();
+
+		$this->validate($request, [
+	        'description' => 'required|max:255',
+	    ]);
+
+		$feedback = new Feedback;
+		$feedback->user_id = Auth::user()->id;
+		$feedback->description = $data['description'];
+		$feedback->save();
 	}
 
 	/**

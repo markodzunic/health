@@ -46,24 +46,35 @@ class User extends Authenticatable
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'title' => $data['title'], 
-            'first_name' => $data['first_name'], 
-            'last_name' => $data['last_name'], 
-            'date_of_birth' => $data['date_of_birth'], 
-            'position_type' => 'User', 
-            'gender' => $data['gender'], 
-            'phone' => $data['phone'], 
-            'occupation' => $data['occupation'], 
-            'med_reg_number' => $data['med_reg_number'],
-            'authorised_user' => 0,
-            'active' => 0,
-        ]);
+    public function update_user($data)
+    {   
+        $user = new User;
+        
+        $user->title = $data['title']; 
+        $user->first_name = $data['first_name']; 
+        $user->last_name = $data['last_name']; 
+        $user->date_of_birth = $data['date_of_birth']; 
+        $user->position_type = 'User'; 
+        $user->gender = $data['gender']; 
+        $user->med_reg_number = $data['med_reg_number'];
+        $user->save();
+
+        return $user;
+    }
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return User
+     */
+    public function update_password($data)
+    {   
+        $user = new User;
+        $user->password = bcrypt($data['password']);
+        $user->save();
+
+        return $user;
     }
 
     /**
