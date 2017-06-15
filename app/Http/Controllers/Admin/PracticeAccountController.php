@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Auth;
 use Illuminate\Http\Request;
 
 class PracticeAccountController extends Controller {
@@ -15,7 +15,9 @@ class PracticeAccountController extends Controller {
 	 */
 	public function index()
 	{
-		return view("Admin.PracticeAccount.Profile.index");
+		return view("Admin.PracticeAccount.Profile.index", [
+            'user' => Auth::user(),
+        ]);
 	}
 
 	/**

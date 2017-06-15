@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12"><?php var_dump(Auth::user()); ?>
+    <div class="col-md-12">
         <h1>Hello</h1>
         <p>The iMedical Knowledge Box is full of useful information, tips and guidelines to help you today. </p>
     </div>

@@ -38,7 +38,7 @@
             </ul>
         </li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->first_name .' '. Auth::user()->last_name }} <b class="caret"></b></a>
             <ul class="dropdown-menu">
 
                 @include('admin.layouts.header-user-menu')

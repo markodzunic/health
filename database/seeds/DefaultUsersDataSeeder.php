@@ -32,7 +32,7 @@ class DefaultUsersDataSeeder extends Seeder
 
     	factory(\App\User::class,6)->create();
 
-    	\App\Modules\AdminPart\Models\Permission::insert([
+    	\App\Models\Permission::insert([
             [
                 'name'=>'all',
                 'display_name'=>'Full Permission',
@@ -56,7 +56,7 @@ class DefaultUsersDataSeeder extends Seeder
             ],
         ]);
 
-        \App\Modules\AdminPart\Models\Role::insert([
+        \App\Models\Role::insert([
             [
                 'name'=>'admin',
                 'display_name'=>'Administrator',

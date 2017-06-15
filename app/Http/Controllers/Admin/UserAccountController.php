@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Auth;
 use Illuminate\Http\Request;
 
 class UserAccountController extends Controller {
@@ -14,8 +14,15 @@ class UserAccountController extends Controller {
 	 * @return Response
 	 */
 	public function index()
-	{
-		return view("Admin.UserAccount.Profile.index");
+	{	
+		$user = Auth::user();
+
+		$roles = $user->get_roles_for_user($user);
+		
+		return view("Admin.UserAccount.Profile.index", [
+            'user' => $user,
+            'roles' => $roles
+        ]);
 	}
 
 	/**

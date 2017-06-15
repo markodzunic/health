@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use DB;
 
 class User extends Authenticatable
 {
@@ -62,6 +63,26 @@ class User extends Authenticatable
             'med_reg_number' => $data['med_reg_number'],
             'authorised_user' => 0,
             'active' => 0,
+        ]);
+    }
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return User
+     */
+    public function get_roles_for_user($user)
+    {
+        $sql = 'SELECT
+            roles.name as name,
+            roles.display_name as display_name
+            
+            FROM role_user
+            JOIN roles ON role_user.role_id = roles.id
+            WHERE role_user.user_id='.$user->id;
+
+        return DB::select(DB::Raw($sql), [
         ]);
     }
 }
