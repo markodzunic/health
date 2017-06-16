@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
@@ -25,7 +25,7 @@ class DashboardController extends Controller {
 	 */
 	public function index()
 	{
-		return view("Admin.home.index");
+		return view("admin.home.index");
 	}
 
 	/**

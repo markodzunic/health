@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
@@ -15,7 +15,7 @@ class BillingAndPaymentController extends Controller {
 	 */
 	public function index()
 	{
-		return view("Admin.PracticeAccount.BillingAndPayment.index");
+		return view("admin.PracticeAccount.BillingAndPayment.index");
 	}
 
 	/**

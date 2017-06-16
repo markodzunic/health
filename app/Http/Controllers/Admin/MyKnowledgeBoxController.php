@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
@@ -15,7 +15,7 @@ class MyKnowledgeBoxController extends Controller {
 	 */
 	public function index()
 	{
-		return view("Admin.MyKnowledgeBox.index");
+		return view("admin.MyKnowledgeBox.index");
 	}
 
 	/**

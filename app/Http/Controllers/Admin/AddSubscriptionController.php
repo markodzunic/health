@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
@@ -15,7 +15,7 @@ class AddSubscriptionController extends Controller {
 	 */
 	public function index()
 	{
-		return view("Admin.AddSubscription.index");
+		return view("admin.AddSubscription.index");
 	}
 
 	/**

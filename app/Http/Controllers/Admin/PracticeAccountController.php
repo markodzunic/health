@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
@@ -15,7 +15,7 @@ class PracticeAccountController extends Controller {
 	 */
 	public function index()
 	{
-		return view("Admin.PracticeAccount.Profile.index", [
+		return view("admin.PracticeAccount.Profile.index", [
             'user' => Auth::user(),
         ]);
 	}
@@ -27,7 +27,7 @@ class PracticeAccountController extends Controller {
 	 */
 	public function create(Request $request)
 	{
-		
+
 	}
 
 	/**

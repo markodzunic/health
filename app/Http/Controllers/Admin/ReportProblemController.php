@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
@@ -16,7 +16,7 @@ class ReportProblemController extends Controller {
 	 */
 	public function index()
 	{
-		return view("Admin.ReportProblem.index");
+		return view("admin.ReportProblem.index");
 	}
 
 	/**
