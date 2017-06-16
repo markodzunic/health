@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
@@ -16,7 +16,7 @@ class FeedbackController extends Controller {
 	 */
 	public function index()
 	{
-		return view("Admin.UserAccount.Feedback.index");
+		return view("admin.UserAccount.Feedback.index");
 	}
 
 	/**
@@ -25,7 +25,7 @@ class FeedbackController extends Controller {
 	 * @return Response
 	 */
 	public function create(Request $request)
-	{	
+	{
 		$data = $request->all();
 
 		$this->validate($request, [

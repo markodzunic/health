@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
@@ -14,12 +14,12 @@ class UserAccountController extends Controller {
 	 * @return Response
 	 */
 	public function index()
-	{	
+	{
 		$user = Auth::user();
 
 		$roles = $user->get_roles_for_user($user);
-		
-		return view("Admin.UserAccount.Profile.index", [
+
+		return view("admin.UserAccount.Profile.index", [
             'user' => $user,
             'roles' => $roles
         ]);
