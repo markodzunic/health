@@ -4,14 +4,18 @@
 @stop
 
 @section('MainContent')
-@include('admin.UserAccount.Profile.title')
-@include('admin.UserAccount.Profile.personal-info')
-@include('admin.UserAccount.Profile.password')
-@include('admin.UserAccount.Profile.delete-account')
-@include('admin.UserAccount.Profile.edit-info-popup')
+	@include('admin.UserAccount.Profile.title')
+
+	{!! view('admin.UserAccount.Profile.personal-info', [
+				'user' => $user,
+				'role' => $role,
+		]) !!}
+
+	@include('admin.UserAccount.Profile.password')
+	@include('admin.UserAccount.Profile.delete-account')
 @stop
 
-	
+
 @section('AditionalFoot')
-	
+		<script src="{{ URL::asset('/js/Admin/profile.js') }}"></script>
 @stop

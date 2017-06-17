@@ -26,6 +26,11 @@ Route::resource('report_problem', 'Admin\ReportProblemController');
 Route::resource('user_account', 'Admin\UserAccountController');
 Route::resource('add_subscription', 'Admin\AddSubscriptionController');
 
+Route::get('/updateUser', 'Admin\UserAccountController@updateUser');
+Route::post('/updateUser', 'Admin\UserAccountController@updateUser');
+
+Route::post('/user_account', 'Admin\UserAccountController@index');
+
 # public part routes
 Route::resource('home', 'PublicPart\PublicPartController');
 Route::resource('blog', 'PublicPart\BlogController');

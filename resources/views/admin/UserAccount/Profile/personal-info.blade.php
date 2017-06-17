@@ -1,4 +1,4 @@
-<div class="small-padding no-padding-top">
+<div id="personal-info" class="small-padding no-padding-top">
 	<div class="row">
 	    	<div class="col-md-12">
 	        <h4><strong>Personal Information</strong></h4>
@@ -36,9 +36,7 @@
 				<div id="Personal-Role" class="personal-info-field editable-field">
 					<div>Role</div>
 					<div>
-						@foreach ($roles as $rol) 
-							{{ $rol->display_name }}
-						@endforeach
+							{{ $role->display_name }}
 					</div>
 				</div>
 				{{-- Position Type (Full-time or Part-time) --}}
@@ -52,7 +50,7 @@
 					<div>{{ $user->med_reg_number }}</div>
 				</div>
 				<div align="right">
-					<button type="button" class="btn im-btn pink-btn" data-toggle="modal" data-target="#editUserInfo">Edit Info</button>
+					<button type="button" class="btn im-btn pink-btn" onclick="Profile.OpenProfile([]);return false;">Edit Info</button>
 				</div>
 			</div>
 		</div>

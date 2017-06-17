@@ -10,28 +10,7 @@ class DefaultUsersDataSeeder extends Seeder
      * @return void
      */
     public function run()
-    {	
-        \App\User::insert([
-            [
-                'title' => 'title',
-                'email' => 'admin@admin.com',
-                'password' => bcrypt('test'),
-                'remember_token' => str_random(10),
-                'first_name' => 'Test Admin',
-                'last_name' => 'Test',
-                'date_of_birth' => \Carbon\Carbon::now()->toDateTimeString(),
-                'position_type' => 'Administrator',
-                'gender' => 'Male',
-                'phone' => '5252811122',
-                'occupation' => 'None',
-                'med_reg_number' => '8282828',
-                'authorised_user' => 0,
-                'active' => 1,
-            ],
-        ]);
-
-    	factory(\App\User::class,6)->create();
-
+    {
     	\App\Models\Permission::insert([
             [
                 'name'=>'all',
@@ -108,6 +87,28 @@ class DefaultUsersDataSeeder extends Seeder
             ],
         ]);
 
+        \App\User::insert([
+            [
+                'role_id' => 1,
+                'title' => 'title',
+                'email' => 'admin@admin.com',
+                'password' => bcrypt('test'),
+                'remember_token' => str_random(10),
+                'first_name' => 'Test Admin',
+                'last_name' => 'Test',
+                'date_of_birth' => \Carbon\Carbon::now()->toDateTimeString(),
+                'position_type' => 'Administrator',
+                'gender' => 'Male',
+                'phone' => '5252811122',
+                'occupation' => 'None',
+                'med_reg_number' => '8282828',
+                'authorised_user' => 0,
+                'active' => 1,
+            ],
+        ]);
+
+    	factory(\App\User::class,6)->create();
+
         \DB::table('permission_role')->insert([
             [
                 'permission_id'=>1,
@@ -123,46 +124,46 @@ class DefaultUsersDataSeeder extends Seeder
             ],
         ]);
 
-        \DB::table('role_user')->insert([
-            [
-                'user_id'=>1,
-                'role_id'=>1,
-            ],
-            [
-                'user_id'=>2,
-                'role_id'=>2,
-            ],
-            [
-                'user_id'=>3,
-                'role_id'=>3,
-            ],
-            [
-                'user_id'=>4,
-                'role_id'=>4,
-            ],
-            [
-                'user_id'=>5,
-                'role_id'=>5,
-            ],
-            [
-                'user_id'=>6,
-                'role_id'=>6,
-            ],
-            [
-                'user_id'=>7,
-                'role_id'=>7,
-            ],
-        ]);
+        // \DB::table('role_user')->insert([
+        //     [
+        //         'user_id'=>1,
+        //         'role_id'=>1,
+        //     ],
+        //     [
+        //         'user_id'=>2,
+        //         'role_id'=>2,
+        //     ],
+        //     [
+        //         'user_id'=>3,
+        //         'role_id'=>3,
+        //     ],
+        //     [
+        //         'user_id'=>4,
+        //         'role_id'=>4,
+        //     ],
+        //     [
+        //         'user_id'=>5,
+        //         'role_id'=>5,
+        //     ],
+        //     [
+        //         'user_id'=>6,
+        //         'role_id'=>6,
+        //     ],
+        //     [
+        //         'user_id'=>7,
+        //         'role_id'=>7,
+        //     ],
+        // ]);
 
         \DB::table('practices')->insert([
             [
                 'user_id' => 1,
-				'name' => 'Example',
-				'description' => 'Example',
-				'address' => 'Example',
-				'fax' => 'Example',
-				'email' => 'Example',
-				'site' => 'Example',
+        				'name' => 'Example',
+        				'description' => 'Example',
+        				'address' => 'Example',
+        				'fax' => 'Example',
+        				'email' => 'Example',
+        				'site' => 'Example',
             ],
         ]);
     }
