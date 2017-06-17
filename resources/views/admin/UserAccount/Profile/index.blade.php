@@ -18,4 +18,9 @@
 
 @section('AditionalFoot')
 		<script src="{{ URL::asset('/js/Admin/profile.js') }}"></script>
+	<script type="text/javascript">
+        $(function() {
+            $('#date_of_birth').datetimepicker();
+        });
+    </script>
 @stop

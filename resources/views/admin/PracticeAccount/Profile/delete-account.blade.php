@@ -10,7 +10,7 @@
 				<p>The action is permanent and cannot be undone!</p>		
 				<p>Are you sure?</p>
 				<div align="right">
-					<button class="btn im-btn pink-btn">Delete My Account</button>
+					<button class="btn im-btn pink-btn"  data-toggle="modal" data-target="#deletePracticeAccount">Delete My Account</button>
 				</div>
 			</div>
 		</div>
