@@ -160,6 +160,12 @@ a:focus {
 .no-padding-bottom {
   padding-bottom: 0;
 }
+.no-borders {
+  border-color: transparent !important;
+}
+.no-box-shadow {
+  box-shadow: none !important; 
+}
 .im-pink,
 .im-list-pink li:before  {
   color: rgba(255,102,255,1);

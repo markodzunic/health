@@ -52,9 +52,7 @@
 					<div>{{ $user->med_reg_number }}</div>
 				</div>
 				<div align="right">
-					<button class="btn im-btn pink-btn">Save</button>
-					<button class="btn im-btn pink-btn">Cancel</button>
-					<button class="btn im-btn pink-btn">Edit Info</button>
+					<button type="button" class="btn im-btn pink-btn" data-toggle="modal" data-target="#editUserInfo">Edit Info</button>
 				</div>
 			</div>
 		</div>
