@@ -13,5 +13,9 @@
 
 	
 @section('AditionalFoot')
-	
+	<script type="text/javascript">
+        $(function() {
+            $('#date_of_birth').datetimepicker();
+        });
+    </script>
 @stop
