@@ -29,6 +29,9 @@ Route::resource('add_subscription', 'Admin\AddSubscriptionController');
 Route::get('/updateUser', 'Admin\UserAccountController@updateUser');
 Route::post('/updateUser', 'Admin\UserAccountController@updateUser');
 
+Route::post('/updatePassword', 'Admin\UserAccountController@updatePassword');
+Route::post('/updatePassword', 'Admin\UserAccountController@updatePassword');
+
 Route::post('/user_account', 'Admin\UserAccountController@index');
 
 # public part routes

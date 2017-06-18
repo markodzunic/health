@@ -7,22 +7,46 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div id="UpdatePassword" class="form-box">
-				<form action="">
-					{{-- Old Password --}}
-					<label for="">
-						<span class="im-blue">Old Password</span><br />
-						<input type="password">
-					</label><br />
-					{{-- New Password --}}
-					<label for="">
-						<span class="im-blue">New Password</span><br />
-						<input type="password">
-					</label><br />
-					{{-- Confirm New Password --}}
-					<label for="">
-						<span class="im-blue">Confirm New Password</span><br />
-						<input type="password">
-					</label><br /><br />
+				@if(Session::has('alert-success'))
+				    <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alert-success') !!}</em></div>
+				@endif
+				<form method="post" action="/updatePassword">
+					{{ csrf_field() }}
+					<div class="form-group{{ $errors->has('old_password') ? ' has-error' : '' }}">
+	            <label for="old_password" class="col-md-4 control-label">Old Password</label>
+
+	            <div class="col-md-12">
+	                <input id="old_password" type="old_password" class="form-control" name="old_password" required>
+
+	                @if ($errors->has('old_password'))
+	                    <span class="help-block">
+	                        <strong>{{ $errors->first('old_password') }}</strong>
+	                    </span>
+	                @endif
+	            </div>
+	        </div>
+
+					<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+	            <label for="password" class="col-md-4 control-label">Password</label>
+
+	            <div class="col-md-12">
+	                <input id="password" type="password" class="form-control" name="password" required>
+
+	                @if ($errors->has('password'))
+	                    <span class="help-block">
+	                        <strong>{{ $errors->first('password') }}</strong>
+	                    </span>
+	                @endif
+	            </div>
+	        </div>
+
+	        <div class="form-group">
+	            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+	            <div class="col-md-12">
+	                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+	            </div>
+	        </div>
 					<label for="" align="right">
 					<input type="submit" class="btn im-btn pink-btn" value="Update Password">
 					</label>

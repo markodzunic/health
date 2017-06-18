@@ -8,6 +8,7 @@ use App\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
+use Illuminate\Support\Facades\Hash;
 
 class UserAccountController extends Controller {
 
@@ -41,6 +42,40 @@ class UserAccountController extends Controller {
 		}
 	}
 
+	public function updatePassword(Request $request) {
+			$data = $request->all();
+
+			$user = User::find(Auth::user()->id);
+			$role = Role::find($user->role_id);
+
+			$old_pass = Hash::check($data['old_password'], Auth::user()->password);
+
+			if (!$old_pass) {
+					$this->messageBag->add('old_password', 'Old password is not correct.');
+
+					return view('admin.UserAccount.Profile.index', [
+						'errors' => $this->messageBag,
+						'user' => $user,
+						'role' => $role
+					]);
+			}
+
+			$this->validate($request, [
+				'password' => 'required|string|min:6|confirmed',
+		  ]);
+
+			$user->password = bcrypt($data['password']);
+			$user->save();
+
+			$request->session()->flash('alert-success', 'Password successfuly changed!');
+
+			return view('admin.UserAccount.Profile.index', [
+				'errors' => $this->messageBag,
+				'user' => $user,
+				'role' => $role
+			]);
+	}
+
 	public function updateUser(Request $request)
 	{
 		if (!$request->isMethod('post')) {
@@ -52,7 +87,7 @@ class UserAccountController extends Controller {
 					$this->messageBag->add($key, $value);
 				}
 			}
-// dd($this->messageBag);
+
 			$roles = Role::all();
 
 			return view("admin.UserAccount.Profile.edit-info-popup",[
@@ -64,8 +99,9 @@ class UserAccountController extends Controller {
 
 			$this->validate($request, [
 				'title' => 'required',
-				'first_name' => 'required',
-				'last_name' => 'required',
+				'first_name' => 'required|string',
+				'last_name' => 'required|string',
+				'avatar' => 'string',
 				'date_of_birth' => 'required',
 				'position_type' => 'required',
 				'gender' => 'required',
@@ -78,6 +114,7 @@ class UserAccountController extends Controller {
 			$user->title = $data['title'];
 			$user->first_name = $data['first_name'];
 			$user->last_name = $data['last_name'];
+			$user->avatar = $data['avatar'];
 			$user->date_of_birth = $data['date_of_birth'];
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];

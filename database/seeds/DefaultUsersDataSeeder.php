@@ -92,6 +92,7 @@ class DefaultUsersDataSeeder extends Seeder
                 'role_id' => 1,
                 'title' => 'title',
                 'email' => 'admin@admin.com',
+                'avatar' => 'avatar.jpg',
                 'password' => bcrypt('test'),
                 'remember_token' => str_random(10),
                 'first_name' => 'Test Admin',
