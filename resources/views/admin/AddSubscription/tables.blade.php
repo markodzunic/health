@@ -1,18 +1,68 @@
-<section class="im-center small-padding im-blue">
+<section class="im-center small-padding">
   <div class="row">
     <div class="col-md-4">
-      <div class="panel bg-pink">
-       <div class="panel-heading bg-pink"><h3>BASIC</h3></div>
-       <div class="panel-body">
-         <p class="lead" style="font-size:40px"><strong>€500</strong></p>
-       </div>
-       <ul class="list-group list-group-flush bg-pink">
-          <li class="list-group-item bg-pink">iMedical (1 Year)</li>
-       </ul>
-       <div class="panel-footer bg-pink">
-         <a class="btn btn-lg btn-block btn-danger" href="#">BUY NOW!</a>
-	    </div><!--/panel-footer-->
-      </div><!--/panel-->
+      <div class="pricing-table im-blue">
+
+        <div class="pricing-table-header im-center">
+          <h3>BASIC<br /> PLAN</h3>
+        </div>
+
+        <div class="pricing-table-body im-center">
+          <a class="btn im-btn blue-btn"  href="{{ URL::to('/plan_basic') }}">View Pricing</a>
+          <h5>Lorem ipsum dolor sit amet</h5>
+          <p class="im-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu condimentum arcu. Sed urna arcu, faucibus ullamcorper nisl eu, lobortis egestas nunc. Duis eget dolor erat. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+        </div>
+
+        <div class="pricing-table-footer im-center">
+          <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong></p>
+        </div>
+
+      </div>
+
+    </div><!--/col--> 
+
+
+     <div class="col-md-4">
+      <div class="pricing-table im-lblue">
+
+        <div class="pricing-table-header im-center">
+          <h3>BUSINESS<br /> PLAN</h3>
+        </div>
+
+        <div class="pricing-table-body im-center">
+          <a class="btn im-btn lblue-btn"  href="{{ URL::to('/plan_business') }}">View Pricing</a>
+          <h5>Lorem ipsum dolor sit amet</h5>
+          <p class="im-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu condimentum arcu. Sed urna arcu, faucibus ullamcorper nisl eu, lobortis egestas nunc. Duis eget dolor erat. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+        </div>
+
+        <div class="pricing-table-footer im-center">
+          <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong></p>
+        </div>
+
+      </div>
+
+    </div><!--/col--> 
+
+
+     <div class="col-md-4">
+      <div class="pricing-table im-pink">
+
+        <div class="pricing-table-header im-center">
+          <h3>PREMIUM<br /> PLAN</h3>
+        </div>
+
+        <div class="pricing-table-body im-center">
+          <a class="btn im-btn pink-btn"  href="{{ URL::to('/plan_professional') }}">View Pricing</a>
+          <h5>Lorem ipsum dolor sit amet</h5>
+          <p class="im-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu condimentum arcu. Sed urna arcu, faucibus ullamcorper nisl eu, lobortis egestas nunc. Duis eget dolor erat. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+        </div>
+
+        <div class="pricing-table-footer im-center">
+          <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</strong></p>
+        </div>
+
+      </div>
+
     </div><!--/col-->   
   </div><!--/row-->
 </section><!--/container-->

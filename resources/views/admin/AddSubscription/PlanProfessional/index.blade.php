@@ -4,8 +4,7 @@
 @stop
 
 @section('MainContent')
-@include('admin.MyKnowledgeBox.title')
-@include('admin.MyKnowledgeBox.content')
+@include('admin.AddSubscription.PlanProfessional.content')
 @stop
 
 
