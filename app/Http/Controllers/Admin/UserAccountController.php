@@ -43,10 +43,6 @@ class UserAccountController extends Controller {
 		}
 	}
 
-	public function uploadAvatar(Request $request) {
-			$data = $request->all();
-	}
-
 	public function updatePassword(Request $request) {
 			$data = $request->all();
 
@@ -101,13 +97,12 @@ class UserAccountController extends Controller {
 			])->withErrors($errors);
 		} else {
 			$data = $request->all();
-// dd($request->file()['avatar']->getClientOriginalName());
-			Image::make($request->file()['avatar']);
 
 			$this->validate($request, [
 				'title' => 'required',
 				'first_name' => 'required|string',
 				'last_name' => 'required|string',
+				'avatar' => 'required|mimes:jpeg,bmp,png,gif',
 				'date_of_birth' => 'required',
 				'position_type' => 'required',
 				'gender' => 'required',
@@ -115,11 +110,15 @@ class UserAccountController extends Controller {
 				'phone' => 'required',
 				'med_reg_number' => 'required',
 		  ]);
+
 			$user = User::find($data['id']);
+
+			Image::make($request->file('avatar'))->resize(200, 200)->save(public_path('img/avatars').'/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName());
 
 			$user->title = $data['title'];
 			$user->first_name = $data['first_name'];
 			$user->last_name = $data['last_name'];
+			$user->avatar = 'avatars/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName();
 			$user->date_of_birth = $data['date_of_birth'];
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];
