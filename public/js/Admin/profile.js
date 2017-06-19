@@ -27,14 +27,16 @@ var Profile = {
                   class: 'btn btn-custom update-btn',
                   click: function() {
                     var form = $('#editUserInfo').find('form');
-                    var data = $(form).serialize();
 
                     $.ajax({
                         type: "POST",
-                        async: true,
+                        // async: true,
                         headers: { 'X-XSRF-TOKEN' : token },
                         url: '/updateUser',
-                        data: data,
+                        data: new FormData(form[0]),
+                        cache: false,
+                        contentType: false,
+                        processData: false,
                         success:function(result){
                           // refresh grid
                           $('#editUserInfo').dialog('close');
@@ -81,7 +83,7 @@ var Profile = {
             _token: token,
         },
         success: function(result){
-          console.log(JSON.parse(result));
+          // console.log(JSON.parse(result));
           // refresh grid
           $('#personal-info').html(result);
         }
