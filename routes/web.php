@@ -32,6 +32,18 @@ Route::resource('plan_professional', 'Admin\PlanProfessionalController');
 Route::get('/updateUser', 'Admin\UserAccountController@updateUser');
 Route::post('/updateUser', 'Admin\UserAccountController@updateUser');
 
+Route::get('/users', 'Admin\UserController@index');
+Route::post('/users', 'Admin\UserController@index');
+
+Route::get('/users/deleteUser', 'Admin\UserController@deleteUser');
+Route::post('/users/deleteUser', 'Admin\UserController@deleteUser');
+
+Route::get('/users/updateUser', 'Admin\UserController@updateUser');
+Route::post('/users/updateUser', 'Admin\UserController@updateUser');
+
+Route::get('/deleteUser', 'Admin\UserAccountController@deleteUser');
+Route::post('/deleteUser', 'Admin\UserAccountController@deleteUser');
+
 Route::post('/updatePassword', 'Admin\UserAccountController@updatePassword');
 Route::post('/updatePassword', 'Admin\UserAccountController@updatePassword');
 
