@@ -25,6 +25,9 @@ Route::resource('practice_account', 'Admin\PracticeAccountController');
 Route::resource('report_problem', 'Admin\ReportProblemController');
 Route::resource('user_account', 'Admin\UserAccountController');
 Route::resource('add_subscription', 'Admin\AddSubscriptionController');
+Route::resource('plan_basic', 'Admin\PlanBasicController');
+Route::resource('plan_business', 'Admin\PlanBusinessController');
+Route::resource('plan_professional', 'Admin\PlanProfessionalController');
 
 Route::get('/updateUser', 'Admin\UserAccountController@updateUser');
 Route::post('/updateUser', 'Admin\UserAccountController@updateUser');

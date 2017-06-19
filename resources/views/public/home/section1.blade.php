@@ -9,33 +9,33 @@
 
 		<div class="row small-padding">
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="/data_protection" class="btn full-btn im-btn pink-btn">Data Protection</a>
+				<a href="{{ URL::to('/data_protection') }}" class="btn full-btn im-btn pink-btn">Data Protection</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="/information_security" class="btn full-btn im-btn lblue-btn">Information Security</a>
+				<a href="{{ URL::to('/information_security') }}" class="btn full-btn im-btn lblue-btn">Information Security</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="/infection_prevention" class="btn full-btn im-btn blue-btn">Infection Prevention & Control</a>
-			</div>
-
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="/human_resources" class="btn full-btn im-btn blue-btn">Human Resources</a>
-			</div>
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="/health_safety" class="btn full-btn im-btn pink-btn">Health & Safety</a>
-			</div>
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="/emergency_planning" class="btn full-btn im-btn lblue-btn">Emergency Planning</a>
+				<a href="{{ URL::to('/infection_prevention') }}" class="btn full-btn im-btn blue-btn">Infection Prevention & Control</a>
 			</div>
 
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="/patient_management" class="btn full-btn im-btn lblue-btn">Patient Management</a>
+				<a href="{{ URL::to('/human_resources') }}" class="btn full-btn im-btn blue-btn">Human Resources</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="/practice_operations" class="btn full-btn im-btn blue-btn">Practice Operations</a>
+				<a href="{{ URL::to('/health_safety') }}" class="btn full-btn im-btn pink-btn">Health & Safety</a>
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="/clinical_management" class="btn full-btn im-btn pink-btn">Clinical Management</a>
+				<a href="{{ URL::to('/emergency_planning') }}" class="btn full-btn im-btn lblue-btn">Emergency Planning</a>
+			</div>
+
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<a href="{{ URL::to('/patient_management') }}" class="btn full-btn im-btn lblue-btn">Patient Management</a>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<a href="{{ URL::to('/practice_operations') }}" class="btn full-btn im-btn blue-btn">Practice Operations</a>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+				<a href="{{ URL::to('/clinical_management') }}" class="btn full-btn im-btn pink-btn">Clinical Management</a>
 			</div>
 		</div>
 

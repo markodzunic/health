@@ -6,6 +6,6 @@
 </div>
 <div class="row small-padding">
     <div class="col-md-12">
-        <a href="/MyKnowledgeBox" class="btn im-btn pink-btn">My Knowladge Box</a>
+        <a href="{{ URL::to('/my_knowledge_box') }}" class="btn im-btn pink-btn">My Knowladge Box</a>
     </div>
 </div>
