@@ -85,17 +85,28 @@ class User extends Authenticatable
      * @param  array  $data
      * @return User
      */
-    public function get_roles_for_user($user)
+    public function get_users($sortby, $orderby)
     {
-        $sql = 'SELECT
+        $sql = 'SELECT users.*,
             roles.name as name,
             roles.display_name as display_name
 
-            FROM role_user
-            JOIN roles ON role_user.role_id = roles.id
-            WHERE role_user.user_id='.$user->id;
+            FROM users
+            JOIN roles ON users.role_id = roles.id ORDER BY '.$sortby.' '.$orderby;
 
         return DB::select(DB::Raw($sql), [
         ]);
     }
+
+    public static $sortColumns = [
+		    'title' => 'Title',
+        'first_name' => 'First Name',
+        'last_name' => 'Surname',
+        'gender' => 'Gender',
+        'email' => 'Model',
+        'role_id' => 'Role',
+        'position_type' => 'Position',
+        'phone' => 'Phone',
+        'med_reg_number' => 'Reg. Number'
+    ];
 }
