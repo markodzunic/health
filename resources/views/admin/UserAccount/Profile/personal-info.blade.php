@@ -51,6 +51,7 @@
 				</div>
 				<div align="right">
 					<button type="button" class="btn im-btn pink-btn" onclick="Profile.OpenProfile([]);return false;">Edit Info</button>
+					<button type="button" class="btn im-btn pink-btn" onclick="Profile.DeleteDialog([]);return false;">Delete</button>
 				</div>
 			</div>
 		</div>

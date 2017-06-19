@@ -127,6 +127,31 @@ class UserAccountController extends Controller {
 			$user->med_reg_number = $data['med_reg_number'];
 
 			$user->save();
+			$request->session()->flash('alert-success', 'User updated!');
+		}
+	}
+
+	public function deleteUser(Request $request)
+	{
+		if (!$request->isMethod('post')) {
+			$data = $request->all();
+			$errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
+
+			if ($errors) {
+				foreach ($errors as $key => $value) {
+					$this->messageBag->add($key, $value);
+				}
+			}
+
+			return view("admin.UserAccount.Profile.delete-user",[
+					'user' => Auth::user(),
+			])->withErrors($errors);
+		} else {
+			$data = $request->all();
+			$user = User::find($data['id']);
+			// $user->active = 0;
+			$user->save();
+			$request->session()->flash('alert-success', 'User deactivated.');
 		}
 	}
 
@@ -191,7 +216,7 @@ class UserAccountController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+
 	}
 
 }
