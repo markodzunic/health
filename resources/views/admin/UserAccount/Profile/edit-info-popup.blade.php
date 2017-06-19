@@ -1,5 +1,5 @@
 <div id="editUserInfo" title="Edit User">
-	  <form>
+	  {!! Form::open( ['method' => 'POST', 'id' => 'editUserInfoForm', 'files' => true ] ) !!}
 	    <fieldset>
         {{ csrf_field() }}
 				<input type="hidden" name="id" value="{{ $user->id }}">
@@ -50,18 +50,19 @@
         </div>
 
 				<div class="form-group{{ $errors->has('avatar') ? ' has-error' : '' }}">
-            <label for="avatar" class="col-md-4 control-label">First Name</label>
+						<label for="avatar" class="col-md-4 control-label">Avatar</label>
 
-            <div class="col-md-6">
-                <input id="avatar" type="file" class="form-control" name="avatar" value="{{ $user->avatar?:'' }}" required autofocus>
+						<div class="col-md-6">
+								<input id="avatar" type="file" class="form-control" name="avatar" value="{{ $user->avatar?:'' }}" required autofocus>
+								{{ Html::image(asset('/img/avatars/'.$user->avatar)) }}
 
-                @if ($errors->has('avatar'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('avatar') }}</strong>
-                    </span>
-                @endif
-            </div>
-        </div>
+								@if ($errors->has('avatar'))
+										<span class="help-block">
+												<strong>{{ $errors->first('avatar') }}</strong>
+										</span>
+								@endif
+						</div>
+				</div>
 
         <div class="form-group{{ $errors->has('date_of_birth') ? ' has-error' : '' }}">
             <label for="date_of_birth" class="col-md-4 control-label">Date of Birth</label>
@@ -161,5 +162,5 @@
             </div>
         </div>
 	    </fieldset>
-	</form>
+{!! Form::close() !!}
 </div>
