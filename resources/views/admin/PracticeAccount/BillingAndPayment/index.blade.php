@@ -4,7 +4,8 @@
 @stop
 
 @section('MainContent')
-
+	@include('admin.PracticeAccount.BillingAndPayment.title')
+	@include('admin.PracticeAccount.BillingAndPayment.content')
 @stop
 
 

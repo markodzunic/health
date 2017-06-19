@@ -645,3 +645,14 @@ input[type=radio ]:not(old) + label.im-label-sm {
   background: #fff;
   padding: 40px 15px;
 }
+.badge-cont {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.badge-cont img {
+  max-width: 100%;
+}

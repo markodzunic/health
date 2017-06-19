@@ -4,6 +4,7 @@
       <div class="pricing-table im-blue">
 
         <div class="pricing-table-header im-center">
+          <div class="badge-cont bg-blue"><img src="{{ URL::asset('/img/pricing-3.svg') }}" alt=""></div>
           <h3>BASIC<br /> PLAN</h3>
         </div>
 
@@ -26,6 +27,7 @@
       <div class="pricing-table im-lblue">
 
         <div class="pricing-table-header im-center">
+        <div class="badge-cont bg-lblue"><img src="{{ URL::asset('/img/pricing-2.svg') }}" alt=""></div>
           <h3>BUSINESS<br /> PLAN</h3>
         </div>
 
@@ -48,6 +50,7 @@
       <div class="pricing-table im-pink">
 
         <div class="pricing-table-header im-center">
+          <div class="badge-cont bg-pink"><img src="{{ URL::asset('/img/pricing-1.svg') }}" alt=""></div>
           <h3>PREMIUM<br /> PLAN</h3>
         </div>
 
