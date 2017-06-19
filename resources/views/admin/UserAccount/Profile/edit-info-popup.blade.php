@@ -52,9 +52,10 @@
 				<div class="form-group{{ $errors->has('avatar') ? ' has-error' : '' }}">
 						<label for="avatar" class="col-md-4 control-label">Avatar</label>
 
-						<div class="col-md-6">
+						<div class="col-md-6">		
 								<input id="avatar" type="file" class="form-control" name="avatar" value="{{ $user->avatar?:'' }}" required autofocus>
-								{{ Html::image(asset('/img/avatars/'.$user->avatar)) }}
+								{{ Html::image(asset('/img/'.$user->avatar)) }}
+								{{ Form::label('email', $user->avatar?:'None') }}
 
 								@if ($errors->has('avatar'))
 										<span class="help-block">
