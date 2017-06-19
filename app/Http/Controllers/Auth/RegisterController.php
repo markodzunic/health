@@ -48,18 +48,16 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'title' => 'required|string', 
-            'first_name' => 'required|string', 
-            'last_name' => 'required|string', 
-            'date_of_birth' => 'required|date', 
-            // 'position_type' => 'required|string', 
-            'gender' => 'required|string', 
-            'phone' => 'required|string', 
-            'occupation' => 'required|string', 
-            'med_reg_number' => 'required|string', 
+            'title' => 'required|string',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'date_of_birth' => 'required|date',
+            'gender' => 'required|string',
+            'phone' => 'required|string',
+            'occupation' => 'required|string',
+            'med_reg_number' => 'required|string',
         ]);
     }
 
@@ -70,19 +68,21 @@ class RegisterController extends Controller
      * @return User
      */
     public function create($data)
-    {   
+    {
         $user = new User;
-        
+
+        $user->role_id = 1;
         $user->email = $data['email'];
         $user->password = bcrypt($data['password']);
-        $user->title = $data['title']; 
-        $user->first_name = $data['first_name']; 
-        $user->last_name = $data['last_name']; 
-        $user->date_of_birth = $data['date_of_birth']; 
-        $user->position_type = 'User'; 
-        $user->gender = $data['gender']; 
-        $user->phone = $data['phone']; 
-        $user->occupation = $data['occupation']; 
+        $user->title = $data['title'];
+        $user->first_name = $data['first_name'];
+        $user->last_name = $data['last_name'];
+        $user->date_of_birth = $data['date_of_birth'];
+        $user->position_type = 'User';
+        $user->avatar = 'avatar.png';
+        $user->gender = $data['gender'];
+        $user->phone = $data['phone'];
+        $user->occupation = $data['occupation'];
         $user->med_reg_number = $data['med_reg_number'];
         $user->authorised_user = 0;
         $user->active = 0;

@@ -9,6 +9,7 @@ use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Hash;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class UserAccountController extends Controller {
 
@@ -40,6 +41,10 @@ class UserAccountController extends Controller {
 					'role' => $role
 			]);
 		}
+	}
+
+	public function uploadAvatar(Request $request) {
+			$data = $request->all();
 	}
 
 	public function updatePassword(Request $request) {
@@ -96,12 +101,13 @@ class UserAccountController extends Controller {
 			])->withErrors($errors);
 		} else {
 			$data = $request->all();
+// dd($request->file()['avatar']->getClientOriginalName());
+			Image::make($request->file()['avatar']);
 
 			$this->validate($request, [
 				'title' => 'required',
 				'first_name' => 'required|string',
 				'last_name' => 'required|string',
-				'avatar' => 'string',
 				'date_of_birth' => 'required',
 				'position_type' => 'required',
 				'gender' => 'required',
@@ -114,7 +120,6 @@ class UserAccountController extends Controller {
 			$user->title = $data['title'];
 			$user->first_name = $data['first_name'];
 			$user->last_name = $data['last_name'];
-			$user->avatar = $data['avatar'];
 			$user->date_of_birth = $data['date_of_birth'];
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];
