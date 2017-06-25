@@ -12,6 +12,7 @@
     <ul id="UserAccount" class="collapse">
         <li><a href="{{ URL::to('/user_account') }}">Profile</a></li>
         <li><a href="{{ URL::to('/feedback') }}">Feedback</a></li>
+        <li><a href="{{ URL::to('/users') }}">Users</a></li>
     </ul>
 </li>
 <li>
@@ -19,6 +20,7 @@
     <ul id="PracticeAccount" class="collapse">
         <li><a href="{{ URL::to('/practice_account') }}">Profile</a></li>
         <li><a href="{{ URL::to('/billing') }}">Billing & Payment</a></li>
+        <li><a href="{{ URL::to('/practices') }}">Practices</a></li>
     </ul>
 </li>
 <li>

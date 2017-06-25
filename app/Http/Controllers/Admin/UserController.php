@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\User;
 use App\Models\Role;
+use App\Models\Practice;
 use Auth;
 use DB;
 use App\Http\Controllers\Controller;
@@ -99,10 +100,14 @@ class UserController extends Controller {
         }
       }
 
-      $user = User::find($data['id']);
-
+      if (isset($data['id']))
+        $user = User::find($data['id']);
+      else {
+        $user = new User();
+      }
       return view("admin.UserAccount.users.update",[
           'user' => $user,
+          'practice_id' => isset($data['practice_id']) ? $data['practice_id'] : 0,
           'roles' => Role::all(),
       ])->withErrors($errors);
     } else {
@@ -121,7 +126,23 @@ class UserController extends Controller {
 				'med_reg_number' => 'required',
 		  ]);
 
-			$user = User::find($data['id']);
+      if (isset($data['id']))
+        $user = User::find($data['id']);
+      else {
+
+        $this->validate($request, [
+          'email' => 'required|string|email|max:255|unique:users',
+          'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $user = new User();
+
+        $user->authorised_user = $data['practice_id'];
+        $user->email = $data['email'];
+        $user->password = $data['password'];
+        $user->active = 1;
+        $request->session()->flash('alert-success-usr', 'User Updated.');
+      }
 
 			Image::make($request->file('avatar'))->resize(200, 200)->save(public_path('img/avatars').'/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName());
 
@@ -133,12 +154,23 @@ class UserController extends Controller {
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];
 			$user->role_id = $data['role_id'];
+      $user->occupation = '';
 			$user->gender = $data['gender'];
 			$user->med_reg_number = $data['med_reg_number'];
 
 			$user->save();
 
       $request->session()->flash('alert-success', 'User Updated.');
+
+      if ($request->ajax() && isset($data['practice_id'])) {
+
+        $limit = 6 - User::where('authorised_user', '=', $data['practice_id'])->count();
+
+        return view('admin.PracticeAccount.Profile.additional-users', [
+            'limit' => $limit,
+            'practice' => Practice::find($data['practice_id']),
+        ])->render();
+      }
     }
   }
 	/**

@@ -25,9 +25,26 @@ Route::resource('practice_account', 'Admin\PracticeAccountController');
 Route::resource('report_problem', 'Admin\ReportProblemController');
 Route::resource('user_account', 'Admin\UserAccountController');
 Route::resource('add_subscription', 'Admin\AddSubscriptionController');
-Route::resource('plan_basic', 'Admin\PlanBasicController');
-Route::resource('plan_business', 'Admin\PlanBusinessController');
-Route::resource('plan_professional', 'Admin\PlanProfessionalController');
+// Route::resource('plan_basic', 'Admin\PlanBasicController');
+// Route::resource('plan_business', 'Admin\PlanBusinessController');
+// Route::resource('plan_professional', 'Admin\PlanProfessionalController');
+
+Route::get('/plan_business', 'Admin\AddSubscriptionController@plan_business');
+Route::get('/plan_basic', 'Admin\AddSubscriptionController@plan_basic');
+Route::get('/plan_professional', 'Admin\AddSubscriptionController@plan_professional');
+Route::get('/assignPractice', 'Admin\AddSubscriptionController@assignPractice');
+Route::post('/practice_account', 'Admin\PracticeAccountController@index');
+
+Route::get('/practice_account', 'Admin\PracticeAccountController@index');
+
+Route::get('/practices', 'Admin\PracticeController@index');
+Route::post('/practices', 'Admin\PracticeController@index');
+
+Route::get('/practices/updatePractice', 'Admin\PracticeController@updatePractice');
+Route::post('/practices/updatePractice', 'Admin\PracticeController@updatePractice');
+
+Route::get('/practices/deletePractice', 'Admin\PracticeController@deletePractice');
+Route::post('/practices/deletePractice', 'Admin\PracticeController@deletePractice');
 
 Route::get('/updateUser', 'Admin\UserAccountController@updateUser');
 Route::post('/updateUser', 'Admin\UserAccountController@updateUser');

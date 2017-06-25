@@ -1,12 +1,12 @@
-var Users = {
+var Practices = {
     init: function() {
-      Users.Pagination();
+      Practices.Pagination();
 
       var sort = $('#sortby').val();
       var order = $('#orderby').val();
     },
 
-    RefreshUsers: function(el, sort, order, resetPage) {
+    RefreshPractices: function(el, sort, order, resetPage) {
   		var token = $('meta[name="csrf-token"]').attr('content');
 
   		$('#sortby').val(sort);
@@ -20,7 +20,7 @@ var Users = {
   			type: "POST",
   			headers: { 'X-XSRF-TOKEN' : token },
   			async: true,
-  			url: '/users',
+  			url: '/practices',
   			data: {
           _token: token,
   				sort: sort,
@@ -28,15 +28,34 @@ var Users = {
   				page: page
   			},
   			success:function(result){
-  				$('#users').remove();
+  				$('#practices').remove();
   				$('#pagination').remove();
           $('#table-section').append(result);
 
-  				Users.Pagination();
-          Users.tableAfterEdit($('#users'), sort, order);
+  				Practices.Pagination();
+          Practices.tableAfterEdit($('#practices'), sort, order);
   			}
   		});
 	},
+
+  RefreshInfo: function() {
+    var token = $('meta[name="csrf-token"]').attr('content');
+
+    $.ajax({
+        type: "POST",
+        // async: true,
+        headers: { 'X-XSRF-TOKEN' : token },
+        url: '/practice_account',
+        data: {
+            _token: token,
+        },
+        success: function(result){
+          // console.log(JSON.parse(result));
+          // refresh grid
+          $('#practice-info').html(result);
+        }
+    });
+  },
 
 	Pagination: function() {
 		var token = $('meta[name="csrf-token"]').attr('content');
@@ -59,7 +78,7 @@ var Users = {
             $('#pagination').remove();
 				    $('#table-section').html(data);
 					  Users.Pagination();
-            Users.tableAfterEdit($('#users'), sort, order);
+            Users.tableAfterEdit($('#practices'), sort, order);
 			    }
 			});
 		});
@@ -89,30 +108,30 @@ var Users = {
 			order = 'desc'
 		}
 
-		Users.RefreshUsers(el, sort, order);
+		Practices.RefreshPractices(el, sort, order);
 	},
 
   Delete: function(el, err) {
     var token = $('meta[name="csrf-token"]').attr('content');
-    $('#deleteUser').hide();
+    $('#deletePractice').hide();
 
     var sort = $('#sortby').val();
 		var order = $('#orderby').val();
-    var users_id = $(el).attr('users-id');
+    var practice_id = $(el).attr('practices-id');
 
     $.ajax({
         type: "GET",
         headers: { 'X-XSRF-TOKEN' : token },
-        url: '/users/deleteUser',
+        url: '/practices/deletePractice',
         dataType: 'html',
         data: {
           error: err,
-          id: users_id,
+          id: practice_id,
           _token: token,
         },
         success: function(result) {
           $('body').append(result);
-          $('#deleteUser').dialog({
+          $('#deletePractice').dialog({
               width: 700,
               modal: true,
               buttons: {
@@ -120,23 +139,23 @@ var Users = {
                   text: 'Yes',
                   class: 'btn btn-custom update-btn',
                   click: function() {
-                    var form = $('#deleteUser').find('form');
+                    var form = $('#deletePractice').find('form');
                     var data = form.serialize();
 
                     $.ajax({
                         type: "POST",
                         // async: true,
                         headers: { 'X-XSRF-TOKEN' : token },
-                        url: '/users/deleteUser',
+                        url: '/practices/deletePractice',
                         data: data,
                         success:function(result){
                           // refresh grid
-                          $('#deleteUser').dialog('close');
-                          Users.RefreshUsers(el, sort, order);
+                          $('#deletePractice').dialog('close');
+                          Practices.RefreshPractices(el, sort, order);
                         },
                         error: function(xhr,status, response) {
-                          $('#deleteUser').remove();
-                          Users.Delete(el, xhr.responseText);
+                          $('#deletePractice').remove();
+                          Practices.Delete(el, xhr.responseText);
                         }
                     });
                   }
@@ -152,7 +171,7 @@ var Users = {
               },
               close: function() {
                   $(this).dialog( "close" );
-                  $('#deleteUser').remove();
+                  $('#deletePractice').remove();
               }
             });
         }
@@ -161,26 +180,25 @@ var Users = {
 
   Update: function(el, err) {
     var token = $('meta[name="csrf-token"]').attr('content');
-    $('#updateUser').hide();
-    var practice_id = $(el).attr('practice-id');
+    $('#updatePractice').hide();
+
     var sort = $('#sortby').val();
 		var order = $('#orderby').val();
-    var users_id = $(el).attr('users-id');
-console.log(practice_id);
+    var practice_id = $(el).attr('practices-id');
+
     $.ajax({
         type: "GET",
         headers: { 'X-XSRF-TOKEN' : token },
-        url: '/users/updateUser',
+        url: '/practices/updatePractice',
         dataType: 'html',
         data: {
           error: err,
           _token: token,
-          id: users_id,
-          practice_id: practice_id,
+          id: practice_id,
         },
         success: function(result) {
           $('body').append(result);
-          $('#updateUser').dialog({
+          $('#updatePractice').dialog({
               width: 700,
               modal: true,
               buttons: {
@@ -188,29 +206,31 @@ console.log(practice_id);
                   text: 'Save',
                   class: 'btn btn-custom update-btn',
                   click: function() {
-                    var form = $('#updateUser').find('form');
+                    var form = $('#updatePractice').find('form');
 
                     $.ajax({
                         type: "POST",
                         // async: true,
                         headers: { 'X-XSRF-TOKEN' : token },
-                        url: '/users/updateUser',
+                        url: '/practices/updatePractice',
                         data: new FormData(form[0]),
                         cache: false,
                         contentType: false,
                         processData: false,
                         success:function(result){
                           // refresh grid
-                          $('#updateUser').dialog('close');
-                          if ($('#users').length > 0)
-                            Users.RefreshUsers(el, sort, order);
-                          else {
-                            $('#add-user').html(result);
+                          $('#updatePractice').dialog('close');
+
+                          if ($('#practices').length > 0) {
+                              Practices.RefreshPractices(el, sort, order);
+                          } else {
+                              Practices.RefreshInfo();
                           }
                         },
                         error: function(xhr,status, response) {
-                          $('#updateUser').remove();
-                          Users.Update(el, xhr.responseText);
+                          console.log(xhr.responseText);
+                          $('#updatePractice').remove();
+                          Practices.Update(el, xhr.responseText);
                         }
                     });
                   }
@@ -226,7 +246,7 @@ console.log(practice_id);
               },
               close: function() {
                   $(this).dialog( "close" );
-                  $('#updateUser').remove();
+                  $('#updatePractice').remove();
               }
             });
         }
