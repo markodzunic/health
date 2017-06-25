@@ -162,11 +162,11 @@ var Users = {
   Update: function(el, err) {
     var token = $('meta[name="csrf-token"]').attr('content');
     $('#updateUser').hide();
-
+    var practice_id = $(el).attr('practice-id');
     var sort = $('#sortby').val();
 		var order = $('#orderby').val();
     var users_id = $(el).attr('users-id');
-
+console.log(practice_id);
     $.ajax({
         type: "GET",
         headers: { 'X-XSRF-TOKEN' : token },
@@ -176,6 +176,7 @@ var Users = {
           error: err,
           _token: token,
           id: users_id,
+          practice_id: practice_id,
         },
         success: function(result) {
           $('body').append(result);
@@ -201,7 +202,11 @@ var Users = {
                         success:function(result){
                           // refresh grid
                           $('#updateUser').dialog('close');
-                          Users.RefreshUsers(el, sort, order);
+                          if ($('#users').length > 0)
+                            Users.RefreshUsers(el, sort, order);
+                          else {
+                            $('#add-user').html(result);
+                          }
                         },
                         error: function(xhr,status, response) {
                           $('#updateUser').remove();
