@@ -20,10 +20,17 @@ class PracticeAccountController extends Controller {
 
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 
-		return view("admin.PracticeAccount.Profile.index", [
-       'user' => $user,
-			 'practice' => $practice,
-    ]);
+		if (!$request->ajax()) {
+				return view("admin.PracticeAccount.Profile.index", [
+		       'user' => $user,
+					 'practice' => $practice,
+		    ]);
+		} else {
+			return view("admin.PracticeAccount.Profile.practice-info", [
+				 'user' => $user,
+				 'practice' => $practice,
+			]);
+		}
 	}
 
 	/**

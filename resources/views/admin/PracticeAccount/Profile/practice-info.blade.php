@@ -1,4 +1,4 @@
-<div class="small-padding no-padding-top">
+<div id="practice-info" class="small-padding no-padding-top">
 	<div class="row">
 	    	<div class="col-md-12">
 	        <h4><strong>Practice Information</strong></h4>
@@ -6,7 +6,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<div id="practice-info" class="form-box editable-info bg-lblue white-text">
+			<div class="form-box editable-info bg-lblue white-text">
 				{{-- Practice Name  --}}
 				<div id="practice-name" class="personal-info-field editable-field">
 					<div>Practice Name</div>
@@ -43,7 +43,7 @@
 					<div>{{ $user->first_name?:'N/A' }} {{ $user->last_name?:'N/A' }}</div>
 				</div>
 				<div align="right">
-					<button class="btn im-btn pink-btn" data-toggle="modal" data-target="#editPracticeInfo">Edit Info</button>
+					<button class="btn im-btn pink-btn" practices-id="{{ $practice->id }}" onclick="Practices.Update(this);return false;">Edit Info</button>
 				</div>
 			</div>
 		</div>

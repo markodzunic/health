@@ -33,6 +33,7 @@ Route::get('/plan_business', 'Admin\AddSubscriptionController@plan_business');
 Route::get('/plan_basic', 'Admin\AddSubscriptionController@plan_basic');
 Route::get('/plan_professional', 'Admin\AddSubscriptionController@plan_professional');
 Route::get('/assignPractice', 'Admin\AddSubscriptionController@assignPractice');
+Route::post('/practice_account', 'Admin\PracticeAccountController@index');
 
 Route::get('/practice_account', 'Admin\PracticeAccountController@index');
 
