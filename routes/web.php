@@ -29,6 +29,15 @@ Route::resource('plan_basic', 'Admin\PlanBasicController');
 Route::resource('plan_business', 'Admin\PlanBusinessController');
 Route::resource('plan_professional', 'Admin\PlanProfessionalController');
 
+Route::get('/practices', 'Admin\PracticeAccountController@index');
+Route::post('/practices', 'Admin\PracticeAccountController@index');
+
+Route::get('/practices/updatePractice', 'Admin\PracticeAccountController@updatePractice');
+Route::post('/practices/updatePractice', 'Admin\PracticeAccountController@updatePractice');
+
+Route::get('/practices/deletePractice', 'Admin\PracticeAccountController@deletePractice');
+Route::post('/practices/deletePractice', 'Admin\PracticeAccountController@deletePractice');
+
 Route::get('/updateUser', 'Admin\UserAccountController@updateUser');
 Route::post('/updateUser', 'Admin\UserAccountController@updateUser');
 
