@@ -3,7 +3,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Auth;
+use App\Models\Practice;
 use Illuminate\Http\Request;
 
 class AddSubscriptionController extends Controller {
@@ -16,6 +17,36 @@ class AddSubscriptionController extends Controller {
 	public function index()
 	{
 		return view("admin.AddSubscription.index");
+	}
+
+	public function plan_business() {
+			return view("admin.AddSubscription.PlanBusiness.index");
+	}
+
+	public function plan_professional() {
+			return view("admin.AddSubscription.PlanProfessional.index");
+	}
+
+	public function plan_basic() {
+			return view("admin.AddSubscription.PlanBasic.index");
+	}
+
+	public function assignPractice() {
+			$user = Auth::user();
+
+			$practice = new Practice;
+
+			$practice->user_id = $user->id;
+			$practice->name = 'Default';
+			$practice->description = 'Enter description';
+			$practice->address = 'Add address';
+			$practice->fax = 'Your fax';
+			$practice->email = 'Admin@admin.com';
+			$practice->site = 'Your site link';
+
+			$practice->save();
+
+			return redirect('/practice_account');
 	}
 
 	/**

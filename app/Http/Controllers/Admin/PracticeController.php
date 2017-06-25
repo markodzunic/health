@@ -64,6 +64,10 @@ class PracticeController extends Controller {
 		}
 	}
 
+  public function buyPractice(Request $request) {
+
+  }
+
 	/**
 	 * Store a newly created resource in storage.
 	 *
