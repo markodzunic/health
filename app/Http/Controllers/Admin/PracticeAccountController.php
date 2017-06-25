@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\Models\Practice;
 use Illuminate\Http\Request;
 
 class PracticeAccountController extends Controller {
@@ -13,11 +14,16 @@ class PracticeAccountController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
+		$user = Auth::user();
+
+		$practice = Practice::where('user_id', '=', $user->id)->first();
+
 		return view("admin.PracticeAccount.Profile.index", [
-            'user' => Auth::user(),
-        ]);
+       'user' => $user,
+			 'practice' => $practice,
+    ]);
 	}
 
 	/**
