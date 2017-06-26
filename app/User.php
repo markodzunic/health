@@ -43,6 +43,14 @@ class User extends Authenticatable
     ];
 
     /**
+     * Get the role record associated with the user.
+     */
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Role', 'role_id', 'id');
+    }
+
+    /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data

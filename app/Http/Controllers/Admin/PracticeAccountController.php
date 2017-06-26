@@ -18,13 +18,19 @@ class PracticeAccountController extends Controller {
 	public function index(Request $request)
 	{
 		$user = Auth::user();
-
+		$limit = 0;
+		$practice_users = [];
+		
 		$practice = Practice::where('user_id', '=', $user->id)->first();
-		$limit = 6 - User::where('authorised_user', '=', $practice->id)->count();
+		if ($practice) {
+			$limit = 6 - User::where('authorised_user', '=', $practice->id)->count();
+			$practice_users = User::with('role')->where('authorised_user', '=', $practice->id)->get();
+		}
 
 		if (!$request->ajax()) {
 				return view("admin.PracticeAccount.Profile.index", [
 		       'user' => $user,
+					 'practice_users' => $practice_users,
 					 'practice' => $practice,
 					 'limit' => $limit,
 		    ]);
@@ -32,6 +38,7 @@ class PracticeAccountController extends Controller {
 			return view("admin.PracticeAccount.Profile.practice-info", [
 				 'user' => $user,
 				 'practice' => $practice,
+				 'practice_users' => $practice_users,
 				 'limit' => $limit,
 			]);
 		}
