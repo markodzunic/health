@@ -97,6 +97,7 @@ class PracticeController extends Controller {
 	public function deletePractice(Request $request) {
     if (!$request->isMethod('post')) {
       $data = $request->all();
+			$practice_account = isset($data['practice_account']) ? $data['practice_account'] : '';
       $errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
 
       if ($errors) {
@@ -107,9 +108,11 @@ class PracticeController extends Controller {
 
       return view("admin.PracticeAccount.practices.delete",[
           'data' => $data,
+					'practice_account' => $practice_account,
       ])->withErrors($errors);
     } else {
       $data = $request->all();
+			$practice_account = isset($data['practice_account']) ? $data['practice_account'] : '';
       $practice = Practice::find($data['id']);
 
 			$practiceUsers = User::where('authorised_user', '=', $practice->id)->get();

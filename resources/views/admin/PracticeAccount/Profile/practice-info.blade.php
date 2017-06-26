@@ -4,7 +4,8 @@
 	        <h4><strong>Practice Information</strong></h4>
 	    </div>
 	</div>
-	<div class="row">
+	@if (!empty($practice))
+		<div class="row">
 		<div class="col-md-12">
 			<div class="form-box editable-info bg-lblue white-text">
 				{{-- Practice Name  --}}
@@ -48,4 +49,5 @@
 			</div>
 		</div>
 	</div>
+	@endif
 </div>

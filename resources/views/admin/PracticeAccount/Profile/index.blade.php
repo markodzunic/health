@@ -5,14 +5,16 @@
 
 @section('MainContent')
 	@include('admin.PracticeAccount.Profile.title')
-	@include('admin.PracticeAccount.Profile.practice-info')
-	@include('admin.PracticeAccount.Profile.administrator')
-	@include('admin.PracticeAccount.Profile.practice-staff')
-	@include('admin.PracticeAccount.Profile.additional-users')
-	@include('admin.PracticeAccount.Profile.delete-account')
-	@include('admin.PracticeAccount.Profile.edit-info-popup')
-	@include('admin.PracticeAccount.Profile.add-user-popup')
-	@include('admin.PracticeAccount.Profile.confirm-account-delete')
+	@if (!empty($practice))
+		@include('admin.PracticeAccount.Profile.practice-info')
+		@include('admin.PracticeAccount.Profile.administrator')
+		@include('admin.PracticeAccount.Profile.practice-staff')
+		@include('admin.PracticeAccount.Profile.additional-users')
+		@include('admin.PracticeAccount.Profile.delete-account')
+		@include('admin.PracticeAccount.Profile.edit-info-popup')
+		@include('admin.PracticeAccount.Profile.add-user-popup')
+		@include('admin.PracticeAccount.Profile.confirm-account-delete')
+	@endif
 @stop
 
 

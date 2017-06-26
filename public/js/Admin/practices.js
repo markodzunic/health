@@ -118,6 +118,7 @@ var Practices = {
     var sort = $('#sortby').val();
 		var order = $('#orderby').val();
     var practice_id = $(el).attr('practices-id');
+    var page = $(el).attr('page');
 
     $.ajax({
         type: "GET",
@@ -126,6 +127,7 @@ var Practices = {
         dataType: 'html',
         data: {
           error: err,
+          practice_account: page,
           id: practice_id,
           _token: token,
         },
@@ -151,7 +153,10 @@ var Practices = {
                         success:function(result){
                           // refresh grid
                           $('#deletePractice').dialog('close');
-                          Practices.RefreshPractices(el, sort, order);
+                          if ($('#practices').length > 0)
+                            Practices.RefreshPractices(el, sort, order);
+                          else
+                            location.href='/dashboard';
                         },
                         error: function(xhr,status, response) {
                           $('#deletePractice').remove();
