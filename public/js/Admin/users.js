@@ -166,7 +166,7 @@ var Users = {
     var sort = $('#sortby').val();
 		var order = $('#orderby').val();
     var users_id = $(el).attr('users-id');
-console.log(practice_id);
+
     $.ajax({
         type: "GET",
         headers: { 'X-XSRF-TOKEN' : token },
@@ -223,6 +223,9 @@ console.log(practice_id);
                         $(this).dialog( "close" );
                     }
                 }
+              },
+              open: function() {
+                  $('input[name="date_of_birth"]').datetimepicker();
               },
               close: function() {
                   $(this).dialog( "close" );
