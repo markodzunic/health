@@ -7,10 +7,10 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div id="DeleteAccount" class="form-box">
-				<p>The action is permanent and cannot be undone!</p>		
+				<p>The action is permanent and cannot be undone!</p>
 				<p>Are you sure?</p>
 				<div align="right">
-					<button class="btn im-btn pink-btn"  data-toggle="modal" data-target="#deletePracticeAccount">Delete My Account</button>
+					<button class="btn im-btn pink-btn" page="practice-account" practices-id="{{ $practice->id }}" onclick="Practices.Delete(this);return false;">Delete My Account</button>
 				</div>
 			</div>
 		</div>

@@ -3,6 +3,7 @@
 	    <fieldset>
         {{ csrf_field() }}
 				<input type="hidden" name="id" value="{{ $user->id }}">
+				<input type="hidden" name="practice_id" value="{{ $practice_id }}">
         <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
             <label for="title" class="col-md-4 control-label">Title</label>
 
@@ -34,7 +35,44 @@
                 @endif
             </div>
         </div>
+				@if ($practice_id)
+					<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+							<label for="email" class="col-md-4 control-label">Email</label>
 
+							<div class="col-md-6">
+									<input id="email" type="text" class="form-control" name="email" value="{{ $user->email?:'' }}" required autofocus>
+
+									@if ($errors->has('email'))
+											<span class="help-block">
+													<strong>{{ $errors->first('email') }}</strong>
+											</span>
+									@endif
+							</div>
+					</div>
+
+					<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+	            <label for="password" class="col-md-4 control-label">Password</label>
+
+	            <div class="col-md-12">
+	                <input id="password" type="password" class="form-control" name="password" required>
+
+	                @if ($errors->has('password'))
+	                    <span class="help-block">
+	                        <strong>{{ $errors->first('password') }}</strong>
+	                    </span>
+	                @endif
+	            </div>
+	        </div>
+
+	        <div class="form-group">
+	            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+	            <div class="col-md-12">
+	                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+	            </div>
+	        </div>
+
+				@endif
         <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
             <label for="last_name" class="col-md-4 control-label">Last Name</label>
 
@@ -54,7 +92,9 @@
 
 						<div class="col-md-6">
 								<input id="avatar" type="file" class="form-control" name="avatar" value="{{ $user->avatar?:'' }}" required autofocus>
-								{{ Html::image(asset('/img/'.$user->avatar)) }}
+								@if ($user->avatar)
+									{{ Html::image(asset('/img/'.$user->avatar)) }}
+								@endif
 								{{ Form::label('email', $user->avatar?:'None') }}
 
 								@if ($errors->has('avatar'))
