@@ -22,8 +22,8 @@
 	<script src="{{ URL::asset('/js/Admin/practices.js') }}"></script>
 	<script src="{{ URL::asset('/js/Admin/users.js') }}"></script>
 	<script type="text/javascript">
-      $(function() {
-          $('#date_of_birth').datetimepicker();
-      });
+			$(function() {
+					$('input[name="date_of_birth"]').datetimepicker();
+			});
   </script>
 @stop
