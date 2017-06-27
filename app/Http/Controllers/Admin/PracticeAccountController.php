@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\User;
+use App\Models\Practice;
 use Illuminate\Http\Request;
 
 class PracticeAccountController extends Controller {
@@ -13,11 +15,33 @@ class PracticeAccountController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		return view("admin.PracticeAccount.Profile.index", [
-            'user' => Auth::user(),
-        ]);
+		$user = Auth::user();
+		$limit = 0;
+		$practice_users = [];
+		
+		$practice = Practice::where('user_id', '=', $user->id)->first();
+		if ($practice) {
+			$limit = 6 - User::where('authorised_user', '=', $practice->id)->count();
+			$practice_users = User::with('role')->where('authorised_user', '=', $practice->id)->get();
+		}
+
+		if (!$request->ajax()) {
+				return view("admin.PracticeAccount.Profile.index", [
+		       'user' => $user,
+					 'practice_users' => $practice_users,
+					 'practice' => $practice,
+					 'limit' => $limit,
+		    ]);
+		} else {
+			return view("admin.PracticeAccount.Profile.practice-info", [
+				 'user' => $user,
+				 'practice' => $practice,
+				 'practice_users' => $practice_users,
+				 'limit' => $limit,
+			]);
+		}
 	}
 
 	/**

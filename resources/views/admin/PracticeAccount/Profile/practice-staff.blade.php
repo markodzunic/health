@@ -25,78 +25,24 @@
 		<div class="col-md-12">
 			<div id="PracticeStaff" class="form-box editable-info bg-lblue white-text">
 				<div class="row">
-
-					<div class="col-sm-4">
-						<a href="#">
-							<div class="user-box bg-white" align="center">
-								<div class="image-wrapper">
-									<img src="http://placehold.it/300x300">
-								</div>
-								<div class="user-info im-blue">
-									<div class="user-name">Name Surname</div>
-									<div class="user-role"><strong>ROLE</strong></div>
-								</div>
+					@if ($practice_users)
+						@foreach ($practice_users as $usr)
+							<div class="col-sm-4">
+								<a href="#">
+									<div class="user-box bg-white" align="center">
+										<div class="image-wrapper">
+											{{ Html::image(asset('/img/'.$usr->avatar)) }}
+										</div>
+										<div class="user-info im-blue">
+											<div class="user-name">{{ $usr->first_name?:''}} {{ $usr->last_name?:''}}</div>
+											<div class="user-role"><strong>{{ $usr->role->display_name?: '' }}</strong></div>
+										</div>
+									</div>
+								</a>
 							</div>
-						</a>
-					</div>
-
-					<div class="col-sm-4">
-						<a href="#">
-							<div class="user-box bg-white" align="center">
-								<div class="image-wrapper">
-									<img src="http://placehold.it/300x300">
-								</div>
-								<div class="user-info im-blue">
-									<div class="user-name">Name Surname</div>
-									<div class="user-role"><strong>ROLE</strong></div>
-								</div>
-							</div>
-						</a>
-					</div>
-
-					<div class="col-sm-4">
-						<a href="#">
-							<div class="user-box bg-white" align="center">
-								<div class="image-wrapper">
-									<img src="http://placehold.it/300x300">
-								</div>
-								<div class="user-info im-blue">
-									<div class="user-name">Name Surname</div>
-									<div class="user-role"><strong>ROLE</strong></div>
-								</div>
-							</div>
-						</a>
-					</div>
-
-					<div class="col-sm-4">
-						<a href="#">
-							<div class="user-box bg-white" align="center">
-								<div class="image-wrapper">
-									<img src="http://placehold.it/300x300">
-								</div>
-								<div class="user-info im-blue">
-									<div class="user-name">Name Surname</div>
-									<div class="user-role"><strong>ROLE</strong></div>
-								</div>
-							</div>
-						</a>
-					</div>
-
-					<div class="col-sm-4">
-						<a href="#">
-							<div class="user-box bg-white" align="center">
-								<div class="image-wrapper">
-									<img src="http://placehold.it/300x300">
-								</div>
-								<div class="user-info im-blue">
-									<div class="user-name">Name Surname</div>
-									<div class="user-role"><strong>ROLE</strong></div>
-								</div>
-							</div>
-						</a>
-					</div>
-
-				</div>						
+						@endforeach
+					@endif
+				</div>
 			</div>
 		</div>
 	</div>
