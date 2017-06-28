@@ -20,7 +20,7 @@ class PracticeAccountController extends Controller {
 		$user = Auth::user();
 		$limit = 0;
 		$practice_users = [];
-		
+
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 		if ($practice) {
 			$limit = 6 - User::where('authorised_user', '=', $practice->id)->count();
@@ -41,6 +41,36 @@ class PracticeAccountController extends Controller {
 				 'practice_users' => $practice_users,
 				 'limit' => $limit,
 			]);
+		}
+	}
+
+	public function updateAdmin(Request $request) {
+		if (!$request->isMethod('post')) {
+			$data = $request->all();
+
+			$practice_id = isset($data['id']) ? $data['id'] : 0;
+			// $users = User::with('role')->where('role_id', '!=', 1)->where('authorized_user', '=', $practice_id)->get();
+
+			$errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
+
+			if ($errors) {
+				foreach ($errors as $key => $value) {
+					$this->messageBag->add($key, $value);
+				}
+			}
+
+			return view("admin.PracticeAccount.Profile.updateAdmin",[
+					'data' => $data,
+					// 'users' => $users,
+			])->withErrors($errors);
+		} else {
+			$data = $request->all();
+
+			// $practice = Practice::find($data['id']);
+
+			// $practiceUsers = User::where('authorised_user', '=', $practice->id)->get();
+
+			$request->session()->flash('alert-success', 'Admin Set Successfully.');
 		}
 	}
 

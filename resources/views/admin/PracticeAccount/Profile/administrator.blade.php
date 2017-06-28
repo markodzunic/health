@@ -13,7 +13,7 @@
 					</div>
 				</div>
 		        <div align="right">
-		        	<button class="btn im-btn pink-btn">Update Information</button>
+		        	<button class="btn im-btn pink-btn" practices-id="{{ $practice->id }}" onclick="Practices.UpdateAdmin(this,[]);return false;">Update Information</button>
 		        </div>
 	        </div>
 	    </div>
