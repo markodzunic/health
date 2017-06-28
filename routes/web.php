@@ -43,6 +43,9 @@ Route::post('/practices', 'Admin\PracticeController@index');
 Route::get('/practices/updatePractice', 'Admin\PracticeController@updatePractice');
 Route::post('/practices/updatePractice', 'Admin\PracticeController@updatePractice');
 
+Route::get('/practice_account/updateAdmin', 'Admin\PracticeAccountController@updateAdmin');
+Route::post('/practice_account/updateAdmin', 'Admin\PracticeAccountController@updateAdmin');
+
 Route::get('/practices/deletePractice', 'Admin\PracticeController@deletePractice');
 Route::post('/practices/deletePractice', 'Admin\PracticeController@deletePractice');
 
