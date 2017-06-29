@@ -35,6 +35,8 @@ Route::get('/plan_professional', 'Admin\AddSubscriptionController@plan_professio
 Route::get('/assignPractice', 'Admin\AddSubscriptionController@assignPractice');
 Route::post('/practice_account', 'Admin\PracticeAccountController@index');
 
+Route::post('/getUserInfo', 'Admin\UserController@getUserInfo');
+
 Route::get('/practice_account', 'Admin\PracticeAccountController@index');
 
 Route::get('/practices', 'Admin\PracticeController@index');
@@ -64,7 +66,7 @@ Route::post('/users/updateUser', 'Admin\UserController@updateUser');
 Route::get('/deleteUser', 'Admin\UserAccountController@deleteUser');
 Route::post('/deleteUser', 'Admin\UserAccountController@deleteUser');
 
-Route::post('/updatePassword', 'Admin\UserAccountController@updatePassword');
+Route::get('/updatePassword', 'Admin\UserAccountController@updatePassword');
 Route::post('/updatePassword', 'Admin\UserAccountController@updatePassword');
 
 Route::post('/user_account', 'Admin\UserAccountController@index');

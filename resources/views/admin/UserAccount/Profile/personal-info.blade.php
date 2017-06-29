@@ -35,7 +35,7 @@
 		line-height: 40px;
 		padding: 0 15px;
 		text-transform: uppercase;
-	}	
+	}
 	.box-controles ul li {
 		display: inline-block;
 	}
@@ -88,24 +88,24 @@
 							<i class="fa fa-edit" aria-hidden="true"></i>
 							<div class="im-btn-info">Edit Info</div>
 						</div></li>
-						<li><div class="btn im-btn pink-btn" data-toggle="modal" data-target="#UpdatePasswordModal">
+						<li><div class="btn im-btn pink-btn" onclick="Profile.UpdatePassword(this);return false;">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 							<div class="im-btn-info">Update Password</div>
 						</div></li>
 						<li><div class="btn im-btn pink-btn" onclick="Profile.DeleteDialog([]);return false;">
 							<i class="fa fa-trash" aria-hidden="true"></i>
 							<div class="im-btn-info">Delete Account</div>
-						</div></li>								
+						</div></li>
 					</ul>
 				</div>
 			</div>
 			<div class="personal-image">
 		        <img src="{{ asset('/img/'.Auth::user()->avatar) }}" alt="">
 		    </div>
-			<div class="prfile-info"> 
+			<div class="prfile-info">
 				<h4>
-					<span>{{ $user->title }}</span> 
-					<span>{{ $user->first_name }}</span> 
+					<span>{{ $user->title }}</span>
+					<span>{{ $user->first_name }}</span>
 					<span>{{ $user->last_name }}</span>
 				</h4>
 				<p><strong>Date of Birth: </strong>{{ $user->date_of_birth }}</p>

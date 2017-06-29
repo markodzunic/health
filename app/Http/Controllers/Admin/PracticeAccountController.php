@@ -7,8 +7,16 @@ use Auth;
 use App\User;
 use App\Models\Practice;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 
 class PracticeAccountController extends Controller {
+
+	protected $messageBag;
+
+	public function __construct(MessageBag $messageBag) {
+				$this->middleware('admin');
+				$this->messageBag = $messageBag;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -48,16 +56,16 @@ class PracticeAccountController extends Controller {
 		if (!$request->isMethod('post')) {
 			$data = $request->all();
 
-			$practice_id = isset($data['id']) ? $data['id'] : 0;
+			// $practice_id = isset($data['id']) ? $data['id'] : 0;
 			// $users = User::with('role')->where('role_id', '!=', 1)->where('authorized_user', '=', $practice_id)->get();
 
-			$errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
-
-			if ($errors) {
-				foreach ($errors as $key => $value) {
-					$this->messageBag->add($key, $value);
-				}
-			}
+			// $errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
+			//
+			// if ($errors) {
+			// 	foreach ($errors as $key => $value) {
+			// 		$this->messageBag->add($key, $value);
+			// 	}
+			// }
 
 			return view("admin.PracticeAccount.Profile.updateAdmin",[
 					'data' => $data,
