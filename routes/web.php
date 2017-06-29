@@ -28,6 +28,7 @@ Route::resource('add_subscription', 'Admin\AddSubscriptionController');
 // Route::resource('plan_basic', 'Admin\PlanBasicController');
 // Route::resource('plan_business', 'Admin\PlanBusinessController');
 // Route::resource('plan_professional', 'Admin\PlanProfessionalController');
+Route::resource('admin_blog', 'Admin\BlogController');
 
 Route::get('/plan_business', 'Admin\AddSubscriptionController@plan_business');
 Route::get('/plan_basic', 'Admin\AddSubscriptionController@plan_basic');

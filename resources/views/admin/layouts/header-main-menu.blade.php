@@ -29,7 +29,10 @@
     <a href="{{ URL::to('/my_knowledge_box') }}"><i class="fa fa-fw fa-gear"></i> My Knowledge Box</a>
 </li>
 <li>
-    <a href="{{ URL::to('/report_problem') }}"><i class="fa fa-fw fa-gear"></i> Report a Problem</a>
+    <a href="{{ URL::to('/admin_blog') }}"><i class="fa fa-fw fa-commenting"></i> Blog</a>
+</li>
+<li>
+    <a href="{{ URL::to('/report_problem') }}"><i class="fa fa-fw fa-exclamation-circle"></i> Report a Problem</a>
 </li>
 <li class="divider"></li>
 <li>
