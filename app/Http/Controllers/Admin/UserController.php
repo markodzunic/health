@@ -83,7 +83,16 @@ class UserController extends Controller {
       ])->withErrors($errors);
     } else {
       $data = $request->all();
+
+      $practice = Practice::where('user_id', '=', $data['id'])->get();
+      if ($practice) {
+          foreach ($practice as $key => $value) {
+              $value->user_id = NULL;
+              $value->save();
+          }
+      }
       $user = User::find($data['id']);
+
       $user->delete();
       $request->session()->flash('alert-success', 'User deleted.');
     }
@@ -117,7 +126,7 @@ class UserController extends Controller {
 				'title' => 'required',
 				'first_name' => 'required|string',
 				'last_name' => 'required|string',
-				'avatar' => 'required|mimes:jpeg,bmp,png,gif',
+				'avatar' => 'mimes:jpeg,bmp,png,gif',
 				'date_of_birth' => 'required',
 				'position_type' => 'required',
 				'gender' => 'required',
@@ -144,12 +153,17 @@ class UserController extends Controller {
         $request->session()->flash('alert-success-usr', 'User Updated.');
       }
 
-			Image::make($request->file('avatar'))->resize(200, 200)->save(public_path('img/avatars').'/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName());
+      if ($request->file('avatar')) {
+			   Image::make($request->file('avatar'))->resize(200, 200)->save(public_path('img/avatars').'/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName());
+         $path = 'avatars/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName();
+      } else {
+        $path = 'avatars/avatar.png';
+      }
 
 			$user->title = $data['title'];
 			$user->first_name = $data['first_name'];
 			$user->last_name = $data['last_name'];
-			$user->avatar = 'avatars/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName();
+			$user->avatar = $path;
 			$user->date_of_birth = $data['date_of_birth'];
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];
@@ -162,7 +176,7 @@ class UserController extends Controller {
 
       $request->session()->flash('alert-success', 'User Updated.');
 
-      if ($request->ajax() && isset($data['practice_id'])) {
+      if ($request->ajax() && isset($data['practice_id']) && $data['practice_id']) {
 
         $limit = 6 - User::where('authorised_user', '=', $data['practice_id'])->count();
 
@@ -172,6 +186,14 @@ class UserController extends Controller {
         ])->render();
       }
     }
+  }
+
+  public function getUserInfo() {
+      $user = Auth::user();
+
+      return view('admin.layouts.sidebar-user',[
+        'user' => $user
+      ]);
   }
 	/**
 	 * Show the form for creating a new resource.

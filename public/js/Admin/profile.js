@@ -24,7 +24,7 @@ var Profile = {
               buttons: {
                 Yes: {
                   text: 'Yes',
-                  class: 'btn btn-custom update-btn',
+                  class: 'btn im-btn lblue-btn update-btn',
                   click: function() {
                     var form = $('#deleteUser').find('form');
                     var data = form.serialize();
@@ -49,7 +49,7 @@ var Profile = {
                 // closes dialog and cancels action
                 No: {
                     text: 'No',
-                    class: 'btn btn-custom cancel-btn',
+                    class: 'btn im-btn lblue-btn cancel-btn',
                     click: function() {
                         $(this).dialog( "close" );
                     }
@@ -85,7 +85,7 @@ var Profile = {
               buttons: {
                 Update: {
                   text: 'Update',
-                  class: 'btn btn-custom update-btn',
+                  class: 'btn im-btn lblue-btn update-btn',
                   click: function() {
                     var form = $('#editUserInfo').find('form');
 
@@ -102,6 +102,7 @@ var Profile = {
                           // refresh grid
                           $('#editUserInfo').dialog('close');
                           Profile.RefreshInfo();
+                          Profile.RefreshSidebar();
                         },
                         error: function(xhr,status, response) {
                           $('#editUserInfo').remove();
@@ -113,7 +114,7 @@ var Profile = {
                 // closes dialog and cancels action
                 Cancel: {
                     text: 'Cancel',
-                    class: 'btn btn-custom cancel-btn',
+                    class: 'btn im-btn lblue-btn cancel-btn',
                     click: function() {
                         $(this).dialog( "close" );
                     }
@@ -121,7 +122,7 @@ var Profile = {
               },
               // on initialization open add config
               open: function() {
-
+                  $('#date_of_birth').datetimepicker({ format: 'MM/DD/YYYY' });
               },
               close: function() {
                   $(this).dialog( "close" );
@@ -130,6 +131,23 @@ var Profile = {
             });
         }
      });
+  },
+
+  RefreshSidebar: function() {
+    var token = $('meta[name="csrf-token"]').attr('content');
+
+    $.ajax({
+        type: "POST",
+        headers: { 'X-XSRF-TOKEN' : token },
+        url: '/getUserInfo',
+        dataType: 'html',
+        data: {
+          _token: token,
+        },
+        success: function(result) {
+            $('#info-inside').html(result);
+        }
+      });
   },
 
   RefreshInfo: function() {
@@ -149,5 +167,74 @@ var Profile = {
           $('#personal-info').html(result);
         }
     });
+  },
+
+  UpdatePassword: function(el, err) {
+    var token = $('meta[name="csrf-token"]').attr('content');
+    $('#editPassword').hide();
+
+    $.ajax({
+        type: "GET",
+        headers: { 'X-XSRF-TOKEN' : token },
+        url: '/updatePassword',
+        dataType: 'html',
+        data: {
+          error: err,
+          _token: token,
+        },
+        success: function(result) {
+          $('body').append(result);
+          $('#editPassword').dialog({
+              width: 700,
+              modal: true,
+              buttons: {
+                Update: {
+                  text: 'Update',
+                  class: 'btn btn-custom update-btn',
+                  click: function() {
+                    var form = $('#editPassword').find('form');
+
+                    $.ajax({
+                        type: "POST",
+                        // async: true,
+                        headers: { 'X-XSRF-TOKEN' : token },
+                        url: '/updatePassword',
+                        data: new FormData(form[0]),
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success:function(result){
+                          // refresh grid
+                          $('#editPassword').dialog('close');
+
+                          if (result) {
+                            console.log(result);
+                            $('#editPassword').remove();
+                            Profile.UpdatePassword([], result);
+                          }
+                        },
+                        error: function(xhr,status, response) {
+                          $('#editPassword').remove();
+                          Profile.UpdatePassword([], xhr.responseText);
+                        }
+                    });
+                  }
+                },
+                // closes dialog and cancels action
+                Cancel: {
+                    text: 'Cancel',
+                    class: 'btn btn-custom cancel-btn',
+                    click: function() {
+                        $(this).dialog( "close" );
+                    }
+                }
+              },
+              close: function() {
+                  $(this).dialog( "close" );
+                  $('#editPassword').remove();
+              }
+            });
+        }
+     });
   }
 }

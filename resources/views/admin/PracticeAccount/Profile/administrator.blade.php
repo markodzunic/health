@@ -1,21 +1,24 @@
 <div class="small-padding no-padding-top">
-	<div class="row">
-	    <div class="col-md-12">
-	        <h4><strong>Practice Administrator</strong></h4>
-	        <br />
-	        <div class="form-box">
-	        	<div class="user-box bg-white" align="center">
-					<div class="image-wrapper">
-						<img src="http://placehold.it/300x300" style="max-width: 250px;">
+	<div class="container">
+		<div class="form-box editable-info bg-lblue">
+			<div class="row">
+			    <div class="col-md-12">
+
+			    	<div class="box-header">
+						<div class="box-title bg-pink white-text">
+							<h3>Practice Administrator</h3>
+						</div>
 					</div>
-					<div class="user-info im-blue">
-						<div class="user-name">Name Surname</div>
-					</div>
-				</div>
-		        <div align="right">
-		        	<button class="btn im-btn pink-btn">Update Information</button>
-		        </div>
-	        </div>
-	    </div>
+
+					<div class="image-wrapper bg-white pull-left" style="margin: 30px auto" align="center">
+				        <a href="#">
+				        	<img src="{{ asset('/img/'.Auth::user()->avatar) }}" alt="">
+					        <br>
+					        <p class="im-lblue">Name Surname</p>
+				        </a>
+				    </div>
+			    </div>
+			</div>
+		</div>
 	</div>
 </div>

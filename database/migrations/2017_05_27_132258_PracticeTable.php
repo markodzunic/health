@@ -16,7 +16,7 @@ class PracticeTable extends Migration
         // Create table for storing permissions
         Schema::create('practices', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->string('name')->unique();
             $table->string('description');
             $table->string('address');

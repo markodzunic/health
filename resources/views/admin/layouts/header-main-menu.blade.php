@@ -1,11 +1,10 @@
 <li class="active">
-    <a href="/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+    <a href="{{ URL::to('/dashboard') }}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
 </li>
-<li>
-    <h5 class="white-text">{{ Auth::user()->first_name .' '. Auth::user()->last_name }}</h5>
-    <div id="profile-image">
-        <img src="{{ asset('/img/'.Auth::user()->avatar) }}" alt="">
-    </div>
+<li id="user-info-side">
+  {!! view('admin.layouts.sidebar-user', [
+      'user' => Auth::user(),
+  ]) !!}
 </li>
 <li>
     <a href="javascript:;" data-toggle="collapse" data-target="#UserAccount"><i class="fa fa-fw fa-user"></i> My Account <i class="fa fa-fw fa-caret-down"></i></a>
@@ -30,9 +29,16 @@
     <a href="{{ URL::to('/my_knowledge_box') }}"><i class="fa fa-fw fa-gear"></i> My Knowledge Box</a>
 </li>
 <li>
-    <a href="{{ URL::to('/report_problem') }}"><i class="fa fa-fw fa-gear"></i> Report a Problem</a>
+    <a href="{{ URL::to('/admin_blog') }}"><i class="fa fa-fw fa-commenting"></i> Blog</a>
+</li>
+<li>
+    <a href="{{ URL::to('/report_problem') }}"><i class="fa fa-fw fa-exclamation-circle"></i> Report a Problem</a>
 </li>
 <li class="divider"></li>
 <li>
     <a href="{{ route('logout') }}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
 </li>
+<div style="padding: 50px 15px 15px 15px;float: left;" align="center">
+    <h3 class="im-pink">iMedical</h3>
+    <p class="white-text">© 2017 iMedical / Legal</p>
+</div>

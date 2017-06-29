@@ -187,6 +187,9 @@ a:focus {
 .bg-blue {
   background-color: rgba(0,32,96,1);
 }
+.bg-white {
+  background-color: rgba(255,255,255,1);
+}
 .im-btn {
   text-align: center;
   font-family: "Fredoka One", sans-serif;
@@ -299,7 +302,7 @@ ul.im-list ul li:before{
     min-height: 90vh;
 }
 #page-wrapper .content-wrapper {  
-    max-width: 1140px;
+    /*max-width: 1140px;*/
 }
 /*SIDE NAV*/
 .side-nav>li>a {
@@ -335,7 +338,7 @@ label span {
   font-weight: 400;
 }
 .form-box {
-  max-width: 600px;
+  /*max-width: 600px;*/
   padding: 30px;
   border: 2px solid #00b0f0;
   box-shadow: 2px 2px 5px #00b0f0;
@@ -655,4 +658,104 @@ input[type=radio ]:not(old) + label.im-label-sm {
 }
 .badge-cont img {
   max-width: 100%;
+}
+
+/*POPUP FORMS*/
+.ui-widget-header {
+  background-color: #ff66ff;
+  color:#fff;
+}
+.ui-dialog-titlebar-close:before {
+    content: '\f00d';
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: rgba(0,176,240,1);
+    font-size: 18px;
+    padding-right: 0px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 16px;
+    text-align: center;
+}
+.ui-widget-content .form-group {
+  width: 100%;
+  float: left;
+  margin-bottom: 5px;
+}
+.form-group img {
+  max-width: 100%;
+}
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    background-color: rgba(0,176,240,1);
+    color: #fff;
+    text-align: center;
+    font-family: "Fredoka One", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: 2px solid rgba(0,176,240,1);
+    border-radius: 0;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 100%;
+    cursor: pointer;
+}
+.no-js .inputfile + label {
+    display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+}
+
+.inputfile-2 + label {
+    color: #fff;
+    border: 2px solid rgba(0,176,240,1);
+}
+
+.inputfile-2:focus + label,
+.inputfile-2.has-focus + label,
+.inputfile-2 + label:hover {
+    color: #fff;    
+    background-color: rgba(0,176,240,0.8);
+}
+
+.input-group-addon {
+    height: 45px;
+    font-size: 16px;
+    line-height: 41px;
+    padding: 0 15px;
+    border: 2px solid #00b0f0;
+    background: #00b0f0;
+    outline: 0 !important;
+    border-radius: 0;
+    color: #fff;
+}
+.ui-dialog {
+  z-index: 999999;
 }

@@ -10,7 +10,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/AdminPart">iMedical</a>
+        <a class="navbar-brand" href="{{ URL::to('/dashboard') }}">
+            <div id="PracticeLogo" class="bg-blue">
+                <div class="practice-logo-container">
+                    <img src="http://via.placeholder.com/195x80" alt="">
+                </div>
+            </div>
+        </a>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">

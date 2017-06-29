@@ -1,8 +1,38 @@
+<style type="text/css">
+	.table > thead  {
+		cursor:pointer;
+	}
+	.pagination>li:first-child>a, .pagination>li:first-child>span {
+	    margin-left: 0;
+	    border-top-left-radius: 0;
+	    border-bottom-left-radius: 0;
+	}
+	.pagination>li:last-child>a, .pagination>li:last-child>span {
+	    border-top-right-radius: 0;
+	    border-bottom-right-radius: 0;
+	}
+	.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+	    color: #fff;
+	    background-color: #ff66ff;
+	    border-color: #ff66ff;
+	}
+	.pagination>li>a, .pagination>li>span {
+	    color: #ff66ff;
+	    background-color: #fff;
+	    border: 1px solid #ddd;
+	}
+	.pagination-total {
+		background: #00b0f0 ;
+	    color: #fff;
+	    padding: 8px 16px;
+	    float: right;
+	}
+</style>
 @if(Session::has('alert-success'))
     <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alert-success') !!}</em></div>
 @endif
-<table id="practices" class="table table-striped tablesorter" >
-	<thead>
+<table id="practices" class="table table-bordered tablesorter" >
+	<thead  class="bg-pink white-text">
 		<tr class="table-head">
 		   	@foreach ($columns as $c => $col)
 					<th id="{{ $c }}" order-by="" class="row" onclick="Users.sort(this);return false;">

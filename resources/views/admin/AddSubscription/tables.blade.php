@@ -1,4 +1,5 @@
-<section class="im-center small-padding">
+<section class="im-center small-padding ">
+<div class="container">
   <div class="row">
     <div class="col-md-4">
       <div class="pricing-table im-blue">
@@ -68,4 +69,5 @@
 
     </div><!--/col-->   
   </div><!--/row-->
+</div>
 </section><!--/container-->

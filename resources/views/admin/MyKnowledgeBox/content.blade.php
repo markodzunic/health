@@ -56,7 +56,7 @@
 	}
 
 </style>
-<div id="knoledge-grid">
+<div id="knoledge-grid" class="container">
 <div class="row">
 	<div id="main-grid-col" class="col-md-8">
 		<div>
