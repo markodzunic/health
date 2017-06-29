@@ -118,7 +118,7 @@ var Users = {
               buttons: {
                 Yes: {
                   text: 'Yes',
-                  class: 'btn btn-custom update-btn',
+                  class: 'btn im-btn lblue-btn update-btn',
                   click: function() {
                     var form = $('#deleteUser').find('form');
                     var data = form.serialize();
@@ -144,7 +144,7 @@ var Users = {
                 // closes dialog and cancels action
                 No: {
                     text: 'No',
-                    class: 'btn btn-custom cancel-btn',
+                    class: 'btn im-btn lblue-btn cancel-btn',
                     click: function() {
                         $(this).dialog( "close" );
                     }
@@ -180,13 +180,14 @@ var Users = {
         },
         success: function(result) {
           $('body').append(result);
+
           $('#updateUser').dialog({
               width: 700,
               modal: true,
               buttons: {
                 Save: {
                   text: 'Save',
-                  class: 'btn btn-custom update-btn',
+                  class: 'btn im-btn lblue-btn update-btn',
                   click: function() {
                     var form = $('#updateUser').find('form');
 
@@ -206,7 +207,12 @@ var Users = {
                             Users.RefreshUsers(el, sort, order);
                           else {
                             $('#add-user').html(result);
+                            if ($('#practice-stuff').length > 0) {
+                                Users.RefreshPracticeStuff();
+                            }
                           }
+
+                          Users.RefreshSidebar();
                         },
                         error: function(xhr,status, response) {
                           $('#updateUser').remove();
@@ -218,14 +224,14 @@ var Users = {
                 // closes dialog and cancels action
                 Cancel: {
                     text: 'Cancel',
-                    class: 'btn btn-custom cancel-btn',
+                    class: 'btn im-btn lblue-btn cancel-btn',
                     click: function() {
                         $(this).dialog( "close" );
                     }
                 }
               },
               open: function() {
-                  $('input[name="date_of_birth"]').datetimepicker();
+                  $('#date_of_birth').datetimepicker({ format: 'MM/DD/YYYY' });
               },
               close: function() {
                   $(this).dialog( "close" );
@@ -234,5 +240,39 @@ var Users = {
             });
         }
      });
+  },
+
+  RefreshPracticeStuff: function() {
+    var token = $('meta[name="csrf-token"]').attr('content');
+
+    $.ajax({
+        type: "POST",
+        headers: { 'X-XSRF-TOKEN' : token },
+        url: '/practiceStuff',
+        dataType: 'html',
+        data: {
+          _token: token,
+        },
+        success: function(result) {
+            $('#practice-stuff').html(result);
+        }
+      });
+  },
+
+  RefreshSidebar: function() {
+    var token = $('meta[name="csrf-token"]').attr('content');
+
+    $.ajax({
+        type: "POST",
+        headers: { 'X-XSRF-TOKEN' : token },
+        url: '/getUserInfo',
+        dataType: 'html',
+        data: {
+          _token: token,
+        },
+        success: function(result) {
+            $('#info-inside').html(result);
+        }
+      });
   }
 }

@@ -28,12 +28,15 @@ Route::resource('add_subscription', 'Admin\AddSubscriptionController');
 // Route::resource('plan_basic', 'Admin\PlanBasicController');
 // Route::resource('plan_business', 'Admin\PlanBusinessController');
 // Route::resource('plan_professional', 'Admin\PlanProfessionalController');
+Route::resource('admin_blog', 'Admin\BlogController');
 
 Route::get('/plan_business', 'Admin\AddSubscriptionController@plan_business');
 Route::get('/plan_basic', 'Admin\AddSubscriptionController@plan_basic');
 Route::get('/plan_professional', 'Admin\AddSubscriptionController@plan_professional');
 Route::get('/assignPractice', 'Admin\AddSubscriptionController@assignPractice');
 Route::post('/practice_account', 'Admin\PracticeAccountController@index');
+
+Route::post('/getUserInfo', 'Admin\UserController@getUserInfo');
 
 Route::get('/practice_account', 'Admin\PracticeAccountController@index');
 
@@ -43,8 +46,13 @@ Route::post('/practices', 'Admin\PracticeController@index');
 Route::get('/practices/updatePractice', 'Admin\PracticeController@updatePractice');
 Route::post('/practices/updatePractice', 'Admin\PracticeController@updatePractice');
 
+Route::get('/updateAdmin', 'Admin\PracticeAccountController@updateAdmin');
+// Route::post('/updateAdmin', 'Admin\PracticeAccountController@updateAdmin');
+
 Route::get('/practices/deletePractice', 'Admin\PracticeController@deletePractice');
 Route::post('/practices/deletePractice', 'Admin\PracticeController@deletePractice');
+
+Route::post('/practiceStuff', 'Admin\PracticeAccountController@practiceStuff');
 
 Route::get('/updateUser', 'Admin\UserAccountController@updateUser');
 Route::post('/updateUser', 'Admin\UserAccountController@updateUser');
@@ -61,7 +69,7 @@ Route::post('/users/updateUser', 'Admin\UserController@updateUser');
 Route::get('/deleteUser', 'Admin\UserAccountController@deleteUser');
 Route::post('/deleteUser', 'Admin\UserAccountController@deleteUser');
 
-Route::post('/updatePassword', 'Admin\UserAccountController@updatePassword');
+Route::get('/updatePassword', 'Admin\UserAccountController@updatePassword');
 Route::post('/updatePassword', 'Admin\UserAccountController@updatePassword');
 
 Route::post('/user_account', 'Admin\UserAccountController@index');

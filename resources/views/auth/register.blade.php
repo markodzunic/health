@@ -1,6 +1,6 @@
 @extends('admin.layouts.login-default')
 
-@section('MainContent')                
+@section('MainContent')
 <div class="form-box" style="margin:auto;">
     <div class="row">
         <div class="col-md-12">
@@ -183,7 +183,7 @@
 @section('AditionalFoot')
     <script type="text/javascript">
         $(function() {
-            $('#date_of_birth').datetimepicker();
+            $('#date_of_birth').datetimepicker({ format: 'MM/DD/YYYY' });
         });
     </script>
 @stop

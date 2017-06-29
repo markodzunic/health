@@ -7,8 +7,16 @@ use Auth;
 use App\User;
 use App\Models\Practice;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 
 class PracticeAccountController extends Controller {
+
+	protected $messageBag;
+
+	public function __construct(MessageBag $messageBag) {
+				$this->middleware('admin');
+				$this->messageBag = $messageBag;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -20,7 +28,7 @@ class PracticeAccountController extends Controller {
 		$user = Auth::user();
 		$limit = 0;
 		$practice_users = [];
-		
+
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 		if ($practice) {
 			$limit = 6 - User::where('authorised_user', '=', $practice->id)->count();
@@ -41,6 +49,56 @@ class PracticeAccountController extends Controller {
 				 'practice_users' => $practice_users,
 				 'limit' => $limit,
 			]);
+		}
+	}
+
+	public function practiceStuff() {
+		$user = Auth::user();
+		$limit = 0;
+		$practice_users = [];
+
+		$practice = Practice::where('user_id', '=', $user->id)->first();
+		if ($practice) {
+			$limit = 6 - User::where('authorised_user', '=', $practice->id)->count();
+			$practice_users = User::with('role')->where('authorised_user', '=', $practice->id)->get();
+		}
+
+		return view("admin.PracticeAccount.Profile.practice-staff", [
+			 'user' => $user,
+			 'practice' => $practice,
+			 'practice_users' => $practice_users,
+			 'limit' => $limit,
+		]);
+	}
+
+	public function updateAdmin(Request $request) {
+
+		if (!$request->isMethod('post')) {
+			$data = $request->all();
+
+			$practice_id = isset($data['id']) ? $data['id'] : 0;
+			$users = User::with('role')->where('role_id', '!=', 5)->where('role_id', '!=', 1)->where('authorised_user', '=', $practice_id)->get();
+
+			$errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
+
+			if ($errors) {
+				foreach ($errors as $key => $value) {
+					$this->messageBag->add($key, $value);
+				}
+			}
+
+			return view("admin.PracticeAccount.Profile.updateAdmin",[
+					'data' => $data,
+					'users' => $users,
+			])->withErrors($errors);
+		} else {
+			$data = $request->all();
+
+			$user = User::find($data['user_id']);
+			$user->role_id = 5;
+			$user->save();
+
+			$request->session()->flash('alert-success', 'Admin Set Successfully.');
 		}
 	}
 
