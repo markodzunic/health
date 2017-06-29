@@ -35,7 +35,7 @@
 		line-height: 40px;
 		padding: 0 15px;
 		text-transform: uppercase;
-	}	
+	}
 	.box-controles ul li {
 		display: inline-block;
 	}
@@ -88,7 +88,7 @@
 							<i class="fa fa-edit" aria-hidden="true"></i>
 							<div class="im-btn-info">Edit Info</div>
 						</div></li>
-						<li><div class="btn im-btn pink-btn"  practices-id="{{ $practice->id }}" onclick="Practices.UpdateAdmin(this,[]);return false;">
+						<li><div class="btn im-btn pink-btn"  practices-id="{{ $practice->id }}" onclick="Users.UpdateAdmin(this);return false;">
 							<i class="fa fa-cog" aria-hidden="true"></i>
 							<div class="im-btn-info">Administrator Settings</div>
 						</div></li>
@@ -99,14 +99,14 @@
 						<li><div class="btn im-btn pink-btn"  practices-id="{{ $practice->id }}" onclick="Practices.Delete(this);return false;">
 							<i class="fa fa-trash" aria-hidden="true"></i>
 							<div class="im-btn-info">Delete Account</div>
-						</div></li>								
+						</div></li>
 					</ul>
 				</div>
 			</div>
 			<div class="personal-image">
 		        <img src="{{ asset('/img/'.Auth::user()->avatar) }}" alt="">
 		    </div>
-			<div class="prfile-info"> 
+			<div class="prfile-info">
 				<h4>
 					<span>{{ $practice->name?:'N/A' }}</span>
 				</h4>

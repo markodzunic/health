@@ -9,9 +9,7 @@
 	{!! view('admin.UserAccount.Profile.personal-info', [
 				'user' => $user,
 				'role' => $role,
-		]) !!}
-
-	@include('admin.UserAccount.Profile.password')
+	]) !!}
 @stop
 
 

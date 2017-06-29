@@ -5,6 +5,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
+use Validator;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
@@ -44,37 +45,53 @@ class UserAccountController extends Controller {
 	}
 
 	public function updatePassword(Request $request) {
-			$data = $request->all();
+			if (!$request->isMethod('post')) {
+				$data = $request->all();
+				$errors = isset($data['error']) ? $data['error'] : $this->messageBag;
 
-			$user = User::find(Auth::user()->id);
-			$role = Role::find($user->role_id);
+				if ($errors) {
+					foreach ($errors as $key => $value) {
+						$this->messageBag->add($key, $value);
+					}
+				}
 
-			$old_pass = Hash::check($data['old_password'], Auth::user()->password);
+				return view("admin.UserAccount.Profile.password",[
+						'user' => Auth::user(),
+				])->withErrors($errors);
+			} else {
+					$data = $request->all();
 
-			if (!$old_pass) {
-					$this->messageBag->add('old_password', 'Old password is not correct.');
+					$user = User::find(Auth::user()->id);
 
-					return view('admin.UserAccount.Profile.index', [
-						'errors' => $this->messageBag,
-						'user' => $user,
-						'role' => $role
-					]);
-			}
+					$old_pass = Hash::check($data['old_password'], Auth::user()->password);
 
-			$this->validate($request, [
-				'password' => 'required|string|min:6|confirmed',
-		  ]);
+					if ($old_pass == false) {
+						$this->messageBag->add('old_password', 'Old password is not correct.');
+						return $this->messageBag;
+					}
 
-			$user->password = bcrypt($data['password']);
-			$user->save();
+					$ValMessages = array(
+			        'password.required'     => 'The field Password is required',
+							'old_password.required'     => 'The field Password is required',
+			    );
 
-			$request->session()->flash('alert-success', 'Password successfuly changed!');
+					$rules = [
+						'password' => 'required|string|min:6|confirmed',
+						'old_password' => 'required'
+				  ];
 
-			return view('admin.UserAccount.Profile.index', [
-				'errors' => $this->messageBag,
-				'user' => $user,
-				'role' => $role
-			]);
+					$val = Validator::make($data, $rules, $ValMessages);
+
+					$user->password = bcrypt($data['password']);
+
+					if ($val->passes())
+						$user->save();
+					else {
+						return $val->errors();
+					}
+
+					$request->session()->flash('alert-success', 'Password successfuly changed!');
+				}
 	}
 
 	public function updateUser(Request $request)
@@ -102,7 +119,7 @@ class UserAccountController extends Controller {
 				'title' => 'required',
 				'first_name' => 'required|string',
 				'last_name' => 'required|string',
-				'avatar' => 'required|mimes:jpeg,bmp,png,gif',
+				'avatar' => 'mimes:jpeg,bmp,png,gif',
 				'date_of_birth' => 'required',
 				'position_type' => 'required',
 				'gender' => 'required',
@@ -112,13 +129,17 @@ class UserAccountController extends Controller {
 		  ]);
 
 			$user = User::find($data['id']);
-
-			Image::make($request->file('avatar'))->resize(200, 200)->save(public_path('img/avatars').'/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName());
+			if ($request->file('avatar')) {
+					Image::make($request->file('avatar'))->resize(200, 200)->save(public_path('img/avatars').'/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName());
+					$path = 'avatars/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName();
+			} else {
+					$path = 'avatars/avatar.png';
+			}
 
 			$user->title = $data['title'];
 			$user->first_name = $data['first_name'];
 			$user->last_name = $data['last_name'];
-			$user->avatar = 'avatars/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName();
+			$user->avatar = $path;
 			$user->date_of_birth = $data['date_of_birth'];
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];

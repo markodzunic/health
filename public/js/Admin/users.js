@@ -207,6 +207,8 @@ var Users = {
                           else {
                             $('#add-user').html(result);
                           }
+
+                          Users.RefreshSidebar();
                         },
                         error: function(xhr,status, response) {
                           $('#updateUser').remove();
@@ -234,5 +236,62 @@ var Users = {
             });
         }
      });
-  }
+  },
+
+  RefreshSidebar: function() {
+    var token = $('meta[name="csrf-token"]').attr('content');
+
+    $.ajax({
+        type: "POST",
+        headers: { 'X-XSRF-TOKEN' : token },
+        url: '/getUserInfo',
+        dataType: 'html',
+        data: {
+          _token: token,
+        },
+        success: function(result) {
+            $('#info-inside').html(result);
+        }
+      });
+  },
+
+  UpdateAdmin: function(el, err) {
+    var token = $('meta[name="csrf-token"]').attr('content');
+    $('#updateAdmin').hide();
+
+    var practice_id = $(el).attr('practices-id');
+
+    $.ajax({
+        type: "GET",
+        headers: { 'X-XSRF-TOKEN' : token },
+        url: '/practice_account/updateAdmin',
+        dataType: 'html',
+        data: {
+          error: err,
+          id: practice_id,
+          _token: token,
+        },
+        success: function(result) {
+          $('body').append(result);
+          $('#updateAdmin').dialog({
+              width: 700,
+              modal: true,
+              buttons: {
+                // closes dialog and cancels action
+                No: {
+                    text: 'Cancel',
+                    class: 'btn btn-custom cancel-btn',
+                    click: function() {
+                        $(this).dialog( "close" );
+                    }
+                }
+              },
+              close: function() {
+                  $(this).dialog( "close" );
+                  $('#updateAdmin').remove();
+              }
+            });
+        }
+     });
+  },
 }
