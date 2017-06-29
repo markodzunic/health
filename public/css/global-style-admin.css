@@ -685,7 +685,9 @@ input[type=radio ]:not(old) + label.im-label-sm {
   float: left;
   margin-bottom: 5px;
 }
-
+.form-group img {
+  max-width: 100%;
+}
 .inputfile {
     width: 0.1px;
     height: 0.1px;
@@ -753,4 +755,7 @@ input[type=radio ]:not(old) + label.im-label-sm {
     outline: 0 !important;
     border-radius: 0;
     color: #fff;
+}
+.ui-dialog {
+  z-index: 999999;
 }

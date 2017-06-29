@@ -72,6 +72,10 @@
 	    border-right: 5px solid transparent;
 	    border-bottom: 10px solid rgba(255,102,255,1);
 	}
+	.form-box .image-wrapper,
+	.form-box .image-wrapper img {
+		max-width: 200px;
+	}
 
 </style>
 <div id="practice-info" class="small-padding no-padding-top">
