@@ -94,6 +94,8 @@
 								<input id="avatar" type="file" class="form-control" name="avatar" value="{{ $user->avatar?:'' }}" required autofocus>
 								@if ($user->avatar)
 									{{ Html::image(asset('/img/'.$user->avatar)) }}
+								@else
+									{{ Html::image(asset('/img/avatar.jpg')) }}
 								@endif
 								{{ Form::label('email', $user->avatar?:'None') }}
 

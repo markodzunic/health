@@ -1,11 +1,10 @@
 <li class="active">
     <a href="/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
 </li>
-<li>
-    <h5 class="white-text">{{ Auth::user()->first_name .' '. Auth::user()->last_name }}</h5>
-    <div id="profile-image">
-        <img src="{{ asset('/img/'.Auth::user()->avatar) }}" alt="">
-    </div>
+<li id="user-info-side">
+  {!! view('admin.layouts.sidebar-user', [
+      'user' => Auth::user(),
+  ]) !!}
 </li>
 <li>
     <a href="javascript:;" data-toggle="collapse" data-target="#UserAccount"><i class="fa fa-fw fa-user"></i> My Account <i class="fa fa-fw fa-caret-down"></i></a>
