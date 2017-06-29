@@ -1,11 +1,12 @@
 <section class="im-center small-padding">
+<div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="pricing-table im-pink pricing-single">
 
         <div class="pricing-table-header im-center">
           <p><strong>Lorem ipsum dolor sit amet</strong></p>
-          <h2>BASIC PLAN</h2>
+          <h2>PREMIUM PLAN</h2>
         </div>
 
         <div class="pricing-table-body im-center">
@@ -35,4 +36,5 @@
 
     </div><!--/col-->
   </div><!--/row-->
+</div>
 </section><!--/container-->

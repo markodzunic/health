@@ -1,5 +1,5 @@
 <li class="active">
-    <a href="/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+    <a href="{{ URL::to('/dashboard') }}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
 </li>
 <li>
     <h5 class="white-text">{{ Auth::user()->first_name .' '. Auth::user()->last_name }}</h5>
@@ -36,3 +36,7 @@
 <li>
     <a href="{{ route('logout') }}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
 </li>
+<div style="padding: 50px 15px 15px 15px;float: left;" align="center">
+    <h3 class="im-pink">iMedical</h3>
+    <p class="white-text">© 2017 iMedical / Legal</p>
+</div>
