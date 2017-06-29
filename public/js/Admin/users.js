@@ -180,6 +180,7 @@ var Users = {
         },
         success: function(result) {
           $('body').append(result);
+
           $('#updateUser').dialog({
               width: 700,
               modal: true,
@@ -227,7 +228,7 @@ var Users = {
                 }
               },
               open: function() {
-                  $('input[name="date_of_birth"]').datetimepicker();
+                  $('#date_of_birth').datetimepicker();
               },
               close: function() {
                   $(this).dialog( "close" );
