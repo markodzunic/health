@@ -122,7 +122,7 @@ var Profile = {
               },
               // on initialization open add config
               open: function() {
-
+                  $('#date_of_birth').datetimepicker();
               },
               close: function() {
                   $(this).dialog( "close" );
