@@ -8,7 +8,13 @@
 	@if (!empty($practice))
 		@include('admin.PracticeAccount.Profile.practice-info')
 		@include('admin.PracticeAccount.Profile.administrator')
-		@include('admin.PracticeAccount.Profile.practice-staff')
+		<div id="practice-stuff">
+	    {!! view('admin.PracticeAccount.Profile.practice-staff', [
+	        'practice_users' => $practice_users,
+					'limit' => $limit,
+	        'practice' => $practice,
+	    ]) !!}
+	  </div>
 	@endif
 @stop
 

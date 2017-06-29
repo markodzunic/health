@@ -109,7 +109,7 @@ var Practices = {
 		}
 
 		Practices.RefreshPractices(el, sort, order);
-	},  
+	},
 
   Delete: function(el, err) {
     var token = $('meta[name="csrf-token"]').attr('content');
@@ -177,6 +177,46 @@ var Practices = {
               close: function() {
                   $(this).dialog( "close" );
                   $('#deletePractice').remove();
+              }
+            });
+        }
+     });
+  },
+
+  UpdateAdmin: function(el, err) {
+    var token = $('meta[name="csrf-token"]').attr('content');
+    $('#update-admin').hide();
+
+    var practice_id = $(el).attr('practices-id');
+
+    $.ajax({
+        type: "GET",
+        headers: { 'X-XSRF-TOKEN' : token },
+        url: '/updateAdmin',
+        dataType: 'html',
+        data: {
+          error: err,
+          _token: token,
+          id: practice_id,
+        },
+        success: function(result) {
+          $('body').append(result);
+          $('#update-admin').dialog({
+              width: 700,
+              modal: true,
+              buttons: {
+                // closes dialog and cancels action
+                Cancel: {
+                    text: 'Cancel',
+                    class: 'btn btn-custom cancel-btn',
+                    click: function() {
+                        $(this).dialog( "close" );
+                    }
+                }
+              },
+              close: function() {
+                  $(this).dialog( "close" );
+                  $('#update-admin').remove();
               }
             });
         }
