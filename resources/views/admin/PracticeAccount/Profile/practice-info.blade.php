@@ -88,7 +88,7 @@
 							<i class="fa fa-edit" aria-hidden="true"></i>
 							<div class="im-btn-info">Edit Info</div>
 						</div></li>
-						<li><div class="btn im-btn pink-btn"  practices-id="{{ $practice->id }}" onclick="Users.UpdateAdmin(this);return false;">
+						<li><div class="btn im-btn pink-btn"  practices-id="{{ $practice->id }}" onclick="Practices.UpdateAdmin(this);return false;">
 							<i class="fa fa-cog" aria-hidden="true"></i>
 							<div class="im-btn-info">Administrator Settings</div>
 						</div></li>
