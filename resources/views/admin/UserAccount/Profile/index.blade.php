@@ -12,7 +12,6 @@
 		]) !!}
 
 	@include('admin.UserAccount.Profile.password')
-	@include('admin.UserAccount.Profile.delete-account')
 @stop
 
 

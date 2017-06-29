@@ -187,6 +187,9 @@ a:focus {
 .bg-blue {
   background-color: rgba(0,32,96,1);
 }
+.bg-white {
+  background-color: rgba(255,255,255,1);
+}
 .im-btn {
   text-align: center;
   font-family: "Fredoka One", sans-serif;
@@ -299,7 +302,7 @@ ul.im-list ul li:before{
     min-height: 90vh;
 }
 #page-wrapper .content-wrapper {  
-    max-width: 1140px;
+    /*max-width: 1140px;*/
 }
 /*SIDE NAV*/
 .side-nav>li>a {
@@ -335,7 +338,7 @@ label span {
   font-weight: 400;
 }
 .form-box {
-  max-width: 600px;
+  /*max-width: 600px;*/
   padding: 30px;
   border: 2px solid #00b0f0;
   box-shadow: 2px 2px 5px #00b0f0;
