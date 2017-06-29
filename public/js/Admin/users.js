@@ -118,7 +118,7 @@ var Users = {
               buttons: {
                 Yes: {
                   text: 'Yes',
-                  class: 'btn btn-custom update-btn',
+                  class: 'btn im-btn lblue-btn update-btn',
                   click: function() {
                     var form = $('#deleteUser').find('form');
                     var data = form.serialize();
@@ -144,7 +144,7 @@ var Users = {
                 // closes dialog and cancels action
                 No: {
                     text: 'No',
-                    class: 'btn btn-custom cancel-btn',
+                    class: 'btn im-btn lblue-btn cancel-btn',
                     click: function() {
                         $(this).dialog( "close" );
                     }
@@ -186,7 +186,7 @@ var Users = {
               buttons: {
                 Save: {
                   text: 'Save',
-                  class: 'btn btn-custom update-btn',
+                  class: 'btn im-btn lblue-btn update-btn',
                   click: function() {
                     var form = $('#updateUser').find('form');
 
@@ -220,7 +220,7 @@ var Users = {
                 // closes dialog and cancels action
                 Cancel: {
                     text: 'Cancel',
-                    class: 'btn btn-custom cancel-btn',
+                    class: 'btn im-btn lblue-btn cancel-btn',
                     click: function() {
                         $(this).dialog( "close" );
                     }
