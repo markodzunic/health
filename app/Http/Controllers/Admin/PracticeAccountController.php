@@ -26,18 +26,22 @@ class PracticeAccountController extends Controller {
 	public function index(Request $request)
 	{
 		$user = Auth::user();
+
 		$limit = 0;
 		$practice_users = [];
 
 		$practice = Practice::where('user_id', '=', $user->id)->first();
+
 		if ($practice) {
-			$limit = 6 - User::where('authorised_user', '=', $practice->id)->count();
-			$practice_users = User::with('role')->where('authorised_user', '=', $practice->id)->get();
+			$admin_users = User::where('authorised_user', '=', $practice->id)->where('role_id', '!=', 1)->where('role_id', '=', 5)->get();
+			$limit = 6 - User::where('authorised_user', '=', $practice->id)->where('role_id', '!=', 1)->where('role_id', '!=', 5)->count();
+			$practice_users = User::with('role')->where('authorised_user', '=', $practice->id)->where('role_id', '!=', 5)->where('role_id', '!=', 1)->get();
 		}
 
 		if (!$request->ajax()) {
 				return view("admin.PracticeAccount.Profile.index", [
 		       'user' => $user,
+					 'admin_users' => $admin_users,
 					 'practice_users' => $practice_users,
 					 'practice' => $practice,
 					 'limit' => $limit,
@@ -46,6 +50,7 @@ class PracticeAccountController extends Controller {
 			return view("admin.PracticeAccount.Profile.practice-info", [
 				 'user' => $user,
 				 'practice' => $practice,
+				 'admin_users' => $admin_users,
 				 'practice_users' => $practice_users,
 				 'limit' => $limit,
 			]);
@@ -60,7 +65,7 @@ class PracticeAccountController extends Controller {
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 		if ($practice) {
 			$limit = 6 - User::where('authorised_user', '=', $practice->id)->count();
-			$practice_users = User::with('role')->where('authorised_user', '=', $practice->id)->get();
+			$practice_users = User::with('role')->where('authorised_user', '=', $practice->id)->where('role_id', '!=', 1)->where('role_id', '!=', 5)->get();
 		}
 
 		return view("admin.PracticeAccount.Profile.practice-staff", [
@@ -69,6 +74,30 @@ class PracticeAccountController extends Controller {
 			 'practice_users' => $practice_users,
 			 'limit' => $limit,
 		]);
+	}
+
+	public function practiceAdmin() {
+		$user = Auth::user();
+
+		$admin_users = [];
+
+		$practice = Practice::where('user_id', '=', $user->id)->first();
+		if ($practice) {
+			$admin_users = User::where('authorised_user', '=', $practice->id)->where('role_id', '!=', 1)->where('role_id', '=', 5)->get();
+		}
+
+		return view("admin.PracticeAccount.Profile.administrator", [
+			 'practice' => $practice,
+			 'admin_users' => $admin_users,
+		]);
+	}
+
+	public function selectAdmin(Request $request) {
+			$data = $request->all();
+
+			$user = User::find($data['id']);
+			$user->role_id = 5;
+			$user->save();
 	}
 
 	public function updateAdmin(Request $request) {

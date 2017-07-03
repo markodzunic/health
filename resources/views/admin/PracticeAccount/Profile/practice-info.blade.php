@@ -108,7 +108,7 @@
 				</div>
 			</div>
 			<div class="personal-image">
-		        <img src="{{ asset('/img/'.Auth::user()->avatar) }}" alt="">
+		        <img src="{{ asset('/img/'.$practice->avatar) }}" alt="">
 		    </div>
 			<div class="prfile-info">
 				<h4>

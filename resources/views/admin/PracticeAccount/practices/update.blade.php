@@ -18,6 +18,26 @@
             </div>
         </div>
 
+				<div class="form-group{{ $errors->has('avatar') ? ' has-error' : '' }}">
+						<label for="avatar" class="col-md-4 control-label">Avatar</label>
+
+						<div class="col-md-6">
+								<input id="avatar" type="file" class="form-control" name="avatar" value="{{ $practice->avatar?:'' }}" required autofocus>
+								@if ($practice->avatar)
+									{{ Html::image(asset('/img/'.$practice->avatar)) }}
+								@else
+									{{ Html::image(asset('/img/avatar.jpg')) }}
+								@endif
+								{{ Form::label('email', $practice->avatar?:'None') }}
+
+								@if ($errors->has('avatar'))
+										<span class="help-block">
+												<strong>{{ $errors->first('avatar') }}</strong>
+										</span>
+								@endif
+						</div>
+				</div>
+
         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
             <label for="description" class="col-md-4 control-label">Description</label>
 
