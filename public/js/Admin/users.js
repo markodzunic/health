@@ -260,6 +260,26 @@ var Users = {
       });
   },
 
+  SelectAdmin: function(el) {
+    var token = $('meta[name="csrf-token"]').attr('content');
+    var user_id = $(el).attr('users-id');
+    $.ajax({
+        type: "POST",
+        headers: { 'X-XSRF-TOKEN' : token },
+        url: '/selectAdmin',
+        dataType: 'html',
+        data: {
+          _token: token,
+          id: user_id,
+        },
+        success: function(result) {
+          Users.RefreshPracticeStuff();
+          Users.RefreshPracticeAdmin();
+          $('#update-admin').remove();
+        }
+      });
+  },
+
   RefreshPracticeAdmin: function() {
     var token = $('meta[name="csrf-token"]').attr('content');
 

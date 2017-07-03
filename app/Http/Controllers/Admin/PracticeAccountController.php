@@ -92,6 +92,14 @@ class PracticeAccountController extends Controller {
 		]);
 	}
 
+	public function selectAdmin(Request $request) {
+			$data = $request->all();
+
+			$user = User::find($data['id']);
+			$user->role_id = 5;
+			$user->save();
+	}
+
 	public function updateAdmin(Request $request) {
 
 		if (!$request->isMethod('post')) {
