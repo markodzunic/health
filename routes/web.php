@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'Auth\LoginController@index');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 # admin part routes
@@ -53,6 +53,7 @@ Route::get('/practices/deletePractice', 'Admin\PracticeController@deletePractice
 Route::post('/practices/deletePractice', 'Admin\PracticeController@deletePractice');
 
 Route::post('/practiceStuff', 'Admin\PracticeAccountController@practiceStuff');
+Route::post('/practiceAdmin', 'Admin\PracticeAccountController@practiceAdmin');
 
 Route::get('/updateUser', 'Admin\UserAccountController@updateUser');
 Route::post('/updateUser', 'Admin\UserAccountController@updateUser');

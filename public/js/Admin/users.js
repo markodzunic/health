@@ -209,6 +209,7 @@ var Users = {
                             $('#add-user').html(result);
                             if ($('#practice-stuff').length > 0) {
                                 Users.RefreshPracticeStuff();
+                                Users.RefreshPracticeAdmin();
                             }
                           }
 
@@ -255,6 +256,23 @@ var Users = {
         },
         success: function(result) {
             $('#practice-stuff').html(result);
+        }
+      });
+  },
+
+  RefreshPracticeAdmin: function() {
+    var token = $('meta[name="csrf-token"]').attr('content');
+
+    $.ajax({
+        type: "POST",
+        headers: { 'X-XSRF-TOKEN' : token },
+        url: '/practiceAdmin',
+        dataType: 'html',
+        data: {
+          _token: token,
+        },
+        success: function(result) {
+            $('#admin-staff').html(result);
         }
       });
   },
