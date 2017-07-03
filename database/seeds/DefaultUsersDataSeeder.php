@@ -163,6 +163,7 @@ class DefaultUsersDataSeeder extends Seeder
         				'description' => 'Example',
         				'address' => 'Example',
         				'fax' => 'Example',
+                'avatar' => 'avatars/avatar.png',
         				'email' => 'Example',
         				'site' => 'Example',
             ],
