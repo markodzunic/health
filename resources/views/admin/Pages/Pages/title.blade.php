@@ -1,5 +1,5 @@
 <div class="row">
     <div class="col-md-12">
-        <h1>Blog</h1>        
+        <h1>Pages</h1>        
     </div>
 </div>

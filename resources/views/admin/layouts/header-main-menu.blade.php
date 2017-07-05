@@ -29,7 +29,18 @@
     <a href="{{ URL::to('/my_knowledge_box') }}"><i class="fa fa-fw fa-gear"></i> My Knowledge Box</a>
 </li>
 <li>
-    <a href="{{ URL::to('/admin_blog') }}"><i class="fa fa-fw fa-commenting"></i> Blog</a>
+    <a href="javascript:;" data-toggle="collapse" data-target="#Pages"><i class="fa fa-fw fa-file-text"></i> Page <i class="fa fa-fw fa-caret-down"></i></a>
+    <ul id="Pages" class="collapse">
+        <li><a href="{{ URL::to('/admin_pages') }}">Add New</a></li>
+        <li><a href="{{ URL::to('/admin_pages_list') }}">Pages</a></li>
+    </ul>
+</li>
+<li>
+    <a href="javascript:;" data-toggle="collapse" data-target="#BlogPosts"><i class="fa fa-fw fa-commenting"></i> Blog <i class="fa fa-fw fa-caret-down"></i></a>
+    <ul id="BlogPosts" class="collapse">
+        <li><a href="{{ URL::to('/admin_blog') }}">Add New</a></li>
+        <li><a href="{{ URL::to('/admin_posts') }}">Posts</a></li>
+    </ul>
 </li>
 <li>
     <a href="{{ URL::to('/report_problem') }}"><i class="fa fa-fw fa-exclamation-circle"></i> Report a Problem</a>
