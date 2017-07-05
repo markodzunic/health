@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class FeedbackTable extends Migration
+class BlogTagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class FeedbackTable extends Migration
      */
     public function up()
     {
-        Schema::create('feedbacks', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->text('description')->nullable();
-            $table->timestamps();
-        });
+      Schema::create('blog_tags', function (Blueprint $table) {
+          $table->integer('blogs_id');
+          $table->integer('tags_id');
+          $table->timestamps();
+      });
     }
 
     /**
@@ -28,6 +27,6 @@ class FeedbackTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feedbacks');
+        Schema::dropIfExists('blog_tags');
     }
 }
