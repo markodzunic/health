@@ -29,7 +29,8 @@ class PracticeAccountController extends Controller {
 
 		$limit = 0;
 		$practice_users = [];
-
+		$admin_users = [];
+		
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 
 		if ($practice) {
