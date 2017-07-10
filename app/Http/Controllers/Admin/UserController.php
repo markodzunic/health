@@ -148,7 +148,7 @@ class UserController extends Controller {
 
         $user->authorised_user = $data['practice_id'];
         $user->email = $data['email'];
-        $user->password = $data['password'];
+        $user->password = bcrypt($data['password']);
         $user->active = 1;
         $request->session()->flash('alert-success-usr', 'User Updated.');
       }

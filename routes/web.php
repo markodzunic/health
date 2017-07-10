@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'Auth\LoginController@index');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 # admin part routes
@@ -29,6 +29,9 @@ Route::resource('add_subscription', 'Admin\AddSubscriptionController');
 // Route::resource('plan_business', 'Admin\PlanBusinessController');
 // Route::resource('plan_professional', 'Admin\PlanProfessionalController');
 Route::resource('admin_blog', 'Admin\BlogController');
+Route::resource('admin_posts', 'Admin\PostsController');
+Route::resource('admin_pages', 'Admin\PagesController');
+Route::resource('admin_pages_list', 'Admin\PagesListController');
 
 Route::get('/plan_business', 'Admin\AddSubscriptionController@plan_business');
 Route::get('/plan_basic', 'Admin\AddSubscriptionController@plan_basic');
@@ -46,6 +49,8 @@ Route::post('/practices', 'Admin\PracticeController@index');
 Route::get('/practices/updatePractice', 'Admin\PracticeController@updatePractice');
 Route::post('/practices/updatePractice', 'Admin\PracticeController@updatePractice');
 
+Route::post('/selectAdmin', 'Admin\PracticeAccountController@selectAdmin');
+
 Route::get('/updateAdmin', 'Admin\PracticeAccountController@updateAdmin');
 // Route::post('/updateAdmin', 'Admin\PracticeAccountController@updateAdmin');
 
@@ -53,6 +58,7 @@ Route::get('/practices/deletePractice', 'Admin\PracticeController@deletePractice
 Route::post('/practices/deletePractice', 'Admin\PracticeController@deletePractice');
 
 Route::post('/practiceStuff', 'Admin\PracticeAccountController@practiceStuff');
+Route::post('/practiceAdmin', 'Admin\PracticeAccountController@practiceAdmin');
 
 Route::get('/updateUser', 'Admin\UserAccountController@updateUser');
 Route::post('/updateUser', 'Admin\UserAccountController@updateUser');
@@ -77,6 +83,9 @@ Route::post('/user_account', 'Admin\UserAccountController@index');
 # public part routes
 Route::resource('home', 'PublicPart\PublicPartController');
 Route::resource('blog', 'PublicPart\BlogController');
+Route::resource('blog-single', 'PublicPart\BlogSingleController');
+Route::resource('blog-category', 'PublicPart\BlogCategoryController');
+Route::resource('blog-tag', 'PublicPart\BlogTagController');
 Route::resource('clinical_management', 'PublicPart\ClinicalManagementController');
 Route::resource('contact', 'PublicPart\ContactController');
 Route::resource('content', 'PublicPart\ContentController');

@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\MessageBag;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PracticeController extends Controller {
 
@@ -151,11 +152,20 @@ class PracticeController extends Controller {
 				'name' => 'required',
 				'address' => 'required',
 				'email' => 'required|email',
+				'avatar' => 'mimes:jpeg,bmp,png,gif',
 		  ]);
 
 			$practice = Practice::find($data['id']);
 
+			if ($request->file('avatar')) {
+			   Image::make($request->file('avatar'))->resize(200, 200)->save(public_path('img/avatars').'/'.$practice->id.'_'.$request->file('avatar')->getClientOriginalName());
+         $path = 'avatars/'.$practice->id.'_'.$request->file('avatar')->getClientOriginalName();
+      } else {
+        $path = 'avatars/avatar.png';
+      }
+
 			$practice->name = $data['name'];
+			$practice->avatar = $path;
 			$practice->description = $data['description'];
 			$practice->address = $data['address'];
 			$practice->fax = $data['fax'];

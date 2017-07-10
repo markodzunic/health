@@ -8,7 +8,9 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="/home">iMedical</a>
+                <a class="navbar-brand" href="/home">
+                    <img src="{{ asset('/img/imdecial-main-logo.png') }}" alt="iMedical" style="max-height: 20px;">
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
