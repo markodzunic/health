@@ -14,92 +14,110 @@
 	<div id="MainContent">	
 		@yield('MainContent')
 		<section id="RecommendedBestPractice" class="MainContentSection">
-			<div class="small-padding bg-pink white-text im-center">
+			<div class="bg-pink white-text im-left">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h2>Recommended Best Practice (RBP)</h2>
+							<h2 class="expandable-title">Recommended Best Practice (RBP)</h2>
+							<div class="im-accordion"></div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- INCLUDE SECTION CONTETN -->
-			@yield('RecommendedBestPractice')
+			<div class="im-expand">
+				<!-- INCLUDE SECTION CONTETN -->
+				@yield('RecommendedBestPractice')
+			</div>
 
 		</section>
 
 		<section id="HowOurPracticeDiffersFromRBP" class="MainContentSection">
-			<div class="small-padding bg-pink white-text im-center">
+			<div class="bg-pink white-text im-left">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h2>How our Practice differs from RBP</h2>
+							<h2 class="expandable-title">How our Practice differs from RBP</h2>
+							<div class="im-accordion"></div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- INCLUDE SECTION CONTETN -->
-			@yield('HowOurPracticeDiffersFromRBP')
+			<div class="im-expand">
+				<!-- INCLUDE SECTION CONTETN -->
+				@yield('HowOurPracticeDiffersFromRBP')
+			</div>
 
 		</section>
 
 		<section id="Checklists" class="MainContentSection">
-			<div class="small-padding bg-pink white-text im-center">
+			<div class="bg-pink white-text im-left">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h2>Checklists</h2>
+							<h2 class="expandable-title">Checklists</h2>
+							<div class="im-accordion"></div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- INCLUDE SECTION CONTETN -->
-			@yield('Checklists')
+			<div class="im-expand">
+				<!-- INCLUDE SECTION CONTETN -->
+				@yield('Checklists')
+			</div>
 
 		</section>
 
 		<section id="Templates" class="MainContentSection">
-			<div class="small-padding bg-pink white-text im-center">
+			<div class="bg-pink white-text im-left">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h2>Templates (specific to each section)</h2>
+							<h2 class="expandable-title">Templates (specific to each section)</h2>
+							<div class="im-accordion"></div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- INCLUDE SECTION CONTETN -->
-			@yield('Templates')
+			<div class="im-expand">
+				<!-- INCLUDE SECTION CONTETN -->
+				@yield('Templates')
+			</div>
 
 		</section>
 
 		<section id="FAQs" class="MainContentSection">
-			<div class="small-padding bg-pink white-text im-center">
+			<div class="bg-pink white-text im-left">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h2>FAQs</h2>
+							<h2 class="expandable-title">FAQs</h2>
+							<div class="im-accordion"></div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- INCLUDE SECTION CONTETN -->
-			@yield('FAQs')
+			<div class="im-expand">
+				<!-- INCLUDE SECTION CONTETN -->
+				@yield('FAQs')
+			</div>
 
 		</section>
 
 		<section id="UsefulResources" class="MainContentSection">
-			<div class="small-padding bg-pink white-text im-center">
+			<div class="bg-pink white-text im-left">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h2>Useful Resources</h2>
+							<h2 class="expandable-title">Useful Resources</h2>
+							<div class="im-accordion"></div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- INCLUDE SECTION CONTETN -->
-			@include('public.layouts.useful-resources')
+			<div class="im-expand">
+				<!-- INCLUDE SECTION CONTETN -->
+				@include('public.layouts.useful-resources')
+			</div>
 
 		</section>
 	</div>

@@ -1,12 +1,13 @@
 <?php
-namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests;
+namespace App\Http\Controllers\PublicPart;
+
+use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
-use Illuminate\Http\Request;
-
-class BlogController extends Controller {
+class BlogCategoryController extends Controller
+{
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +16,7 @@ class BlogController extends Controller {
 	 */
 	public function index()
 	{
-		return view("admin.Blog.New.index");
+		return view('public.Blog.BlogCategory.index');
 	}
 
 	/**
