@@ -4,7 +4,7 @@
 @stop
 
 @section('SideMenu')
-@include('public.layouts.side-navigation')
+{{-- @include('public.layouts.side-navigation') --}}
 @stop
 
 @section('PageBanner')
@@ -32,5 +32,8 @@
 
 	
 @section('AditionalFoot')
-	<script src="{{ URL::asset('/js/init-sidemenu.js') }}"></script>
+	{{-- <script src="{{ URL::asset('/js/init-sidemenu.js') }}"></script> --}}
+	<script type="text/javascript">
+		
+	</script>
 @stop
