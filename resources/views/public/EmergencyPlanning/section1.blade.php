@@ -1,4 +1,4 @@
-<section id="section1" class="big-padding" align="justify">
+<section class="big-padding" align="justify">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">

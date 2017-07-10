@@ -8,18 +8,12 @@
 @stop
 
 @section('PageBanner')
-@include('public.Blog.title')
+@include('public.Blog.BlogSingle.title')
 @stop
 
 @section('MainContent')
-	<section>
-		<div class="container">
-			<div class="row">
-					@include('public.Blog.blog-content')
-					@include('public.Blog.blog-side-menu')
-			</div>
-		</div>
-	</section>
+	@include('public.Blog.BlogSingle.blog-content')
+	@include('public.Blog.BlogSingle.related-posts')
 @stop
 
 
