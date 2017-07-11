@@ -32,14 +32,14 @@
     <a href="javascript:;" data-toggle="collapse" data-target="#Pages"><i class="fa fa-fw fa-file-text"></i> Page <i class="fa fa-fw fa-caret-down"></i></a>
     <ul id="Pages" class="collapse">
         <li><a href="{{ URL::to('/admin_pages') }}">Add New</a></li>
-        <li><a href="{{ URL::to('/admin_pages_list') }}">Pages</a></li>
+        <li><a href="{{ URL::to('/pages') }}">Pages</a></li>
     </ul>
 </li>
 <li>
     <a href="javascript:;" data-toggle="collapse" data-target="#BlogPosts"><i class="fa fa-fw fa-commenting"></i> Blog <i class="fa fa-fw fa-caret-down"></i></a>
     <ul id="BlogPosts" class="collapse">
         <li><a href="{{ URL::to('/admin_blog') }}">Add New</a></li>
-        <li><a href="{{ URL::to('/admin_posts') }}">Posts</a></li>
+        <li><a href="{{ URL::to('/blogs') }}">Posts</a></li>
     </ul>
 </li>
 <li>

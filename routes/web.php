@@ -58,6 +58,15 @@ Route::post('/blogs/updateBlog', 'Admin\BlogController@updateBlog');
 Route::get('/blogs/deleteBlog', 'Admin\BlogController@deleteBlog');
 Route::post('/blogs/deleteBlog', 'Admin\BlogController@deleteBlog');
 
+Route::get('/pages', 'Admin\PagesController@index');
+Route::post('/pages', 'Admin\PagesController@index');
+
+Route::get('/pages/updatePage', 'Admin\PagesController@updatePage');
+Route::post('/pages/updatePage', 'Admin\PagesController@updatePage');
+
+Route::get('/pages/deletePage', 'Admin\PagesController@deletePage');
+Route::post('/pages/deletePage', 'Admin\PagesController@deletePage');
+
 Route::post('/selectAdmin', 'Admin\PracticeAccountController@selectAdmin');
 
 Route::get('/updateAdmin', 'Admin\PracticeAccountController@updateAdmin');
