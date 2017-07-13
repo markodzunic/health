@@ -2,11 +2,6 @@
 @section('AditionalHead')
 	<!-- PRELOADER -->
 	<link href="{{ URL::asset('/plugins/preloader/preloader.css') }}" rel="stylesheet">
-
-	<!-- REVOLUTION STYLE SHEETS -->
-	<link rel="stylesheet" type="text/css" href="{{ URL::asset('/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ URL::asset('/plugins/slider/css/settings.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ URL::asset('/plugins/slider/css/revolution.addon.particles.css') }}">
 @stop
 
 @section('StartPreloader')
@@ -19,10 +14,12 @@
 @stop
 
 @section('MainContent')
+	@include('public.home.section0')
 	@include('public.home.section1')
 	@include('public.home.section2')
 	@include('public.home.section3')
 	@include('public.home.section4')
+	@include('public.home.section6')
 	@include('public.home.section5')
 @stop
 
@@ -38,26 +35,7 @@
     	<script src="{{ URL::asset('/plugins/preloader/classie.min.js') }}"></script> 
     	<script src="{{ URL::asset('/plugins/preloader/svg-loader.js') }}"></script> 
     	<script src="{{ URL::asset('/plugins/preloader/init-loader.js') }}"></script>    
-    <!-- REVOLUTION JS FILES -->
-	<script type="text/javascript" src="{{ URL::asset('/plugins/slider/jquery.themepunch.tools.min.js') }}"></script>
-	<script type="text/javascript" src="{{ URL::asset('/plugins/slider/jquery.themepunch.revolution.min.js') }}"></script>
-		<!-- SLIDER REVOLUTION 5.0 EXTENSIONS-->	
-		<script type="text/javascript" src="{{ URL::asset('/plugins/slider/extensions/revolution.extension.actions.min.js') }}"></script>
-		<script type="text/javascript" src="{{ URL::asset('/plugins/slider/extensions/revolution.extension.carousel.min.js') }}"></script>
-		<script type="text/javascript" src="{{ URL::asset('/plugins/slider/extensions/revolution.extension.kenburn.min.js') }}"></script>
-		<script type="text/javascript" src="{{ URL::asset('/plugins/slider/extensions/revolution.extension.layeranimation.min.js') }}"></script>
-		<script type="text/javascript" src="{{ URL::asset('/plugins/slider/extensions/revolution.extension.migration.min.js') }}"></script>
-		<script type="text/javascript" src="{{ URL::asset('/plugins/slider/extensions/revolution.extension.navigation.min.js') }}"></script>
-		<script type="text/javascript" src="{{ URL::asset('/plugins/slider/extensions/revolution.extension.parallax.min.js') }}"></script>
-		<script type="text/javascript" src="{{ URL::asset('/plugins/slider/extensions/revolution.extension.slideanims.min.js') }}"></script>
-		<script type="text/javascript" src="{{ URL::asset('/plugins/slider/extensions/revolution.extension.video.min.js') }}"></script>
-		<script type="text/javascript" src="{{ URL::asset('/plugins/slider/extensions/revolution.addon.particles.min.js') }}"></script>
-		<script type="text/javascript">function setREVStartSize(e){
-				try{ var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;					
-					if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})					
-				}catch(d){console.log("Failure at Presize of Slider:"+d)}
-			};</script>
-		<script type="text/javascript" src="{{ URL::asset('/js/init-slider.js') }}"></script>
+   
 		<script type="text/javascript">
 			$(function(){
 			    $('#brochure-btn').on('click',function(e) {
@@ -71,7 +49,10 @@
 					    scrollTarget: '#download-brochure'
 					  });
 					  return false;
-			    })
+			    });
+			    $(document).ready(function() {		 
+				  $('#main-navigation .left-nav .menu-item:nth-child(1)').addClass('im-active');
+				});
 			});
 		</script>
 @stop

@@ -39,4 +39,5 @@
 
 
 <!-- STYLE -->
-<link href="{{ URL::asset('/css/global-style.css') }}" rel="stylesheet">
+{{-- <link href="{{ URL::asset('/css/global-style.css') }}" rel="stylesheet"> --}}
+<link href="{{ URL::asset('/css/main-style.css') }}" rel="stylesheet">

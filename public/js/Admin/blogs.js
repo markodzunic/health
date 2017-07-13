@@ -227,6 +227,28 @@ var Blogs = {
               close: function() {
                   $(this).dialog( "close" );
                   $('#updateBlog').remove();
+              },
+              open: function() {
+                 $('#edit').froalaEditor({
+                    fullPage: true,
+                    theme: 'red',
+                    linkList: [
+                    {
+                      text: 'asd',
+                      href: 'https://froala.com',
+                      target: '_blank'
+                    },
+                    {
+                      text: 'dsa',
+                      href: 'https://google.com',
+                      target: '_blank'
+                    },
+                    {
+                      text: 'asda',
+                      href: 'https://facebook.com'
+                    }
+                  ]
+                  })
               }
             });
         }

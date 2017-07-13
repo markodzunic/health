@@ -1,9 +1,9 @@
 <section id="download-brochure">
-	<div class="small-padding bg-pink white-text im-center">
+	<div class="small-padding bg-pink im-white im-center">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-8"><h2 class="im-left im-animation">Download iMedical Brochure</h2></div>
-				<div class="col-sm-4"><a data-scroll href="#download-brochure" class="btn im-btn white-btn" id="brochure-btn">Discover iMedical</a></div>
+				<div class="col-sm-4"><a data-scroll href="#download-brochure" class="btn im-btn white-btn" id="brochure-btn">Download Now</a></div>
 			</div>			
 		</div>
 	</div>
