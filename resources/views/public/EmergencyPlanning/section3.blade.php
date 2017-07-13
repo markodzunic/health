@@ -1,16 +1,6 @@
 <section class="im-content-section im-odd-bg" title="Emergency Action Plan (EAP)" align="justify">
-	<div class="container section-title">
-		<div class="row">
-			<div class="col-md-12">
-				<h3 class="im-pink expandable-title">Emergency Action Plan (EAP)</h3>					
-				<div class="im-accordion-2"></div>
-			</div>
-		</div>
-	</div>
-
-	<div class="im-expand-2">
-
-		<div class="container">
+	<a href="#" class="h4 im-toggle-menu-item">Emergency Action Plan (EAP)</a>
+	<div class="im-toggle-content">
 			<div class="row">
 				<div class="col-md-12">
 					<p>The EAP is prepared by the Practice Emergency Management Coordinator using the Emergency Action Plan template and shall consider the following:</p>
@@ -91,6 +81,5 @@
 				</div>
 			</div>
 
-		</div>
 	</div>
 </section>

@@ -4,11 +4,10 @@
 @stop
 
 @section('SideMenu')
-@include('public.layouts.side-navigation')
 @stop
 
 @section('PageBanner')
-@include('public.layouts.banner-title')
+@include('public.PatientManagement.title')
 @stop
 
 @section('MainContent')

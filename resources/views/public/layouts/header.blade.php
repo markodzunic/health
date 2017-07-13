@@ -1,30 +1,25 @@
 <header>
-	<!-- Navigation -->
-    <nav id="main-navigation" class="navbar navbar-default navbar-custom">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="/home">
-                    <img src="{{ asset('/img/imdecial-main-logo.png') }}" alt="iMedical" style="max-height: 20px;">
+    <div id="main-navigation">
+        <div class="container">
+            <div class="left-nav">
+                <a class="menu-item" href="{{ URL::to('/home') }}">Home</a>
+                <a class="menu-item" href="{{ URL::to('/features') }}">Features</a>
+                <a class="menu-item" href="{{ URL::to('/faqs') }}">FAQs</a>
+            </div>
+            <div class="logo">
+                <a href="{{ URL::to('/home') }}">
+                    <img src="{{ asset('/img/imdecial-main-logo.png') }}" alt="iMedical">
                 </a>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/home">Home</a></li>
-                    <li><a href="/content">Content</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                    <li class="header-btn"><a href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Members Login</a></li>
-                </ul>
+            <div class="right-nav">
+                <a class="menu-item" href="{{ URL::to('/blog') }}">Blog</a>
+                @if (!Auth::user())
+                  <a class="menu-item" onclick="Login.Login();return false;">Log in</a>
+                @else
+                  <a class="menu-item" href="{{ route('logout') }}">Logout</a>
+                @endif
+                <a class="menu-btn" href="#">Get started</a>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
+    </div>
 </header>

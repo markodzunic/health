@@ -8,6 +8,8 @@
 @stop
 
 @section('PageBanner')
+@include('public.Contact.title')
+@include('public.Contact.content')
 @stop
 
 @section('MainContent')

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class ContentController extends Controller {
+class FeaturesController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ContentController extends Controller {
 	 */
 	public function index()
 	{
-		return view('public.Content.index');
+		return view('public.Features.index');
 	}
 
 	/**

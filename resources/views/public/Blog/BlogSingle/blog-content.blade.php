@@ -14,7 +14,6 @@
 					</div>
 
 					<div id="blog-info">
-						<span><strong class="im-blue">Autor: </strong><a href="#" class="im-pink">iMedical</a></span>
 						<span><strong class="im-blue">Category: </strong><a href="{{ URL::to('/blog-category') }}" class="im-pink">Category</a></span>
 						<span><strong class="im-blue">Tags: </strong>
 							<ul class="list-inline" style="display: inline-block;">

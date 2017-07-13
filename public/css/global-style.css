@@ -1,5 +1,5 @@
 body {
-  font-family: "Poppins", serif;
+  /*font-family: "Poppins", serif;*/
   font-size: 18px;
   line-height: 26px;
   color: #2e2e2e;
@@ -50,8 +50,8 @@ figure.fh5co-with-caption figcaption {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin: 0 0 20px 0;
   padding: 0;
-  font-family: "Fredoka One", sans-serif;
-  font-weight: 400;
+  /*font-family: "Fredoka One", sans-serif;*/
+  /*font-weight: 400;*/
 }
 
 h1, .h1 {
@@ -186,7 +186,7 @@ ul.list-inline > li {
 }
 .im-btn {
   text-align: center;
-  font-family: "Fredoka One", sans-serif;
+  /*font-family: "Fredoka One", sans-serif;*/
   font-weight: 400;
   font-size: 16px;
   padding: 10px 15px;
@@ -297,7 +297,7 @@ ul.im-list ul li:before{
    content: "\f111"; /* FontAwesome Unicode */
 }
 /*HEADER*/
-.navbar-custom {
+/*.navbar-custom {
   position: absolute;
   top: 0;
   left: 0;
@@ -376,7 +376,6 @@ ul.im-list ul li:before{
     -webkit-transition: background-color 0.3s;
     -moz-transition: background-color 0.3s;
     transition: background-color 0.3s;
-    /* Force Hardware Acceleration in WebKit */
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     -ms-transform: translate3d(0, 0, 0);
@@ -386,7 +385,6 @@ ul.im-list ul li:before{
     backface-visibility: hidden;
   }
   .navbar-custom.is-fixed {
-    /* when the user scrolls down, we hide the header right above the viewport */
     position: fixed;
     top: -61px;
     background-color: rgba(255, 255, 255, 0.9);
@@ -410,14 +408,13 @@ ul.im-list ul li:before{
     color: #0085A1;
   }
   .navbar-custom.is-visible {
-    /* if the user changes the scrolling direction, we show the header */
     -webkit-transform: translate3d(0, 100%, 0);
     -moz-transform: translate3d(0, 100%, 0);
     -ms-transform: translate3d(0, 100%, 0);
     -o-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
   }
-}
+}*/
 /*SIDE NAVIGATION*/
 #MainContent,
 .MainContentSection {
@@ -517,73 +514,7 @@ ul.im-list ul li:before{
   margin-right: 20px;
   line-height: 50px;
 }
-.im-accordion,
-.im-accordion-2 {
-  position: relative;
-  float: right;
-  width: 50px;
-  height: 50px;
-}
-.im-accordion:before,
-.im-accordion:after,
-.im-accordion-2:before,
-.im-accordion-2:after {
-  position: absolute;
-  right: 15px;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  width: 50px;
-  height: 50px;
-  border: 3px solid #fff;
-  font-size: 40px;
-  text-align: center;
-  line-height: 47px;
-  cursor: pointer;
-}
-.im-accordion-2:before,
-.im-accordion-2:after {  
-  color: rgba(255,102,255,1);
-  border-color: rgba(0,176,240,1);
-}
-.im-accordion:hover:before,
-.im-accordion:hover:after,
-.im-open .im-accordion:before,
-.im-open .im-accordion:after {
-  background-color: rgba(0,176,240,1);
-}
-.im-accordion-2:hover:before,
-.im-accordion-2:hover:after,
-.im-open-2 .im-accordion-2:before,
-.im-open-2 .im-accordion-2:after {
-  background-color: rgba(255,102,255,1);
-  color: #fff;
-}
-.im-accordion:before,
-.im-accordion-2:before {
-  content: '+';
-}
-.im-accordion:after,
-.im-accordion-2:after {
-  content: '-';
-  display: none;
-}
-.im-open .im-accordion:before,
-.im-open-2 .im-accordion-2:before {
-  display: none;
-}
-.im-open .im-accordion:after,
-.im-open-2 .im-accordion-2:after {
-  display: block;
-}
-.im-expand,
-.im-expand-2 {
-  display: none;
-}
-.im-open .im-expand,
-.im-open-2 .im-expand-2 {
-  display: block;
-}
+
 .section-title {
   border: 3px solid rgba(0,176,240,1);
 }
