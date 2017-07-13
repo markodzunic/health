@@ -109,6 +109,7 @@ Route::resource('blog-category', 'PublicPart\BlogCategoryController');
 Route::resource('blog-tag', 'PublicPart\BlogTagController');
 Route::resource('clinical_management', 'PublicPart\ClinicalManagementController');
 Route::resource('contact', 'PublicPart\ContactController');
+Route::resource('pricing-plan', 'PublicPart\PricingPlanController');
 Route::resource('features', 'PublicPart\FeaturesController');
 Route::resource('data_protection', 'PublicPart\DataProtectionController');
 Route::resource('emergency_planning', 'PublicPart\EmergencyPlanningController');
