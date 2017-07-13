@@ -13,7 +13,7 @@
 						<article>
 							<div class="bolg-image-container">
 								<div class="blog-image" style="background-image: url(http://placehold.it/1920x1080);"></div>
-								<a href="{{ URL::to('/blog-single') }}" class="overlay-link"><h4 class="white-text">Lorem ipsum dolor</h4></a>
+								<a href="{{ URL::to('/blog-single') }}" class="overlay-link"><h4 class="im-white">Lorem ipsum dolor</h4></a>
 							</div>
 						</article>
 					</div>
@@ -21,7 +21,7 @@
 						<article>
 							<div class="bolg-image-container">
 								<div class="blog-image" style="background-image: url(http://placehold.it/1920x1080);"></div>
-								<a href="{{ URL::to('/blog-single') }}" class="overlay-link"><h4 class="white-text">Lorem ipsum dolor</h4></a>
+								<a href="{{ URL::to('/blog-single') }}" class="overlay-link"><h4 class="im-white">Lorem ipsum dolor</h4></a>
 							</div>
 						</article>
 					</div>
@@ -29,7 +29,7 @@
 						<article>
 							<div class="bolg-image-container">
 								<div class="blog-image" style="background-image: url(http://placehold.it/1920x1080);"></div>
-								<a href="{{ URL::to('/blog-single') }}" class="overlay-link"><h4 class="white-text">Lorem ipsum dolor</h4></a>
+								<a href="{{ URL::to('/blog-single') }}" class="overlay-link"><h4 class="im-white">Lorem ipsum dolor</h4></a>
 							</div>
 						</article>
 					</div>

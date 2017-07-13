@@ -29,6 +29,7 @@
 <!-- Favicon -->
 <link rel="shortcut icon" href=""/>
 <!-- CSS & JS Library -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="{{ URL::asset('/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 <link href="{{ URL::asset('/plugins/wow/animate.css') }}" rel="stylesheet">
 <link href="{{ URL::asset('/fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
@@ -39,4 +40,5 @@
 
 
 <!-- STYLE -->
-<link href="{{ URL::asset('/css/global-style.css') }}" rel="stylesheet">
+{{-- <link href="{{ URL::asset('/css/global-style.css') }}" rel="stylesheet"> --}}
+<link href="{{ URL::asset('/css/main-style.css') }}" rel="stylesheet">

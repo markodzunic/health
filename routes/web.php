@@ -49,6 +49,27 @@ Route::post('/practices', 'Admin\PracticeController@index');
 Route::get('/practices/updatePractice', 'Admin\PracticeController@updatePractice');
 Route::post('/practices/updatePractice', 'Admin\PracticeController@updatePractice');
 
+Route::get('/blogs', 'Admin\BlogController@index');
+Route::post('/blogs', 'Admin\BlogController@index');
+
+Route::get('/login/getLogin', 'Auth\LoginController@getLogin');
+Route::post('/login/getLogin', 'Auth\LoginController@getLogin');
+
+Route::get('/blogs/updateBlog', 'Admin\BlogController@updateBlog');
+Route::post('/blogs/updateBlog', 'Admin\BlogController@updateBlog');
+
+Route::get('/blogs/deleteBlog', 'Admin\BlogController@deleteBlog');
+Route::post('/blogs/deleteBlog', 'Admin\BlogController@deleteBlog');
+
+Route::get('/pages', 'Admin\PagesController@index');
+Route::post('/pages', 'Admin\PagesController@index');
+
+Route::get('/pages/updatePage', 'Admin\PagesController@updatePage');
+Route::post('/pages/updatePage', 'Admin\PagesController@updatePage');
+
+Route::get('/pages/deletePage', 'Admin\PagesController@deletePage');
+Route::post('/pages/deletePage', 'Admin\PagesController@deletePage');
+
 Route::post('/selectAdmin', 'Admin\PracticeAccountController@selectAdmin');
 
 Route::get('/updateAdmin', 'Admin\PracticeAccountController@updateAdmin');
@@ -88,14 +109,14 @@ Route::resource('blog-category', 'PublicPart\BlogCategoryController');
 Route::resource('blog-tag', 'PublicPart\BlogTagController');
 Route::resource('clinical_management', 'PublicPart\ClinicalManagementController');
 Route::resource('contact', 'PublicPart\ContactController');
-Route::resource('content', 'PublicPart\ContentController');
+Route::resource('features', 'PublicPart\FeaturesController');
 Route::resource('data_protection', 'PublicPart\DataProtectionController');
 Route::resource('emergency_planning', 'PublicPart\EmergencyPlanningController');
 Route::resource('faqs', 'PublicPart\FaqsController');
 Route::resource('health_safety', 'PublicPart\HealthSafetyController');
 Route::resource('human_resources', 'PublicPart\HumanResourcesController');
 Route::resource('infection_prevention', 'PublicPart\InfectionPreventionControlController');
-Route::resource('information_security', 'PublicPart\InformationSecurityController');
+Route::resource('finances', 'PublicPart\FinancesController');
 Route::resource('patient_management', 'PublicPart\PatientManagementController');
 Route::resource('practice_operations', 'PublicPart\PracticeOperationsController');
 Route::resource('public_part', 'PublicPart\PublicPartController');

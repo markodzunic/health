@@ -13,109 +13,90 @@
 
 	<div id="MainContent">	
 		@yield('MainContent')
-		<section id="RecommendedBestPractice" class="MainContentSection">
-			<div class="bg-pink white-text im-left">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<h2 class="expandable-title">Recommended Best Practice (RBP)</h2>
-							<div class="im-accordion"></div>
-						</div>
+		<section id="RecommendedBestPractice" class="margin-top-70">
+			<div class="container bg-pink im-left">
+				<div class="row">
+					<div class="col-md-12 im-accordion-menu-item">
+						<a href="#" class="h2 im-white">Recommended Best Practice (RBP)</a>
 					</div>
 				</div>
 			</div>
-			<div class="im-expand">
-				<!-- INCLUDE SECTION CONTETN -->
+			<!-- INCLUDE SECTION CONTETN -->
+			<div class="im-accordion container">
 				@yield('RecommendedBestPractice')
 			</div>
 
 		</section>
 
-		<section id="HowOurPracticeDiffersFromRBP" class="MainContentSection">
-			<div class="bg-pink white-text im-left">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<h2 class="expandable-title">How our Practice differs from RBP</h2>
-							<div class="im-accordion"></div>
-						</div>
+		<section id="HowOurPracticeDiffersFromRBP">
+			<div class="container bg-pink im-left">
+				<div class="row">
+					<div class="col-md-12 im-accordion-menu-item">
+						<a href="#" class="h2 im-white">How our Practice differs from RBP</a>
 					</div>
 				</div>
 			</div>
-			<div class="im-expand">
-				<!-- INCLUDE SECTION CONTETN -->
+			<!-- INCLUDE SECTION CONTETN -->
+			<div class="im-accordion container">
 				@yield('HowOurPracticeDiffersFromRBP')
 			</div>
 
 		</section>
 
-		<section id="Checklists" class="MainContentSection">
-			<div class="bg-pink white-text im-left">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<h2 class="expandable-title">Checklists</h2>
-							<div class="im-accordion"></div>
-						</div>
+		<section id="Checklists">
+			<div class="container bg-pink im-left">
+				<div class="row">
+					<div class="col-md-12 im-accordion-menu-item">
+						<a href="#" class="h2 im-white">Checklists</a>
 					</div>
 				</div>
 			</div>
-			<div class="im-expand">
-				<!-- INCLUDE SECTION CONTETN -->
+			<!-- INCLUDE SECTION CONTETN -->
+			<div class="im-accordion container">
 				@yield('Checklists')
 			</div>
 
 		</section>
 
-		<section id="Templates" class="MainContentSection">
-			<div class="bg-pink white-text im-left">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<h2 class="expandable-title">Templates (specific to each section)</h2>
-							<div class="im-accordion"></div>
-						</div>
+		<section id="Templates">
+			<div class="container bg-pink im-left">
+				<div class="row">
+					<div class="col-md-12 im-accordion-menu-item">
+						<a href="#" class="h2 im-white">Templates (specific to each section)</a>
 					</div>
 				</div>
 			</div>
-			<div class="im-expand">
-				<!-- INCLUDE SECTION CONTETN -->
+			<!-- INCLUDE SECTION CONTETN -->
+			<div class="im-accordion container">
 				@yield('Templates')
 			</div>
-
 		</section>
 
-		<section id="FAQs" class="MainContentSection">
-			<div class="bg-pink white-text im-left">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<h2 class="expandable-title">FAQs</h2>
-							<div class="im-accordion"></div>
-						</div>
+		<section id="FAQs">
+			<div class="container bg-pink im-left">
+				<div class="row">
+					<div class="col-md-12 im-accordion-menu-item">
+						<a href="#" class="h2 im-white">FAQs</a>
 					</div>
 				</div>
 			</div>
-			<div class="im-expand">
-				<!-- INCLUDE SECTION CONTETN -->
+			<!-- INCLUDE SECTION CONTETN -->
+			<div class="im-accordion container">
 				@yield('FAQs')
 			</div>
 
 		</section>
 
-		<section id="UsefulResources" class="MainContentSection">
-			<div class="bg-pink white-text im-left">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<h2 class="expandable-title">Useful Resources</h2>
-							<div class="im-accordion"></div>
-						</div>
+		<section id="UsefulResources" class="margin-bottom-70">
+			<div class="container bg-pink im-left">
+				<div class="row">
+					<div class="col-md-12 im-accordion-menu-item">
+						<a href="#" class="h2 im-white">Useful Resources</a>
 					</div>
 				</div>
 			</div>
-			<div class="im-expand">
-				<!-- INCLUDE SECTION CONTETN -->
+			<!-- INCLUDE SECTION CONTETN -->
+			<div class="im-accordion container">
 				@include('public.layouts.useful-resources')
 			</div>
 
