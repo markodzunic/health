@@ -514,6 +514,10 @@ a:focus {
 }
 #MainContent .im-accordion-menu-item > a {  
   font-weight: normal;
+  margin-bottom: 0;
+}
+.hide-icon:before {
+  display: none !important;
 }
 /*FORM*/
 .line-form label {
