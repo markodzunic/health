@@ -13,7 +13,7 @@
 						<li><a href="{{ URL::to('/features') }}">Features</a></li>
 						<li><a href="{{ URL::to('/blog') }}">Blog</a></li>
 						<li><a href="{{ URL::to('/contact') }}">Contact</a></li>
-						<li><a href="#">Register</a></li>
+						<li><a href="{{ URL::to('/register') }}">Register</a></li>
 						<li><a href="{{ URL::to('/faqs') }}">FAQs</a></li>
 					</ul>
 				</div>

@@ -37,6 +37,7 @@ class AddSubscriptionController extends Controller {
 			$practice = new Practice;
 
 			$practice->user_id = $user->id;
+			$practice->avatar = 'avatars/avatar.png';
 			$practice->name = 'Default'.rand(10,100000);
 			$practice->description = 'Enter description';
 			$practice->address = 'Add address';
