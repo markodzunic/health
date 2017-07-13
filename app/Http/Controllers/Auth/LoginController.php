@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 use Auth;
 
 class LoginController extends Controller
@@ -30,13 +31,29 @@ class LoginController extends Controller
     protected $redirectTo = '/dashboard';
     protected $redirectToLog = '/login';
 
+    protected $messageBag;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(MessageBag $messageBag)
     {
         $this->middleware('guest')->except('logout');
+        $this->messageBag = $messageBag;
+    }
+
+    public function getLogin(Request $request) {
+      $data = $request->all();
+
+      $errors = isset($data['errors']) ? json_decode($data['errors'],1) : $this->messageBag;
+
+      if ($errors) {
+        foreach ($errors as $key => $value) {
+          $this->messageBag->add($key, $value);
+        }
+      }
+
+      return view('public.Login.login', ['errors' => $errors])->withErrors($errors);
     }
 }
