@@ -52,6 +52,9 @@ Route::post('/practices/updatePractice', 'Admin\PracticeController@updatePractic
 Route::get('/blogs', 'Admin\BlogController@index');
 Route::post('/blogs', 'Admin\BlogController@index');
 
+Route::get('/login/getLogin', 'Auth\LoginController@getLogin');
+Route::post('/login/getLogin', 'Auth\LoginController@getLogin');
+
 Route::get('/blogs/updateBlog', 'Admin\BlogController@updateBlog');
 Route::post('/blogs/updateBlog', 'Admin\BlogController@updateBlog');
 

@@ -13,7 +13,11 @@
             </div>
             <div class="right-nav">
                 <a class="menu-item" href="{{ URL::to('/blog') }}">Blog</a>
-                <a class="menu-item" href="#">Log in</a>
+                @if (!Auth::user())
+                  <a class="menu-item" onclick="Login.Login();return false;">Log in</a>
+                @else
+                  <a class="menu-item" href="{{ route('logout') }}">Logout</a>
+                @endif
                 <a class="menu-btn" href="#">Get started</a>
             </div>
         </div>
