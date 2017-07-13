@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class InformationSecurityController extends Controller {
+class FinancesController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +15,7 @@ class InformationSecurityController extends Controller {
 	 */
 	public function index()
 	{
-		return view('public.InformationSecurity.index');
+		return view('public.Finances.index');
 	}
 
 	/**

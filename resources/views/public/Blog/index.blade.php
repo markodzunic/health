@@ -12,12 +12,9 @@
 @stop
 
 @section('MainContent')
-	<section>
-		<div class="container">
-			<div class="row">
-					@include('public.Blog.blog-content')
-					@include('public.Blog.blog-side-menu')
-			</div>
+	<section id="blog-page">
+		<div class="container-fluid big-padding">
+			@include('public.Blog.blog-content')
 		</div>
 	</section>
 @stop

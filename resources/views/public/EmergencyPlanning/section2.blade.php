@@ -1,16 +1,9 @@
-<section class="im-content-section im-odd-bg" title="Emergency Planning" align="justify">
-	<div class="container section-title">
-		<div class="row">
-			<div class="col-md-12">
-				<h3 class="im-pink expandable-title">Emergency Planning</h3>					
-				<div class="im-accordion-2"></div>
-			</div>
-		</div>
-	</div>
+<section class="im-odd-bg" title="Emergency Planning" align="justify">
 
-	<div class="im-expand-2">
+	<a href="#" class="h4 im-toggle-menu-item">Emergency Planning</a>
+	<div class="im-toggle-content">
 
-		<div class="container">
+		<div class="">
 			<div class="row">
 				<div class="col-md-12">
 					
