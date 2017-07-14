@@ -21,6 +21,7 @@ Route::resource('dashboard', 'Admin\DashboardController');
 Route::resource('billing', 'Admin\BillingAndPaymentController');
 Route::resource('feedback', 'Admin\FeedbackController');
 Route::resource('my_knowledge_box', 'Admin\MyKnowledgeBoxController');
+Route::resource('my_knowledge_box_features', 'Admin\MyKnowledgeBoxFeaturesController');
 Route::resource('practice_account', 'Admin\PracticeAccountController');
 Route::resource('report_problem', 'Admin\ReportProblemController');
 Route::resource('user_account', 'Admin\UserAccountController');
