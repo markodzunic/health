@@ -1,10 +1,13 @@
 @extends('admin.layouts.login-default')
 
 @section('MainContent')
-<div class="form-box" style="margin:auto;">
+<div class="form-box single-page-form" style="margin:auto;">
     <div class="row">
-        <div class="col-md-12">
-            <h4><strong>Add New User to Your Practice</strong></h4>
+        <div class="col-md-12 im-center">
+            <div class="login-img small-padding">
+                <img src="{{ asset('/img/imdecial-main-logo.png') }}" alt="iMedical">
+            </div>
+            <h2><strong>Register</strong></h2>
         </div>
     </div>
     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
