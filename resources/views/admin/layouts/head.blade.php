@@ -13,14 +13,15 @@
 
 <link href="{{ URL::asset('/fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 <link href="{{ URL::asset('/css/sb-admin.css') }}" rel="stylesheet">
-<link href="{{ URL::asset('/plugins/morris/morris.css') }}" rel="stylesheet">
+{{-- <link href="{{ URL::asset('/plugins/morris/morris.css') }}" rel="stylesheet"> --}}
 
 <!-- LOADING FONTS AND ICONS -->
 <link href="http://fonts.googleapis.com/css?family=Fredoka+One:400%7CPoppins:500%2C400%2C700" rel="stylesheet" property="stylesheet" type="text/css" media="all">
 
 
 <!-- STYLE -->
-<link href="{{ URL::asset('/css/global-style-admin.css') }}" rel="stylesheet">
+{{-- <link href="{{ URL::asset('/css/global-style-admin.css') }}" rel="stylesheet"> --}}
+<link href="{{ URL::asset('/css/main-style.css') }}" rel="stylesheet">
 {{--
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="{{ URL::asset('/plugins/bootstrap/js/bootstrap.min.js') }}"></script> --}}
