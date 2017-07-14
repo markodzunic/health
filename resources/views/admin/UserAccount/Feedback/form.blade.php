@@ -1,4 +1,4 @@
-<div class="small-padding no-padding-top">
+<section>
 	<div class="container">
 		<div class="row">
 			@if(Session::has('alert-success'))
@@ -21,4 +21,4 @@
 			</div>
 		</div>
 	</div>
-</div>
+</section>

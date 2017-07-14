@@ -11,7 +11,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="im-title">
-							<h1 class="im-white">Pricing Plans</h1>
+							<h1 class="im-white">Plans & Pricing</h1>
 						</div>
 					</div>
 				</div>

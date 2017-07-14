@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 		<div class="row">
 	    	<div class="col-md-12">
-		        <h1>Profile</h1>
+		        <h1>Hello</h1>
 		    </div>
 		</div>
 	</div>
