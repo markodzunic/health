@@ -15,7 +15,7 @@
     </ul>
 </li>
 <li>
-    <a href="javascript:;" data-toggle="collapse" data-target="#PracticeAccount"><i class="fa fa-fw fa-user"></i> Practice Account <i class="fa fa-fw fa-caret-down"></i></a>
+    <a href="javascript:;" data-toggle="collapse" data-target="#PracticeAccount"><i class="fa fa-fw fa-hospital-o"></i> Practice Account <i class="fa fa-fw fa-caret-down"></i></a>
     <ul id="PracticeAccount" class="collapse">
         <li><a href="{{ URL::to('/practice_account') }}">Profile</a></li>
         <li><a href="{{ URL::to('/billing') }}">Billing & Payment</a></li>
@@ -50,6 +50,8 @@
     <a href="{{ route('logout') }}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
 </li>
 <div style="padding: 50px 15px 15px 15px;float: left;" align="center">
-    <h3 class="im-pink">iMedical</h3>
-    <p class="white-text">© 2017 iMedical / Legal</p>
+    <a href="{{ URL::to('/home') }}">
+        <img src="{{ asset('/img/imdecial-main-logo.png') }}" alt="iMedical" style="max-width: 150px;">
+    </a>
+    <p class="im-white" style="font-size: 15px;">© 2017 iMedical / Legal</p>
 </div>

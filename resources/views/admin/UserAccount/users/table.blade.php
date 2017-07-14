@@ -1,38 +1,8 @@
-<style type="text/css">
-	.table > thead  {
-		cursor:pointer;
-	}
-	.pagination>li:first-child>a, .pagination>li:first-child>span {
-	    margin-left: 0;
-	    border-top-left-radius: 0;
-	    border-bottom-left-radius: 0;
-	}
-	.pagination>li:last-child>a, .pagination>li:last-child>span {
-	    border-top-right-radius: 0;
-	    border-bottom-right-radius: 0;
-	}
-	.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
-	    color: #fff;
-	    background-color: #ff66ff;
-	    border-color: #ff66ff;
-	}
-	.pagination>li>a, .pagination>li>span {
-	    color: #ff66ff;
-	    background-color: #fff;
-	    border: 1px solid #ddd;
-	}
-	.pagination-total {
-		background: #00b0f0 ;
-	    color: #fff;
-	    padding: 8px 16px;
-	    float: right;
-	}
-</style>
 @if(Session::has('alert-success'))
     <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alert-success') !!}</em></div>
 @endif
 <table id="users" class="table table-bordered tablesorter" >
-	<thead class="bg-pink white-text">
+	<thead class="bg-lblue im-white">
 		<tr class="table-head">
 		   	@foreach ($columns as $c => $col)
 					<th id="{{ $c }}" order-by="" class="row" onclick="Users.sort(this);return false;">
@@ -65,15 +35,17 @@
           <td>
             <div class="last-col">
 							<a href="#" onclick="Users.Delete(this);return false;"
-								class="delete"
+								class="delete btn im-btn pink-btn no-margin-bottom im-btn-small"
 								users-id="{{ $user->id }}">
-							Delete</a>
+							<i class="fa fa-trash" aria-hidden="true"></i>
+							<div class="im-btn-info">Delete Account</div></a>
 						</div>
             <div class="last-col">
 							<a href="#" onclick="Users.Update(this);return false;"
-								class="update"
+								class="update btn im-btn pink-btn no-margin-bottom im-btn-small"
 								users-id="{{ $user->id }}">
-							Edit</a>
+							<i class="fa fa-edit" aria-hidden="true"></i>
+							<div class="im-btn-info">Edit Info</div></a>
 						</div>
           </td>
 				</tr>
@@ -81,7 +53,6 @@
 		@endif
 	</tbody>
 </table>
-</div>
 @if($pagination)
 	<div id="pagination" class="no-print">
 		<div class="sales-query-pagination">
