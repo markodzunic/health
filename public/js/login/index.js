@@ -25,7 +25,7 @@ var Login = {
 							buttons: {
 								Yes: {
 									text: 'Login',
-									class: 'btn btn-custom update-btn',
+									class: 'im-btn lblue-btn update-btn',
 									click: function() {
 										var form = $('#login').find('form');
 										var data = form.serialize();
@@ -52,7 +52,7 @@ var Login = {
 								// closes dialog and cancels action
 								No: {
 										text: 'Cancel',
-										class: 'btn btn-custom cancel-btn',
+										class: 'im-btn lblue-btn cancel-btn',
 										click: function() {
 												$(this).dialog( "close" );
 										}

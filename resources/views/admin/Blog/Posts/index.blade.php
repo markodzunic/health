@@ -20,6 +20,7 @@
       margin: auto !important;
       width: 100% !important;
       max-width: 1240px !important;
+      top: 50px !important;
     }
     .fr-tooltip {
       z-index: 999999;
@@ -31,19 +32,26 @@
 @section('MainContent')
 	@include('admin.Blog.Posts.title')
 
-	<div class="toolbar">
-		<a blogs-id="0" onclick="Blogs.Update(this);return false;" class="btn im-btn pink-btn">Create</a>
-    <input type="hidden" id="orderby" name="orderby" value="{{ $orderby }}">
-    <input type="hidden" id="sortby" name="sortby" value="{{ $sortby }}">
-  </div>
+	
+  <section>
+    <div class="container-fluid">
+    
+      <div class="toolbar">
+        <a blogs-id="0" onclick="Blogs.Update(this);return false;" class="btn im-btn pink-btn">Create</a>
+        <input type="hidden" id="orderby" name="orderby" value="{{ $orderby }}">
+        <input type="hidden" id="sortby" name="sortby" value="{{ $sortby }}">
+      </div>
 
-  <div id="table-section" class="table-section">
-    {!! view('admin.Blog.Posts.table', [
-        'blogs' => $blogs,
-        'columns' => $columns,
-        'pagination' => $pagination,
-    ]) !!}
-  </div>
+
+      <div id="table-section" class="table-section">
+        {!! view('admin.Blog.Posts.table', [
+            'blogs' => $blogs,
+            'columns' => $columns,
+            'pagination' => $pagination,
+        ]) !!}
+      </div>
+    </div>
+  </section>
 
 @stop
 

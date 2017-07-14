@@ -9,7 +9,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-        </button>        
+        </button>
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
@@ -27,7 +27,7 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu alert-dropdown">
-                
+
                 @include('admin.layouts.header-alert-menu')
 
                 <li class="divider"></li>
@@ -49,7 +49,7 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav im-animation">
             <a class="navbar-brand" href="{{ URL::to('/dashboard') }}">
-                <img src="http://imedical.local/img/avatars/1_Logo-new.jpg" alt="" class="no-margin-bottom">
+                <img src="{{ isset($practice->avatar) ? asset('/img/'.$practice->avatar) : asset('/img/avatars/avatar.png') }}" alt="" class="no-margin-bottom">
             </a>
             @include('admin.layouts.header-main-menu')
             <a href="#" id="collapse-sidebar" class="bg-lblue"></a>

@@ -139,7 +139,7 @@ var Practices = {
               buttons: {
                 Yes: {
                   text: 'Yes',
-                  class: 'btn btn-custom update-btn',
+                  class: 'btn im-btn lblue-btn update-btn',
                   click: function() {
                     var form = $('#deletePractice').find('form');
                     var data = form.serialize();
@@ -168,7 +168,7 @@ var Practices = {
                 // closes dialog and cancels action
                 No: {
                     text: 'No',
-                    class: 'btn btn-custom cancel-btn',
+                    class: 'btn im-btn lblue-btn cancel-btn',
                     click: function() {
                         $(this).dialog( "close" );
                     }
@@ -208,7 +208,7 @@ var Practices = {
                 // closes dialog and cancels action
                 Cancel: {
                     text: 'Cancel',
-                    class: 'btn btn-custom cancel-btn',
+                    class: 'btn im-btn lblue-btn cancel-btn',
                     click: function() {
                         $(this).dialog( "close" );
                     }
@@ -249,7 +249,7 @@ var Practices = {
               buttons: {
                 Save: {
                   text: 'Save',
-                  class: 'btn btn-custom update-btn',
+                  class: 'btn im-btn lblue-btn update-btn',
                   click: function() {
                     var form = $('#updatePractice').find('form');
 
@@ -283,7 +283,7 @@ var Practices = {
                 // closes dialog and cancels action
                 Cancel: {
                     text: 'Cancel',
-                    class: 'btn btn-custom cancel-btn',
+                    class: 'btn im-btn lblue-btn cancel-btn',
                     click: function() {
                         $(this).dialog( "close" );
                     }
