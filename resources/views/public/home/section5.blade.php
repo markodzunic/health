@@ -9,7 +9,7 @@
 	</div>
 	<div id="form-brochure" class="small-padding" style="display: none;">
 		<div class="container">
-			<form>
+			<form class="line-form">
 				<div class="row">
 					<div class="col-md-12">
 						<p><strong>Fields marked with an asterisk are required</strong></p>

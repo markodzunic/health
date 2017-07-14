@@ -4,7 +4,8 @@
 @stop
 
 @section('MainContent')
-@include('admin.home.section1')
+@include('admin.home.title')
+@include('admin.home.content')
 @stop
 
 	

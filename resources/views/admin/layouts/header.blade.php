@@ -9,14 +9,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="{{ URL::to('/dashboard') }}">
-            <div id="PracticeLogo" class="bg-blue">
-                <div class="practice-logo-container">
-                    <img src="http://via.placeholder.com/195x80" alt="">
-                </div>
-            </div>
-        </a>
+        </button>        
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
@@ -54,11 +47,14 @@
     </ul>
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav side-nav">
-
+        <ul class="nav navbar-nav side-nav im-animation">
+            <a class="navbar-brand" href="{{ URL::to('/dashboard') }}">
+                <img src="http://imedical.local/img/avatars/1_Logo-new.jpg" alt="" class="no-margin-bottom">
+            </a>
             @include('admin.layouts.header-main-menu')
-
+            <a href="#" id="collapse-sidebar" class="bg-lblue"></a>
         </ul>
+
     </div>
     <!-- /.navbar-collapse -->
 </nav>
