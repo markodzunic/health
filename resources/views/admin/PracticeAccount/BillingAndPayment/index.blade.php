@@ -10,7 +10,8 @@
 
 
 
-	
+
 @section('AditionalFoot')
-	
+		<script src="{{ URL::asset('/js/Admin/users.js') }}"></script>
+		<script src="{{ URL::asset('/js/Admin/practices.js') }}"></script>
 @stop

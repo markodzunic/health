@@ -41,6 +41,9 @@ class UserController extends Controller {
     $userModel = new User;
     $users = $userModel->get_users($this->sortby, $this->orderby);
 
+    $user = Auth::user();
+    $practice = Practice::where('user_id', '=', $user->id)->first();
+
     # custom pagination
     $currentPage = LengthAwarePaginator::resolveCurrentPage();
     $col = new Collection($users);
@@ -54,6 +57,7 @@ class UserController extends Controller {
             'orderby' => $this->orderby,
             'users' => $users,
             'pagination' => true,
+            'practice' => $practice,
             'columns' => User::$sortColumns,
         ])->render();
     } else {
@@ -62,6 +66,7 @@ class UserController extends Controller {
             'orderby' => $this->orderby,
             'users' => $users,
             'pagination' => true,
+            'practice' => $practice,
             'columns' => User::$sortColumns,
         ])->render();
     }
@@ -154,7 +159,9 @@ class UserController extends Controller {
       }
 
       if ($request->file('avatar')) {
-			   Image::make($request->file('avatar'))->resize(200, 200)->save(public_path('img/avatars').'/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName());
+			   Image::make($request->file('avatar'))->resize(200, null, function($constraint){
+           $constraint->aspectRatio();
+         })->save(public_path('img/avatars').'/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName());
          $path = 'avatars/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName();
       } else {
         $path = 'avatars/avatar.png';

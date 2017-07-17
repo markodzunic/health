@@ -3,8 +3,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Models\Practice;
 use Illuminate\Http\Request;
+use Auth;
 
 class DashboardController extends Controller {
 
@@ -25,7 +26,12 @@ class DashboardController extends Controller {
 	 */
 	public function index()
 	{
-		return view("admin.home.index");
+		$user = Auth::User();
+		$practice = Practice::where('user_id', '=', $user->id)->first();
+
+		return view("admin.home.index",[
+				'practice' => $practice
+		]);
 	}
 
 	/**

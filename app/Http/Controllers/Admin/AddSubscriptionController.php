@@ -16,7 +16,12 @@ class AddSubscriptionController extends Controller {
 	 */
 	public function index()
 	{
-		return view("admin.AddSubscription.index");
+		$user = Auth::user();
+    $practice = Practice::where('user_id', '=', $user->id)->first();
+
+		return view("admin.AddSubscription.index", [
+			'practice' => $practice,
+		]);
 	}
 
 	public function plan_business() {

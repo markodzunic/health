@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/', 'Auth\LoginController@index');
+Route::get('/', 'PublicPart\PublicPartController@index');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 # admin part routes
@@ -39,6 +39,9 @@ Route::get('/plan_basic', 'Admin\AddSubscriptionController@plan_basic');
 Route::get('/plan_professional', 'Admin\AddSubscriptionController@plan_professional');
 Route::get('/assignPractice', 'Admin\AddSubscriptionController@assignPractice');
 Route::post('/practice_account', 'Admin\PracticeAccountController@index');
+
+Route::post('/practice_account_billing', 'Admin\BillingAndPaymentController@index');
+Route::get('/practice_account_billing', 'Admin\BillingAndPaymentController@index');
 
 Route::post('/getUserInfo', 'Admin\UserController@getUserInfo');
 
