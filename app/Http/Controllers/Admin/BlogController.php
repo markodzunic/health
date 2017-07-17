@@ -5,6 +5,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use DB;
+use App\Models\Practice;
 use App\Models\Blog;
 use Auth;
 use Illuminate\Http\Request;
@@ -34,6 +35,9 @@ class BlogController extends Controller {
 	{
 		$data = $request->all();
 
+		$user = Auth::user();
+    $practice = Practice::where('user_id', '=', $user->id)->first();
+
 		$this->sortby = isset($data['sort']) ? $data['sort'] : 'title';
 		$this->orderby = isset($data['order']) ? $data['order'] : 'asc';
 
@@ -53,6 +57,7 @@ class BlogController extends Controller {
 						'orderby' => $this->orderby,
 						'blogs' => $blogs,
 						'pagination' => true,
+						'practice' => $practice,
 						'columns' => Blog::$sortColumns,
 				])->render();
 		} else {
@@ -61,6 +66,7 @@ class BlogController extends Controller {
 						'orderby' => $this->orderby,
 						'blogs' => $blogs,
 						'pagination' => true,
+						'practice' => $practice,
 						'columns' => Blog::$sortColumns,
 				])->render();
 		}

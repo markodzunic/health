@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Auth;
 use DB;
+use App\Models\Practice;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\MessageBag;
@@ -33,6 +34,9 @@ class PagesController extends Controller {
 	{
 		$data = $request->all();
 
+		$user = Auth::user();
+    $practice = Practice::where('user_id', '=', $user->id)->first();
+
 		$this->sortby = isset($data['sort']) ? $data['sort'] : 'title';
 		$this->orderby = isset($data['order']) ? $data['order'] : 'asc';
 
@@ -52,6 +56,7 @@ class PagesController extends Controller {
 						'orderby' => $this->orderby,
 						'pages' => $pages,
 						'pagination' => true,
+						'practice' => $practice,
 						'columns' => Page::$sortColumns,
 				])->render();
 		} else {
@@ -60,6 +65,7 @@ class PagesController extends Controller {
 						'orderby' => $this->orderby,
 						'pages' => $pages,
 						'pagination' => true,
+						'practice' => $practice,
 						'columns' => Page::$sortColumns,
 				])->render();
 		}
