@@ -73,21 +73,29 @@
 				<div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
             <label for="category" class="col-md-4 control-label">Category</label>
 
-            <div class="col-md-8">
-                <!-- <select id="category" name="category" class="form-control" multiple required autofocus> -->
-										@foreach ($categories as $category)
-											<div class="control-group">
-												<div class="controls">
-													<input id="{{ $category->system_name }}" type="checkbox" name="category[]" value="{{ $category->system_name }}"><label for="">{{ $category->name }}<span></span></label>
-												</div>
-											</div>
-                    	<!-- <option value="{{ $category->system_name }}">{{ $category->name }}</option> -->
-										@endforeach
-                <!-- </select> -->
+						<div id="cat-update" class="table-section">
+			        {!! view('admin.Blog.Posts.cat-update', [
+			            'blog' => isset($blog) ? $blog : [],
+									'categories' => isset($categories) ? $categories : [],
+									'tags_ids' => isset($tags_ids) ? $tags_ids : [],
+									'categories_used_ids' => isset($categories_used_ids) ? $categories_used_ids : [],
+									'tags' => isset($tags) ? $tags : [],
+									'tags_used' => isset($tags_used) ? $tags_used : [],
+									'categories_used' => isset($categories_used) ? $categories_used : [],
+			        ]) !!}
+			      </div>
+						<a blogs-id="{{ isset($blog->id) ? $blog->id : 0 }}" onclick="Blogs.CreateCategory(this);return false;">New Category</a>
+        </div>
 
-                @if ($errors->has('category'))
+				<div class="form-group{{ $errors->has('tags') ? ' has-error' : '' }}">
+            <label for="tags" class="col-md-4 control-label">Tags</label>
+
+            <div class="col-md-6">
+                <input id="tags" type="text" class="form-control" name="tags" value="{{ isset($tags_ids) ? $tags_ids : '' }}" required autofocus>
+
+                @if ($errors->has('tags'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('category') }}</strong>
+                        <strong>{{ $errors->first('tags') }}</strong>
                     </span>
                 @endif
             </div>

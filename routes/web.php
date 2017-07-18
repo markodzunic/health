@@ -53,8 +53,10 @@ Route::post('/practices', 'Admin\PracticeController@index');
 Route::get('/practices/updatePractice', 'Admin\PracticeController@updatePractice');
 Route::post('/practices/updatePractice', 'Admin\PracticeController@updatePractice');
 
-Route::get('/category/updateCategory', 'Admin\BlogController@updateCategory');
-Route::post('/category/updateCategory', 'Admin\BlogController@updateCategory');
+Route::get('/blogs/updateCategory', 'Admin\BlogController@updateCategory');
+Route::post('/blogs/updateCategory', 'Admin\BlogController@updateCategory');
+
+Route::post('/blogs/updateCatBlog', 'Admin\BlogController@updateCatBlog');
 
 Route::get('/blogs', 'Admin\BlogController@index');
 Route::post('/blogs', 'Admin\BlogController@index');
