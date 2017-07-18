@@ -7,6 +7,8 @@ use App\User;
 use DB;
 use App\Models\Practice;
 use App\Models\Blog;
+use App\Models\BlogCategory;
+use App\Models\Category;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
@@ -110,8 +112,13 @@ class BlogController extends Controller {
 
 			$blog = Blog::find($data['id']);
 
+			$categories_used = BlogCategory::where('blogs_id', '=', $data['id'])->get();
+			$categories = Category::all();
+
 			return view("admin.Blog.Posts.update",[
-					'blog' => $blog
+					'blog' => $blog,
+					'categories' => $categories,
+					'categories_used' => $categories_used,
 			])->withErrors($errors);
 		} else {
 			$data = $request->all();
@@ -135,12 +142,49 @@ class BlogController extends Controller {
 			}
 
 			$blog->title = $data['title'];
+			$blog->meta_description = $data['meta_description'];
+			$blog->user_id = Auth::user()->id;
 			$blog->image = $path;
 			$blog->description = $data['description'];
 
 			$blog->save();
 
 			$request->session()->flash('alert-success', 'Blog Updated.');
+		}
+	}
+
+	public function updateCategory(Request $request) {
+		if (!$request->isMethod('post')) {
+			$data = $request->all();
+			$errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
+
+			if ($errors) {
+				foreach ($errors as $key => $value) {
+					$this->messageBag->add($key, $value);
+				}
+			}
+
+			// $blog = Blog::find($data['id']);
+
+			return view("admin.Blog.Posts.category",[
+					// 'blog' => $blog
+			])->withErrors($errors);
+		} else {
+			$data = $request->all();
+
+			$this->validate($request, [
+				'name' => 'required',
+				// 'description' => 'required'
+			]);
+
+			$category = new Category();
+
+			$category->name = $data['name'];
+			$category->system_name = strtolower(str_replace(' ', '_', $data['name']));
+
+			$category->save();
+
+			$request->session()->flash('alert-success', 'Category Updated.');
 		}
 	}
 

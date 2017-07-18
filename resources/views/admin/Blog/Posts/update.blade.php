@@ -37,11 +37,30 @@
                         </div>
 				</div>
 
+				<div class="form-group{{ $errors->has('meta_description') ? ' has-error' : '' }}">
+            <label for="meta_description" class="col-md-4 control-label">Meta</label>
+
+            <div class="col-md-6">
+                <textarea id="meta_description" class="form-control" name="meta_description" value="{{ isset($blog->meta_description) ? $blog->meta_description : '' }}" required autofocus>
+										{{ isset($blog->meta_description) ? $blog->meta_description : '' }}
+								</textarea>
+
+                @if ($errors->has('meta_description'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('meta_description') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
             <label for="description" class="col-md-4 control-label">Description</label>
 
             <div class="col-md-6">
-                <input id="description" type="text" class="form-control" name="description" value="{{ isset($blog->description) ? $blog->description :'' }}" required autofocus>
+							<div id="editor">
+		             <textarea id='edit' name="description" style="margin-top: 30px;">{{ isset($blog->description) ? $blog->description : '' }}</textarea>
+		          </div>
+                <!-- <input id="description" type="hidden" class="form-control" name="description" value="{{ isset($blog->description) ? $blog->description :'' }}" required autofocus> -->
 
                 @if ($errors->has('description'))
                     <span class="help-block">
@@ -51,11 +70,31 @@
             </div>
         </div>
 
-           
+				<div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
+            <label for="category" class="col-md-4 control-label">Category</label>
+
+            <div class="col-md-8">
+                <!-- <select id="category" name="category" class="form-control" multiple required autofocus> -->
+										@foreach ($categories as $category)
+											<div class="control-group">
+												<div class="controls">
+													<input id="{{ $category->system_name }}" type="checkbox" name="category[]" value="{{ $category->system_name }}"><label for="">{{ $category->name }}<span></span></label>
+												</div>
+											</div>
+                    	<!-- <option value="{{ $category->system_name }}">{{ $category->name }}</option> -->
+										@endforeach
+                <!-- </select> -->
+
+                @if ($errors->has('category'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('category') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
 	    </fieldset>
 
-         <div id="editor">
-            <div id='edit' style="margin-top: 30px;"></div>
-         </div>
+
 {!! Form::close() !!}
 </div>
