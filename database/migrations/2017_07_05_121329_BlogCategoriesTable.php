@@ -14,6 +14,7 @@ class BlogCategoriesTable extends Migration
     public function up()
     {
       Schema::create('blog_categories', function (Blueprint $table) {
+          $table->increments();
           $table->integer('blogs_id');
           $table->integer('categories_id');
           $table->timestamps();
