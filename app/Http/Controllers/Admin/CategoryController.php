@@ -1,14 +1,13 @@
 <?php
+namespace App\Http\Controllers\Admin;
 
-namespace App\Http\Controllers\PublicPart;
-
-use App\User;
-use App\Models\Blog;
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+use Auth;
+use App\Models\Category;
+use Illuminate\Http\Request;
 
-class BlogController extends Controller
-{
+class CategoryController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -17,39 +16,7 @@ class BlogController extends Controller
 	 */
 	public function index()
 	{
-		$blogs = Blog::paginate(20);
 
-		return view('public.Blog.index', [
-			'blogs' => $blogs,
-		]);
-	}
-
-	public function blogCategory(Request $request) {
-		$data = $request->all();
-		$blogs = Blog::where()->get();
-		return view('public.Blog.index', [
-			'blogs' => $blogs,
-		]);
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
 	}
 
 	/**
