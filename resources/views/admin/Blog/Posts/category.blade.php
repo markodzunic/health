@@ -2,7 +2,7 @@
 	  {!! Form::open( ['method' => 'POST', 'id' => 'editCategoryForm', 'files' => true ] ) !!}
 	    <fieldset>
         {{ csrf_field() }}
-
+				<input type="hidden" name="id" value="{{ isset($id) ? $id : 0 }}">
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
             <label for="name" class="col-md-4 control-label">Name</label>
 

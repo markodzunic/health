@@ -8,6 +8,8 @@ use DB;
 use App\Models\Practice;
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\Tag;
+use App\Models\BlogTag;
 use App\Models\Category;
 use Auth;
 use Illuminate\Http\Request;
@@ -102,6 +104,10 @@ class BlogController extends Controller {
 	public function updateBlog(Request $request) {
 		if (!$request->isMethod('post')) {
 			$data = $request->all();
+			$categories_used_ids = [];
+			$tags_used_ids = [];
+			$tag_names = [];
+
 			$errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
 
 			if ($errors) {
@@ -115,13 +121,41 @@ class BlogController extends Controller {
 			$categories_used = BlogCategory::where('blogs_id', '=', $data['id'])->get();
 			$categories = Category::all();
 
+			if ($categories_used) {
+				foreach ($categories_used as $key => $value) {
+					$categories_used_ids[] = $value->categories_id;
+				}
+			}
+
+			$tags_used = BlogTag::where('blogs_id', '=', $data['id'])->get();
+			$tags = Tag::all();
+
+			if ($tags_used) {
+				foreach ($tags_used as $key => $value) {
+					$tags_used_ids[] = $value->tags_id;
+				}
+			}
+
+			if ($tags_used_ids) {
+				foreach ($tags_used_ids as $key => $value) {
+					$tag_names[] = Tag::find($value)->name;
+				}
+			}
+
 			return view("admin.Blog.Posts.update",[
 					'blog' => $blog,
 					'categories' => $categories,
+					'tags_ids' => implode(',', $tag_names),
+					'categories_used_ids' => $categories_used_ids,
+					'tags' => $tags,
+					'tags_used' => $tags_used,
 					'categories_used' => $categories_used,
 			])->withErrors($errors);
 		} else {
 			$data = $request->all();
+			$t_id = [];
+			$categories_used_ids = [];
+			$tags_used_ids = [];
 
 			$this->validate($request, [
 				'title' => 'required',
@@ -149,6 +183,81 @@ class BlogController extends Controller {
 
 			$blog->save();
 
+ 			if (isset($data['category'])) {
+				$categories_used = BlogCategory::where('blogs_id', '=', $data['id'])->get();
+
+				if ($categories_used) {
+					foreach ($categories_used as $key => $value) {
+						$categories_used_ids[] = $value->categories_id;
+					}
+				}
+
+				foreach ($data['category'] as $cat) {
+					if (!in_array($cat, $categories_used_ids)) {
+						$category = new BlogCategory();
+						$category->blogs_id = $blog->id;
+						$category->categories_id = $cat;
+						$category->save();
+					}
+				}
+
+				if ($categories_used_ids) {
+						foreach ($categories_used_ids as $c => $ct) {
+							if (!in_array($ct, $data['category'])) {
+									$cat_del = BlogCategory::where('blogs_id', '=', $data['id'])->where('categories_id', '=', $ct)->first();
+									$cat_del->delete();
+							}
+						}
+				}
+			}
+
+			if (isset($data['tags'])) {
+				$tags_used = BlogTag::where('blogs_id', '=', $data['id'])->get();
+
+				if ($tags_used) {
+					foreach ($tags_used as $key => $value) {
+						$tags_used_ids[] = $value->id;
+					}
+				}
+
+				$tags = explode(',', $data['tags']);
+
+				foreach ($tags as $tga) {
+					$tgg = Tag::where('name', '=', $tga)->first();
+
+					if ($tgg)
+						$t_id[] = $tgg->id;
+					// if ($tags) {
+							// foreach ($tags as $t => $tg) {
+
+								if (!$tgg) {
+									$tag_new = new Tag();
+									$tag_new->name = $tga;
+									$tag_new->system_name = strtolower(str_replace(' ', '_', $tga));
+									$tag_new->save();
+									$tgg = $tag_new;
+								}
+							// }
+					// }
+
+					if (!in_array($tgg->id, $tags_used_ids)) {
+						$tag = new BlogTag();
+						$tag->blogs_id = $blog->id;
+						$tag->tags_id = $tgg->id;
+						$tag->save();
+					}
+				}
+
+				if ($tags_used_ids) {
+						foreach ($tags_used_ids as $t => $tc) {
+							if (!in_array($tc, $t_id)) {
+									$tag_del = BlogTag::where('blogs_id', '=', $data['id'])->where('tags_id', '=', $tc)->first();
+									$tag_del->delete();
+							}
+						}
+				}
+			}
+
 			$request->session()->flash('alert-success', 'Blog Updated.');
 		}
 	}
@@ -167,7 +276,7 @@ class BlogController extends Controller {
 			// $blog = Blog::find($data['id']);
 
 			return view("admin.Blog.Posts.category",[
-					// 'blog' => $blog
+					'id' => $data['id']
 			])->withErrors($errors);
 		} else {
 			$data = $request->all();
@@ -188,6 +297,58 @@ class BlogController extends Controller {
 		}
 	}
 
+	public function updateCatBlog(Request $request) {
+			$data = $request->all();
+			$categories_used_ids = [];
+			$tags_used_ids = [];
+			$tag_names = [];
+
+			$errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
+
+			if ($errors) {
+				foreach ($errors as $key => $value) {
+					$this->messageBag->add($key, $value);
+				}
+			}
+
+			if (isset($data['id'])) {
+				$blog = Blog::find($data['id']);
+
+				$categories_used = BlogCategory::where('blogs_id', '=', $data['id'])->get();
+				$categories = Category::all();
+
+				if ($categories_used) {
+					foreach ($categories_used as $key => $value) {
+						$categories_used_ids[] = $value->categories_id;
+					}
+				}
+
+				$tags_used = BlogTag::where('blogs_id', '=', $data['id'])->get();
+				$tags = Tag::all();
+
+				if ($tags_used) {
+					foreach ($tags_used as $key => $value) {
+						$tags_used_ids[] = $value->tags_id;
+					}
+				}
+
+				if ($tags_used_ids) {
+					foreach ($tags_used_ids as $key => $value) {
+						$tag_names[] = Tag::find($value)->name;
+					}
+				}
+			}
+
+			return view("admin.Blog.Posts.cat-update",[
+					'blog' => $blog,
+					'categories' => $categories,
+					'tags_ids' => implode(',', $tag_names),
+					'categories_used_ids' => $categories_used_ids,
+					'tags' => $tags,
+					'tags_used' => $tags_used,
+					'categories_used' => $categories_used,
+			])->withErrors($errors);
+	}
 	/**
 	 * Show the form for creating a new resource.
 	 *
