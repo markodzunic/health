@@ -110,6 +110,8 @@ Route::post('/updatePassword', 'Admin\UserAccountController@updatePassword');
 
 Route::post('/user_account', 'Admin\UserAccountController@index');
 
+
+
 # public part routes
 Route::resource('home', 'PublicPart\PublicPartController');
 Route::resource('blog', 'PublicPart\BlogController');
@@ -130,3 +132,7 @@ Route::resource('finances', 'PublicPart\FinancesController');
 Route::resource('patient_management', 'PublicPart\PatientManagementController');
 Route::resource('practice_operations', 'PublicPart\PracticeOperationsController');
 Route::resource('public_part', 'PublicPart\PublicPartController');
+
+
+Route::get('/blogCategory', 'PublicPart\BlogController@blogCategory');
+Route::post('/blogCategory', 'PublicPart\BlogController@blogCategory');

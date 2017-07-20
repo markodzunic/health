@@ -5,7 +5,7 @@
 				<div class="bolg-image-container">
 					<a href="{{ URL::to('/blog-single') }}">
 						<img class="blog-image" src="{{ asset('/img/'.$blog->image) }}">
-						<a href="{{ URL::to('/blog-category') }}" class="btn im-btn white-btn blog-expert-category">Category</a>
+						<a href="{{ URL::to('/blogCategory?category='.$blog->category_id) }}" class="btn im-btn white-btn blog-expert-category">{{ $blog->category }}</a>
 					</a>
 				</div>
 				<div class="blog-expert-content">
