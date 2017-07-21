@@ -107,7 +107,10 @@ class PagesController extends Controller {
 				}
 			}
 
-			$page = Page::find($data['id']);
+			if (isset($data['id']))
+				$page = Page::find($data['id']);
+			else
+				$page = null;
 
 			return view("admin.Pages.Pages.update",[
 					'page' => $page
@@ -123,6 +126,9 @@ class PagesController extends Controller {
 			]);
 
 			$blog = Page::find($data['id']);
+
+			if (!$blog)
+				$blog = new Page();
 
 			$blog->title = $data['title'];
 			$blog->page = $data['page'];
