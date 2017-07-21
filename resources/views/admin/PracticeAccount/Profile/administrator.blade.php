@@ -9,6 +9,7 @@
 							<h3>Practice Administrator</h3>
 						</div>
 					</div>
+
 					<div class="box-content" align="center">
 						<div class="row">
 								@if ($admin_users)
@@ -24,7 +25,6 @@
 							        </div>
 									@endforeach
 								@endif
-							</div>
 						</div>						
 					</div>
 				</div>

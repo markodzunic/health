@@ -50,7 +50,6 @@
 		@endif
 	</tbody>
 </table>
-</div>
 @if($pagination)
 	<div id="pagination" class="no-print">
 		<div class="sales-query-pagination">

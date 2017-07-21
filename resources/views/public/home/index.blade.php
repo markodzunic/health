@@ -50,6 +50,13 @@
 					  });
 					  return false;
 			    });
+			    $('#next-section').on('click',function(e) {
+			    	e.preventDefault();
+			    	$.smoothScroll({
+			    		offset: -82,
+					    scrollTarget: '#section1'
+					  });
+			    });
 			    $(document).ready(function() {		 
 				  $('#main-navigation .left-nav .menu-item:nth-child(1)').addClass('im-active');
 				});

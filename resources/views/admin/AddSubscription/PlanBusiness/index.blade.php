@@ -4,6 +4,7 @@
 @stop
 
 @section('MainContent')
+@include('admin.AddSubscription.PlanBusiness.title')
 @include('admin.AddSubscription.PlanBusiness.content')
 @stop
 

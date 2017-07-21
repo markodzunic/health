@@ -1,5 +1,6 @@
 <section class="small-padding no-padding-top">	
 	<div class="container">
+	
 		<div id="PracticeStaff" class="form-box editable-info">
 
 			<div class="box-header">
@@ -29,6 +30,7 @@
 					@endif
 				</div>
 			</div>
+
 			<div class="box-content" style="padding-bottom: 15px;">
 				<div class="row">
 					<div class="col-md-12" align="right"">
