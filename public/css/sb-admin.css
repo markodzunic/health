@@ -38,8 +38,8 @@ body {
     float: left;
 }
 .top-nav>li>a {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 17px;
+    padding-bottom: 17px;
     line-height: 20px;
     color: #fff;
 }
@@ -107,7 +107,7 @@ ul.alert-dropdown {
     padding: 15px;
 }
 #profile-image {
-    background: #fff;
+    /*background: #fff;*/
 }
 #profile-image img {
     max-width: 100%;
@@ -122,7 +122,7 @@ ul.alert-dropdown {
         height: 40px;
         position: fixed;
         left: 225px;
-        top: 5px;
+        bottom: 5px;
         right: 0;
         color: #fff;
         display: block;
@@ -148,7 +148,7 @@ ul.alert-dropdown {
     }
     .side-nav {
         position: fixed;
-        top: 0;
+        top: 55px;
         left: 225px;
         width: 225px;
         margin-left: -225px;
@@ -175,6 +175,17 @@ ul.alert-dropdown {
         outline: none;
         background-color: #00b0f0 !important;
     }
+
+}
+.navbar-form .form-group input {
+    height: 34px;
+    line-height: 34px;
+    border: 0;
+    margin-top: 3px;
+}
+.navbar-form .form-group .im-btn {
+    float: right;
+    line-height: 32px;
 }
 .side-nav::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
@@ -229,7 +240,7 @@ ul.alert-dropdown {
     height: 100%;
 }
 #page-wrapper {
-    min-height: 90vh;
+    min-height: 85vh;
 }
 /*ADMIN BOXES*/
 .personal-image {
@@ -428,58 +439,43 @@ label input {
   }
 }
 /*MY KNOWLADGE BOX*/
-#knoledge-grid {
-  margin-top: 90px;
+.box-grid a .grid-col-content{
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
-.bg-green {
-  background-color: #00ff00;
+.box-grid a:hover .grid-col-content{
+  color: #fff;
 }
-.bg-purple {
-  background-color: purple;
+.box-grid a.im-lblue:hover .grid-col-content{
+  background-color: rgba(0,176,240,1);
 }
-#main-grid-col {
-  min-height: 300px;
+.box-grid a.im-blue:hover .grid-col-content{
+  background-color: rgba(0,32,96,1);
 }
-#main-grid-col,
-.grid-col-2x,
-.grid-col {
-  padding-top: 20px;
-  padding-top: 20px;
+.box-grid a.im-pink:hover .grid-col-content{
+  background-color: rgba(255,102,255,1);
 }
-.grid-col-2x,
-.grid-col{
+.box-grid .grid-col-content {
+  padding: 50px 15px;
   text-align: center;
-  position: relative;
-  overflow:hidden;
+  margin: 15px auto;
 }
-.grid-col-2x a,
-.grid-col a{
-  color: #fff !important;
-  font-size: 20px;
-  float: left;
-  width: 100%;
-  height: 100%;
+.box-grid .grid-col-content.no-split {
+  padding: 15px 15px;
 }
-.grid-col-2x a .grid-col-content,
-.grid-col a .grid-col-content{
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  width: 100%;
+.box-grid .grid-col-content.no-split span {
+  font-weight: normal;
 }
-.grid-col-2x a .grid-col-content,
-.grid-col a .grid-col-content{
-  float: left;
-  position: relative;
-  width: 100%;
+.box-grid .grid-col-content.no-split.im-left {
+  text-align: left;
 }
-.grid-col-2x:hover,
-.grid-col:hover {
-  opacity: 0.9;
+.box-grid .grid-col-content.no-split.im-right {
+  text-align: right;
 }
+
 /*SITE MAP*/
 .site-map-btn {
     width: 190px;
@@ -595,7 +591,6 @@ a:hover .site-map-btn-left {
     }
 }
 ul.accordion .inner  {
-  overflow: hidden;
   display: none;
   float: left;
   position: absolute;
@@ -604,19 +599,17 @@ ul.accordion .inner  {
   bottom: 0;
   left: 125px;
   margin: auto;
-  overflow-x: hidden;
-  overflow-y: scroll;
 }
-ul.accordion .inner::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
     background-color: #F5F5F5;
     border-radius: 0;
 }
-ul.accordion .inner::-webkit-scrollbar {
+body::-webkit-scrollbar {
     width: 5px;
     background-color: #F5F5F5;
 }
-ul.accordion .inner::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
     border-radius: 0;
     background-color: #FFF;
     background-image: -webkit-gradient(linear,
@@ -654,5 +647,24 @@ ul.accordion > li > a.toggle > span {
 }
 ul.accordion > li > a.toggle:hover,
 ul.accordion > li > a.toggle.im-active {
-  opacity: 0.8;
+  color: #00b0f0 !important;
+  background-color: #efefef;
+}
+
+/*EDITOR*/
+.fr-popup.fr-active {
+  /*z-index: 99999999999;*/
+}
+/*FOOTER*/
+#admin-footer .footer-col{
+  background-color: #333;
+  color: #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin:auto !important;
+}
+#admin-footer img {
+  max-width: 100%;
+  max-height: 30px;
+  margin-bottom: 0;
 }

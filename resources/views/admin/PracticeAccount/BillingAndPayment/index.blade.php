@@ -5,12 +5,19 @@
 
 @section('MainContent')
 	@include('admin.PracticeAccount.BillingAndPayment.title')
-	@include('admin.PracticeAccount.BillingAndPayment.content')
+
+	{!! view('admin.PracticeAccount.BillingAndPayment.content', [
+			'limit' => $limit,
+			'subscription' => $subscription,
+			'practice' => $practice,
+			'user' => $user,
+	])->render() !!}
 @stop
 
 
 
-	
+
 @section('AditionalFoot')
-	
+		<script src="{{ URL::asset('/js/Admin/users.js') }}"></script>
+		<script src="{{ URL::asset('/js/Admin/practices.js') }}"></script>
 @stop

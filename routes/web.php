@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/', 'Auth\LoginController@index');
+Route::get('/', 'PublicPart\PublicPartController@index');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 # admin part routes
@@ -40,6 +40,9 @@ Route::get('/plan_professional', 'Admin\AddSubscriptionController@plan_professio
 Route::get('/assignPractice', 'Admin\AddSubscriptionController@assignPractice');
 Route::post('/practice_account', 'Admin\PracticeAccountController@index');
 
+Route::post('/practice_account_billing', 'Admin\BillingAndPaymentController@index');
+Route::get('/practice_account_billing', 'Admin\BillingAndPaymentController@index');
+
 Route::post('/getUserInfo', 'Admin\UserController@getUserInfo');
 
 Route::get('/practice_account', 'Admin\PracticeAccountController@index');
@@ -49,6 +52,11 @@ Route::post('/practices', 'Admin\PracticeController@index');
 
 Route::get('/practices/updatePractice', 'Admin\PracticeController@updatePractice');
 Route::post('/practices/updatePractice', 'Admin\PracticeController@updatePractice');
+
+Route::get('/blogs/updateCategory', 'Admin\BlogController@updateCategory');
+Route::post('/blogs/updateCategory', 'Admin\BlogController@updateCategory');
+
+Route::post('/blogs/updateCatBlog', 'Admin\BlogController@updateCatBlog');
 
 Route::get('/blogs', 'Admin\BlogController@index');
 Route::post('/blogs', 'Admin\BlogController@index');
@@ -102,6 +110,8 @@ Route::post('/updatePassword', 'Admin\UserAccountController@updatePassword');
 
 Route::post('/user_account', 'Admin\UserAccountController@index');
 
+
+
 # public part routes
 Route::resource('home', 'PublicPart\PublicPartController');
 Route::resource('blog', 'PublicPart\BlogController');
@@ -122,3 +132,7 @@ Route::resource('finances', 'PublicPart\FinancesController');
 Route::resource('patient_management', 'PublicPart\PatientManagementController');
 Route::resource('practice_operations', 'PublicPart\PracticeOperationsController');
 Route::resource('public_part', 'PublicPart\PublicPartController');
+
+
+Route::get('/blogCategory', 'PublicPart\BlogController@blogCategory');
+Route::post('/blogCategory', 'PublicPart\BlogController@blogCategory');

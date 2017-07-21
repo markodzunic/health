@@ -6,7 +6,7 @@
 
         <div class="pricing-table-header im-center">
           <p><strong>Lorem ipsum dolor sit amet</strong></p>
-          <h2>BASIC PLAN</h2>
+          <h2>BUSINESS PLAN</h2>
         </div>
 
         <div class="pricing-table-body im-center">

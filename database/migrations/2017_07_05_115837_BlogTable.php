@@ -17,6 +17,8 @@ class BlogTable extends Migration
           $table->increments('id');
           $table->string('title');
           $table->text('description');
+          $table->text('meta_description');
+          $table->integer('user_id')->unsigned();
           $table->string('image');
           $table->timestamps();
       });

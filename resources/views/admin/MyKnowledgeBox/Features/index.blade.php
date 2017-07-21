@@ -9,7 +9,7 @@
 
 @section('MainContent')
 @include('admin.MyKnowledgeBox.Features.title')
-@include('admin.MyKnowledgeBox.Features.menu')
+{{-- @include('admin.MyKnowledgeBox.Features.menu') --}}
 @include('admin.MyKnowledgeBox.Features.content')
 @stop
 

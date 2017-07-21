@@ -1,4 +1,4 @@
-<section class="big-padding bg-grey im-center">
+<section class="big-padding im-white bg-lblue im-center">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
@@ -14,7 +14,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<a href="#" class="btn im-btn pink-btn">Discover iMedical</a>
+				<a href="{{ URL::to('/features') }}" class="btn im-btn white-btn">Discover iMedical</a>
 			</div>
 		</div>
 	</div>

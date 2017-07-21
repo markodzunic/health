@@ -5,6 +5,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\ReportProblem;
 use Auth;
+use App\Models\Practice;
 use Illuminate\Http\Request;
 
 class ReportProblemController extends Controller {
@@ -16,7 +17,12 @@ class ReportProblemController extends Controller {
 	 */
 	public function index()
 	{
-		return view("admin.ReportProblem.index");
+		$user = Auth::user();
+    $practice = Practice::where('user_id', '=', $user->id)->first();
+
+		return view("admin.ReportProblem.index",[
+			'practice' => $practice,
+		]);
 	}
 
 	/**

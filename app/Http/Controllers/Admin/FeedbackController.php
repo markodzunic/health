@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\Models\Practice;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,12 @@ class FeedbackController extends Controller {
 	 */
 	public function index()
 	{
-		return view("admin.UserAccount.Feedback.index");
+		$user = Auth::user();
+    $practice = Practice::where('user_id', '=', $user->id)->first();
+
+		return view("admin.UserAccount.Feedback.index", [
+			'practice' => $practice,
+		]);
 	}
 
 	/**
