@@ -12,8 +12,9 @@
     	<div class="toolbar">
         <input type="hidden" id="orderby" name="orderby" value="{{ $orderby }}">
         <input type="hidden" id="sortby" name="sortby" value="{{ $sortby }}">
+				<a blogs-id="0" onclick="Pages.Update(this);return false;" class="btn im-btn pink-btn">Create</a>
       </div>
-  
+
       <div id="table-section" class="table-section">
         {!! view('admin.Pages.Pages.table', [
             'pages' => $pages,

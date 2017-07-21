@@ -57,6 +57,25 @@ var Practices = {
     });
   },
 
+  RefreshInfoBilling: function() {
+    var token = $('meta[name="csrf-token"]').attr('content');
+
+    $.ajax({
+        type: "POST",
+        // async: true,
+        headers: { 'X-XSRF-TOKEN' : token },
+        url: '/practice_account_billing',
+        data: {
+            _token: token,
+        },
+        success: function(result){
+          // console.log(JSON.parse(result));
+          // refresh grid
+          $('#practice-info').html(result);
+        }
+    });
+  },
+
 	Pagination: function() {
 		var token = $('meta[name="csrf-token"]').attr('content');
 		var sort = $('#sortby').val();
@@ -269,7 +288,10 @@ var Practices = {
                           if ($('#practices').length > 0) {
                               Practices.RefreshPractices(el, sort, order);
                           } else {
-                              Practices.RefreshInfo();
+                              if ($('#billing').length > 0)
+                                Practices.RefreshInfoBilling();
+                              else
+                                Practices.RefreshInfo();
                           }
                         },
                         error: function(xhr,status, response) {

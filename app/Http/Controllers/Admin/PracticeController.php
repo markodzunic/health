@@ -33,6 +33,9 @@ class PracticeController extends Controller {
 	{
 		$data = $request->all();
 
+		$user = Auth::user();
+    $practice = Practice::where('user_id', '=', $user->id)->first();
+
 		$this->sortby = isset($data['sort']) ? $data['sort'] : 'name';
 		$this->orderby = isset($data['order']) ? $data['order'] : 'asc';
 
@@ -52,6 +55,7 @@ class PracticeController extends Controller {
 						'orderby' => $this->orderby,
 						'practices' => $practices,
 						'pagination' => true,
+						'practice' => $practice,
 						'columns' => Practice::$sortColumns,
 				])->render();
 		} else {
@@ -60,6 +64,7 @@ class PracticeController extends Controller {
 						'orderby' => $this->orderby,
 						'practices' => $practices,
 						'pagination' => true,
+						'practice' => $practice,
 						'columns' => Practice::$sortColumns,
 				])->render();
 		}
@@ -158,7 +163,9 @@ class PracticeController extends Controller {
 			$practice = Practice::find($data['id']);
 
 			if ($request->file('avatar')) {
-			   Image::make($request->file('avatar'))->resize(200, 200)->save(public_path('img/avatars').'/'.$practice->id.'_'.$request->file('avatar')->getClientOriginalName());
+			   Image::make($request->file('avatar'))->resize(200, null, function($constraint) {
+					 $constraint->aspectRatio();
+				 })->save(public_path('img/avatars').'/'.$practice->id.'_'.$request->file('avatar')->getClientOriginalName());
          $path = 'avatars/'.$practice->id.'_'.$request->file('avatar')->getClientOriginalName();
       } else {
         $path = 'avatars/avatar.png';

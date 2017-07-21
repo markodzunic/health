@@ -1,0 +1,6 @@
+var Billing = {
+	init: function() {
+      
+	},
+
+}

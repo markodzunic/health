@@ -30,7 +30,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<div class="search">
 						<input type="text" class="form-control" maxlength="64" placeholder="Search" />
 						<button type="submit" class="btn im-btn pink-btn">Search</button>

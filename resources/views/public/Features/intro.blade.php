@@ -2,14 +2,14 @@
 	<div class="container">			
 		<div class="row">
 			<div class="col-md-12">
-				<p>Once your Practice is registered to use iMedical, then each permitted staff member will have access to the GP Knowledge Box via the iMedical Dashboard.</p>
+				<p>Once your Practice is registered to use iMedical, then each permitted staff member will have access to the GP Knowledge Box via the iMedical Dashboard. </p>
 
 				<p>iMedical comprises user-based access which means that the content is tailored to the specific role of the user i.e. a Practice Manager will have access to certain information that a Practice Nurse or Doctor does not need to see or access for the purposes of carrying out their own role and vice versa. This allows for simple navigation and use. </p>
 
-				<p>The GP Knowledge Box comprises 9 individual subject areas from Clinical Management to Infection Control. Each subject area, in turn, is made up of the following elements:</p>
+				<p>The GP Knowledge Box comprises 9 individual subject areas:</p>
 			</div>
 		</div>
-		<div class="row">
+		{{-- <div class="row">
 			<div class="col-md-12">
 				<ul class="im-list im-list-lblue">
 					<li>
@@ -44,6 +44,6 @@
 					</li>
 				</ul>
 			</div>
-		</div>
+		</div> --}}
 	</div>
 </section>

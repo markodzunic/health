@@ -1,8 +1,10 @@
-<section class="admin-title-section">
+<section class="admin-title-section bg-blue im-white">
 	<div class="container-fluid">
 		<div class="row">
 	    	<div class="col-md-12">
-		        <h1>Blog Posts</h1>
+	    		<a href="{{ URL::to('/home') }}">iMedical</a> <i class="fa fa-angle-right"></i>
+	    		<a href="{{ URL::to('/dashboard') }}">Dashboard</a> <i class="fa fa-angle-right"></i>
+				<a href="{{ URL::to('/blogs') }}" class="im-active">Blog Posts</a>
 		    </div>
 		</div>
 	</div>

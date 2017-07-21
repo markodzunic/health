@@ -94,13 +94,12 @@ var Blogs = {
 
   Delete: function(el, err) {
     var token = $('meta[name="csrf-token"]').attr('content');
-    $('#deletePractice').hide();
 
+    $('#deleteBlog').hide();
+    var blog_id = $(el).attr('blogs-id');
     var sort = $('#sortby').val();
 		var order = $('#orderby').val();
-    var blog_id = $(el).attr('blogs-id');
-    var page = $(el).attr('page');
-
+    
     $.ajax({
         type: "GET",
         headers: { 'X-XSRF-TOKEN' : token },
@@ -108,7 +107,6 @@ var Blogs = {
         dataType: 'html',
         data: {
           error: err,
-          practice_account: page,
           id: blog_id,
           _token: token,
         },
@@ -134,7 +132,7 @@ var Blogs = {
                         success:function(result){
                           // refresh grid
                           $('#deleteBlog').dialog('close');
-                          Blogs.RefreshBlogs(el, sort, order);
+                            Blogs.RefreshBlogs(el, sort, order);
                         },
                         error: function(xhr,status, response) {
                           $('#deleteBlog').remove();
@@ -253,5 +251,101 @@ var Blogs = {
             });
         }
      });
-  }
+  },
+
+  BlogCategory: function(el) {
+    var token = $('meta[name="csrf-token"]').attr('content');
+
+    var cat_id = $(el).attr('category-id');
+
+    $.ajax({
+      type: "POST",
+      headers: { 'X-XSRF-TOKEN' : token },
+      async: true,
+      url: '/blogCategory',
+      data: {
+        _token: token,
+        cat_id: cat_id,
+      },
+      success:function(result){
+
+      }
+    });
+  },
+
+  CreateCategory: function(el, err) {
+    var token = $('meta[name="csrf-token"]').attr('content');
+    $('#updateCategory').hide();
+
+    var blog_id = $(el).attr('blogs-id');
+
+    $.ajax({
+        type: "GET",
+        headers: { 'X-XSRF-TOKEN' : token },
+        url: '/blogs/updateCategory',
+        dataType: 'html',
+        data: {
+          error: err,
+          id: blog_id,
+          _token: token,
+        },
+        success: function(result) {
+          $('body').append(result);
+          $('#updateCategory').dialog({
+              width: 700,
+              modal: true,
+              buttons: {
+                Yes: {
+                  text: 'Save',
+                  class: 'btn im-btn lblue-btn update-btn',
+                  click: function() {
+                    var form = $('#updateCategory').find('form');
+                    var data = form.serialize();
+
+                    $.ajax({
+                        type: "POST",
+                        // async: true,
+                        headers: { 'X-XSRF-TOKEN' : token },
+                        url: '/blogs/updateCategory',
+                        data: data,
+                        success:function(result){
+                          // refresh grid
+                          $('#updateCategory').dialog('close');
+                          var blog_id = $(el).attr('blogs-id');
+
+                          $.ajax({
+                              type: "POST",
+                              // async: true,
+                              headers: { 'X-XSRF-TOKEN' : token },
+                              url: '/blogs/updateCatBlog',
+                              data: data,
+                              success:function(result){
+                                  $('#cat-update').html(result);
+                              }
+                          });
+                        },
+                        error: function(xhr,status, response) {
+                          $('#updateCategory').remove();
+                          Blogs.CreateCategory(el, xhr.responseText);
+                        }
+                    });
+                  }
+                },
+                // closes dialog and cancels action
+                No: {
+                    text: 'Cancel',
+                    class: 'btn im-btn lblue-btn cancel-btn',
+                    click: function() {
+                        $(this).dialog( "close" );
+                    }
+                }
+              },
+              close: function() {
+                  $(this).dialog( "close" );
+                  $('#updateCategory').remove();
+              }
+            });
+        }
+     });
+  },
 }

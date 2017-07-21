@@ -7,6 +7,7 @@ use Auth;
 use App\User;
 use Validator;
 use App\Models\Role;
+use App\Models\Practice;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Hash;
@@ -31,15 +32,19 @@ class UserAccountController extends Controller {
 
 		$role = Role::find($user->role_id);
 
+		$practice = Practice::where('user_id', '=', $user->id)->first();
+
 		if ($request->ajax()) {
 				return view("admin.UserAccount.Profile.personal-info", [
             'user' => $user,
-            'role' => $role
+            'role' => $role,
+						'practice' => $practice,
         ])->render();
 		} else {
 			return view("admin.UserAccount.Profile.index", [
 					'user' => $user,
-					'role' => $role
+					'role' => $role,
+					'practice' => $practice,
 			]);
 		}
 	}
@@ -130,7 +135,9 @@ class UserAccountController extends Controller {
 
 			$user = User::find($data['id']);
 			if ($request->file('avatar')) {
-					Image::make($request->file('avatar'))->resize(200, 200)->save(public_path('img/avatars').'/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName());
+					Image::make($request->file('avatar'))->resize(200, null, function($constraint){
+						$constraint->aspectRatio();
+					})->save(public_path('img/avatars').'/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName());
 					$path = 'avatars/'.$user->id.'_'.$request->file('avatar')->getClientOriginalName();
 			} else {
 					$path = 'avatars/avatar.png';
