@@ -5,7 +5,13 @@
 
 @section('MainContent')
 	@include('admin.PracticeAccount.BillingAndPayment.title')
-	@include('admin.PracticeAccount.BillingAndPayment.content')
+
+	{!! view('admin.PracticeAccount.BillingAndPayment.content', [
+			'limit' => $limit,
+			'subscription' => $subscription,
+			'practice' => $practice,
+			'user' => $user,
+	])->render() !!}
 @stop
 
 

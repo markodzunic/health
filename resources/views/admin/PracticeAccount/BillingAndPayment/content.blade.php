@@ -1,6 +1,6 @@
 <section id="practice-info">
 	<div id="billing" class="container">
-		@if (!empty($practice))
+		@if ($practice && !empty($practice))
 			<div class="form-box editable-info">
 				<div class="box-header">
 					<div class="box-title">
@@ -50,7 +50,7 @@
 				<div class="box-content bg-lblue">
 						<div class="h3"><span class="im-white">Your Subscription:</span>
 						<span class="bg-white" style="padding: 10px">
-							<span class="im-lblue">{{ strtoupper($subscription->subscription) }}</span>
+							<span class="im-lblue">{{ isset($subscription->subscription) ? strtoupper($subscription->subscription) : 'None' }}</span>
 						</span></div>
 						<p class="no-margin-bottom im-white"><strong>Contracted Term: </strong> {{ \Carbon\Carbon::parse($practice->created_at)->format('d-m-Y') }} – {{ \Carbon\Carbon::parse($practice->created_at)->addYear()->format('d-m-Y') }}</p>
 						<div class="separator-line bg-white"></div>

@@ -25,12 +25,12 @@ class BillingAndPaymentController extends Controller {
 		$practice_users = [];
 		$admin_users = [];
 
-		$practice = Practice::where('user_id', '=', $user->id)->first();
+		// $practice = Practice::where('user_id', '=', $user->id)->first();
 
 		if ($practice) {
 			// $admin_users = User::where('authorised_user', '=', $practice->id)->where('role_id', '!=', 1)->where('role_id', '=', 5)->get();
 			$limit = 7 - User::where('authorised_user', '=', $practice->id)->where('role_id', '!=', 1)->where('role_id', '!=', 5)->count();
-			$subscription = User::where('authorised_user', '=', $practice->id)->where('role_id', '=', 1)->first();
+			$subscription = User::where('authorised_user', '=', $practice->id)->orWhere('role_id', '=', 1)->orWhere('role_id', '=', 4)->first();
 			// $practice_users = User::with('role')->where('authorised_user', '=', $practice->id)->where('role_id', '!=', 5)->where('role_id', '!=', 1)->get();
 		}
 
