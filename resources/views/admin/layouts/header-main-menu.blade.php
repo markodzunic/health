@@ -1,11 +1,11 @@
 <li class="active">
     <a href="{{ URL::to('/dashboard') }}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
 </li>
-<li id="user-info-side">
+{{-- <li id="user-info-side">
   {!! view('admin.layouts.sidebar-user', [
       'user' => Auth::user(),
   ]) !!}
-</li>
+</li> --}}
 <li>
     <a href="javascript:;" data-toggle="collapse" data-target="#UserAccount"><i class="fa fa-fw fa-user"></i> My Account <i class="fa fa-fw fa-caret-down"></i></a>
     <ul id="UserAccount" class="collapse">
@@ -55,9 +55,3 @@
 <li>
     <a href="{{ route('logout') }}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
 </li>
-<div style="padding: 50px 15px 15px 15px;float: left;" align="center">
-    <a href="{{ URL::to('/home') }}">
-        <img src="{{ asset('/img/imdecial-main-logo.png') }}" alt="iMedical" style="max-width: 150px;">
-    </a>
-    <p class="im-white" style="font-size: 15px;">© 2017 iMedical / Legal</p>
-</div>

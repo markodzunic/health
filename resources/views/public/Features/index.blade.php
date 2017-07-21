@@ -15,6 +15,7 @@
 	@include('public.Features.intro')
 	@include('public.Features.menu')
 	@include('public.Features.content')
+	@include('public.Features.content2')
 @stop
 
 

@@ -1,9 +1,11 @@
-<section class="admin-title-section">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Report A Problem</h1>
-            </div>
-        </div>
-    </div>
+<section class="admin-title-section bg-blue im-white">
+	<div class="container-fluid">
+		<div class="row">
+	    	<div class="col-md-12">
+	    		<a href="{{ URL::to('/home') }}">iMedical</a> <i class="fa fa-angle-right"></i>
+	    		<a href="{{ URL::to('/dashboard') }}">Dashboard</a> <i class="fa fa-angle-right"></i>
+				<a href="{{ URL::to('/report_problem') }}" class="im-active">Report A Problem</a>
+		    </div>
+		</div>
+	</div>
 </section>

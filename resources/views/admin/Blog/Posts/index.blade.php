@@ -15,15 +15,15 @@
   {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css"> --}}
   <style>
     .ui-dialog {
-      left: 0 !important;
-      right: 0 !important;
-      margin: auto !important;
-      width: 100% !important;
-      max-width: 1240px !important;
-      top: 50px !important;
+      /*left: 0 !important;*/
+      /*right: 0 !important;*/
+      /*margin: auto !important;*/
+      /*width: 100% !important;*/
+      width: 1240px;
+      /*top: 50px !important;*/
     }
     .fr-tooltip {
-      z-index: 999999;
+      /*z-index: 999999;*/
     }
   </style>
 

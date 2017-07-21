@@ -1,9 +1,10 @@
-<section class="admin-title-section">
+<section class="admin-title-section bg-blue im-white">
 	<div class="container-fluid">
 		<div class="row">
 	    	<div class="col-md-12">
-		        <h1>PLANS AND PRICING</h1>
-        		<p><strong>Choose a plan that works best for you.</strong></p> 
+	    		<a href="{{ URL::to('/home') }}">iMedical</a> <i class="fa fa-angle-right"></i>
+	    		<a href="{{ URL::to('/dashboard') }}">Dashboard</a> <i class="fa fa-angle-right"></i>
+				<a href="{{ URL::to('/add_subscription') }}" class="im-active">Plans & Pricing</a>
 		    </div>
 		</div>
 	</div>
