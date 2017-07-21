@@ -95,50 +95,55 @@ var Blogs = {
   Delete: function(el, err) {
     var token = $('meta[name="csrf-token"]').attr('content');
 
-    $('#updateCategory').hide();
-
+    $('#deleteBlog').hide();
+    var blog_id = $(el).attr('blogs-id');
+    var sort = $('#sortby').val();
+		var order = $('#orderby').val();
+    
     $.ajax({
         type: "GET",
         headers: { 'X-XSRF-TOKEN' : token },
-        url: '/blogs/updateCategory',
+        url: '/blogs/deleteBlog',
         dataType: 'html',
         data: {
           error: err,
+          id: blog_id,
           _token: token,
         },
         success: function(result) {
           $('body').append(result);
-          $('#updateCategory').dialog({
+          $('#deleteBlog').dialog({
               width: 700,
               modal: true,
               buttons: {
                 Yes: {
-                  text: 'Save',
+                  text: 'Yes',
                   class: 'btn im-btn lblue-btn update-btn',
                   click: function() {
-                    var form = $('#updateCategory').find('form');
+                    var form = $('#deleteBlog').find('form');
                     var data = form.serialize();
 
                     $.ajax({
                         type: "POST",
                         // async: true,
                         headers: { 'X-XSRF-TOKEN' : token },
-                        url: '/blogs/updateCategory',
+                        url: '/blogs/deleteBlog',
                         data: data,
                         success:function(result){
                           // refresh grid
-                          $('#updateCategory').dialog('close');
+                          $('#deleteBlog').dialog('close');
+                            Blogs.RefreshBlogs(el, sort, order);
                         },
                         error: function(xhr,status, response) {
-                          $('#updateCategory').remove();
-                          Blogs.CreateCategory(el, xhr.responseText);
+                          $('#deleteBlog').remove();
+                          Blogs.Delete(el, xhr.responseText);
                         }
                     });
                   }
                 },
                 // closes dialog and cancels action
                 No: {
-                    text: 'Cancel',
+                    text: 'No',
                     class: 'btn im-btn lblue-btn cancel-btn',
                     click: function() {
                         $(this).dialog( "close" );
@@ -147,7 +152,7 @@ var Blogs = {
               },
               close: function() {
                   $(this).dialog( "close" );
-                  $('#updateCategory').remove();
+                  $('#deleteBlog').remove();
               }
             });
         }
