@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Practice;
+use App\Models\DefPage;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -18,9 +19,11 @@ class MyKnowledgeBoxController extends Controller {
 	{
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
+		$pages = DefPage::all();
 
 		return view("admin.MyKnowledgeBox.index", [
 			'practice' => $practice,
+			'pages' => $pages,
 		]);
 	}
 
