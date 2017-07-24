@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+use App\Models\DefPage;
 use App\Models\Role;
 use Auth;
 use DB;
@@ -119,6 +120,7 @@ class PagesController extends Controller {
 
 			$practices = Practice::all();
 			$roles = Role::all();
+			$pages = DefPage::all();
 
 			if (isset($data['id']))
 				$practices_used = PracticePage::where('pages_id', '=', $data['id'])->get();
@@ -135,6 +137,7 @@ class PagesController extends Controller {
 
 			return view("admin.Pages.Pages.update",[
 					'page' => $page,
+					'pages' => $pages,
 					'practices' => $practices,
 					'roles' => $roles,
 					'roles_ids' => $roles_ids,
@@ -157,7 +160,7 @@ class PagesController extends Controller {
 				$blog = new Page();
 
 			$blog->title = $data['title'];
-			$blog->page = $data['page'];
+			$blog->page_id = $data['page'];
 			$blog->section = $data['section'];
 			$blog->description = $data['description'];
 
