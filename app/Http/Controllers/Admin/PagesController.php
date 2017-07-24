@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+use App\Models\Role;
 use Auth;
 use DB;
 use App\Models\Practice;
+use App\Models\PracticePage;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\MessageBag;
@@ -99,6 +101,9 @@ class PagesController extends Controller {
 	public function updatePage(Request $request) {
 		if (!$request->isMethod('post')) {
 			$data = $request->all();
+			$practices_used_ids = [];
+			$roles_ids = [];
+
 			$errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
 
 			if ($errors) {
@@ -112,11 +117,32 @@ class PagesController extends Controller {
 			else
 				$page = null;
 
+			$practices = Practice::all();
+			$roles = Role::all();
+
+			if (isset($data['id']))
+				$practices_used = PracticePage::where('pages_id', '=', $data['id'])->get();
+			else {
+				$practices_used = null;
+			}
+
+			if ($practices_used) {
+				foreach ($practices_used as $key => $value) {
+					$practices_used_ids[] = $value->practices_id;
+					$roles_ids = explode(',', $value->role_ids);
+				}
+			}
+
 			return view("admin.Pages.Pages.update",[
-					'page' => $page
+					'page' => $page,
+					'practices' => $practices,
+					'roles' => $roles,
+					'roles_ids' => $roles_ids,
+					'practices_used_ids' => $practices_used_ids,
 			])->withErrors($errors);
 		} else {
 			$data = $request->all();
+			$practice_used_ids = [];
 
 			$this->validate($request, [
 				'title' => 'required',
@@ -136,6 +162,40 @@ class PagesController extends Controller {
 			$blog->description = $data['description'];
 
 			$blog->save();
+
+			$practicePagesUsed = PracticePage::where('pages_id', '=', $blog->id)->get();
+
+			if ($practicePagesUsed) {
+					foreach ($practicePagesUsed as $p => $val) {
+						$practice_used_ids[] = $val->practices_id;
+					}
+			}
+
+			if (isset($data['practice'])) {
+					foreach ($data['practice'] as $key => $value) {
+						// if (!in_array($value, $practice_used_ids)) {
+							$practicePages = PracticePage::where('pages_id', '=', $blog->id)->where('practices_id', '=', $value)->first();
+
+							if (!$practicePages)
+								$practicePages = new PracticePage();
+
+							$practicePages->pages_id = $blog->id;
+							$practicePages->role_ids = implode(',', $data['role']);
+							$practicePages->practices_id = $value;
+							$practicePages->save();
+					// }
+				}
+			}
+
+			if ($practice_used_ids) {
+					$p = isset($data['practice']) ? $data['practice'] : [];
+					foreach ($practice_used_ids as $c => $ct) {
+						if (!in_array($ct, $p)) {
+							$cat_del = PracticePage::where('pages_id', '=', $blog->id)->where('practices_id', '=', $ct)->first();
+							$cat_del->delete();
+						}
+					}
+			}
 
 			$request->session()->flash('alert-success', 'Page Updated.');
 		}
