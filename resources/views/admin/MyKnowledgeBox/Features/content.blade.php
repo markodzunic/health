@@ -9,29 +9,44 @@
 			</a>
 		    <div class="inner show">
 		     	<div class="container">
-		     		@include('public.EmergencyPlanning.section2')
-					@include('public.EmergencyPlanning.section3')
+						@if ($recommended_practice)
+							@foreach ($recommended_practice as $rp)
+		     				@include('admin.MyKnowledgeBox.Features.section')
+							@endforeach
+						@endif
 		     	</div>
 		    </div>
 		  </li>
-		  
+
 		  <li>
 		    <a class="toggle bg-lblue" href="javascript:void(0);">
 		    	<i class="fa fa-info-circle" aria-hidden="true"></i>
 				<span>How</span>
 		    </a>
 		    <div class="inner">
-		     	<div class="container"></div>
+		     	<div class="container">
+						@if ($diff_practice)
+							@foreach ($diff_practice as $rp)
+		     				@include('admin.MyKnowledgeBox.Features.section')
+							@endforeach
+						@endif
+		     	</div>
 		    </div>
 		  </li>
-		  
+
 		  <li>
 		    <a class="toggle bg-lblue" href="javascript:void(0);">
 		    	<i class="fa fa-check-circle" aria-hidden="true"></i>
 				<span>Checklists</span>
 		    </a>
 		    <div class="inner">
-		     	<div class="container"></div>
+		     	<div class="container">
+						@if ($checklist)
+							@foreach ($checklist as $rp)
+		     				@include('admin.MyKnowledgeBox.Features.section')
+							@endforeach
+						@endif
+		     	</div>
 		    </div>
 		  </li>
 
@@ -41,7 +56,13 @@
 				<span>Templates</span>
 		    </a>
 		    <div class="inner">
-		     	<div class="container"></div>
+		     	<div class="container">
+						@if ($templates)
+							@foreach ($templates as $rp)
+		     				@include('admin.MyKnowledgeBox.Features.section')
+							@endforeach
+						@endif
+		     	</div>
 		    </div>
 		  </li>
 
@@ -51,7 +72,13 @@
 				<span>FAQs</span>
 		    </a>
 		    <div class="inner">
-		     	<div class="container"></div>
+		     	<div class="container">
+						@if ($faq)
+							@foreach ($faq as $rp)
+		     				@include('admin.MyKnowledgeBox.Features.section')
+							@endforeach
+						@endif
+		     	</div>
 		    </div>
 		  </li>
 
@@ -61,7 +88,13 @@
 				<span>Resources</span>
 		    </a>
 		    <div class="inner">
-		     	<div class="container"></div>
+		     	<div class="container">
+						@if ($ressources)
+							@foreach ($ressources as $rp)
+		     				@include('admin.MyKnowledgeBox.Features.section')
+							@endforeach
+						@endif
+		     	</div>
 		    </div>
 		  </li>
 		 </ul>

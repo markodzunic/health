@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Practice;
+use App\Models\Page;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -14,13 +15,28 @@ class MyKnowledgeBoxFeaturesController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$data = $request->all();
+
+		$recommended_practice = Page::where('page_id', '=', $data['page_id'])->where('section', '=', 'recommended_practice')->get();
+		$diff_practice = Page::where('page_id', '=', $data['page_id'])->where('section', '=', 'diff_practice')->get();
+		$checklist = Page::where('page_id', '=', $data['page_id'])->where('section', '=', 'checklist')->get();
+		$templates = Page::where('page_id', '=', $data['page_id'])->where('section', '=', 'templates')->get();
+		$faq = Page::where('page_id', '=', $data['page_id'])->where('section', '=', 'faq')->get();
+		$ressources = Page::where('page_id', '=', $data['page_id'])->where('section', '=', 'ressources')->get();
+
 		return view("admin.MyKnowledgeBox.Features.index", [
 			'practice' => $practice,
+			'recommended_practice' => $recommended_practice,
+			'diff_practice' => $diff_practice,
+			'checklist' => $checklist,
+			'templates' => $templates,
+			'faq' => $faq,
+			'ressources' => $ressources
 		]);
 	}
 
