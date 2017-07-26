@@ -36,6 +36,11 @@ class PagesController extends Controller {
 	public function index(Request $request)
 	{
 		$data = $request->all();
+		$practices = [];
+		$roles = [];
+		$role_names = [];
+		$practice_names = [];
+		$rn = $pn = '';
 
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
@@ -45,7 +50,27 @@ class PagesController extends Controller {
 
 		$blogModel = new Page;
 		$pages = $blogModel->get_pages($this->sortby, $this->orderby);
+		$rn = [];
+		if ($pages) {
+			foreach ($pages as $key => $value) {
+				$pp = PracticePage::where('pages_id', '=', $value->id)->get();
+				if ($pp) {
+						foreach ($pp as $p => $pv) {
+							$rn = [];
+							$role_names[$value->id]['practices_names'] = Practice::find($pv->practices_id)->name;
+							$role_names[$value->id]['roles'] = '';
 
+							if ($pv->role_ids) {
+									foreach (explode(',', $pv->role_ids) as $rol) {
+											$rn[] = Role::find($rol)->display_name;
+									}
+									$role_names[$value->id]['roles'] = $rn = implode(',', $rn);
+							}
+						}
+				}
+			}
+		}
+// dd($role_names);
 		# custom pagination
 		$currentPage = LengthAwarePaginator::resolveCurrentPage();
 		$col = new Collection($pages);
@@ -56,6 +81,7 @@ class PagesController extends Controller {
 		if ($request->ajax()) {
 				return view('admin.Pages.Pages.table', [
 						'sortby' => $this->sortby,
+						'role_names' => $role_names,
 						'orderby' => $this->orderby,
 						'pages' => $pages,
 						'pagination' => true,
@@ -65,6 +91,7 @@ class PagesController extends Controller {
 		} else {
 				return view('admin.Pages.Pages.index', [
 						'sortby' => $this->sortby,
+						'role_names' => $role_names,
 						'orderby' => $this->orderby,
 						'pages' => $pages,
 						'pagination' => true,
@@ -146,57 +173,201 @@ class PagesController extends Controller {
 		} else {
 			$data = $request->all();
 			$practice_used_ids = [];
+			$r_ids = [];
 
 			$this->validate($request, [
 				'title' => 'required',
-				'description' => 'required',
+				// 'description' => 'required',
 				'page' => 'required',
 				'section' => 'required'
 			]);
 
-			$blog = Page::find($data['id']);
+			if (isset($data['page']) && $data['page'] !== 'all') {
+				$blog = Page::find($data['id']);
 
-			if (!$blog)
-				$blog = new Page();
+				if (!$blog)
+					$blog = new Page();
 
-			$blog->title = $data['title'];
-			$blog->page_id = $data['page'];
-			$blog->section = $data['section'];
-			$blog->description = $data['description'];
+				$blog->user_id = Auth::user()->id;
+				$blog->title = $data['title'];
+				$blog->page_id = $data['page'];
+				$blog->section = $data['section'];
+				$blog->description = isset($data['description']) ? $data['description']: '';
 
-			$blog->save();
+				$blog->save();
 
-			$practicePagesUsed = PracticePage::where('pages_id', '=', $blog->id)->get();
+				$practicePagesUsed = PracticePage::where('pages_id', '=', $blog->id)->get();
 
-			if ($practicePagesUsed) {
-					foreach ($practicePagesUsed as $p => $val) {
-						$practice_used_ids[] = $val->practices_id;
-					}
-			}
-
-			if (isset($data['practice'])) {
-					foreach ($data['practice'] as $key => $value) {
-						// if (!in_array($value, $practice_used_ids)) {
-							$practicePages = PracticePage::where('pages_id', '=', $blog->id)->where('practices_id', '=', $value)->first();
-
-							if (!$practicePages)
-								$practicePages = new PracticePage();
-
-							$practicePages->pages_id = $blog->id;
-							$practicePages->role_ids = implode(',', $data['role']);
-							$practicePages->practices_id = $value;
-							$practicePages->save();
-					// }
-				}
-			}
-
-			if ($practice_used_ids) {
-					$p = isset($data['practice']) ? $data['practice'] : [];
-					foreach ($practice_used_ids as $c => $ct) {
-						if (!in_array($ct, $p)) {
-							$cat_del = PracticePage::where('pages_id', '=', $blog->id)->where('practices_id', '=', $ct)->first();
-							$cat_del->delete();
+				if ($practicePagesUsed) {
+						foreach ($practicePagesUsed as $p => $val) {
+							$practice_used_ids[] = $val->practices_id;
 						}
+				}
+
+				if (isset($data['practice'])) {
+					if (in_array('all-practice', $data['practice'])) {
+
+							$pr = Practice::all();
+
+							if ($pr) {
+									foreach ($pr as $p => $pval) {
+										$practicePages = PracticePage::where('pages_id', '=', $blog->id)->where('practices_id', '=', $pval->id)->first();
+
+										if (!$practicePages)
+											$practicePages = new PracticePage();
+
+										$practicePages->pages_id = $blog->id;
+
+										if (isset($data['role']) && in_array('all-role', $data['role'])) {
+
+												$rl = Role::all();
+												if ($rl) {
+													foreach ($rl as $r => $rv) {
+														$r_ids[] = $rv->id;
+													}
+												}
+										} else {
+											 $r_ids = $data['role'];
+										}
+
+										$practicePages->role_ids = isset($data['role']) ? implode(',', $r_ids) : '';
+										$practicePages->practices_id = $pval->id;
+										$practicePages->save();
+									}
+							}
+						} else {
+							foreach ($data['practice'] as $key => $value) {
+								// if (!in_array($value, $practice_used_ids)) {
+									$practicePages = PracticePage::where('pages_id', '=', $blog->id)->where('practices_id', '=', $value)->first();
+
+									if (!$practicePages)
+										$practicePages = new PracticePage();
+
+									$practicePages->pages_id = $blog->id;
+
+									if (isset($data['role']) && in_array('all-role', $data['role'])) {
+
+											$rl = Role::all();
+											if ($rl) {
+												foreach ($rl as $r => $rv) {
+													$r_ids[] = $rv->id;
+												}
+											}
+									} else {
+										 $r_ids = $data['role'];
+									}
+
+									$practicePages->role_ids = isset($data['role']) ? implode(',', $r_ids) : '';
+									$practicePages->practices_id = $value;
+									$practicePages->save();
+								}
+							}
+				}
+
+				if ($practice_used_ids) {
+						$p = isset($data['practice']) ? $data['practice'] : [];
+						foreach ($practice_used_ids as $c => $ct) {
+							if (!in_array($ct, $p)) {
+								$cat_del = PracticePage::where('pages_id', '=', $blog->id)->where('practices_id', '=', $ct)->first();
+								$cat_del->delete();
+							}
+						}
+				}
+			} else {
+					$pg = DefPage::all();
+					if ($pg) {
+							foreach ($pg as $kp => $pgval) {
+								$blog = Page::find($pgval->id);
+
+								if (!$blog)
+									$blog = new Page();
+
+								$blog->user_id = Auth::user()->id;
+								$blog->title = $data['title'];
+								$blog->page_id = $pgval->id;
+								$blog->section = $data['section'];
+								$blog->description = isset($data['description']) ? $data['description']: '';
+
+								$blog->save();
+
+								$practicePagesUsed = PracticePage::where('pages_id', '=', $blog->id)->get();
+
+								if ($practicePagesUsed) {
+										foreach ($practicePagesUsed as $p => $val) {
+											$practice_used_ids[] = $val->practices_id;
+										}
+								}
+
+								if (isset($data['practice'])) {
+									if (in_array('all-practice', $data['practice'])) {
+
+											$pr = Practice::all();
+
+											if ($pr) {
+													foreach ($pr as $p => $pval) {
+														$practicePages = PracticePage::where('pages_id', '=', $blog->id)->where('practices_id', '=', $pval->id)->first();
+
+														if (!$practicePages)
+															$practicePages = new PracticePage();
+
+														$practicePages->pages_id = $blog->id;
+
+														if (isset($data['role']) && in_array('all-role', $data['role'])) {
+
+																$rl = Role::all();
+																if ($rl) {
+																	foreach ($rl as $r => $rv) {
+																		$r_ids[] = $rv->id;
+																	}
+																}
+														} else {
+															 $r_ids = $data['role'];
+														}
+
+														$practicePages->role_ids = isset($data['role']) ? implode(',', $r_ids) : '';
+														$practicePages->practices_id = $pval->id;
+														$practicePages->save();
+													}
+											}
+										} else {
+											foreach ($data['practice'] as $key => $value) {
+												// if (!in_array($value, $practice_used_ids)) {
+													$practicePages = PracticePage::where('pages_id', '=', $blog->id)->where('practices_id', '=', $value)->first();
+
+													if (!$practicePages)
+														$practicePages = new PracticePage();
+
+													$practicePages->pages_id = $blog->id;
+
+													if (isset($data['role']) && in_array('all-role', $data['role'])) {
+
+															$rl = Role::all();
+															if ($rl) {
+																foreach ($rl as $r => $rv) {
+																	$r_ids[] = $rv->id;
+																}
+															}
+													} else {
+														 $r_ids = $data['role'];
+													}
+
+													$practicePages->role_ids = isset($data['role']) ? implode(',', $r_ids) : '';
+													$practicePages->practices_id = $value;
+													$practicePages->save();
+												}
+											}
+								}
+
+								if ($practice_used_ids) {
+										$p = isset($data['practice']) ? $data['practice'] : [];
+										foreach ($practice_used_ids as $c => $ct) {
+											if (!in_array($ct, $p)) {
+												$cat_del = PracticePage::where('pages_id', '=', $blog->id)->where('practices_id', '=', $ct)->first();
+												$cat_del->delete();
+											}
+										}
+								}
+							}
 					}
 			}
 
