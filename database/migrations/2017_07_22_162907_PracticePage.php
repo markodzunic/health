@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class PageTable extends Migration
+class PracticePage extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class PageTable extends Migration
      */
     public function up()
     {
-      Schema::create('pages', function (Blueprint $table) {
+      Schema::create('practice_pages', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('title');
-          $table->text('description');
-          $table->integer('page_id');
-          $table->string('section');
+          $table->integer('practices_id');
+          $table->string('role_ids');
+          $table->integer('pages_id');
           $table->timestamps();
       });
     }
@@ -30,6 +29,6 @@ class PageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('practice_pages');
     }
 }

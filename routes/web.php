@@ -56,6 +56,9 @@ Route::post('/practices/updatePractice', 'Admin\PracticeController@updatePractic
 Route::get('/blogs/updateCategory', 'Admin\BlogController@updateCategory');
 Route::post('/blogs/updateCategory', 'Admin\BlogController@updateCategory');
 
+Route::get('/blogSingle', 'PublicPart\BlogController@blogSingle');
+Route::post('/blogSingle', 'PublicPart\BlogController@blogSingle');
+
 Route::post('/blogs/updateCatBlog', 'Admin\BlogController@updateCatBlog');
 
 Route::get('/blogs', 'Admin\BlogController@index');
