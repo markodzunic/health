@@ -3,7 +3,7 @@
 		<div class="im-blog-col">
 			<article>
 				<div class="bolg-image-container">
-					<a href="{{ URL::to('/blog-single') }}">
+					<a href="{{ URL::to('/blogSingle?id='.$blog->id) }}">
 						<img class="blog-image" src="{{ asset('/img/'.$blog->image) }}">
 						<a href="{{ URL::to('/blogCategory?category='.$blog->category_id) }}" class="btn im-btn white-btn blog-expert-category">{{ $blog->category }}</a>
 					</a>
@@ -14,7 +14,7 @@
 					<p class="blog-expert">{{ $blog->description?:'N/A' }}</p>
 				</div>
 				<div class="blog-footer">
-					<a href="{{ URL::to('/blog-single') }}"><i class="fa fa-user"></i>iMedical</a>
+					<a><i class="fa fa-user"></i>{{ $blog->user_first }} {{ $blog->user_last }}</a>
 				</div>
 			</article>
 		</div>

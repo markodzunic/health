@@ -2,15 +2,15 @@
 		<div class="container big-padding">
 			<div class="row">
 				<div class="col-md-12 im-center">
-					<h1>Lorem consectetur adipiscing elit exercitation</h1>
-					<p><span><strong>By: </strong>iMedical</span> | 
-						<span>12th July 2017</span></p>
+					<h1>{{ $blog->title?:'N/A' }}</h1>
+					<p><span><strong>By: </strong>{{ $user->first_name }} {{ $user->last_name }}</span> |
+						<span>{{ $blog->created_at?:'N/A' }}</span></p>
 				</div>
 			</div>
 		</div>
 	<div class="container">
 		<div class="featured-image">
-			<img src="http://placehold.it/1920x1080" alt="">
+			<img src="{{ asset('/img/'.$blog->image) }}" alt="">
 		</div>
 	</div>
 </section>

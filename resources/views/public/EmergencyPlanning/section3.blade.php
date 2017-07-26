@@ -37,7 +37,7 @@
 						<p><strong>Each staff member must know at least two (2) evacuation routes. </strong></p>
 					</div>
 				</div>
-			</div>	
+			</div>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="im-box-section">

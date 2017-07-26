@@ -6,6 +6,8 @@ use App\User;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\BlogTag;
+use App\Models\Tag;
 use App\Models\Category;
 use App\Models\BlogCategory;
 use App\Http\Controllers\Controller;
@@ -28,9 +30,16 @@ class BlogController extends Controller
 
 		foreach ($blogs as $key => $value) {
 			$cat = BlogCategory::where('blogs_id', '=', $value->id)->first();
-			$c = Category::find($cat->categories_id);
-			$blogs[$key]->category = $c->name;
-			$blogs[$key]->category_id = $cat->categories_id;
+			$usr = User::find($value->user_id);
+
+			if ($cat) {
+				$c = Category::find($cat->categories_id);
+			}
+				$blogs[$key]->category = isset($c->name) ? $c->name : '';
+				$blogs[$key]->category_id = isset($cat->categories_id) ? $cat->categories_id : 0;
+				$blogs[$key]->user_first = isset($usr->first_name) ? $usr->first_name : '';
+				$blogs[$key]->user_last = isset($usr->last_name) ? $usr->last_name : '';
+			// }
  		}
 
 	 #custom pagination
@@ -53,12 +62,49 @@ class BlogController extends Controller
 
 		if ($cat) {
 				foreach ($cat as $key => $value) {
-					$blogs[] = Blog::find($value->blogs_id)->first();
+					$b = Blog::find($value->blogs_id);
+					if ($b)
+						$blogs[] = $b;
 				}
 		}
 
 		return view('public.Blog.BlogCategory.index', [
 			'blogs' => $blogs,
+		]);
+	}
+
+	public function blogSingle(Request $request) {
+		$data = $request->all();
+		$tags = [];
+		$categories = [];
+
+		$blog = Blog::find($data['id']);
+		$user = User::find($blog->id);
+		$tagsB = BlogTag::where('blogs_id', '=', $blog->id)->get();
+
+		if ($tagsB) {
+				foreach ($tagsB as $key => $value) {
+					$t = Tag::find($value->tags_id);
+					if ($t)
+						$tags[] = $t;
+				}
+		}
+
+		$categoriesB = BlogCategory::where('blogs_id', '=', $blog->id)->get();
+
+		if ($categoriesB) {
+				foreach ($categoriesB as $key => $value) {
+					$c = Category::find($value->categories_id);
+					if ($c)
+						$categories[] = $c;
+				}
+		}
+
+		return view('public.Blog.BlogSingle.index', [
+			'blog' => $blog,
+			'user' => $user,
+			'tags' => $tags,
+			'categories' => $categories,
 		]);
 	}
 
