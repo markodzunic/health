@@ -5,6 +5,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Practice;
 use App\Models\Page;
+use App\Models\DefPage;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
@@ -29,6 +30,7 @@ class MyKnowledgeBoxFeaturesController extends Controller {
     $practice = Practice::where('user_id', '=', $user->id)->first();
 
 		$data = $request->all();
+		$p = DefPage::find($data['page_id']);
 
 		$recommended_practice = Page::where('page_id', '=', $data['page_id'])->where('section', '=', 'recommended_practice')->get();
 		$diff_practice = Page::where('page_id', '=', $data['page_id'])->where('section', '=', 'diff_practice')->get();
@@ -44,6 +46,7 @@ class MyKnowledgeBoxFeaturesController extends Controller {
 			'checklist' => $checklist,
 			'templates' => $templates,
 			'faq' => $faq,
+			'page' => $p,
 			'ressources' => $ressources
 		]);
 	}

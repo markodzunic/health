@@ -15,6 +15,7 @@
 					</div>
 				</th>
 			@endforeach
+      <th id="category" order-by="" class="row">Category</th>
       <th id="actions" class="row">Actions</th>
 		</tr>
 	</thead>
@@ -24,8 +25,9 @@
 			@foreach ($blogs as $blog)
 				<tr>
           <td>{{ !empty($blog->title) ? $blog->title : 'N/A' }}</td>
-					<td>{{ !empty($blog->description) ? $blog->description : 'N/A' }}</td>
+					<td>{{ !empty($blog->user_name) ? $blog->user_name : 'N/A' }}</td>
 					<td>{{ !empty($blog->created_at) ? $blog->created_at : 'N/A' }}</td>
+          <td>{{ !empty($blog_data[$blog->id]) ? $blog_data[$blog->id]['categories'] : 'N/A' }}</td>
           <td>
             <div class="last-col">
 							<a href="#" onclick="Blogs.Delete(this);return false;"

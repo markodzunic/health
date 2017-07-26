@@ -30,7 +30,8 @@ class User extends Authenticatable
         'occupation',
         'med_reg_number',
         'active',
-        'authorised_user'
+        'authorised_user',
+        'is_admin',
     ];
 
     /**

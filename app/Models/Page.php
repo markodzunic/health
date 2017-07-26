@@ -18,6 +18,7 @@ class Page extends Model {
 			'description',
 			'page',
       'section',
+			'user_id'
 	];
 
 	/**
@@ -28,8 +29,10 @@ class Page extends Model {
 	 */
 	public function get_pages($sortby, $orderby)
 	{
-			$sql = 'SELECT pages.*
+			$sql = 'SELECT pages.*,def_pages.name as pg_name, CONCAT(users.first_name, " ", users.last_name) as user_name
 					FROM pages
+					JOIN def_pages ON pages.page_id = def_pages.id
+					JOIN users ON pages.user_id = users.id
 					ORDER BY '.$sortby.' '.$orderby;
 
 			return DB::select(DB::Raw($sql), [
@@ -38,7 +41,7 @@ class Page extends Model {
 
 	public static $sortColumns = [
 			'title' => 'Title',
-			'description' => 'Description',
+			'user_name' => 'Author',
 			'page' => 'Page',
       'section' => 'Section',
 	];

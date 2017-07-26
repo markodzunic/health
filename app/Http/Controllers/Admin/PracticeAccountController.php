@@ -30,13 +30,13 @@ class PracticeAccountController extends Controller {
 		$limit = 0;
 		$practice_users = [];
 		$admin_users = [];
-		
+
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 
 		if ($practice) {
-			$admin_users = User::where('authorised_user', '=', $practice->id)->where('role_id', '!=', 1)->where('role_id', '=', 5)->get();
-			$limit = 6 - User::where('authorised_user', '=', $practice->id)->where('role_id', '!=', 1)->where('role_id', '!=', 5)->count();
-			$practice_users = User::with('role')->where('authorised_user', '=', $practice->id)->where('role_id', '!=', 5)->where('role_id', '!=', 1)->get();
+			$admin_users = User::where('authorised_user', '=', $practice->id)->where('is_admin', '=', 1)->get();
+			$limit = 6 - User::where('authorised_user', '=', $practice->id)->where('is_admin', '!=', 1)->count();
+			$practice_users = User::with('role')->where('authorised_user', '=', $practice->id)->where('is_admin', '!=', 1)->get();
 		}
 
 		if (!$request->ajax()) {
@@ -66,7 +66,7 @@ class PracticeAccountController extends Controller {
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 		if ($practice) {
 			$limit = 6 - User::where('authorised_user', '=', $practice->id)->count();
-			$practice_users = User::with('role')->where('authorised_user', '=', $practice->id)->where('role_id', '!=', 1)->where('role_id', '!=', 5)->get();
+			$practice_users = User::with('role')->where('authorised_user', '=', $practice->id)->where('is_admin', '!=', 1)->get();
 		}
 
 		return view("admin.PracticeAccount.Profile.practice-staff", [
@@ -84,7 +84,7 @@ class PracticeAccountController extends Controller {
 
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 		if ($practice) {
-			$admin_users = User::where('authorised_user', '=', $practice->id)->where('role_id', '!=', 1)->where('role_id', '=', 5)->get();
+			$admin_users = User::where('authorised_user', '=', $practice->id)->where('is_admin', '=', 1)->get();
 		}
 
 		return view("admin.PracticeAccount.Profile.administrator", [
@@ -97,7 +97,7 @@ class PracticeAccountController extends Controller {
 			$data = $request->all();
 
 			$user = User::find($data['id']);
-			$user->role_id = 5;
+			$user->is_admin = $data['is_admin'];
 			$user->save();
 	}
 
@@ -107,7 +107,7 @@ class PracticeAccountController extends Controller {
 			$data = $request->all();
 
 			$practice_id = isset($data['id']) ? $data['id'] : 0;
-			$users = User::with('role')->where('role_id', '!=', 5)->where('role_id', '!=', 1)->where('authorised_user', '=', $practice_id)->get();
+			$users = User::with('role')->where('authorised_user', '=', $practice_id)->get();
 
 			$errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
 
@@ -125,7 +125,7 @@ class PracticeAccountController extends Controller {
 			$data = $request->all();
 
 			$user = User::find($data['user_id']);
-			$user->role_id = 5;
+			$user->is_admin = 1;
 			$user->save();
 
 			$request->session()->flash('alert-success', 'Admin Set Successfully.');
