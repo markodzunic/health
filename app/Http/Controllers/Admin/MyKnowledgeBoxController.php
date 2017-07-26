@@ -7,8 +7,16 @@ use App\Models\Practice;
 use App\Models\DefPage;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 
 class MyKnowledgeBoxController extends Controller {
+
+	protected $messageBag;
+
+	public function __construct(MessageBag $messageBag) {
+				$this->middleware('admin');
+				$this->messageBag = $messageBag;
+	}
 
 	/**
 	 * Display a listing of the resource.

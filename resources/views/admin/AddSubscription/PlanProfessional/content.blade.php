@@ -11,7 +11,7 @@
 
           <div class="pricing-table-body im-center">
             <div class="pricing-table-price"><strong>1750 &euro;</strong>/<small>year</small></div>
-            <button href="{{ URL::to('/assignPractice') }}" class="btn im-btn pink-btn">Sign Up</button>
+            <a href="{{ URL::to('/assignPractice?subscription='.'professional') }}" class="btn im-btn pink-btn">Sign Up</a>
             <h5>Lorem ipsum dolor sit amet</h5>
             <p class="im-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu condimentum arcu. Sed urna arcu, faucibus ullamcorper nisl eu, lobortis egestas nunc. Duis eget dolor erat. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
           </div>
