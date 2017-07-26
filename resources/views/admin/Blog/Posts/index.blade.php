@@ -32,10 +32,10 @@
 @section('MainContent')
 	@include('admin.Blog.Posts.title')
 
-	
+
   <section>
     <div class="container-fluid">
-    
+
       <div class="toolbar">
         <a blogs-id="0" onclick="Blogs.Update(this);return false;" class="btn im-btn pink-btn">Create</a>
         <input type="hidden" id="orderby" name="orderby" value="{{ $orderby }}">
@@ -46,6 +46,7 @@
       <div id="table-section" class="table-section">
         {!! view('admin.Blog.Posts.table', [
             'blogs' => $blogs,
+            'blog_data' => $blog_data,
             'columns' => $columns,
             'pagination' => $pagination,
         ]) !!}

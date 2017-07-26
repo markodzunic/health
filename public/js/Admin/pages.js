@@ -227,6 +227,28 @@ var Pages = {
               close: function() {
                   $(this).dialog( "close" );
                   $('#updatePage').remove();
+              },
+              open: function() {
+                $('#editor').froalaEditor({
+                   fullPage: true,
+                   theme: 'red',
+                   linkList: [
+                   {
+                     text: 'asd',
+                     href: 'https://froala.com',
+                     target: '_blank'
+                   },
+                   {
+                     text: 'dsa',
+                     href: 'https://google.com',
+                     target: '_blank'
+                   },
+                   {
+                     text: 'asda',
+                     href: 'https://facebook.com'
+                   }
+                 ]
+                 })
               }
             });
         }

@@ -27,8 +27,9 @@ class Blog extends Model {
 	 */
 	public function get_blogs($sortby, $orderby)
 	{
-			$sql = 'SELECT blogs.*
+			$sql = 'SELECT blogs.*, CONCAT(users.first_name, " ", users.last_name) as user_name
 					FROM blogs
+					JOIN users ON blogs.user_id = users.id
 					ORDER BY '.$sortby.' '.$orderby;
 
 			return DB::select(DB::Raw($sql), [
@@ -37,7 +38,7 @@ class Blog extends Model {
 
 	public static $sortColumns = [
 			'title' => 'Title',
-			'description' => 'Description',
+			'user_name' => 'Author',
 			'created_at' => 'Date',
 	];
 

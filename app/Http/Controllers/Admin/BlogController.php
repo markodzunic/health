@@ -38,6 +38,7 @@ class BlogController extends Controller {
 	public function index(Request $request)
 	{
 		$data = $request->all();
+		$blog_data = $cat_names = [];
 
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
@@ -47,6 +48,18 @@ class BlogController extends Controller {
 
 		$blogModel = new Blog;
 		$blogs = $blogModel->get_blogs($this->sortby, $this->orderby);
+
+		if ($blogs) {
+				foreach ($blogs as $key => $value) {
+					$pp = BlogCategory::where('blogs_id', '=', $value->id)->get();
+					if ($pp) {
+							foreach ($pp as $p => $pv) {
+									$cat_names[] = Category::find($pv->categories_id)->name;
+								}
+							}
+						$blog_data[$value->id]['categories'] = implode(',', $cat_names);
+				}
+		}
 
 		# custom pagination
 		$currentPage = LengthAwarePaginator::resolveCurrentPage();
@@ -60,6 +73,7 @@ class BlogController extends Controller {
 						'sortby' => $this->sortby,
 						'orderby' => $this->orderby,
 						'blogs' => $blogs,
+						'blog_data' => $blog_data,
 						'pagination' => true,
 						'practice' => $practice,
 						'columns' => Blog::$sortColumns,
@@ -68,6 +82,7 @@ class BlogController extends Controller {
 				return view('admin.Blog.Posts.index', [
 						'sortby' => $this->sortby,
 						'orderby' => $this->orderby,
+						'blog_data' => $blog_data,
 						'blogs' => $blogs,
 						'pagination' => true,
 						'practice' => $practice,

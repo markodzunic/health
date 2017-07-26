@@ -263,6 +263,8 @@ var Users = {
   SelectAdmin: function(el) {
     var token = $('meta[name="csrf-token"]').attr('content');
     var user_id = $(el).attr('users-id');
+    var is_admin = $(el).attr('is-admin');
+
     $.ajax({
         type: "POST",
         headers: { 'X-XSRF-TOKEN' : token },
@@ -270,6 +272,7 @@ var Users = {
         dataType: 'html',
         data: {
           _token: token,
+          is_admin: is_admin,
           id: user_id,
         },
         success: function(result) {

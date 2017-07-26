@@ -22,8 +22,9 @@
             <label for="description" class="col-md-4 control-label">Description</label>
 
             <div class="col-md-6">
-                <input id="description" type="text" class="form-control" name="description" value="{{ isset($page->description) ? $page->description :'' }}" required autofocus>
-
+							<div id="editor">
+                <textarea id="description" type="text" class="form-control" name="description" required autofocus>{{ isset($page->description) ? $page->description :'' }}</textarea>
+							</div>
                 @if ($errors->has('description'))
                     <span class="help-block">
                         <strong>{{ $errors->first('description') }}</strong>
@@ -43,6 +44,7 @@
 										<option {{ $pag && $page && $pag->id == $page->id ? 'selected="selected"' : '' }} value="{{ $pag->id }}">{{ $pag->name }}</option>
 									@endforeach
 								@endif
+								<option value="all">All</option>
 							</select>
                 @if ($errors->has('page'))
                     <span class="help-block">
@@ -85,6 +87,7 @@
 				          </div>
 				          <!-- <option value="{{ $practice->system_name }}">{{ $practice->name }}</option> -->
 				        @endforeach
+								<input id="all-practice" type="checkbox" name="practice[]" value="all-practice"><label for="all-practice">All<span></span></label>
 				    @endif
 				    <!-- </select> -->
 
@@ -107,6 +110,7 @@
 				          </div>
 				          <!-- <option value="{{ $role->system_name }}">{{ $role->name }}</option> -->
 				        @endforeach
+								<input id="all-role" type="checkbox" name="role[]" value="all-role"><label for="all-role">All<span></span></label>
 				    @endif
 				    <!-- </select> -->
 

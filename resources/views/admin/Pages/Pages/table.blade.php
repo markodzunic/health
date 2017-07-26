@@ -15,6 +15,8 @@
 					</div>
 				</th>
 			@endforeach
+      <th id="practice_names" class="row">Practices</th>
+      <th id="role_names" class="row">Roles</th>
       <th id="actions" class="row">Actions</th>
 		</tr>
 	</thead>
@@ -24,9 +26,11 @@
 			@foreach ($pages as $page)
 				<tr>
           <td>{{ !empty($page->title) ? $page->title : 'N/A' }}</td>
-					<td>{{ !empty($page->description) ? $page->description : 'N/A' }}</td>
-					<td>{{ !empty($page->page) ? $page->page : 'N/A' }}</td>
+					<td>{{ !empty($page->user_id) ? $page->user_name : 'N/A' }}</td>
+					<td>{{ !empty($page->pg_name) ? $page->pg_name : 'N/A' }}</td>
           <td>{{ !empty($page->section) ? $page->section : 'N/A' }}</td>
+          <td>{{ !empty($role_names[$page->id]) ? $role_names[$page->id]['practices_names'] : 'N/A' }}</td>
+          <td>{{ !empty($role_names[$page->id]) ? $role_names[$page->id]['roles'] : 'N/A' }}</td>
           <td>
             <div class="last-col">
 							<a href="#" onclick="Pages.Delete(this);return false;"

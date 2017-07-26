@@ -4,7 +4,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-
+        <span>{{ isset($practice->name) ? $practice->name : '' }}</span>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -14,7 +14,7 @@
         <a href="{{ URL::to('/home') }}" class="navbar-brand">
             <img src="{{ asset('/img/imdecial-main-logo.png') }}" alt="iMedical" style="max-height:24px;margin-bottom:0">
         </a>
-    </div>    
+    </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
         <li class="dropdown">
@@ -57,9 +57,9 @@
         </li>
     </ul>
     <form class="navbar-form navbar-right">
-        <div class="form-group">         
-          <button type="submit" class="im-btn pink-btn no-margin-bottom im-btn-small"><i class="fa fa-search"></i></button>          
-          <input type="text" class="form-control" placeholder="Search"> 
+        <div class="form-group">
+          <button type="submit" class="im-btn pink-btn no-margin-bottom im-btn-small"><i class="fa fa-search"></i></button>
+          <input type="text" class="form-control" placeholder="Search">
         </div>
     </form>
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
