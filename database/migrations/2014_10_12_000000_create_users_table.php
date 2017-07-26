@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->integer('authorised_user');
             $table->integer('active');
             $table->string('subscription')->nullable();
+            $table->integer('is_admin')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

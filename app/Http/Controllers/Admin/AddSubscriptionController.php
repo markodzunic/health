@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\User;
 use App\Models\Practice;
 use Illuminate\Http\Request;
 
@@ -36,7 +37,8 @@ class AddSubscriptionController extends Controller {
 			return view("admin.AddSubscription.PlanBasic.index");
 	}
 
-	public function assignPractice() {
+	public function assignPractice(Request $request) {
+			$data = $request->all();
 			$user = Auth::user();
 
 			$practice = new Practice;
@@ -51,6 +53,10 @@ class AddSubscriptionController extends Controller {
 			$practice->site = 'Your site link';
 
 			$practice->save();
+
+			$u = User::find($user->id);
+			$u->subscription = isset($data['subscription']) ? $data['subscription'] : '';
+			$u->save();
 
 			return redirect('/practice_account');
 	}
