@@ -9,7 +9,7 @@
 							</div>
 							<div class="blog-expert-content">
 								<a href="{{ URL::to('/blog-single') }}"><h4 class="blog-title im-pink">{{ $blog->title?:'N/A' }}</h4></a>
-								<p class="blog-expert">{{ $blog->description?:'N/A' }}</p>
+								<p class="blog-expert">{{ $blog->description ? str_limit(strip_tags(HTMLDomParser::str_get_html($blog->description)->find('body p')[0]), 50) : 'N/A' }}</p>
 								<a href="{{ URL::to('/blog-single') }}" class="btn full-btn im-btn lblue-btn">Read More</a>
 							</div>
 						</article>
