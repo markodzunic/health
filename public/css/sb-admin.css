@@ -496,39 +496,39 @@ label input {
 .box-grid a.im-lblue:hover .grid-col-content{
   background-color: rgba(0,176,240,1);
 }
-.box-grid .col-md-6:nth-child(1) a,
-.box-grid .col-md-6:nth-child(4) a,
-.box-grid .col-md-6:nth-child(7) a{
+#knoledge-grid .col-md-6:nth-child(1) a,
+#knoledge-grid .col-md-6:nth-child(4) a,
+#knoledge-grid .col-md-6:nth-child(7) a{
   color: rgba(0,32,96,1) !important;
 }
-.box-grid .col-md-6:nth-child(3) a,
-.box-grid .col-md-6:nth-child(6) a,
-.box-grid .col-md-6:nth-child(9) a{
+#knoledge-grid .col-md-6:nth-child(3) a,
+#knoledge-grid .col-md-6:nth-child(6) a,
+#knoledge-grid .col-md-6:nth-child(9) a{
   color: rgba(255,102,255,1) !important;
 }
-.box-grid .col-md-6:nth-child(2) a,
-.box-grid .col-md-6:nth-child(5) a,
-.box-grid .col-md-6:nth-child(8) a{
+#knoledge-grid .col-md-6:nth-child(2) a,
+#knoledge-grid .col-md-6:nth-child(5) a,
+#knoledge-grid .col-md-6:nth-child(8) a{
   color: #00b0f0 !important;
 }
 .box-grid a.im-blue:hover .grid-col-content,
-.box-grid .col-md-6:nth-child(1):hover a .grid-col-content,
-.box-grid .col-md-6:nth-child(4):hover a .grid-col-content,
-.box-grid .col-md-6:nth-child(7):hover a .grid-col-content{
+#knoledge-grid .col-md-6:nth-child(1):hover a .grid-col-content,
+#knoledge-grid .col-md-6:nth-child(4):hover a .grid-col-content,
+#knoledge-grid .col-md-6:nth-child(7):hover a .grid-col-content{
   background-color: rgba(0,32,96,1) !important;
 }
 .box-grid a.im-pink:hover .grid-col-content,
-.box-grid .col-md-6:nth-child(3):hover a .grid-col-content,
-.box-grid .col-md-6:nth-child(6):hover a .grid-col-content,
-.box-grid .col-md-6:nth-child(9):hover a .grid-col-content{
+#knoledge-grid .col-md-6:nth-child(3):hover a .grid-col-content,
+#knoledge-grid .col-md-6:nth-child(6):hover a .grid-col-content,
+#knoledge-grid .col-md-6:nth-child(9):hover a .grid-col-content{
   background-color: rgba(255,102,255,1) !important;
 }
 .box-grid a.im-lgreen:hover .grid-col-content {
   background-color: rgba(0,255,0,1) ;
 }
-.box-grid .col-md-6:nth-child(2):hover a .grid-col-content,
-.box-grid .col-md-6:nth-child(5):hover a .grid-col-content,
-.box-grid .col-md-6:nth-child(8):hover a .grid-col-content{
+#knoledge-grid .col-md-6:nth-child(2):hover a .grid-col-content,
+#knoledge-grid .col-md-6:nth-child(5):hover a .grid-col-content,
+#knoledge-grid .col-md-6:nth-child(8):hover a .grid-col-content{
   background-color: #00b0f0 !important;
 }
 .box-grid .grid-col-content {
