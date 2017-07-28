@@ -6,7 +6,7 @@
 				@foreach ($pages as $page)
 					<div class="col-md-6">
 						<a href="{{ URL::to('/my_knowledge_box_features?page_id='.$page->id) }}" class="im-lblue">
-							<div class="bg-grey grid-col-content">
+							<div class="bg-white grid-col-content">
 								<strong>{{ $page->name }}</strong>
 							</div>
 						</a>

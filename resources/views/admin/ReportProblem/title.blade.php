@@ -4,7 +4,7 @@
 	    	<div class="col-md-12">
 	    		<a href="{{ URL::to('/home') }}">iMedical</a> <i class="fa fa-angle-right"></i>
 	    		<a href="{{ URL::to('/dashboard') }}">Dashboard</a> <i class="fa fa-angle-right"></i>
-				<a href="{{ URL::to('/report_problem') }}" class="im-active">Report A Problem</a>
+				<a href="{{ URL::to('/report_problem') }}" class="im-active"> Report a Problem</a>
 		    </div>
 		</div>
 	</div>

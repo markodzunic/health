@@ -1,16 +1,17 @@
 @extends('admin.layouts.default-admin-template')
 @section('AditionalHead')
-	<style>
-		.im-toggle-menu-item {
-			border-bottom: 1px solid rgba(0,176,240,1);
-		}
-	</style>
+<style>
+	.im-toggle-menu-item {
+		border-bottom: 1px solid rgba(0,176,240,1);
+	}
+</style>
 @stop
 
 @section('MainContent')
 @include('admin.MyKnowledgeBox.Features.title')
 {{-- @include('admin.MyKnowledgeBox.Features.menu') --}}
 @include('admin.MyKnowledgeBox.Features.content')
+
 @stop
 
 

@@ -229,7 +229,7 @@ var Pages = {
                   $('#updatePage').remove();
               },
               open: function() {
-                $('#editor').froalaEditor({
+                $('#description').froalaEditor({
                    fullPage: true,
                    theme: 'red',
                    linkList: [

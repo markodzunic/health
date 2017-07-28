@@ -178,6 +178,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         ArtemSchander\L5Modular\ModuleServiceProvider::class,
+        Ammadeuss\LaravelHtmlDomParser\ServiceProvider::class,
     ],
 
     /*
@@ -229,6 +230,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'HTMLDomParser' => Ammadeuss\LaravelHtmlDomParser\Facade::class,
     ],
 
 ];

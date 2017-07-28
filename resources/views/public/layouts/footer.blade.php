@@ -30,11 +30,8 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4">
-					<div class="search">
-						<input type="text" class="form-control" maxlength="64" placeholder="Search" />
-						<button type="submit" class="btn im-btn pink-btn">Search</button>
-					</div>
+				<div class="col-md-12">
+					<p>iMedical is created and maintained by <strong>POSITIVE</strong>HEALTH</p> 
 				</div>
 			</div>
 		</div>

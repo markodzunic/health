@@ -43,7 +43,7 @@
 			</div>
 
 			<div class="col-md-6">
-				<a href="#" class="im-lblue">
+				<a href="#" class="im-lgreen">
 					<div class="bg-grey grid-col-content">					
 						<strong>iLearning</strong>					
 					</div>
