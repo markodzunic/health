@@ -10,7 +10,7 @@
 				</div>
 			</div>
 			<div class="row">
-				{{ $rp->description }}
+				{!! $rp->description ? $rp->description :'N/A' !!}
 			</div>
 
 		</div>
