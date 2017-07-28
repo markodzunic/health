@@ -102,6 +102,9 @@ Route::post('/users', 'Admin\UserController@index');
 Route::get('/users/deleteUser', 'Admin\UserController@deleteUser');
 Route::post('/users/deleteUser', 'Admin\UserController@deleteUser');
 
+Route::get('/users/logoutDialog', 'Admin\UserController@logoutDialog');
+Route::post('/users/logoutDialog', 'Admin\UserController@logoutDialog');
+
 Route::get('/users/updateUser', 'Admin\UserController@updateUser');
 Route::post('/users/updateUser', 'Admin\UserController@updateUser');
 

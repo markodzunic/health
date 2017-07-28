@@ -202,6 +202,15 @@ class UserController extends Controller {
         'user' => $user
       ]);
   }
+
+  public function logoutDialog() {
+      $user = Auth::user();
+
+      return view('admin.UserAccount.Profile.logout',[
+        'user' => $user
+      ]);
+  }
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
