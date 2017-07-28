@@ -11,7 +11,7 @@
 @include('admin.MyKnowledgeBox.Features.title')
 {{-- @include('admin.MyKnowledgeBox.Features.menu') --}}
 @include('admin.MyKnowledgeBox.Features.content')
-@include('admin.layouts.promo')
+
 @stop
 
 

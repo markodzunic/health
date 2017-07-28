@@ -10,7 +10,7 @@
 @section('MainContent')
 @include('admin.MyKnowledgeBox.title')
 @include('admin.MyKnowledgeBox.content')
-@include('admin.MyKnowledgeBox.site-map-popup')
+{{-- @include('admin.MyKnowledgeBox.site-map-popup') --}}
 @include('admin.layouts.promo')
 @stop
 
