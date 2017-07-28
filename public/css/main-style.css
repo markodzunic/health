@@ -359,6 +359,13 @@ label.im-right {
   padding-top: 50px;
   padding-bottom: 30px;
 }
+.ico-img img {
+  max-width: 100%;
+}
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
 .no-padding {
     padding: 0 !important;
   }
@@ -493,6 +500,9 @@ a:focus {
 }
 .bg-dgrey {
   background-color: #ccc;
+}
+.bg-teal {
+  background-color: #69d8ff;
 }
 .bg-white {
   background-color: #fff;
