@@ -147,6 +147,7 @@ class UserAccountController extends Controller {
 			$user->first_name = $data['first_name'];
 			$user->last_name = $data['last_name'];
 			$user->avatar = $path;
+			$user->is_admin = 0;
 			$user->date_of_birth = $data['date_of_birth'];
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];
