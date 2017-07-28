@@ -9,5 +9,5 @@
 </li>
 <li class="divider"></li>
 <li>
-    <a href="{{ route('logout') }}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+    <a href="#" onclick="App.LogoutDialog(this);return false;"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
 </li>

@@ -5,7 +5,7 @@
 				<article>
 					<div id="blog-content">
 						<h4>{{ $blog->title?:'N/A' }}</h4>
-						<p>{{ $blog->description?:'N/A' }}</p>
+						<p>{!! $blog->description ? $blog->description :'N/A' !!}</p>
 					</div>
 
 					<div id="blog-info">

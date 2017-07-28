@@ -5,7 +5,7 @@
 				<input type="hidden" name="id" value="{{ isset($blog->id) ? $blog->id : 0 }}">
 
         <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-            <label for="title" class="col-md-4 control-label">Title</label>
+            <label for="title" class="col-md-12 control-label">Title</label>
 
             <div class="col-md-12">
                 <input id="title" type="text" class="form-control" name="title" value="{{ isset($blog->id) ? $blog->title : '' }}" required autofocus>
@@ -19,7 +19,7 @@
         </div>
 
 		<div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
-				<label for="" class="col-md-4 control-label">Image</label>
+				<label for="" class="col-md-12 control-label">Image</label>
                 <div class="col-md-12">
 
                         <input id="image" type="file" class="form-control inputfile inputfile-2" name="image" value="{{ isset($blog->image) ? $blog->image :'' }}" required autofocus>
@@ -38,12 +38,12 @@
 		</div>
 
 		<div class="form-group{{ $errors->has('meta_description') ? ' has-error' : '' }}">
-            <label for="meta_description" class="col-md-4 control-label">Meta</label>
+            <label for="meta_description" class="col-md-12 control-label">Meta</label>
 
             <div class="col-md-12">
                 <textarea id="meta_description" class="form-control" name="meta_description" value="{{ isset($blog->meta_description) ? $blog->meta_description : '' }}" required autofocus>
-										{{ isset($blog->meta_description) ? $blog->meta_description : '' }}
-								</textarea>
+						{{ isset($blog->meta_description) ? $blog->meta_description : '' }}
+				</textarea>
 
                 @if ($errors->has('meta_description'))
                     <span class="help-block">
@@ -54,7 +54,7 @@
         </div>
 
         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-            <label for="description" class="col-md-4 control-label">Description</label>
+            <label for="description" class="col-md-12 control-label">Content</label>
 
             <div class="col-md-12">
 				<div id="editor">
@@ -71,35 +71,43 @@
         </div>
 
 		<div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
-            <label for="category" class="col-md-4 control-label">Category 
-            <a blogs-id="{{ isset($blog->id) ? $blog->id : 0 }}" onclick="Blogs.CreateCategory(this);return false;" class="btn im-btn lblue-btn" style="color:#fff">New Category</a></label>
+            <div style="padding: 0 15px">
+                <label for="category" class="col-md-12 control-label im-label bg-lblue im-white">Categories 
+                <a blogs-id="{{ isset($blog->id) ? $blog->id : 0 }}" onclick="Blogs.CreateCategory(this);return false;" class="btn im-btn pink-btn no-margin-bottom im-btn-small" style="color:#fff; float: right;">
+                    <i class="fa fa-edit" aria-hidden="true"></i>
+                    <div class="im-btn-info">Add New Category</div></a>
+                </a>
+                </label>
 
-				<div id="cat-update" class="table-section">
-			        {!! view('admin.Blog.Posts.cat-update', [
-			            'blog' => isset($blog) ? $blog : [],
-									'categories' => isset($categories) ? $categories : [],
-									'tags_ids' => isset($tags_ids) ? $tags_ids : [],
-									'categories_used_ids' => isset($categories_used_ids) ? $categories_used_ids : [],
-									'tags' => isset($tags) ? $tags : [],
-									'tags_used' => isset($tags_used) ? $tags_used : [],
-									'categories_used' => isset($categories_used) ? $categories_used : [],
-			        ]) !!}
+                    <div id="cat-update" class="table-section">
+                        {!! view('admin.Blog.Posts.cat-update', [
+                            'blog' => isset($blog) ? $blog : [],
+                                        'categories' => isset($categories) ? $categories : [],
+                                        'tags_ids' => isset($tags_ids) ? $tags_ids : [],
+                                        'categories_used_ids' => isset($categories_used_ids) ? $categories_used_ids : [],
+                                        'tags' => isset($tags) ? $tags : [],
+                                        'tags_used' => isset($tags_used) ? $tags_used : [],
+                                        'categories_used' => isset($categories_used) ? $categories_used : [],
+                        ]) !!}
 
-			     </div>
+                    </div>
+            </div>
 						
         </div>
 
-				<div class="form-group{{ $errors->has('tags') ? ' has-error' : '' }}">
-            <label for="tags" class="col-md-4 control-label">Tags</label>
+		<div class="form-group{{ $errors->has('tags') ? ' has-error' : '' }}">
+            <div style="padding: 0 15px;">
+                <label for="tags" class="col-md-12 control-label im-label bg-lblue im-white">Tags</label>
 
-            <div class="col-md-12">
-                <input id="tags" type="text" class="form-control" name="tags" value="{{ isset($tags_ids) ? $tags_ids : '' }}" required autofocus>
+                <div >
+                    <input id="tags" type="text" class="form-control" name="tags" value="{{ isset($tags_ids) ? $tags_ids : '' }}" required autofocus>
 
-                @if ($errors->has('tags'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('tags') }}</strong>
-                    </span>
-                @endif
+                    @if ($errors->has('tags'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('tags') }}</strong>
+                        </span>
+                    @endif
+                </div>
             </div>
         </div>
 

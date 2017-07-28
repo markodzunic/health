@@ -24,8 +24,8 @@ var Login = {
 							modal: true,
 							buttons: {
 								Yes: {
-									text: 'Login',
-									class: 'im-btn lblue-btn update-btn',
+									text: 'Sign In',
+									class: 'im-btn lblue-btn update-btn im-left',
 									click: function() {
 										var form = $('#login').find('form');
 										var data = form.serialize();
@@ -52,11 +52,29 @@ var Login = {
 								// closes dialog and cancels action
 								No: {
 										text: 'Cancel',
-										class: 'im-btn lblue-btn cancel-btn',
+										class: 'im-btn cancel-btn im-hide',
 										click: function() {
 												$(this).dialog( "close" );
 										}
-								}
+								},
+
+								reg: {
+										text: 'Website registration',
+										class: 'im-btn flat-btn im-lblue im-left',
+										click: function() {
+											location.href = "/register";
+										}
+								},
+
+								forgot: {
+										text: 'Forgotten Password?',
+										class: 'im-btn flat-btn im-right',
+										click: function() {
+											location.href = "/password/reset";
+										}
+								},
+
+								
 							},
 							close: function() {
 									$(this).dialog( "close" );

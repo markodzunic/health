@@ -1,4 +1,4 @@
-{{-- <section id="admin-footer">
+<section id="admin-footer">
 	<div class="container">
 		<div class="row footer-col">
 			<div class="im-left col-md-6">
@@ -9,4 +9,4 @@
 			</div>
 		</div>
 	</div>	
-</section> --}}
+</section>
