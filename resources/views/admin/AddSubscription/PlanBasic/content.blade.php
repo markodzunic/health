@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <div class="pricing-table im-blue pricing-single">
+      <div class="pricing-table im-lblue pricing-single">
 
         <div class="pricing-table-header im-center">
           <p><strong>Lorem ipsum dolor sit amet</strong></p>
@@ -11,7 +11,7 @@
 
         <div class="pricing-table-body im-center">
           <div class="pricing-table-price"><strong>500 &euro;</strong>/<small>year</small></div>
-          <a href="{{ URL::to('/assignPractice?subscription='.'basic') }}" class="btn im-btn blue-btn">Sign Up</a>
+          <a href="{{ URL::to('/assignPractice?subscription='.'basic') }}" class="btn im-btn lblue-btn">Sign Up</a>
           <h5>Lorem ipsum dolor sit amet</h5>
           <p class="im-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu condimentum arcu. Sed urna arcu, faucibus ullamcorper nisl eu, lobortis egestas nunc. Duis eget dolor erat. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
         </div>

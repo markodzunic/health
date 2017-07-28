@@ -9,8 +9,8 @@
 	}
 	#intro-text span{
 		height: 250px;
-		font-size: 250px;
-		line-height: 250px;
+		font-size: 200px;
+		line-height: 200px;
 		font-weight: bold;
 		/*text-shadow: 6px 6px 0 rgba(0,32,96,1);*/
 	}
@@ -30,7 +30,7 @@
 		<div class="small-padding im-center">
 			<p class="h3">Life in Practice just got a whole lot easier.</p>
 		</div>
-		<div class="small-padding im-center">
+		<div class="im-center">
 			<a href="#" class="btn im-btn pink-btn">Get Started</a>
 		</div>
 		<a href="#" id="next-section" title="Back to top" style="display: block;">↓</a>

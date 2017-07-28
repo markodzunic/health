@@ -17,7 +17,7 @@
 <li>
     <a href="javascript:;" data-toggle="collapse" data-target="#PracticeAccount"><i class="fa fa-fw fa-hospital-o"></i> Practice Account <i class="fa fa-fw fa-caret-down"></i></a>
     <ul id="PracticeAccount" class="collapse">
-        <li><a href="{{ URL::to('/practice_account') }}">Profile</a></li>
+        <li><a href="{{ URL::to('/practice_account') }}">Practice Profile</a></li>
         <li><a href="{{ URL::to('/billing') }}">Billing & Payment</a></li>
         <li><a href="{{ URL::to('/practices') }}">Practices</a></li>
     </ul>
@@ -50,6 +50,9 @@
 </li>
 <li>
     <a href="{{ URL::to('/report_problem') }}"><i class="fa fa-fw fa-exclamation-circle"></i> Report a Problem</a>
+</li>
+<li>
+    <a href="{{ URL::to('/site_map') }}"><i class="fa fa-fw fa-sitemap"></i> Site Map</a>
 </li>
 <li class="divider"></li>
 <li>

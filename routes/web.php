@@ -113,6 +113,8 @@ Route::post('/updatePassword', 'Admin\UserAccountController@updatePassword');
 
 Route::post('/user_account', 'Admin\UserAccountController@index');
 
+Route::get('/site_map', 'Admin\SiteMapController@index');
+
 
 
 # public part routes

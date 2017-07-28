@@ -13,4 +13,30 @@
 			e.preventDefault();
 			$('#wrapper').toggleClass('im-expande');
 		})
+		$('.side-nav').on('show.bs.collapse', function () {
+		    var actives = $(this).find('.collapse.in'),
+		        hasData;
+		    
+		    if (actives && actives.length) {
+		        hasData = actives.data('collapse')
+		        if (hasData && hasData.transitioning) return
+		        actives.collapse('hide')
+		        hasData || actives.data('collapse', null)
+		    }
+		});
+		$(document).ready(function() {
+			var getPage = $('.admin-title-section .col-md-12 a:last-child').text();
+
+			var activeItem = $('.side-nav a').filter(function(index) { 
+				return $(this).text() === getPage; 
+			});			
+
+			if (activeItem.parent().parent().hasClass('collapse')) {
+				activeItem.parent().addClass('im-open');
+				activeItem.parent().parent().parent().addClass('im-open');
+				activeItem.parent().parent().collapse('show');			
+			} else {
+				activeItem.parent().addClass('im-open');
+			}
+		});
 	</script>

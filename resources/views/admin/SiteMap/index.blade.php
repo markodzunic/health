@@ -4,9 +4,8 @@
 @stop
 
 @section('MainContent')
-@include('admin.home.title')
-@include('admin.home.content')
-@include('admin.layouts.promo')
+@include('admin.SiteMap.title')
+@include('admin.SiteMap.content')
 @stop
 
 	

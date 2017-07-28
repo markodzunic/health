@@ -3,8 +3,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <span>{{ isset($practice->name) ? $practice->name : '' }}</span>
+    <div class="navbar-header">        
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -48,6 +47,9 @@
                   'user' => Auth::user(),
               ]) !!}
             </span>
+            <b class="caret"></b>
+             <span class="user-practice">{{ isset($practice->name) ? $practice->name : '' }}</span>
+            </a>
              {{-- {{ Auth::user()->first_name .' '. Auth::user()->last_name }} <b class="caret"></b></a> --}}
             <ul class="dropdown-menu">
 
