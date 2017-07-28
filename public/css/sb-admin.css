@@ -15,6 +15,7 @@ body {
     width: 100%;
     padding: 0;
     background-color: #fff;
+    float: left;
 }
 .huge {
     font-size: 50px;
@@ -116,12 +117,24 @@ ul.alert-dropdown {
 #collapse-sidebar {
     display: none;
 }
+.user-practice {
+    display: block;
+    position: absolute;
+    font-size: 10px;
+    bottom: 0;
+    left: 70px;
+    display: block;
+    width: 130px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 @media(min-width:768px) {
     #collapse-sidebar {
         width: 40px;
         height: 40px;
         position: fixed;
-        left: 225px;
+        left: 175px;
         bottom: 5px;
         right: 0;
         color: #fff;
@@ -160,20 +173,50 @@ ul.alert-dropdown {
         overflow-x: hidden;
         padding-bottom: 40px;
     }
-    #wrapper.im-expande .side-nav,
-    #wrapper.im-expande #collapse-sidebar{
-        left: 0;
+    #wrapper.im-expande .side-nav{
+        left: 55px;
+        overflow:visible;
+    }
+    #wrapper.im-expande #collapse-sidebar {
+      left: 5px
     }
     #wrapper.im-expande {
-        padding-left: 0;
+        padding-left: 55px;
     }
     .side-nav>li>a {
         width: 225px;
+    }
+    #wrapper.im-expande .side-nav>li>a {
+      width: 55px;
+      margin-left: 170px;
+      font-size: 0;
+      line-height: 15px;
+    }
+    #wrapper.im-expande .side-nav>li>a i:first-child {
+      font-size: 15px;
     }
     .side-nav li a:hover,
     .side-nav li a:focus {
         outline: none;
         background-color: #00b0f0 !important;
+    }
+    #wrapper.im-expande .side-nav>li>ul{
+      position: absolute;
+      left: 230px;
+      top: 0;
+      background: #002060;
+    }
+    #wrapper.im-expande .side-nav>li>ul>li>a {
+      padding: 10px;
+      /*margin-left: 170px;*/
+    }
+    ul.side-nav>li.im-open>a {
+      background-color: #00b0f0 !important;
+    }
+    ul.side-nav>li>ul>li.im-open>a {
+      background-color: #fff !important;
+      color: #00b0f0 !important;
+      border: 2px solid #00b0f0;
     }
 
 }
@@ -312,8 +355,9 @@ ul.alert-dropdown {
 .table > thead  {
   cursor:pointer;
 }
-.last-col {
-  min-width: 82px;
+.last-col,
+#actions {
+  min-width: 90px;
 }
 .pagination>li:first-child>a, .pagination>li:first-child>span {
   margin-left: 0;
@@ -452,11 +496,40 @@ label input {
 .box-grid a.im-lblue:hover .grid-col-content{
   background-color: rgba(0,176,240,1);
 }
-.box-grid a.im-blue:hover .grid-col-content{
-  background-color: rgba(0,32,96,1);
+.box-grid .col-md-6:nth-child(1) a,
+.box-grid .col-md-6:nth-child(4) a,
+.box-grid .col-md-6:nth-child(7) a{
+  color: rgba(0,32,96,1) !important;
 }
-.box-grid a.im-pink:hover .grid-col-content{
-  background-color: rgba(255,102,255,1);
+.box-grid .col-md-6:nth-child(3) a,
+.box-grid .col-md-6:nth-child(6) a,
+.box-grid .col-md-6:nth-child(9) a{
+  color: rgba(255,102,255,1) !important;
+}
+.box-grid .col-md-6:nth-child(2) a,
+.box-grid .col-md-6:nth-child(5) a,
+.box-grid .col-md-6:nth-child(8) a{
+  color: #00b0f0 !important;
+}
+.box-grid a.im-blue:hover .grid-col-content,
+.box-grid .col-md-6:nth-child(1):hover a .grid-col-content,
+.box-grid .col-md-6:nth-child(4):hover a .grid-col-content,
+.box-grid .col-md-6:nth-child(7):hover a .grid-col-content{
+  background-color: rgba(0,32,96,1) !important;
+}
+.box-grid a.im-pink:hover .grid-col-content,
+.box-grid .col-md-6:nth-child(3):hover a .grid-col-content,
+.box-grid .col-md-6:nth-child(6):hover a .grid-col-content,
+.box-grid .col-md-6:nth-child(9):hover a .grid-col-content{
+  background-color: rgba(255,102,255,1) !important;
+}
+.box-grid a.im-lgreen:hover .grid-col-content {
+  background-color: rgba(0,255,0,1) ;
+}
+.box-grid .col-md-6:nth-child(2):hover a .grid-col-content,
+.box-grid .col-md-6:nth-child(5):hover a .grid-col-content,
+.box-grid .col-md-6:nth-child(8):hover a .grid-col-content{
+  background-color: #00b0f0 !important;
 }
 .box-grid .grid-col-content {
   padding: 50px 15px;
@@ -535,6 +608,7 @@ label input {
     width: 20%;
     float: left;
     padding:5px;
+    text-align: left;
 }
 .col-1-5 ul {
     padding-left: 15px;

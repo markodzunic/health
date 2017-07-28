@@ -1,5 +1,5 @@
 <section>
-	<div class="container">
+	<div class="container bg-white" style="padding-top: 30px;">
 		<div class="row">
 			@if(Session::has('alert-success'))
 			    <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alert-success') !!}</em></div>
