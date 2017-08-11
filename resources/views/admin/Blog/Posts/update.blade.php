@@ -41,9 +41,7 @@
             <label for="meta_description" class="col-md-12 control-label">Meta</label>
 
             <div class="col-md-12">
-                <textarea id="meta_description" class="form-control" name="meta_description" value="{{ isset($blog->meta_description) ? $blog->meta_description : '' }}" required autofocus>
-						{{ isset($blog->meta_description) ? $blog->meta_description : '' }}
-				</textarea>
+                <textarea id="meta_description" class="form-control" name="meta_description" value="{{ isset($blog->meta_description) ? $blog->meta_description : '' }}" required autofocus>{{ isset($blog->meta_description) ? $blog->meta_description : '' }}</textarea>
 
                 @if ($errors->has('meta_description'))
                     <span class="help-block">

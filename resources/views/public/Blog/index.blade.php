@@ -13,9 +13,7 @@
 
 @section('MainContent')
 	<section id="blog-page">
-		<div class="container-fluid big-padding">
-			@include('public.Blog.blog-content')
-		</div>
+		@include('public.Blog.blog-content')
 	</section>
 @stop
 

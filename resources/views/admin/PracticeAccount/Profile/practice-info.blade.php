@@ -1,10 +1,13 @@
-<section id="practice-info" class="small-padding no-padding-top">
+<section id="practice-info" class="small-padding">
 	<div class="container">
 	@if (!empty($practice))
-		<div class="form-box editable-info">
+		<div class="form-box editable-info" style="border-bottom: 0;">
 			<div class="box-header">
+				<div class="user-image">
+			        <img src="{{ asset('/img/'.$practice->avatar) }}" alt="">
+			    </div>
 				<div class="box-title">
-					<h3>Practice Information</h3>
+					<h3><span>{{ $practice->name?:'N/A' }}</span></h3>
 				</div>
 				<div class="box-controles">
 					<ul>
@@ -28,22 +31,23 @@
 				</div>
 			</div>
 			<div class="box-content">
-				<div class="personal-image">
-			        <img src="{{ asset('/img/'.$practice->avatar) }}" alt="">
-			    </div>
-				<div class="prfile-info">
-					<h4>
-						<span class="im-lblue">{{ $practice->name?:'N/A' }}</span>
-					</h4>
-					<p><strong>Address: </strong>{{ $practice->address?:'N/A' }}</p>
-					<p><strong>Telephone: </strong>{{ $user->phone?:'N/A' }}</p>
-					<p><strong>Fax: </strong>{{ $practice->fax?:'N/A' }}</p>
-					<p><strong>Email Address: </strong>{{ $practice->email?:'N/A' }}</p>
-					<p><strong>Website: </strong>{{ $practice->site?:'N/A' }}</p>
-					<p><strong>Practice Manager: </strong>{{ $user->first_name?:'N/A' }} {{ $user->last_name?:'N/A' }}</p>
+				<div class="row">
+					<div class="col-md-6">
+						<h4>Practice Information</h4>
+						<p><i class="fa fa-map-marker"><span>Address</span></i>{{ $practice->address?:'N/A' }}</p>
+						<p><i class="fa fa-user"><span>Practice Manager</span></i>{{ $user->first_name?:'N/A' }} {{ $user->last_name?:'N/A' }}</p>
+					</div>
+					<div class="col-md-6 border-left">
+						<h4>Contact us</h4>
+						<p><i class="fa fa-phone"><span>Telephone</span></i>{{ $user->phone?:'N/A' }}</p>
+						<p><i class="fa fa-fax"><span>Fax</span></i>{{ $practice->fax?:'N/A' }}</p>
+						<p><i class="fa fa-envelope"><span>Email</span></i>{{ $practice->email?:'N/A' }}</p>
+						<p><i class="fa fa-globe"><span>Website</span></i>{{ $practice->site?:'N/A' }}</p>
+					</div>
 				</div>
+			</div>
+			<div class="col-md-12 bg-white">
+				<div class="box-content-separator"></div>
 			</div>
 		</div>
 	@endif
-	</div>
-</section>

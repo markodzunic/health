@@ -39,8 +39,8 @@
 	<div id="footer-bottom">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 im-left">© 2017 iMedical / Legal</div>
-				<div class="col-md-6 im-right">Designed by Palmeroni Design</div>
+				<div class="col-md-6 im-left im-mobile-center">© 2017 iMedical / Legal</div>
+				<div class="col-md-6 im-right im-mobile-center">Designed by <a href="https://palmeronidesign.com/" target="_blank" class="im-lblue">Palmeroni Design</a></div>
 			</div>
 		</div>
 	</div>
