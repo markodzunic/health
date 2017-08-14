@@ -1,5 +1,5 @@
 <section class="im-center small-padding ">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-4">
         <div class="pricing-table im-lblue">

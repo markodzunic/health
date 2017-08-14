@@ -1,5 +1,5 @@
-<section class="small-padding">
-	<div class="container im-white bg-teal">
+<section class="small-padding bg-teal">
+	<div class="container im-white ">
 		<div class="row">
 			<div class="col-md-12 im-center" style="margin: 50px 0">
 				<h2>Structure of the GP Knowledge Box  </h2>
