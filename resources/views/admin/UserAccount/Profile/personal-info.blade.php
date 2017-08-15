@@ -1,9 +1,16 @@
-<section id="personal-info" class="small-padding no-padding-top">
+<section id="personal-info" class="small-padding">
 	<div class="container">
 		<div id="PersonalInfo" class="form-box editable-info">
 			<div class="box-header">
+				<div class="user-image">
+			        <img src="{{ asset('/img/'.Auth::user()->avatar) }}" alt="">
+			    </div>
 				<div class="box-title">
-					<h3>Personal Information</h3>
+					<h3>
+						<span>{{ $user->title }}</span>
+						<span>{{ $user->first_name }}</span>
+						<span>{{ $user->last_name }}</span>
+					</h3>
 				</div>
 				<div class="box-controles">
 					<ul>
@@ -23,22 +30,20 @@
 				</div>
 			</div>
 			<div class="box-content">
-				<div class="personal-image">
-			        <img src="{{ asset('/img/'.Auth::user()->avatar) }}" alt="">
-			    </div>
-				<div class="prfile-info">
-					<h4>
-						<span class="im-pink">{{ $user->title }}</span>
-						<span class="im-lblue">{{ $user->first_name }}</span>
-						<span class="im-lblue">{{ $user->last_name }}</span>
-					</h4>
-					<p><strong>Date of Birth: </strong>{{ $user->date_of_birth }}</p>
-					<p><strong>Gender: </strong>{{ $user->gender }}</p>
-					<p><strong>Role: </strong>{{ $role->display_name }}</p>
-					<p><strong>Position Type: </strong>{{ $user->position_type }}</p>
-					<p><strong>Phone: </strong>{{ $user->phone }}</p>
-					<p><strong>Email: </strong>{{ $user->email }}</p>
-					<p><strong>Registration Number: </strong>{{ $user->med_reg_number }}</p>
+				<div class="row">
+					<div class="col-md-6 border-right">
+						<h4>Personal Information</h4>
+						<p><i class="fa fa-user-md"><span>Role</span></i>{{ $role->display_name }}</p>
+						<p><i class="fa fa-user"><span>Position Type</span></i>{{ $user->position_type }}</p>
+						<p><i class="fa fa-birthday-cake"><span>Date of Birth</span></i>{{ $user->date_of_birth }}</p>
+						<p><i class="fa fa-venus-mars"><span>Gender</span></i>{{ $user->gender }}</p>						
+						<p><i class="fa fa-registered"><span>Registration Number</span></i>{{ $user->med_reg_number }}</p>
+					</div>
+					<div class="col-md-6">
+						<h4>Contact me</h4>
+						<p><i class="fa fa-phone"><span>Phone</span></i>{{ $user->phone }}</p>
+						<p><i class="fa fa-envelope"><span>Email</span></i>{{ $user->email }}</p>
+					</div>
 				</div>
 			</div>
 		</div>

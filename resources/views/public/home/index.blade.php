@@ -57,8 +57,20 @@
 					    scrollTarget: '#section1'
 					  });
 			    });
+			    // INTRO SECTION
+			    function introSection () {
+			    	var heightSection = $('#intro-section').height();
+			    	var heightContainer = $('#intro-section .intro-container').height();
+			    	var newHeight = (heightSection - heightContainer)/2;
+
+			    	$('#intro-section .intro-container').css('margin-top', newHeight);
+			    }
 			    $(document).ready(function() {		 
+			      introSection ();
 				  $('#main-navigation .left-nav .menu-item:nth-child(1)').addClass('im-active');
+				});
+				$( window ).resize(function() {
+					 introSection ();
 				});
 			});
 		</script>

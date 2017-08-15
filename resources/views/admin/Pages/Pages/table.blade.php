@@ -1,8 +1,8 @@
 @if(Session::has('alert-success'))
     <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alert-success') !!}</em></div>
 @endif
-<table id="pages" class="table table-bordered tablesorter" >
-	<thead  class="bg-lblue im-white">
+<table id="pages" class="table table-striped tablesorter" >
+	<thead  class="bg-white">
 		<tr class="table-head">
 		   	@foreach ($columns as $c => $col)
 					<th id="{{ $c }}" order-by="" class="row" onclick="Pages.sort(this);return false;">
@@ -31,23 +31,19 @@
           <td>{{ !empty($page->section) ? $page->section : 'N/A' }}</td>
           <td>{{ !empty($role_names[$page->id]) ? $role_names[$page->id]['practices_names'] : 'N/A' }}</td>
           <td>{{ !empty($role_names[$page->id]) ? $role_names[$page->id]['roles'] : 'N/A' }}</td>
-          <td>
-            <div class="last-col">
-							<a href="#" onclick="Pages.Delete(this);return false;"
-								class="delete btn im-btn pink-btn no-margin-bottom im-btn-small"
-								pages-id="{{ $page->id }}">
-								<i class="fa fa-trash" aria-hidden="true"></i>
-								<div class="im-btn-info">Delete Page Section</div></a>
-							</a>
-						</div>
-            <div class="last-col">
-							<a href="#" onclick="Pages.Update(this);return false;"
-								class="update btn im-btn pink-btn no-margin-bottom im-btn-small"
-								pages-id="{{ $page->id }}">
-								<i class="fa fa-edit" aria-hidden="true"></i>
-								<div class="im-btn-info">Edit Page Section</div></a>
-							</a>
-						</div>
+          <td class="last-col">
+				<a href="#" onclick="Pages.Delete(this);return false;"
+					class="delete btn im-btn no-margin-bottom im-btn-small"
+					pages-id="{{ $page->id }}">
+					<i class="fa fa-trash" aria-hidden="true"></i>
+					<div class="im-btn-info">Delete Page Section</div></a>
+				</a>
+				<a href="#" onclick="Pages.Update(this);return false;"
+					class="update btn im-btn no-margin-bottom im-btn-small"
+					pages-id="{{ $page->id }}">
+					<i class="fa fa-edit" aria-hidden="true"></i>
+					<div class="im-btn-info">Edit Page Section</div></a>
+				</a>
           </td>
 				</tr>
 			@endforeach

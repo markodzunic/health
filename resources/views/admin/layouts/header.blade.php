@@ -3,19 +3,10 @@
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">        
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a href="{{ URL::to('/home') }}" class="navbar-brand">
-            <img src="{{ asset('/img/imdecial-main-logo.png') }}" alt="iMedical" style="max-height:24px;margin-bottom:0">
-        </a>
-    </div>
+   
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
+        <li><a href="#" id="im-search-toggle">Q</a></li>
         <li class="dropdown">
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu message-dropdown">
@@ -57,13 +48,18 @@
 
             </ul>
         </li>
-    </ul>
-    <form class="navbar-form navbar-right">
-        <div class="form-group">
-          <button type="submit" class="im-btn pink-btn no-margin-bottom im-btn-small"><i class="fa fa-search"></i></button>
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-    </form>
+    </ul>  
+     <div class="navbar-header navbar-left">        
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="{{ URL::to('/home') }}" class="navbar-brand">
+            <img src="{{ asset('/img/imdecial-main-logo.png') }}" alt="iMedical" style="max-height:24px;margin-bottom:0">
+        </a>
+    </div>  
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav im-animation">
@@ -71,10 +67,20 @@
                 <img src="{{ isset($practice->avatar) ? asset('/img/'.$practice->avatar) : asset('/img/avatars/avatar.png') }}" alt="" class="no-margin-bottom">
             </a> --}}
             @include('admin.layouts.header-main-menu')
-            <a href="#" id="collapse-sidebar" class="bg-lblue"></a>
+            <a href="#" id="collapse-sidebar"></a>
         </ul>
 
     </div>
     <!-- /.navbar-collapse -->
 </nav>
 </header>
+{{-- SEARCH FORM --}}
+<div id="im-search-form">
+    <form class="navbar-form">        
+        <div class="form-group">
+          <div class="im-close im-white"><i class="fa fa-times" aria-hidden="true"></i></div>
+          <button type="submit" class="im-btn pink-btn no-margin-bottom im-btn-small"><i class="fa fa-search"></i></button>
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+    </form>
+</div>
