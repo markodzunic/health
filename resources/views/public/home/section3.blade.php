@@ -15,7 +15,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="ico-img">
-						<img src="http://placehold.it/768x480" alt="">
+						<img src="{{ asset('/img/icons/img1-blue.png') }}" alt="">
 					</div>
 				</div>
 			</div>
@@ -26,7 +26,7 @@
 				</div>
 				<div class="col-md-6 col-md-pull-6">
 					<div class="ico-img">
-						<img src="http://placehold.it/768x480" alt="">
+						<img src="{{ asset('/img/icons/img2-blue.png') }}" alt="">
 					</div>
 				</div>
 			</div>
@@ -37,7 +37,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="ico-img">
-						<img src="http://placehold.it/768x480" alt="">
+						<img src="{{ asset('/img/icons/img3-blue.png') }}" alt="">
 					</div>
 				</div>
 			</div>
@@ -48,7 +48,7 @@
 				</div>
 				<div class="col-md-6 col-md-pull-6">
 					<div class="ico-img">
-						<img src="http://placehold.it/768x480" alt="">
+						<img src="{{ asset('/img/icons/img4-blue.png') }}" alt="">
 					</div>
 				</div>
 			</div>
@@ -59,7 +59,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="ico-img">
-						<img src="http://placehold.it/768x480" alt="">
+						<img src="{{ asset('/img/icons/img5-blue.png') }}" alt="">
 					</div>
 				</div>
 			</div>			
@@ -67,7 +67,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<a href="#" class="btn im-btn white-btn">Discover iMedical</a>
+				<a href="#" class="btn im-btn empty-btn im-border-btn">Discover iMedical</a>
 			</div>
 		</div>
 	</div>

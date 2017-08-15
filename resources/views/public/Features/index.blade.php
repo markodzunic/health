@@ -55,6 +55,9 @@
 		      
 		  });
 		  $('#main-navigation .left-nav .menu-item:nth-child(2)').addClass('im-active');
+
+		  var url = $(location).attr('href').split("#")[1];       
+		  $('#' + url).click();
 		});
 	</script>
 @stop

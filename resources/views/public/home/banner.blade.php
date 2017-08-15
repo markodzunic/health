@@ -1,37 +1,58 @@
 <style type="text/css">
-	#intro-section {
-		position: relative;
-		height: 100vh;
+#intro-section {
+	position: relative;
+	height: 100vh;
+}
+#intro-text span{
+	font-size: 200px;
+	line-height: 200px;
+	font-weight: bold;
+}
+.logo:before {
+    display: none;
+  }
+@media screen and (max-width: 991px) {
+	#intro-text span {
+		font-size: 130px;
+		line-height: 130px;
 	}
-	#intro-text {
-		text-align: center;
-		margin-top: 300px;
+}
+@media screen and (max-width: 776px) {
+	#intro-text span {
+		font-size: 100px;
+		line-height: 100px;
 	}
-	#intro-text span{
-		height: 250px;
-		font-size: 200px;
-		line-height: 200px;
-		font-weight: bold;
-		/*text-shadow: 6px 6px 0 rgba(0,32,96,1);*/
+}
+@media screen and (max-width: 480px) {
+	#intro-text span {
+		font-size: 50px;
+		line-height: 50px;
 	}
+}
 </style>
 <section id="intro-section">
 	<div class="container">
-		<div id="intro-text">
-			<span class="im-lblue">i</span>
-			<span class="im-lblue">M</span>
-			<span class="im-lblue">e</span>
-			<span class="im-lblue">d</span>
-			<span class="im-lblue">i</span>
-			<span class="im-lblue">c</span>
-			<span class="im-lblue">a</span>
-			<span class="im-lblue">l</span>
-		</div>
-		<div class="small-padding im-center">
-			<p class="h3">Life in Practice just got a whole lot easier.</p>
-		</div>
-		<div class="im-center">
-			<a href="#" class="btn im-btn pink-btn">Get Started</a>
+		<div class="intro-container im-center">
+				<div id="intro-text">
+				<span class="im-lblue animate bounceInUp"  data-wow-delay="1s">i</span>
+				<span class="im-lblue animate bounceInUp"  data-wow-delay="1.2s">M</span>
+				<span class="im-lblue animate bounceInUp"  data-wow-delay="1.4s">e</span>
+				<span class="im-lblue animate bounceInUp"  data-wow-delay="1.6s">d</span>
+				<span class="im-lblue animate bounceInUp"  data-wow-delay="1.8s">i</span>
+				<span class="im-lblue animate bounceInUp"  data-wow-delay="2s">c</span>
+				<span class="im-lblue animate bounceInUp"  data-wow-delay="2.2s">a</span>
+				<span class="im-lblue animate bounceInUp"  data-wow-delay="2.4s">l</span>
+			</div>
+			<div class="small-padding im-center">
+				<p class="h3">Life in Practice just got a whole lot easier.</p>
+			</div>
+			<div class="im-center">
+				@if (!Auth::user())                          
+	                <a class="btn im-btn pink-btn" href="{{ URL::to('/register') }}">Get started</a>
+	            @else
+	               <a class="btn im-btn pink-btn" href="{{ URL::to('/dashboard') }}">Get started</a>
+	            @endif
+			</div>
 		</div>
 		<a href="#" id="next-section" title="Back to top" style="display: block;">↓</a>
 	</div>
