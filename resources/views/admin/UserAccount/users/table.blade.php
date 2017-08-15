@@ -1,8 +1,8 @@
 @if(Session::has('alert-success'))
     <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alert-success') !!}</em></div>
 @endif
-<table id="users" class="table table-bordered tablesorter" >
-	<thead class="bg-lblue im-white">
+<table id="users" class="table tablesorter table-striped" >
+	<thead class="bg-white">
 		<tr class="table-head">
 		   	@foreach ($columns as $c => $col)
 					<th id="{{ $c }}" order-by="" class="row" onclick="Users.sort(this);return false;">
@@ -32,21 +32,22 @@
           <td>{{ !empty($user->position_type) ? $user->position_type : 'N/A' }}</td>
 					<td>{{ !empty($user->phone) ? $user->phone : 'N/A' }}</td>
           <td>{{ !empty($user->med_reg_number) ? $user->med_reg_number : 'N/A' }}</td>
-          <td>
-            <div class="last-col">
-							<a href="#" onclick="Users.Delete(this);return false;"
-								class="delete btn im-btn pink-btn no-margin-bottom im-btn-small"
-								users-id="{{ $user->id }}">
-							<i class="fa fa-trash" aria-hidden="true"></i>
-							<div class="im-btn-info">Delete Account</div></a>
-						</div>
-            <div class="last-col">
-							<a href="#" onclick="Users.Update(this);return false;"
-								class="update btn im-btn pink-btn no-margin-bottom im-btn-small"
-								users-id="{{ $user->id }}">
-							<i class="fa fa-edit" aria-hidden="true"></i>
-							<div class="im-btn-info">Edit Info</div></a>
-						</div>
+          <td class="user-controles">
+				<a href="#" onclick="Users.Delete(this);return false;"
+					class="delete btn im-btn no-margin-bottom im-btn-small"
+					users-id="{{ $user->id }}">
+				<i class="fa fa-trash" aria-hidden="true"></i>
+				<div class="im-btn-info">Delete Account</div></a>
+				<a href="#" onclick="Users.Update(this);return false;"
+					class="update btn im-btn no-margin-bottom im-btn-small"
+					users-id="{{ $user->id }}">
+				<i class="fa fa-edit" aria-hidden="true"></i>
+				<div class="im-btn-info">Edit Info</div></a>
+				<a href="#" 
+					class="update btn im-btn no-margin-bottom im-btn-small"
+					users-id="{{ $user->id }}">
+				<i class="fa fa-envelope" aria-hidden="true"></i>
+				<div class="im-btn-info">Send Message</div></a>
           </td>
 				</tr>
 			@endforeach

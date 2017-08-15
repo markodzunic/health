@@ -1,6 +1,10 @@
 @extends('admin.layouts.default-admin-template')
 @section('AditionalHead')
-
+<style type="text/css">
+body, #page-wrapper {
+    background-color: #F9F9F9;
+}
+</style>
 @stop
 
 @section('MainContent')

@@ -13,7 +13,7 @@
 
 @section('MainContent')
 	@include('public.Blog.BlogSingle.blog-content')
-	@include('public.Blog.BlogSingle.related-posts')
+	{{-- @include('public.Blog.BlogSingle.related-posts') --}}
 @stop
 
 

@@ -1,5 +1,5 @@
 <section>
-	<div class="container-fluid">
+	<div class="container-fluid kb-container-padding">
 
 		<ul class="accordion">
 		  <li>
@@ -21,7 +21,7 @@
 		  <li>
 		    <a class="toggle bg-lblue" href="javascript:void(0);">
 		    	<i class="fa fa-info-circle" aria-hidden="true"></i>
-				<span>How</span>
+				<span>Our Practice Differences</span>
 		    </a>
 		    <div class="inner">
 		     	<div class="container">

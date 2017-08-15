@@ -39,4 +39,21 @@
 				activeItem.parent().addClass('im-open');
 			}
 		});
+		function headerSearch () {
+	    	var heightSection = $(window).height();
+	    	var heightContainer = $('#im-search-form .navbar-form').height();
+	    	var newHeight = (heightSection - heightContainer)/2;
+
+	    	$('#im-search-form .navbar-form').css('margin-top', newHeight);
+	    }
+	    $(document).ready(function() {		 
+	      headerSearch ();
+	      $('#im-search-toggle, #im-search-form .im-close').on('click', function(e) {
+	      	e.preventDefault();
+	      	$('#im-search-form').toggle('300');
+	      })
+		});
+		$( window ).resize(function() {
+		  headerSearch ();
+		});
 	</script>

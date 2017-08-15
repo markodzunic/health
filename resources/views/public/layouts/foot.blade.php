@@ -14,18 +14,28 @@
 
 	<script type="text/javascript">
 		$(function(){
+
+			// STICKY NAV
 		    $(window).scroll(function() {
 		        if ($(this).scrollTop() >= 200) {
-		        	if (!$('#main-navigation').hasClass('navbar-custom-fixed')) {
+		        	if (!$('body').hasClass('im-fixed')) {
 			        	$('#main-navigation').hide();
 			        	$('#main-navigation').fadeIn('slow');
 		        	}
-		            $('#main-navigation').addClass('navbar-custom-fixed');
+		            $('body').addClass('im-fixed');
 		        }
 		        else {
-		            $('#main-navigation').removeClass('navbar-custom-fixed');
+		            $('body').removeClass('im-fixed');
 		        }
 		    });
+
+		    // MOBILE MENU		    
+		    $('#nav-icons').on('click', function(e) {
+				e.preventDefault();
+				$(this).toggleClass('open');
+				$("body").toggleClass('nav-in');
+			});
+			
 		    // back to top
 		    if ($('#back-to-top').length) {
 			    var scrollTrigger = 500, // px

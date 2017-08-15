@@ -29,7 +29,7 @@
 											is-admin = "0"
 											class="select btn im-btn pink-btn no-margin-bottom im-btn-small"
 											users-id="{{ $user->id }}">
-											<i class="fa fa-check" aria-hidden="true"></i>
+											<i class="fa fa-times" aria-hidden="true"></i>
 												<div class="im-btn-info">Unselect Admin</div>
 										</div>
 								@endif

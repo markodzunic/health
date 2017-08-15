@@ -13,6 +13,13 @@
 					</div>
 				@endforeach
 			@endif
+			<div class="col-md-6">
+				<a href="{{ URL::to('/documentation') }}" class="im-blue">
+					<div class="bg-white grid-col-content">
+						<strong>Documentation</strong>
+					</div>
+				</a>
+			</div>
 		</div>
 	</div>
 </section>

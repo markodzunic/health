@@ -1,6 +1,13 @@
 @extends('admin.layouts.default-admin-template')
 @section('AditionalHead')
-
+<style type="text/css">
+  .im-btn-info {
+    background-color: #efefef;
+  }
+  .im-btn-info:before {
+    border-color: #efefef;
+  }
+</style>
 @stop
 
 @section('MainContent')
