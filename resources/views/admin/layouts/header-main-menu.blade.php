@@ -6,7 +6,7 @@
       'user' => Auth::user(),
   ]) !!}
 </li> --}}
-<li>
+<li class="has-open">
     <a href="javascript:;" data-toggle="collapse" data-target="#UserAccount"><i class="fa fa-fw fa-user"></i> My Account <i class="fa fa-fw fa-caret-down"></i></a>
     <ul id="UserAccount" class="collapse">
         <li><a href="{{ URL::to('/user_account') }}">Profile</a></li>
@@ -14,7 +14,7 @@
         <li><a href="{{ URL::to('/users') }}">Users</a></li>
     </ul>
 </li>
-<li>
+<li class="has-open">
     <a href="javascript:;" data-toggle="collapse" data-target="#PracticeAccount"><i class="fa fa-fw fa-hospital-o"></i> Practice Account <i class="fa fa-fw fa-caret-down"></i></a>
     <ul id="PracticeAccount" class="collapse">
         <li><a href="{{ URL::to('/practice_account') }}">Practice Profile</a></li>

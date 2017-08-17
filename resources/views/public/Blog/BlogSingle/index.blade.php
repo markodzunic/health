@@ -14,6 +14,7 @@
 @section('MainContent')
 	@include('public.Blog.BlogSingle.blog-content')
 	{{-- @include('public.Blog.BlogSingle.related-posts') --}}
+	<section class="bg-blue" style="width: 100%; height: 5px;"></section>
 @stop
 
 

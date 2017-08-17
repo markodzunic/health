@@ -67,6 +67,20 @@
             </div>
         </div>
 
+        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+            <label for="phone" class="col-md-4 control-label">Phone</label>
+
+            <div class="col-md-8">
+                <input id="phone" type="text" class="form-control" name="phone" value="{{ $practice->phone?:'' }}" required autofocus>
+
+                @if ($errors->has('phone'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('phone') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
         <div class="form-group{{ $errors->has('fax') ? ' has-error' : '' }}">
             <label for="fax" class="col-md-4 control-label">Fax</label>
 

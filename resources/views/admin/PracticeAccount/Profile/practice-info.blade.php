@@ -38,7 +38,7 @@
 						<p><i class="fa fa-user"><span>Practice Manager</span></i>{{ $user->first_name?:'N/A' }} {{ $user->last_name?:'N/A' }}</p>
 					</div>
 					<div class="col-md-6 border-left">
-						<h4>Contact us</h4>
+						<h4>Contact Information</h4>
 						<p><i class="fa fa-phone"><span>Telephone</span></i>{{ $user->phone?:'N/A' }}</p>
 						<p><i class="fa fa-fax"><span>Fax</span></i>{{ $practice->fax?:'N/A' }}</p>
 						<p><i class="fa fa-envelope"><span>Email</span></i>{{ $practice->email?:'N/A' }}</p>

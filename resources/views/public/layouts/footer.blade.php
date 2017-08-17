@@ -3,11 +3,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
-					<h4 class="im-pink">iMedical</h4>
+					<h4 style="margin-bottom: 10px;">iMedical</h4>
 					<p>iMedical is an innovative resource platform that makes important and relevant information and documentation easily available to healthcare professionals and support staff in the primary care sector in Ireland.</p>
 				</div>
 				<div class="col-md-4">
-					<h4 class="im-pink">Navigate this site</h4>
+					<h4 style="margin-bottom: 10px;">Navigate this site</h4>
 					<ul>
 						<li><a href="{{ URL::to('/home') }}">Home</a></li>
 						<li><a href="{{ URL::to('/features') }}">Features</a></li>
@@ -15,10 +15,11 @@
 						<li><a href="{{ URL::to('/contact') }}">Contact</a></li>
 						<li><a href="{{ URL::to('/register') }}">Register</a></li>
 						<li><a href="{{ URL::to('/faqs') }}">FAQs</a></li>
+						<li><a href="{{ URL::to('/legals') }}">Legal</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4">
-					<h4 class="im-pink">Features</h4>
+					<h4 style="margin-bottom: 10px;">Features</h4>
 					<ul>
 						<li>Comprehensive Dashboard</li>
 						<li>Recommended Best Practice (RBP)</li>
@@ -31,6 +32,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
+					<br>
 					<p>iMedical is created and maintained by <strong>POSITIVE</strong>HEALTH</p> 
 				</div>
 			</div>
@@ -40,7 +42,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 im-left im-mobile-center">© 2017 iMedical / Legal</div>
-				<div class="col-md-6 im-right im-mobile-center">Designed by <a href="https://palmeronidesign.com/" target="_blank" class="im-lblue">Palmeroni Design</a></div>
+				<div class="col-md-6 im-right im-mobile-center">Designed by <a href="https://palmeronidesign.com/" target="_blank" class="">Palmeroni Design</a></div>
 			</div>
 		</div>
 	</div>
