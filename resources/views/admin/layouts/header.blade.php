@@ -6,7 +6,7 @@
    
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
-        <li><a href="#" id="im-search-toggle">Q</a></li>
+        <li><a href="#" id="im-search-toggle"><i class="fa fa-search"></i></a></li>
         <li class="dropdown">
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu message-dropdown">
@@ -57,7 +57,7 @@
             <span class="icon-bar"></span>
         </button>
         <a href="{{ URL::to('/home') }}" class="navbar-brand">
-            <img src="{{ asset('/img/imdecial-main-logo.png') }}" alt="iMedical" style="max-height:24px;margin-bottom:0">
+            <img src="{{ asset('/img/imdecial-main-logo.png') }}" alt="iMedical" style="max-height:38px;margin-bottom:0">
         </a>
     </div>  
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->

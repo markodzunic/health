@@ -17,7 +17,8 @@
                     <div class="right-nav">
                         <a class="menu-item" href="{{ URL::to('/blog') }}">Blog</a>
                         @if (!Auth::user())
-                          <a class="menu-item" onclick="Login.Login();return false;">Log in</a>                          
+                            {{-- <a class="menu-item" onclick="Login.Login();return false;">Log in</a>                           --}}
+                            <a class="menu-item" href="{{ URL::to('/login') }}">Log in</a>
                             <a class="menu-btn" href="{{ URL::to('/register') }}">Get started</a>
                         @else
                           <a class="menu-item" href="{{ route('logout') }}">Logout</a>

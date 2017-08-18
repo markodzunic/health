@@ -56,9 +56,6 @@
 						<div style="height: 30px"></div>
 						<button href="#" class="btn im-btn pink-btn">Download iMedical Brochure</button>
 					</div>
-					<div class="col-xs-12 im-center">
-						<p><i>Your trust is important to us. To find out how we protect you and your information, check out our <a class="im-lblue" href="#">Privacy Policy</a></i></p>
-					</div>
 				</div>
 			</form>
 		</div>

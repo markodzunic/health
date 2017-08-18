@@ -26,7 +26,7 @@
 				</div>
 				<div class="col-md-6 col-md-pull-6">
 					<div class="ico-img">
-						<img src="{{ asset('/img/icons/img2-blue.png') }}" alt="">
+						<img src="{{ asset('/img/icons/img3-blue.png') }}" alt="">
 					</div>
 				</div>
 			</div>
@@ -37,7 +37,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="ico-img">
-						<img src="{{ asset('/img/icons/img3-blue.png') }}" alt="">
+						<img src="{{ asset('/img/icons/img2-blue.png') }}" alt="">
 					</div>
 				</div>
 			</div>
