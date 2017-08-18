@@ -7,7 +7,7 @@
 			    </div>
 				<div class="box-title">
 					<h3>
-						<span>{{ $user->title }}</span>
+						<span style="text-transform: uppercase;">{{ $user->title }}</span>
 						<span>{{ $user->first_name }}</span>
 						<span>{{ $user->last_name }}</span>
 					</h3>

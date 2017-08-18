@@ -1,4 +1,4 @@
-<section class="small-padding bg-teal">
+<section class="small-padding bg-lblue">
 	<div class="container im-white ">
 		<div class="row">
 			<div class="col-md-12 im-center" style="margin: 50px 0">
@@ -12,7 +12,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="ico-img im-center">
-					<img src="{{ asset('/img/icons/img1.png') }}" alt="">
+					<img src="{{ asset('/img/icons/img1-blue.png') }}" alt="">
 				</div>
 			</div>
 		</div>
@@ -23,7 +23,7 @@
 			</div>
 			<div class="col-md-6 col-md-pull-6">
 				<div class="ico-img im-center">
-					<img src="{{ asset('/img/icons/img2.png') }}" alt="">
+					<img src="{{ asset('/img/icons/img2-blue.png') }}" alt="">
 				</div>
 			</div>
 		</div>
@@ -34,7 +34,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="ico-img im-center">
-					<img src="{{ asset('/img/icons/img3.png') }}" alt="">
+					<img src="{{ asset('/img/icons/img3-blue.png') }}" alt="">
 				</div>
 			</div>
 		</div>
@@ -45,7 +45,7 @@
 			</div>
 			<div class="col-md-6 col-md-pull-6">
 				<div class="ico-img im-center">
-					<img src="{{ asset('/img/icons/img4.png') }}" alt="">
+					<img src="{{ asset('/img/icons/img4-blue.png') }}" alt="">
 				</div>
 			</div>
 		</div>
@@ -56,7 +56,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="ico-img im-center">
-					<img src="{{ asset('/img/icons/img5.png') }}" alt="">
+					<img src="{{ asset('/img/icons/img5-blue.png') }}" alt="">
 				</div>
 			</div>
 		</div>
@@ -67,7 +67,7 @@
 			</div>
 			<div class="col-md-6 col-md-pull-6">
 				<div class="ico-img im-center">
-					<img src="{{ asset('/img/icons/img6.png') }}" alt="">
+					<img src="{{ asset('/img/icons/img6-blue.png') }}" alt="">
 				</div>
 			</div>
 		</div>

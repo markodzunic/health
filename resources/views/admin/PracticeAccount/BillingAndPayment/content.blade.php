@@ -50,7 +50,7 @@
 							<p><i class="fa fa-euro"><span>Next Billing Date</span></i><strong>Next Billing Date: </strong> {{ \Carbon\Carbon::parse($practice->created_at)->addYear()->format('d-m-Y') }}</p>
 						</div>
 						<div class="col-md-6">
-							<h4>Contact us</h4>
+							<h4>Contact Information</h4>
 							<p><i class="fa fa-phone"><span>Telephone</span></i>{{ $user->phone?:'N/A' }}</p>
 							<p><i class="fa fa-fax"><span>Fax</span></i>{{ $practice->fax?:'N/A' }}</p>
 							<p><i class="fa fa-envelope"><span>Email</span></i>{{ $practice->email?:'N/A' }}</p>
