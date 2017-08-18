@@ -162,6 +162,7 @@ class PracticeAccountController extends Controller {
 		$prectice->name = $data['name'];
 		$prectice->description = $data['description'];
 		$prectice->address = $data['address'];
+		$prectice->phone = $data['phone'];
 		$prectice->fax = $data['fax'];
 		$prectice->email = $data['email'];
 		$prectice->site = $data['site'];
@@ -211,6 +212,7 @@ class PracticeAccountController extends Controller {
 		$prectice->name = $data['name'];
 		$prectice->description = $data['description'];
 		$prectice->address = $data['address'];
+		$prectice->phone = $data['phone'];
 		$prectice->fax = $data['fax'];
 		$prectice->email = $data['email'];
 		$prectice->site = $data['site'];

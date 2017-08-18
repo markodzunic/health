@@ -7,6 +7,9 @@
 	.form-box {
 		background: #fff;
 	}
+	label input[type=text], label input[type=email], label input[type=password], textarea {
+		border-color: #333;
+	}
 </style>
 @stop
 

@@ -61,7 +61,7 @@
 			    function introSection () {
 			    	var heightSection = $('#intro-section').height();
 			    	var heightContainer = $('#intro-section .intro-container').height();
-			    	var newHeight = (heightSection - heightContainer)/2;
+			    	var newHeight = ((heightSection - heightContainer)/2)+80;
 
 			    	$('#intro-section .intro-container').css('margin-top', newHeight);
 			    }

@@ -54,7 +54,7 @@
 			            </div>
 					</div>						
 					
-					<input type="submit" class="btn im-btn pink-btn" value="Send">
+					<input type="submit" class="btn im-btn lblue-btn" value="Send">
 				</div>
 			</form>
 		</div>

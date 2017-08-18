@@ -655,7 +655,7 @@ a:focus {
     text-align: center;
   }
   .logo:before {
-    content: '';
+/*    content: '';
     position: absolute;
     display: block;
     top: 80px;
@@ -664,7 +664,7 @@ a:focus {
     height: 0;
     border-left: 140px solid transparent;
     border-right: 140px solid transparent;
-    border-top: 110px solid #fff;
+    border-top: 110px solid #fff;*/
   }
   .im-fixed .logo:before {
     display: none;
@@ -675,7 +675,7 @@ a:focus {
     display: none;
   }
   .logo img.icon-logo {
-    max-width: 150px;
+    max-width: 60px;
     margin: 0;
     display: block;
   }
@@ -723,11 +723,14 @@ a:focus {
   }
   #main-navigation a {
     display: inline-block;
-    line-height: 40px;
+    line-height: 50px;
     margin: 20px 0;
     padding: 0 15px;
     position: relative;
     font-size: 18px;
+  }
+  .im-fixed #main-navigation a {
+     line-height: 40px;
   }
   #main-navigation a.menu-item {  
     color: #b9b9b9;
@@ -1068,14 +1071,14 @@ a:focus {
 /*ADMIN TITLE SECTION*/
 .admin-title-section {  
   border-top: 2px solid #00b0f0;
-  margin-top: 5px;
+  margin-top: 20px;
   margin-bottom: 15px;
 }
 .admin-title-section.bg-blue {
   background-color: #00b0f0;
 }
 .admin-title-section a{
-  padding: 12px 5px;
+  padding: 13.5px 5px;
   position: relative;
   display: inline-block;
   color: #fff;

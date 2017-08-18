@@ -1,4 +1,4 @@
-<section class="big-padding">
+<section class="small-padding">
 	<div class="container bg-white" style="padding-top: 30px;">
 		<div class="row">
 			@if(Session::has('alert-success'))
@@ -13,9 +13,9 @@
 				<div id="UpdatePassword">
 					<form method="GET" action="/feedback/create">
 						{{-- Old Password --}}
-						<textarea name="description" id="description" cols="100" rows="10"></textarea>
+						<textarea name="description" id="description" cols="100" rows="10" style="border-color:#333"></textarea>
 						<br /><br />
-						<input type="submit" class="btn im-btn pink-btn">
+						<input type="submit" class="btn im-btn lblue-btn">
 					</form>
 				</div>
 			</div>

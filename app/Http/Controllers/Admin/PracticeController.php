@@ -94,6 +94,7 @@ class PracticeController extends Controller {
 		$prectice->name = $data['name'];
 		$prectice->description = $data['description'];
 		$prectice->address = $data['address'];
+		$prectice->phone = $data['phone'];
 		$prectice->fax = $data['fax'];
 		$prectice->email = $data['email'];
 		$prectice->site = $data['site'];
@@ -175,6 +176,7 @@ class PracticeController extends Controller {
 			$practice->avatar = $path;
 			$practice->description = $data['description'];
 			$practice->address = $data['address'];
+			$practice->phone = $data['phone'];
 			$practice->fax = $data['fax'];
 			$practice->email = $data['email'];
 			$practice->site = $data['site'];
