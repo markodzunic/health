@@ -7,6 +7,8 @@ use App\Models\Practice;
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\Message;
+use App\Models\Blog;
+use App\Models\Page;
 
 class DashboardController extends Controller {
 
@@ -34,9 +36,17 @@ class DashboardController extends Controller {
 
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
+		$blog = new Blog();
+    $blog = $blog->get_blogs_notification(5);
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications(5);
+    $notifications = array_merge($blog, $pages);
+
 		return view("admin.home.index",[
 				'practice' => $practice,
 				'messages' => $this->messages,
+				'notifications' => $notifications,
 		]);
 	}
 
