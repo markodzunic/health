@@ -8,8 +8,16 @@ use App\Models\Practice;
 use App\User;
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\Message;
 
 class BillingAndPaymentController extends Controller {
+
+	protected $messages;
+
+	public function __construct(Message $messages) {
+				$this->middleware('admin');
+				$this->messages = $messages;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -34,10 +42,13 @@ class BillingAndPaymentController extends Controller {
 			// $practice_users = User::with('role')->where('authorised_user', '=', $practice->id)->where('role_id', '!=', 5)->where('role_id', '!=', 1)->get();
 		}
 
+		$this->messages = $this->messages->get_messages(Auth::user()->id);
+
 		if (!$request->ajax()) {
 				return view("admin.PracticeAccount.BillingAndPayment.index", [
 		       'user' => $user,
 					 'subscription' => $subscription,
+					 'messages' => $this->messages,
 					//  'admin_users' => $admin_users,
 					//  'practice_users' => $practice_users,
 					 'practice' => $practice,
@@ -47,6 +58,7 @@ class BillingAndPaymentController extends Controller {
 			return view("admin.PracticeAccount.BillingAndPayment.content", [
 				 'user' => $user,
 				 'practice' => $practice,
+				 'messages' => $this->messages,
 				 'subscription' => $subscription,
 				//  'admin_users' => $admin_users,
 				//  'practice_users' => $practice_users,

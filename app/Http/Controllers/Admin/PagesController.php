@@ -8,6 +8,7 @@ use App\Models\DefPage;
 use App\Models\Role;
 use Auth;
 use DB;
+use App\Models\Message;
 use App\Models\Practice;
 use App\Models\PracticePage;
 use Illuminate\Database\Eloquent\Collection;
@@ -20,12 +21,13 @@ class PagesController extends Controller {
 
 	protected $sortby;
 	protected $orderby;
-
+	protected $messages;
 	protected $messageBag;
 
-	public function __construct(MessageBag $messageBag) {
+	public function __construct(MessageBag $messageBag, Message $messages) {
 				$this->middleware('admin');
 				$this->messageBag = $messageBag;
+				$this->messages = $messages;
 	}
 
 	/**
@@ -78,12 +80,15 @@ class PagesController extends Controller {
 		$currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
 		$pages = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage, ['path' => LengthAwarePaginator::resolveCurrentPath()]);
 
+		$this->messages = $this->messages->get_messages(Auth::user()->id);
+
 		if ($request->ajax()) {
 				return view('admin.Pages.Pages.table', [
 						'sortby' => $this->sortby,
 						'role_names' => $role_names,
 						'orderby' => $this->orderby,
 						'pages' => $pages,
+						'messages' => $this->messages,
 						'pagination' => true,
 						'practice' => $practice,
 						'columns' => Page::$sortColumns,
@@ -93,6 +98,7 @@ class PagesController extends Controller {
 						'sortby' => $this->sortby,
 						'role_names' => $role_names,
 						'orderby' => $this->orderby,
+						'messages' => $this->messages,
 						'pages' => $pages,
 						'pagination' => true,
 						'practice' => $practice,

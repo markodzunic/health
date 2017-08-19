@@ -7,8 +7,16 @@ use Auth;
 use App\User;
 use App\Models\Practice;
 use Illuminate\Http\Request;
+use App\Models\Message;
 
 class AddSubscriptionController extends Controller {
+
+	protected $messages;
+
+	public function __construct(Message $messages) {
+				$this->middleware('admin');
+				$this->messages = $messages;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -20,8 +28,11 @@ class AddSubscriptionController extends Controller {
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$this->messages = $this->messages->get_messages(Auth::user()->id);
+
 		return view("admin.AddSubscription.index", [
 			'practice' => $practice,
+			'messages' => $this->messages,
 		]);
 	}
 

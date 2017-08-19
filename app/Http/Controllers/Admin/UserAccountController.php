@@ -7,6 +7,7 @@ use Auth;
 use App\User;
 use Validator;
 use App\Models\Role;
+use App\Models\Message;
 use App\Models\Practice;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
@@ -16,9 +17,11 @@ use Intervention\Image\ImageManagerStatic as Image;
 class UserAccountController extends Controller {
 
 	protected $messageBag;
+	protected $messages;
 
-	public function __construct(MessageBag $messageBag) {
+	public function __construct(MessageBag $messageBag, Message $messages) {
         $this->messageBag = $messageBag;
+				$this->messages = $messages;
   }
 
 	/**
@@ -34,15 +37,19 @@ class UserAccountController extends Controller {
 
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$this->messages = $this->messages->get_messages(Auth::user()->id);
+
 		if ($request->ajax()) {
 				return view("admin.UserAccount.Profile.personal-info", [
             'user' => $user,
+						'messages' => $this->messages,
             'role' => $role,
 						'practice' => $practice,
         ])->render();
 		} else {
 			return view("admin.UserAccount.Profile.index", [
 					'user' => $user,
+					'messages' => $this->messages,
 					'role' => $role,
 					'practice' => $practice,
 			]);

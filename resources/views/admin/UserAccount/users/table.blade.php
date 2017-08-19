@@ -43,7 +43,8 @@
 					users-id="{{ $user->id }}">
 				<i class="fa fa-edit" aria-hidden="true"></i>
 				<div class="im-btn-info">Edit Info</div></a>
-				<a href="#" 
+				<a href="#"
+          onclick="Users.SendMessage(this);return false;"
 					class="update btn im-btn no-margin-bottom im-btn-small"
 					users-id="{{ $user->id }}">
 				<i class="fa fa-envelope" aria-hidden="true"></i>
