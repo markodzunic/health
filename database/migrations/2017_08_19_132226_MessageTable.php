@@ -19,6 +19,7 @@ class MessageTable extends Migration
           $table->integer('user_id')->unsigned()->nullable();
           $table->integer('user_send')->unsigned()->nullable();
           $table->string('subject')->unique();
+          $table->integer('is_read')->nullable();
           $table->string('description');
           $table->timestamps();
 
