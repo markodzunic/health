@@ -7,16 +7,19 @@ use App\Models\Practice;
 use App\Models\Page;
 use App\Models\DefPage;
 use Auth;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 
 class MyKnowledgeBoxFeaturesController extends Controller {
 
 	protected $messageBag;
+	protected $messages;
 
-	public function __construct(MessageBag $messageBag) {
+	public function __construct(MessageBag $messageBag, Message $messages) {
 				$this->middleware('admin');
 				$this->messageBag = $messageBag;
+				$this->messages = $messages;
 	}
 
 	/**
@@ -39,11 +42,14 @@ class MyKnowledgeBoxFeaturesController extends Controller {
 		$faq = Page::where('page_id', '=', $data['page_id'])->where('section', '=', 'faq')->get();
 		$ressources = Page::where('page_id', '=', $data['page_id'])->where('section', '=', 'ressources')->get();
 
+		$this->messages = $this->messages->get_messages(Auth::user()->id);
+
 		return view("admin.MyKnowledgeBox.Features.index", [
 			'practice' => $practice,
 			'recommended_practice' => $recommended_practice,
 			'diff_practice' => $diff_practice,
 			'checklist' => $checklist,
+			'messages' => $this->messages,
 			'templates' => $templates,
 			'faq' => $faq,
 			'page' => $p,

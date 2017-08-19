@@ -8,14 +8,17 @@ use App\Models\DefPage;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
+use App\Models\Message;
 
 class MyKnowledgeBoxController extends Controller {
 
 	protected $messageBag;
+	protected $messages;
 
-	public function __construct(MessageBag $messageBag) {
+	public function __construct(MessageBag $messageBag, Message $messages) {
 				$this->middleware('admin');
 				$this->messageBag = $messageBag;
+				$this->messages = $messages;
 	}
 
 	/**
@@ -29,8 +32,11 @@ class MyKnowledgeBoxController extends Controller {
     $practice = Practice::where('user_id', '=', $user->id)->first();
 		$pages = DefPage::all();
 
+		$this->messages = $this->messages->get_messages(Auth::user()->id);
+
 		return view("admin.MyKnowledgeBox.index", [
 			'practice' => $practice,
+			'messages' => $this->messages,
 			'pages' => $pages,
 		]);
 	}

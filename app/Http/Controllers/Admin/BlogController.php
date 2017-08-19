@@ -12,6 +12,7 @@ use App\Models\Tag;
 use App\Models\BlogTag;
 use App\Models\Category;
 use Auth;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -22,12 +23,13 @@ class BlogController extends Controller {
 
 	protected $sortby;
 	protected $orderby;
-
+	protected $messages;
 	protected $messageBag;
 
-	public function __construct(MessageBag $messageBag) {
+	public function __construct(MessageBag $messageBag, Message $messages) {
 				$this->middleware('admin');
 				$this->messageBag = $messageBag;
+				$this->messages = $messages;
 	}
 
 	/**
@@ -68,11 +70,14 @@ class BlogController extends Controller {
 		$currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
 		$blogs = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage, ['path' => LengthAwarePaginator::resolveCurrentPath()]);
 
+		$this->messages = $this->messages->get_messages(Auth::user()->id);
+
 		if ($request->ajax()) {
 				return view('admin.Blog.Posts.table', [
 						'sortby' => $this->sortby,
 						'orderby' => $this->orderby,
 						'blogs' => $blogs,
+						'messages' => $this->messages,
 						'blog_data' => $blog_data,
 						'pagination' => true,
 						'practice' => $practice,
@@ -82,6 +87,7 @@ class BlogController extends Controller {
 				return view('admin.Blog.Posts.index', [
 						'sortby' => $this->sortby,
 						'orderby' => $this->orderby,
+						'messages' => $this->messages,
 						'blog_data' => $blog_data,
 						'blogs' => $blogs,
 						'pagination' => true,

@@ -7,8 +7,15 @@ use App\Models\ReportProblem;
 use Auth;
 use App\Models\Practice;
 use Illuminate\Http\Request;
+use App\Models\Message;
 
 class ReportProblemController extends Controller {
+
+	protected $messages;
+
+	public function __construct(Message $messages) {
+				$this->messages = $messages;
+  }
 
 	/**
 	 * Display a listing of the resource.
@@ -20,8 +27,11 @@ class ReportProblemController extends Controller {
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$this->messages = $this->messages->get_messages(Auth::user()->id);
+
 		return view("admin.ReportProblem.index",[
 			'practice' => $practice,
+			'messages' => $this->messages,
 		]);
 	}
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\User;
 use App\Models\Role;
+use App\Models\Message;
 use App\Models\Practice;
 use Auth;
 use DB;
@@ -18,12 +19,13 @@ class UserController extends Controller {
 
     protected $sortby;
     protected $orderby;
-
+    protected $messages;
     protected $messageBag;
 
-  	public function __construct(MessageBag $messageBag) {
+  	public function __construct(MessageBag $messageBag, Message $messages) {
           $this->middleware('admin');
           $this->messageBag = $messageBag;
+          $this->messages = $messages;
     }
 
 	/**
@@ -51,11 +53,14 @@ class UserController extends Controller {
     $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
     $users = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage, ['path' => LengthAwarePaginator::resolveCurrentPath()]);
 
+    $this->messages = $this->messages->get_messages(Auth::user()->id);
+
     if ($request->ajax()) {
         return view('admin.UserAccount.users.table', [
             'sortby' => $this->sortby,
             'orderby' => $this->orderby,
             'users' => $users,
+            'messages' => $this->messages,
             'pagination' => true,
             'practice' => $practice,
             'columns' => User::$sortColumns,
@@ -65,6 +70,7 @@ class UserController extends Controller {
             'sortby' => $this->sortby,
             'orderby' => $this->orderby,
             'users' => $users,
+            'messages' => $this->messages,
             'pagination' => true,
             'practice' => $practice,
             'columns' => User::$sortColumns,
@@ -210,6 +216,39 @@ class UserController extends Controller {
       return view('admin.UserAccount.Profile.logout',[
         'user' => $user
       ]);
+  }
+
+  public function messageUser(Request $request) {
+    if (!$request->isMethod('post')) {
+      $data = $request->all();
+      $errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
+
+      if ($errors) {
+        foreach ($errors as $key => $value) {
+          $this->messageBag->add($key, $value);
+        }
+      }
+
+      return view("admin.UserAccount.users.message",[
+          'data' => $data,
+      ])->withErrors($errors);
+    } else {
+      $data = $request->all();
+
+      $this->validate($request, [
+        'subject' => 'required|string',
+        'description' => 'required|string',
+      ]);
+
+      $message = new Message;
+      $message->subject = $data['subject'];
+      $message->description = $data['description'];
+      $message->user_id = $data['id'];
+      $message->user_send = Auth::user()->id;
+      $message->save();
+
+      $request->session()->flash('alert-success', 'Message sent.');
+    }
   }
 
 	/**

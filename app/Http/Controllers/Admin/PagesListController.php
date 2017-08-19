@@ -6,8 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Models\Practice;
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\Message;
 
 class PagesListController extends Controller {
+
+	protected $messages;
+
+	public function __construct(Message $messages) {
+				$this->middleware('admin');
+				$this->messages = $messages;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -19,8 +27,11 @@ class PagesListController extends Controller {
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$this->messages = $this->messages->get_messages(Auth::user()->id);
+
 		return view("admin.Pages.Pages.index", [
 			'practice' => $practice,
+			'messages' => $this->messages,
 		]);
 	}
 
