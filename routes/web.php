@@ -18,6 +18,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 # admin part routes
 Route::resource('dashboard', 'Admin\DashboardController');
+Route::resource('notification', 'Admin\NotificationsController');
 Route::resource('billing', 'Admin\BillingAndPaymentController');
 Route::resource('feedback', 'Admin\FeedbackController');
 Route::resource('my_knowledge_box', 'Admin\MyKnowledgeBoxController');
