@@ -1,40 +1,93 @@
 <section class="im-center small-padding">
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="pricing-table im-lblue pricing-single">
+    <div class="col-md-6">
+      <div class="pricing-table im-blue pricing-single">
 
         <div class="pricing-table-header im-center">
-          <p><strong>Lorem ipsum dolor sit amet</strong></p>
           <h2>BUSINESS PLAN</h2>
+
+          <div class="pricing-table-price"><strong>950 &euro;</strong>/<small>year</small></div>
         </div>
 
-        <div class="pricing-table-body im-center">
-          <div class="pricing-table-price"><strong>950 &euro;</strong>/<small>year</small></div>
-          <a href="{{ URL::to('/assignPractice?subscription='.'bussines') }}" class="btn im-btn lblue-btn">Sign Up</a>
-          <h5>Lorem ipsum dolor sit amet</h5>
-          <p class="im-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu condimentum arcu. Sed urna arcu, faucibus ullamcorper nisl eu, lobortis egestas nunc. Duis eget dolor erat. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-        </div>
+        <div class="pricing-table-body im-center">            
+            <div class="pricing-info">iMedical (1 Year)</div>
+            <div class="pricing-info">Automatic Updates</div>
+            <div class="pricing-info">8 Users</div>
+            <div class="pricing-info">1-Day Onsite Consultancy</div>
+            <div class="pricing-info">(€500 Ex VAT each additional day)</div>
+          </div> 
 
         <div class="pricing-table-footer im-center">
-          <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#menu-tab-1">Whats included</a></li>
-            <li><a data-toggle="tab" href="#menu-tab-2">Frequently Asked Questions</a></li>
-          </ul>
-
-          <div class="tab-content">
-            <div id="menu-tab-1" class="tab-pane fade in active">
-              <p class="im-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu condimentum arcu. Sed urna arcu, faucibus ullamcorper nisl eu, lobortis egestas nunc. Duis eget dolor erat. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-            </div>
-            <div id="menu-tab-2" class="tab-pane fade">
-              <!-- CONTENT FOR FAQ -->
-            </div>
-          </div>
+                
         </div>
 
       </div>
 
     </div><!--/col-->
+    <div class="col-md-6">
+      <div class="pricing-table im-blue pricing-single pricing-table-stripe bg-white small-padding">
+
+        <form accept-charset="UTF-8" action="/" class="require-validation"
+          data-cc-on-file="false"
+          data-stripe-publishable-key="test_public_key"
+          id="payment-form" method="post">
+          {{ csrf_field() }}
+          <div class='form-row'>
+              <div class='col-xs-12 form-group required'>
+                  <label class='control-label'>Name on Card</label> <input
+                      class='form-control' size='4' type='text'>
+              </div>
+          </div>
+          <div class='form-row'>
+              <div class='col-xs-12 form-group card required'>
+                  <label class='control-label'>Card Number</label> <input
+                      autocomplete='off' class='form-control card-number' size='20'
+                      type='text'>
+              </div>
+          </div>
+          <div class='form-row'>
+              <div class='col-xs-4 form-group cvc required'>
+                  <label class='control-label'>CVC</label> <input autocomplete='off'
+                      class='form-control card-cvc' placeholder='ex. 311' size='4'
+                      type='text'>
+              </div>
+              <div class='col-xs-4 form-group expiration required'>
+                  <label class='control-label'>Expiration</label> <input
+                      class='form-control card-expiry-month' placeholder='MM' size='2'
+                      type='text'>
+              </div>
+              <div class='col-xs-4 form-group expiration required'>
+                  <label class='control-label'> </label> <input
+                      class='form-control card-expiry-year' placeholder='YYYY' size='4'
+                      type='text'>
+              </div>
+          </div>
+          <div class='form-row'>
+              <div class='col-md-12'>
+                  <div class='form-control total btn btn-info'>
+                      Total: <span class='amount'>&euro;1100</span>
+                  </div>
+              </div>
+          </div>
+          <div class='form-row'>
+              <div class='col-md-12 form-group'>
+                  <button class='form-control btn btn-primary submit-button'
+                      type='submit' style="margin-top: 10px;">Pay »</button>
+              </div>
+          </div>
+          <div class='form-row'>
+              <div class='col-md-12 error form-group hide'>
+                  <div class='alert-danger alert'>Please correct the errors and try
+                      again.</div>
+              </div>
+          </div>
+        </form>
+
+        <a href="{{ URL::to('/assignPractice?subscription='.'bussines') }}" class="btn im-btn lblue-btn">Enter Practice</a>   
+
+      </div>
+    </div>
   </div><!--/row-->
 </div>
 </section><!--/container-->
