@@ -55,14 +55,21 @@
 			<div class="col-md-12">
 				<div class="bg-grey grid-col-content no-split im-left" style="min-height: 250px;">
 					<strong>News & Announcements</strong>
+					<div style="height: 20px;"></div>				
 					@if ($notifications)
 						@foreach ($notifications as $notification)
-								<div class="">
-										<div class="">{{ $notification->title }}</div>
-										<div class="">{{ $notification->type == 'blog' ? $notification->category : $notification->pg_name. ' - '.$notification->category }}</div>
-										<div class="">{{ $notification->user_name }}</div>
-										<div class="">{{ $notification->created_at }}</div>
-								</div>
+							<div class="im-notification im-new">
+									<div class="notification-title bg-lblue">
+										<a href="#" class="im-white">{{ $notification->title }}</a>
+									</div>
+									<div class="im-notification-content">
+										<div class="im-lblue">
+											<strong>{{ $notification->type == 'blog' ? $notification->category : $notification->pg_name. ' - '.$notification->category }}</strong>
+										</div>
+										<div class="not-autor"><i class="fa fa-user"></i> <span>{{ $notification->user_name }}</span></div>
+										<div class="not-date"><i class="fa fa-clock-o"></i> <span>{{ $notification->created_at }}</span></div>
+									</div>
+							</div>
 						@endforeach
 					@endif
 				</div>

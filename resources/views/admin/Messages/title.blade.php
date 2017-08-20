@@ -4,8 +4,7 @@
 	    	<div class="col-md-12">
 	    		<a href="{{ URL::to('/home') }}">iMedical</a> <i class="fa fa-angle-right"></i>
 	    		<a href="{{ URL::to('/dashboard') }}">Dashboard</a> <i class="fa fa-angle-right"></i>
-				<a href="{{ URL::to('/add_subscription') }}">Plans & Pricing</a> <i class="fa fa-angle-right"></i>
-				<a href="{{ URL::to('/plan_basic') }}" class="im-active">Standard Plan</a>
+				<a href="{{ URL::to('/messages') }}" class="im-active">Messages</a>
 		    </div>
 		</div>
 	</div>
