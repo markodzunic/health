@@ -4,6 +4,8 @@ var Users = {
 
       var sort = $('#sortby').val();
       var order = $('#orderby').val();
+
+
     },
 
     RefreshUsers: function(el, sort, order, resetPage) {
@@ -233,6 +235,24 @@ var Users = {
               },
               open: function() {
                   $('#date_of_birth').datetimepicker({ format: 'MM/DD/YYYY' });
+                  $('#med-reg').hide();
+
+
+                  if ($('#updateUser').find('#role_id').val() == 7 || $('#updateUser').find('#role_id').val() == 2)
+                    $('#med-reg').show();
+                  else {
+                    $('#med-reg').find('input').val('0');
+                  }
+
+                  $('#updateUser').find('#role_id').change(function(){
+                      if (this.value == 2 || this.value == 7) {
+                        $('#med-reg').show();
+                      } else {
+                        $('#med-reg').find('input').val('0');
+                        $('#med-reg').hide();
+
+                      }
+                  });
               },
               close: function() {
                   $(this).dialog( "close" );
