@@ -19,7 +19,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 # admin part routes
 Route::resource('dashboard', 'Admin\DashboardController');
 Route::resource('notification', 'Admin\NotificationsController');
-Route::resource('messages', 'Admin\MessagesController');
+// Route::resource('messages', 'Admin\MessagesController');
 Route::resource('billing', 'Admin\BillingAndPaymentController');
 Route::resource('feedback', 'Admin\FeedbackController');
 Route::resource('my_knowledge_box', 'Admin\MyKnowledgeBoxController');
@@ -83,6 +83,14 @@ Route::post('/pages/updatePage', 'Admin\PagesController@updatePage');
 
 Route::get('/pages/deletePage', 'Admin\PagesController@deletePage');
 Route::post('/pages/deletePage', 'Admin\PagesController@deletePage');
+
+Route::get('/messages', 'Admin\MessagesController@index');
+Route::post('/messages', 'Admin\MessagesController@index');
+
+Route::get('/messages/deleteMessage', 'Admin\MessagesController@deleteMessage');
+Route::post('/messages/deleteMessage', 'Admin\MessagesController@deleteMessage');
+
+Route::post('/messages/readMessage', 'Admin\MessagesController@readMessage');
 
 Route::post('/selectAdmin', 'Admin\PracticeAccountController@selectAdmin');
 

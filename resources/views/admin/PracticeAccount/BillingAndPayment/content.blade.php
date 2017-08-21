@@ -51,12 +51,12 @@
 						</div>
 						<div class="col-md-6">
 							<h4>Contact Information</h4>
-							<p><i class="fa fa-phone"><span>Telephone</span></i>{{ $user->phone?:'N/A' }}</p>
+							<p><i class="fa fa-phone"><span>Telephone</span></i>{{ $practice->phone?:'N/A' }}</p>
 							<p><i class="fa fa-fax"><span>Fax</span></i>{{ $practice->fax?:'N/A' }}</p>
 							<p><i class="fa fa-envelope"><span>Email</span></i>{{ $practice->email?:'N/A' }}</p>
 							<p><i class="fa fa-globe"><span>Website</span></i>{{ $practice->site?:'N/A' }}</p>
 						</div>
-					</div>					
+					</div>
 				</div>
 
 				<div class="col-md-12 bg-white">

@@ -27,10 +27,19 @@
 
 @section('MainContent')
 	@include('admin.Messages.title')
-    @include('admin.Messages.content')   
-
+	<div id="table-section" class="table-section">
+		{!! view('admin.Messages.content', [
+				'messages' => $messages,
+				'practice' => $practice
+		])->render() !!}
+	</div>
 @stop
 
 @section('AditionalFoot')
-<script src="{{ URL::asset('/js/init-sidemenu.js') }}"></script>
+<script src="{{ URL::asset('/js/Admin/messages.js') }}"></script>
+<script>
+		Messages.init();
+</script>
+<!-- <script src="{{ URL::asset('/js/init-sidemenu.js') }}"></script> -->
+
 @stop

@@ -59,11 +59,14 @@ class AddSubscriptionController extends Controller {
 			$practice->name = 'Default'.rand(10,100000);
 			$practice->description = 'Enter description';
 			$practice->address = 'Add address';
+			$practice->phone = '442343532';
 			$practice->fax = 'Your fax';
 			$practice->email = 'Admin@admin.com';
 			$practice->site = 'Your site link';
 
 			$practice->save();
+
+			$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 			$u = User::find($user->id);
 			$u->subscription = isset($data['subscription']) ? $data['subscription'] : '';
