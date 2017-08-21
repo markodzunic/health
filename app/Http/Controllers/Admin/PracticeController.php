@@ -7,6 +7,7 @@ use Auth;
 use App\Models\Practice;
 use App\User;
 use DB;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -17,12 +18,13 @@ class PracticeController extends Controller {
 
 	protected $sortby;
 	protected $orderby;
-
+	protected $messages;
 	protected $messageBag;
 
-	public function __construct(MessageBag $messageBag) {
+	public function __construct(MessageBag $messageBag, Message $messages) {
 				$this->middleware('admin');
 				$this->messageBag = $messageBag;
+				$this->messages = $messages;
 	}
 	/**
 	 * Display a listing of the resource.
@@ -49,11 +51,14 @@ class PracticeController extends Controller {
 		$currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
 		$practices = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage, ['path' => LengthAwarePaginator::resolveCurrentPath()]);
 
+		$this->messages = $this->messages->get_messages(Auth::user()->id);
+
 		if ($request->ajax()) {
 				return view('admin.PracticeAccount.practices.table', [
 						'sortby' => $this->sortby,
 						'orderby' => $this->orderby,
 						'practices' => $practices,
+						'messages' => $this->messages,
 						'pagination' => true,
 						'practice' => $practice,
 						'columns' => Practice::$sortColumns,
@@ -63,6 +68,7 @@ class PracticeController extends Controller {
 						'sortby' => $this->sortby,
 						'orderby' => $this->orderby,
 						'practices' => $practices,
+						'messages' => $this->messages,
 						'pagination' => true,
 						'practice' => $practice,
 						'columns' => Practice::$sortColumns,

@@ -18,6 +18,8 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 # admin part routes
 Route::resource('dashboard', 'Admin\DashboardController');
+Route::resource('notification', 'Admin\NotificationsController');
+// Route::resource('messages', 'Admin\MessagesController');
 Route::resource('billing', 'Admin\BillingAndPaymentController');
 Route::resource('feedback', 'Admin\FeedbackController');
 Route::resource('my_knowledge_box', 'Admin\MyKnowledgeBoxController');
@@ -82,6 +84,14 @@ Route::post('/pages/updatePage', 'Admin\PagesController@updatePage');
 Route::get('/pages/deletePage', 'Admin\PagesController@deletePage');
 Route::post('/pages/deletePage', 'Admin\PagesController@deletePage');
 
+Route::get('/messages', 'Admin\MessagesController@index');
+Route::post('/messages', 'Admin\MessagesController@index');
+
+Route::get('/messages/deleteMessage', 'Admin\MessagesController@deleteMessage');
+Route::post('/messages/deleteMessage', 'Admin\MessagesController@deleteMessage');
+
+Route::post('/messages/readMessage', 'Admin\MessagesController@readMessage');
+
 Route::post('/selectAdmin', 'Admin\PracticeAccountController@selectAdmin');
 
 Route::get('/updateAdmin', 'Admin\PracticeAccountController@updateAdmin');
@@ -107,6 +117,9 @@ Route::post('/users/logoutDialog', 'Admin\UserController@logoutDialog');
 
 Route::get('/users/updateUser', 'Admin\UserController@updateUser');
 Route::post('/users/updateUser', 'Admin\UserController@updateUser');
+
+Route::get('/users/messageUser', 'Admin\UserController@messageUser');
+Route::post('/users/messageUser', 'Admin\UserController@messageUser');
 
 Route::get('/deleteUser', 'Admin\UserAccountController@deleteUser');
 Route::post('/deleteUser', 'Admin\UserAccountController@deleteUser');
