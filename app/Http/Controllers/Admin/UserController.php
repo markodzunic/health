@@ -7,6 +7,8 @@ use App\Models\Role;
 use App\Models\Message;
 use App\Models\Practice;
 use Auth;
+use App\Models\Blog;
+use App\Models\Page;
 use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -55,10 +57,18 @@ class UserController extends Controller {
 
     $this->messages = $this->messages->get_messages(Auth::user()->id);
 
+    $blog = new Blog();
+    $blog = $blog->get_blogs_notification();
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications();
+    $notifications = array_merge($blog, $pages);
+
     if ($request->ajax()) {
         return view('admin.UserAccount.users.table', [
             'sortby' => $this->sortby,
             'orderby' => $this->orderby,
+            'notifications' => $notifications,
             'users' => $users,
             'messages' => $this->messages,
             'pagination' => true,
@@ -69,6 +79,7 @@ class UserController extends Controller {
         return view('admin.UserAccount.users.index', [
             'sortby' => $this->sortby,
             'orderby' => $this->orderby,
+            'notifications' => $notifications,
             'users' => $users,
             'messages' => $this->messages,
             'pagination' => true,

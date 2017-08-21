@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Practice;
 use Auth;
 use App\Models\Message;
+use App\Models\Page;
+use App\Models\Blog;
 
 class AdminPartController extends Controller
 {
@@ -27,9 +29,17 @@ class AdminPartController extends Controller
 
       $this->messages = $this->messages->get_messages(Auth::user()->id);
 
-        return view('home', [
-          'practice' => $practice,
-          'messages' => $this->messages,
-        ]);
+      $blog = new Blog();
+      $blog = $blog->get_blogs_notification();
+
+      $pages = new Page();
+      $pages = $pages->get_pages_notifications();
+      $notifications = array_merge($blog, $pages);
+
+      return view('home', [
+        'practice' => $practice,
+        'messages' => $this->messages,
+        'notifications' => $notifications,
+      ]);
     }
 }
