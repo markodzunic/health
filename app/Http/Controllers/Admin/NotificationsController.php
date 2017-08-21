@@ -50,7 +50,7 @@ class NotificationsController extends Controller {
 		# custom pagination
 		$currentPage = LengthAwarePaginator::resolveCurrentPage();
 		$col = new Collection($notifications);
-		$perPage = 1;
+		$perPage = 10;
 		$currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
 		$notifications = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage, ['path' => LengthAwarePaginator::resolveCurrentPath()]);
 

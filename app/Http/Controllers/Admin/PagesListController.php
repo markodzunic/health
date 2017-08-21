@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Practice;
+use App\Models\Blog;
+use App\Models\Page;
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\Message;
@@ -29,9 +31,17 @@ class PagesListController extends Controller {
 
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
+		$blog = new Blog();
+    $blog = $blog->get_blogs_notification();
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications();
+    $notifications = array_merge($blog, $pages);
+		
 		return view("admin.Pages.Pages.index", [
 			'practice' => $practice,
 			'messages' => $this->messages,
+			'notifications' => $notifications,
 		]);
 	}
 

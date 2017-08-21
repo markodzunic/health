@@ -1,4 +1,3 @@
-{{-- 
     @if ($notifications)
       @foreach ($notifications as $notification)
       	<li class="menu-notification">
@@ -17,7 +16,6 @@
 			</a>
 		</li>
       @endforeach
-    @endif
 	@else
 	  <li class="menu-notification">
 	      <a>
@@ -27,4 +25,3 @@
 	      </a>
 	  </li>
 	@endif
- --}}

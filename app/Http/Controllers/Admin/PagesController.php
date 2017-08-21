@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+use App\Models\Blog;
 use App\Models\DefPage;
 use App\Models\Role;
 use Auth;
@@ -51,10 +52,10 @@ class PagesController extends Controller {
 		$this->orderby = isset($data['order']) ? $data['order'] : 'asc';
 
 		$blogModel = new Page;
-		$pages = $blogModel->get_pages($this->sortby, $this->orderby);
+		$pagesD = $blogModel->get_pages($this->sortby, $this->orderby);
 		$rn = [];
-		if ($pages) {
-			foreach ($pages as $key => $value) {
+		if ($pagesD) {
+			foreach ($pagesD as $key => $value) {
 				$pp = PracticePage::where('pages_id', '=', $value->id)->get();
 				if ($pp) {
 						foreach ($pp as $p => $pv) {
@@ -75,19 +76,27 @@ class PagesController extends Controller {
 // dd($role_names);
 		# custom pagination
 		$currentPage = LengthAwarePaginator::resolveCurrentPage();
-		$col = new Collection($pages);
+		$col = new Collection($pagesD);
 		$perPage = 5;
 		$currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
-		$pages = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage, ['path' => LengthAwarePaginator::resolveCurrentPath()]);
+		$pagesD = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage, ['path' => LengthAwarePaginator::resolveCurrentPath()]);
 
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
+
+		$blog = new Blog();
+    $blog = $blog->get_blogs_notification();
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications();
+    $notifications = array_merge($blog, $pages);
 
 		if ($request->ajax()) {
 				return view('admin.Pages.Pages.table', [
 						'sortby' => $this->sortby,
 						'role_names' => $role_names,
 						'orderby' => $this->orderby,
-						'pages' => $pages,
+						'pages' => $pagesD,
+						'notifications' => $notifications,
 						'messages' => $this->messages,
 						'pagination' => true,
 						'practice' => $practice,
@@ -98,8 +107,9 @@ class PagesController extends Controller {
 						'sortby' => $this->sortby,
 						'role_names' => $role_names,
 						'orderby' => $this->orderby,
+						'notifications' => $notifications,
 						'messages' => $this->messages,
-						'pages' => $pages,
+						'pages' => $pagesD,
 						'pagination' => true,
 						'practice' => $practice,
 						'columns' => Page::$sortColumns,

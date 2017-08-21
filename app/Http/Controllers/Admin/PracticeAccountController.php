@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\Models\Blog;
+use App\Models\Page;
 use App\User;
 use App\Models\Practice;
 use Illuminate\Http\Request;
@@ -44,12 +46,20 @@ class PracticeAccountController extends Controller {
 
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
+		$blog = new Blog();
+    $blog = $blog->get_blogs_notification();
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications();
+    $notifications = array_merge($blog, $pages);
+
 		if (!$request->ajax()) {
 				return view("admin.PracticeAccount.Profile.index", [
 		       'user' => $user,
 					 'admin_users' => $admin_users,
 					 'practice_users' => $practice_users,
 					 'messages' => $this->messages,
+					 'notifications' => $notifications,
 					 'practice' => $practice,
 					 'limit' => $limit,
 		    ]);
@@ -60,6 +70,7 @@ class PracticeAccountController extends Controller {
 				 'admin_users' => $admin_users,
 				 'practice_users' => $practice_users,
 				 'messages' => $this->messages,
+				 'notifications' => $notifications,
 				 'limit' => $limit,
 			]);
 		}

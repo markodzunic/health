@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
 use App\Models\Practice;
+use App\Models\Page;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 use App\Models\Message;
 
@@ -30,22 +32,57 @@ class AddSubscriptionController extends Controller {
 
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
+		$blog = new Blog();
+    $blog = $blog->get_blogs_notification();
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications();
+    $notifications = array_merge($blog, $pages);
+
 		return view("admin.AddSubscription.index", [
 			'practice' => $practice,
+			'notifications' => $notifications,
 			'messages' => $this->messages,
 		]);
 	}
 
 	public function plan_business() {
-			return view("admin.AddSubscription.PlanBusiness.index");
+			$this->messages = $this->messages->get_messages(Auth::user()->id);
+
+			$blog = new Blog();
+	    $blog = $blog->get_blogs_notification();
+
+	    $pages = new Page();
+	    $pages = $pages->get_pages_notifications();
+	    $notifications = array_merge($blog, $pages);
+
+			return view("admin.AddSubscription.PlanBusiness.index", ['messages' => $this->messages, 'notifications' => $notifications,]);
 	}
 
 	public function plan_professional() {
-			return view("admin.AddSubscription.PlanProfessional.index");
+			$this->messages = $this->messages->get_messages(Auth::user()->id);
+
+			$blog = new Blog();
+	    $blog = $blog->get_blogs_notification();
+
+	    $pages = new Page();
+	    $pages = $pages->get_pages_notifications();
+	    $notifications = array_merge($blog, $pages);
+
+			return view("admin.AddSubscription.PlanProfessional.index", ['messages' => $this->messages, 'notifications' => $notifications,]);
 	}
 
 	public function plan_basic() {
-			return view("admin.AddSubscription.PlanBasic.index");
+			$this->messages = $this->messages->get_messages(Auth::user()->id);
+
+			$blog = new Blog();
+	    $blog = $blog->get_blogs_notification();
+
+	    $pages = new Page();
+	    $pages = $pages->get_pages_notifications();
+	    $notifications = array_merge($blog, $pages);
+			
+			return view("admin.AddSubscription.PlanBasic.index", ['messages' => $this->messages, 'notifications' => $notifications,]);
 	}
 
 	public function assignPractice(Request $request) {

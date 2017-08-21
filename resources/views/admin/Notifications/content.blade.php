@@ -4,7 +4,7 @@
             <div class="col-md-12">
                     @if ($notifications)
                       @foreach ($notifications as $notification)
-                        <div class="im-notification im-new">
+                        <div class="im-notification {{ $notification->created_at > \Carbon\Carbon::now()->subDays(1) ? 'im-new' : '' }}">
                             <div class="h2 notification-title bg-lblue">
                                 <a href="#" class="im-white">{{ $notification->title }}</a>
                             </div>
