@@ -246,7 +246,7 @@ class PagesController extends Controller {
 											 $r_ids = $data['role'];
 										}
 
-										$practicePages->role_ids = isset($data['role']) ? implode(',', $r_ids) : '';
+										$practicePages->role_ids = $r_ids ? implode(',', array_unique($r_ids)) : '';
 										$practicePages->practices_id = $pval->id;
 										$practicePages->save();
 									}
@@ -273,7 +273,7 @@ class PagesController extends Controller {
 										 $r_ids = $data['role'];
 									}
 
-									$practicePages->role_ids = isset($data['role']) ? implode(',', $r_ids) : '';
+									$practicePages->role_ids = $r_ids ? implode(',', array_unique($r_ids)) : '';
 									$practicePages->practices_id = $value;
 									$practicePages->save();
 								}
@@ -340,9 +340,10 @@ class PagesController extends Controller {
 															 $r_ids = $data['role'];
 														}
 
-														$practicePages->role_ids = isset($data['role']) ? implode(',', $r_ids) : '';
+														$practicePages->role_ids = $r_ids ? implode(',', array_unique($r_ids)) : '';
 														$practicePages->practices_id = $pval->id;
 														$practicePages->save();
+														// $r_ids = [];
 													}
 											}
 										} else {
@@ -367,9 +368,10 @@ class PagesController extends Controller {
 														 $r_ids = $data['role'];
 													}
 
-													$practicePages->role_ids = isset($data['role']) ? implode(',', $r_ids) : '';
+													$practicePages->role_ids = $r_ids ? implode(',', array_unique($r_ids)) : '';
 													$practicePages->practices_id = $value;
 													$practicePages->save();
+													// $r_ids = [];
 												}
 											}
 								}
@@ -379,7 +381,8 @@ class PagesController extends Controller {
 										foreach ($practice_used_ids as $c => $ct) {
 											if (!in_array($ct, $p)) {
 												$cat_del = PracticePage::where('pages_id', '=', $blog->id)->where('practices_id', '=', $ct)->first();
-												$cat_del->delete();
+												if ($cat_del)
+													$cat_del->delete();
 											}
 										}
 								}
