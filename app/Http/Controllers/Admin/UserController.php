@@ -244,6 +244,7 @@ class UserController extends Controller {
       $message->subject = $data['subject'];
       $message->description = $data['description'];
       $message->user_id = $data['id'];
+      $message->is_read = 0;
       $message->user_send = Auth::user()->id;
       $message->save();
 
