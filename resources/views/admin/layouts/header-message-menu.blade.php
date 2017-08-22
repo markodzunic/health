@@ -1,4 +1,4 @@
-{{-- @if ($messages)
+@if ($messages)
   @foreach ($messages as $message)
     <li class="message-preview">
         <a href="javascript:;">
@@ -27,4 +27,3 @@
       </a>
   </li>
 @endif
- --}}

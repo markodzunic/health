@@ -7,6 +7,8 @@ use Auth;
 use App\Models\Practice;
 use App\User;
 use DB;
+use App\Models\Blog;
+use App\Models\Page;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
@@ -53,11 +55,19 @@ class PracticeController extends Controller {
 
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
+		$blog = new Blog();
+    $blog = $blog->get_blogs_notification();
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications();
+    $notifications = array_merge($blog, $pages);
+
 		if ($request->ajax()) {
 				return view('admin.PracticeAccount.practices.table', [
 						'sortby' => $this->sortby,
 						'orderby' => $this->orderby,
 						'practices' => $practices,
+						'notifications' => $notifications,
 						'messages' => $this->messages,
 						'pagination' => true,
 						'practice' => $practice,
@@ -70,6 +80,7 @@ class PracticeController extends Controller {
 						'practices' => $practices,
 						'messages' => $this->messages,
 						'pagination' => true,
+						'notifications' => $notifications,
 						'practice' => $practice,
 						'columns' => Practice::$sortColumns,
 				])->render();

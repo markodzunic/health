@@ -5,6 +5,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\Models\Practice;
+use App\Models\Blog;
+use App\Models\Page;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
 use App\Models\Message;
@@ -30,8 +32,16 @@ class FeedbackController extends Controller {
 
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
+		$blog = new Blog();
+    $blog = $blog->get_blogs_notification();
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications();
+    $notifications = array_merge($blog, $pages);
+
 		return view("admin.UserAccount.Feedback.index", [
 			'practice' => $practice,
+			'notifications' => $notifications,
 			'messages' => $this->messages,
 		]);
 	}

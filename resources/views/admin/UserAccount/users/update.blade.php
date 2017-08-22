@@ -178,6 +178,20 @@
             </div>
         </div>
 
+				<div class="form-group{{ $errors->has('occupation') ? ' has-error' : '' }}">
+            <label for="occupation" class="col-md-4 control-label">Occupation</label>
+
+            <div class="col-md-8">
+                <input id="occupation" type="text" class="form-control" name="occupation" value="{{ $user->occupation?:'' }}" required autofocus>
+
+                @if ($errors->has('occupation'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('occupation') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+				
         <div class="form-group{{ $errors->has('position_type') ? ' has-error' : '' }}">
             <label for="position_type" class="col-md-4 control-label">Position Type</label>
 
@@ -192,7 +206,7 @@
             </div>
         </div>
 
-        <div class="form-group{{ $errors->has('med_reg_number') ? ' has-error' : '' }}">
+        <div id="med-reg" class="form-group{{ $errors->has('med_reg_number') ? ' has-error' : '' }}">
             <label for="med_reg_number" class="col-md-4 control-label">Medical Council Registration Number</label>
 
             <div class="col-md-8">

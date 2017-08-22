@@ -9,6 +9,8 @@ use Validator;
 use App\Models\Role;
 use App\Models\Message;
 use App\Models\Practice;
+use App\Models\Blog;
+use App\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Hash;
@@ -39,11 +41,19 @@ class UserAccountController extends Controller {
 
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
+		$blog = new Blog();
+    $blog = $blog->get_blogs_notification();
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications();
+    $notifications = array_merge($blog, $pages);
+
 		if ($request->ajax()) {
 				return view("admin.UserAccount.Profile.personal-info", [
             'user' => $user,
 						'messages' => $this->messages,
             'role' => $role,
+						'notifications' => $notifications,
 						'practice' => $practice,
         ])->render();
 		} else {
@@ -51,6 +61,7 @@ class UserAccountController extends Controller {
 					'user' => $user,
 					'messages' => $this->messages,
 					'role' => $role,
+					'notifications' => $notifications,
 					'practice' => $practice,
 			]);
 		}
@@ -137,7 +148,7 @@ class UserAccountController extends Controller {
 				'gender' => 'required',
 				'role_id' => 'required',
 				'phone' => 'required',
-				'med_reg_number' => 'required',
+				'occupation' => 'required',
 		  ]);
 
 			$user = User::find($data['id']);
@@ -158,6 +169,7 @@ class UserAccountController extends Controller {
 			$user->date_of_birth = $data['date_of_birth'];
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];
+			$user->occupation = $data['occupation'];
 			$user->role_id = $data['role_id'];
 			$user->gender = $data['gender'];
 			$user->med_reg_number = $data['med_reg_number'];

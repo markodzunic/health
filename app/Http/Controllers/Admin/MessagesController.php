@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\Message;
 use App\Models\Page;
+use App\Models\Blog;
 use Illuminate\Support\MessageBag;
 
 class MessagesController extends Controller {
@@ -39,14 +40,23 @@ class MessagesController extends Controller {
 
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
+		$blog = new Blog();
+    $blog = $blog->get_blogs_notification();
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications();
+    $notifications = array_merge($blog, $pages);
+
 		if (!$request->ajax()) {
 			return view("admin.Messages.index",[
 				'messages' => $this->messages,
+				'notifications' => $notifications,
 				'practice' => $practice
 			]);
 		} else {
 			return view("admin.Messages.content",[
 				'messages' => $this->messages,
+				'notifications' => $notifications,
 				'practice' => $practice
 			]);
 		}

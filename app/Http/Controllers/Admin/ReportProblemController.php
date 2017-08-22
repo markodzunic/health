@@ -5,6 +5,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\ReportProblem;
 use Auth;
+use App\Models\Blog;
+use App\Models\Page;
 use App\Models\Practice;
 use Illuminate\Http\Request;
 use App\Models\Message;
@@ -29,8 +31,16 @@ class ReportProblemController extends Controller {
 
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
+		$blog = new Blog();
+    $blog = $blog->get_blogs_notification();
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications();
+    $notifications = array_merge($blog, $pages);
+
 		return view("admin.ReportProblem.index",[
 			'practice' => $practice,
+			'notifications' => $notifications,
 			'messages' => $this->messages,
 		]);
 	}

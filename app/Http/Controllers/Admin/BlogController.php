@@ -7,6 +7,7 @@ use App\User;
 use DB;
 use App\Models\Practice;
 use App\Models\Blog;
+use App\Models\Page;
 use App\Models\BlogCategory;
 use App\Models\Tag;
 use App\Models\BlogTag;
@@ -72,12 +73,20 @@ class BlogController extends Controller {
 
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
+		$blog = new Blog();
+		$blog = $blog->get_blogs_notification();
+
+		$pages = new Page();
+		$pages = $pages->get_pages_notifications();
+		$notifications = array_merge($blog, $pages);
+
 		if ($request->ajax()) {
 				return view('admin.Blog.Posts.table', [
 						'sortby' => $this->sortby,
 						'orderby' => $this->orderby,
 						'blogs' => $blogs,
 						'messages' => $this->messages,
+						'notifications' => $notifications,
 						'blog_data' => $blog_data,
 						'pagination' => true,
 						'practice' => $practice,
@@ -89,6 +98,7 @@ class BlogController extends Controller {
 						'orderby' => $this->orderby,
 						'messages' => $this->messages,
 						'blog_data' => $blog_data,
+						'notifications' => $notifications,
 						'blogs' => $blogs,
 						'pagination' => true,
 						'practice' => $practice,

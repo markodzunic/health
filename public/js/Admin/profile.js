@@ -123,6 +123,25 @@ var Profile = {
               // on initialization open add config
               open: function() {
                   $('#date_of_birth').datetimepicker({ format: 'MM/DD/YYYY' });
+
+                  $('#med-reg').hide();
+
+
+                  if ($('#editUserInfo').find('#role_id').val() == 7 || $('#editUserInfo').find('#role_id').val() == 2)
+                    $('#med-reg').show();
+                  else {
+                    $('#editUserInfo').find('#med-reg input').val('0');
+                  }
+
+                  $('#editUserInfo').find('#role_id').change(function(){
+                      if (this.value == 2 || this.value == 7) {
+                        $('#med-reg').show();
+                      } else {
+                        $('#editUserInfo').find('#med-reg input').val('0');
+                        $('#med-reg').hide();
+                      }
+                  });
+
               },
               close: function() {
                   $(this).dialog( "close" );
