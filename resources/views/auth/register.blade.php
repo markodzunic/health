@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="vertical-center">                
+            <div class="vertical-center">
                 <h1 class="im-white">iMedical</h1>
                 <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                     {{ csrf_field() }}
@@ -134,7 +134,7 @@
                         @endif
                     </div>
 
-                    <div class="form-group{{ $errors->has('med_reg_number') ? ' has-error' : '' }}">
+                    <!-- <div class="form-group{{ $errors->has('med_reg_number') ? ' has-error' : '' }}">
                         <label for="med_reg_number" class="control-label">Medical Council Registration Number</label>
                         <input id="med_reg_number" type="text" class="form-control" name="med_reg_number" value="{{ old('med_reg_number') }}" required autofocus>
 
@@ -143,14 +143,14 @@
                                 <strong>{{ $errors->first('med_reg_number') }}</strong>
                             </span>
                         @endif
-                    </div>
+                    </div> -->
 
                     <div style="width: 100%;float: left;"></div>
 
                     <div class="form-group" align="left">
                         <button type="submit" class="btn im-btn blue-btn">Register</button>
                     </div>
-                </form>    
+                </form>
             </div>
         </div>
     </div>
