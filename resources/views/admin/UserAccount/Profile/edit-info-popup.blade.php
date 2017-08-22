@@ -150,7 +150,7 @@
             </div>
         </div>
 
-        <div class="form-group{{ $errors->has('med_reg_number') ? ' has-error' : '' }}">
+        <div id="med-reg" class="form-group{{ $errors->has('med_reg_number') ? ' has-error' : '' }}">
             <label for="med_reg_number" class="col-md-4 control-label">Medical Council Registration Number</label>
 
             <div class="col-md-8">

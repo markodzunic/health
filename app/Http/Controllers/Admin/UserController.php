@@ -154,7 +154,7 @@ class UserController extends Controller {
 				'gender' => 'required',
 				'role_id' => 'required',
 				'phone' => 'required',
-				'med_reg_number' => 'required',
+				'occupation' => 'required',
 		  ]);
 
       if (isset($data['id']))
