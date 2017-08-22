@@ -5,11 +5,21 @@ use Carbon\Carabon;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Practice;
+use App\Models\Page;
+use App\Models\Blog;
 use App\User;
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\Message;
 
 class BillingAndPaymentController extends Controller {
+
+	protected $messages;
+
+	public function __construct(Message $messages) {
+				$this->middleware('admin');
+				$this->messages = $messages;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -34,10 +44,21 @@ class BillingAndPaymentController extends Controller {
 			// $practice_users = User::with('role')->where('authorised_user', '=', $practice->id)->where('role_id', '!=', 5)->where('role_id', '!=', 1)->get();
 		}
 
+		$this->messages = $this->messages->get_messages(Auth::user()->id);
+
+		$blog = new Blog();
+    $blog = $blog->get_blogs_notification();
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications();
+    $notifications = array_merge($blog, $pages);
+
 		if (!$request->ajax()) {
 				return view("admin.PracticeAccount.BillingAndPayment.index", [
 		       'user' => $user,
 					 'subscription' => $subscription,
+					 'messages' => $this->messages,
+					 'notifications' => $notifications,
 					//  'admin_users' => $admin_users,
 					//  'practice_users' => $practice_users,
 					 'practice' => $practice,
@@ -47,7 +68,9 @@ class BillingAndPaymentController extends Controller {
 			return view("admin.PracticeAccount.BillingAndPayment.content", [
 				 'user' => $user,
 				 'practice' => $practice,
+				 'messages' => $this->messages,
 				 'subscription' => $subscription,
+				 'notifications' => $notifications,
 				//  'admin_users' => $admin_users,
 				//  'practice_users' => $practice_users,
 				 'limit' => $limit,

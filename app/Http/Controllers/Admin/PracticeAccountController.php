@@ -4,18 +4,23 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\Models\Blog;
+use App\Models\Page;
 use App\User;
 use App\Models\Practice;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
+use App\Models\Message;
 
 class PracticeAccountController extends Controller {
 
 	protected $messageBag;
+	protected $messages;
 
-	public function __construct(MessageBag $messageBag) {
+	public function __construct(MessageBag $messageBag, Message $messages) {
 				$this->middleware('admin');
 				$this->messageBag = $messageBag;
+				$this->messages = $messages;
 	}
 
 	/**
@@ -39,11 +44,22 @@ class PracticeAccountController extends Controller {
 			$practice_users = User::with('role')->where('authorised_user', '=', $practice->id)->where('is_admin', '!=', 1)->get();
 		}
 
+		$this->messages = $this->messages->get_messages(Auth::user()->id);
+
+		$blog = new Blog();
+    $blog = $blog->get_blogs_notification();
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications();
+    $notifications = array_merge($blog, $pages);
+
 		if (!$request->ajax()) {
 				return view("admin.PracticeAccount.Profile.index", [
 		       'user' => $user,
 					 'admin_users' => $admin_users,
 					 'practice_users' => $practice_users,
+					 'messages' => $this->messages,
+					 'notifications' => $notifications,
 					 'practice' => $practice,
 					 'limit' => $limit,
 		    ]);
@@ -53,6 +69,8 @@ class PracticeAccountController extends Controller {
 				 'practice' => $practice,
 				 'admin_users' => $admin_users,
 				 'practice_users' => $practice_users,
+				 'messages' => $this->messages,
+				 'notifications' => $notifications,
 				 'limit' => $limit,
 			]);
 		}

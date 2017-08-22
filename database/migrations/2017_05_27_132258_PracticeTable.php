@@ -20,7 +20,7 @@ class PracticeTable extends Migration
             $table->string('name')->unique();
             $table->string('description');
             $table->string('address');
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->string('avatar');
             $table->string('fax');
             $table->string('email');

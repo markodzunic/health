@@ -6,17 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Models\Practice;
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\Blog;
+use App\Models\Page;
+use App\Models\Message;
 
 class SiteMapController extends Controller {
+
+	protected $messages;
 
 	/**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Message $messages)
     {
         $this->middleware('admin');
+				$this->messages = $messages;
     }
 
 	/**
@@ -29,8 +35,19 @@ class SiteMapController extends Controller {
 		$user = Auth::User();
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$this->messages = $this->messages->get_messages(Auth::user()->id);
+
+		$blog = new Blog();
+    $blog = $blog->get_blogs_notification();
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications();
+    $notifications = array_merge($blog, $pages);
+
 		return view("admin.SiteMap.index",[
-				'practice' => $practice
+			'messages' => $this->messages,
+			'notifications' => $notifications,
+			'practice' => $practice
 		]);
 	}
 

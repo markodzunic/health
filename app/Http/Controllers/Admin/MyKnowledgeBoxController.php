@@ -5,17 +5,22 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Practice;
 use App\Models\DefPage;
+use App\Models\Blog;
+use App\Models\Page;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
+use App\Models\Message;
 
 class MyKnowledgeBoxController extends Controller {
 
 	protected $messageBag;
+	protected $messages;
 
-	public function __construct(MessageBag $messageBag) {
+	public function __construct(MessageBag $messageBag, Message $messages) {
 				$this->middleware('admin');
 				$this->messageBag = $messageBag;
+				$this->messages = $messages;
 	}
 
 	/**
@@ -27,11 +32,22 @@ class MyKnowledgeBoxController extends Controller {
 	{
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
-		$pages = DefPage::all();
+		$pagesD = DefPage::all();
+
+		$this->messages = $this->messages->get_messages(Auth::user()->id);
+
+		$blog = new Blog();
+    $blog = $blog->get_blogs_notification();
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications();
+    $notifications = array_merge($blog, $pages);
 
 		return view("admin.MyKnowledgeBox.index", [
 			'practice' => $practice,
-			'pages' => $pages,
+			'notifications' => $notifications,
+			'messages' => $this->messages,
+			'pages' => $pagesD,
 		]);
 	}
 

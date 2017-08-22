@@ -9,24 +9,24 @@
         <li><a href="#" id="im-search-toggle"><i class="fa fa-search"></i></a></li>
         <li class="dropdown">
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-            <ul class="dropdown-menu message-dropdown">
+            <ul class="dropdown-menu message-dropdown im-scroller">
 
                 @include('admin.layouts.header-message-menu')
                 <li class="message-footer">
-                    <a href="javascript:;">Read All New Messages</a>
+                    <a href="{{ URL::to('/messages') }}">Read All New Messages</a>
                 </li>
 
             </ul>
         </li>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-            <ul class="dropdown-menu alert-dropdown">
+            <ul class="dropdown-menu alert-dropdown im-scroller" style="min-width: 230px;">
 
                 @include('admin.layouts.header-alert-menu')
 
                 <li class="divider"></li>
                 <li>
-                    <a href="javascript:;">View All</a>
+                    <a href="{{ URL::to('/notification') }}">View All</a>
                 </li>
             </ul>
         </li>

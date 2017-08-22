@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\User;
 use App\Models\Role;
+use App\Models\Message;
 use App\Models\Practice;
 use Auth;
+use App\Models\Blog;
+use App\Models\Page;
 use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -18,12 +21,13 @@ class UserController extends Controller {
 
     protected $sortby;
     protected $orderby;
-
+    protected $messages;
     protected $messageBag;
 
-  	public function __construct(MessageBag $messageBag) {
+  	public function __construct(MessageBag $messageBag, Message $messages) {
           $this->middleware('admin');
           $this->messageBag = $messageBag;
+          $this->messages = $messages;
     }
 
 	/**
@@ -51,11 +55,22 @@ class UserController extends Controller {
     $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
     $users = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage, ['path' => LengthAwarePaginator::resolveCurrentPath()]);
 
+    $this->messages = $this->messages->get_messages(Auth::user()->id);
+
+    $blog = new Blog();
+    $blog = $blog->get_blogs_notification();
+
+    $pages = new Page();
+    $pages = $pages->get_pages_notifications();
+    $notifications = array_merge($blog, $pages);
+
     if ($request->ajax()) {
         return view('admin.UserAccount.users.table', [
             'sortby' => $this->sortby,
             'orderby' => $this->orderby,
+            'notifications' => $notifications,
             'users' => $users,
+            'messages' => $this->messages,
             'pagination' => true,
             'practice' => $practice,
             'columns' => User::$sortColumns,
@@ -64,7 +79,9 @@ class UserController extends Controller {
         return view('admin.UserAccount.users.index', [
             'sortby' => $this->sortby,
             'orderby' => $this->orderby,
+            'notifications' => $notifications,
             'users' => $users,
+            'messages' => $this->messages,
             'pagination' => true,
             'practice' => $practice,
             'columns' => User::$sortColumns,
@@ -137,7 +154,7 @@ class UserController extends Controller {
 				'gender' => 'required',
 				'role_id' => 'required',
 				'phone' => 'required',
-				'med_reg_number' => 'required',
+				'occupation' => 'required',
 		  ]);
 
       if (isset($data['id']))
@@ -175,7 +192,7 @@ class UserController extends Controller {
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];
 			$user->role_id = $data['role_id'];
-      $user->occupation = '';
+      $user->occupation = $data['occupation'];
       $user->is_admin = 0;
 			$user->gender = $data['gender'];
 			$user->med_reg_number = $data['med_reg_number'];
@@ -210,6 +227,40 @@ class UserController extends Controller {
       return view('admin.UserAccount.Profile.logout',[
         'user' => $user
       ]);
+  }
+
+  public function messageUser(Request $request) {
+    if (!$request->isMethod('post')) {
+      $data = $request->all();
+      $errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
+
+      if ($errors) {
+        foreach ($errors as $key => $value) {
+          $this->messageBag->add($key, $value);
+        }
+      }
+
+      return view("admin.UserAccount.users.message",[
+          'data' => $data,
+      ])->withErrors($errors);
+    } else {
+      $data = $request->all();
+
+      $this->validate($request, [
+        'subject' => 'required|string',
+        'description' => 'required|string',
+      ]);
+
+      $message = new Message;
+      $message->subject = $data['subject'];
+      $message->description = $data['description'];
+      $message->user_id = $data['id'];
+      $message->is_read = 0;
+      $message->user_send = Auth::user()->id;
+      $message->save();
+
+      $request->session()->flash('alert-success', 'Message sent.');
+    }
   }
 
 	/**

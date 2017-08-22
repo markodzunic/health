@@ -6,8 +6,11 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Message;
 
 class CategoryController extends Controller {
+
+	protected $messages;
 
 	/**
 	 * Display a listing of the resource.
@@ -16,7 +19,7 @@ class CategoryController extends Controller {
 	 */
 	public function index()
 	{
-
+			$this->messages = $this->messages->get_messages(Auth::user()->id);
 	}
 
 	/**

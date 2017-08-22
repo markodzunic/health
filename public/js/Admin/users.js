@@ -4,6 +4,8 @@ var Users = {
 
       var sort = $('#sortby').val();
       var order = $('#orderby').val();
+
+
     },
 
     RefreshUsers: function(el, sort, order, resetPage) {
@@ -233,6 +235,23 @@ var Users = {
               },
               open: function() {
                   $('#date_of_birth').datetimepicker({ format: 'MM/DD/YYYY' });
+                  $('#med-reg').hide();
+
+
+                  if ($('#updateUser').find('#role_id').val() == 7 || $('#updateUser').find('#role_id').val() == 2)
+                    $('#med-reg').show();
+                  else {
+                    $('#updateUser').find('#med-reg input').val('0');
+                  }
+
+                  $('#updateUser').find('#role_id').change(function(){
+                      if (this.value == 2 || this.value == 7) {
+                        $('#med-reg').show();
+                      } else {
+                        $('#updateUser').find('#med-reg input').val('0');
+                        $('#med-reg').hide();
+                      }
+                  });
               },
               close: function() {
                   $(this).dialog( "close" );
@@ -315,5 +334,75 @@ var Users = {
             $('#info-inside').html(result);
         }
       });
+  },
+
+  SendMessage: function(el, err) {
+    var token = $('meta[name="csrf-token"]').attr('content');
+    $('#messageUser').hide();
+    var sort = $('#sortby').val();
+		var order = $('#orderby').val();
+    var users_id = $(el).attr('users-id');
+
+    $.ajax({
+        type: "GET",
+        headers: { 'X-XSRF-TOKEN' : token },
+        url: '/users/messageUser',
+        dataType: 'html',
+        data: {
+          error: err,
+          _token: token,
+          id: users_id,
+        },
+        success: function(result) {
+          $('body').append(result);
+
+          $('#messageUser').dialog({
+              width: 700,
+              title: 'Send message',
+              modal: true,
+              buttons: {
+                Save: {
+                  text: 'Send',
+                  class: 'btn im-btn lblue-btn update-btn',
+                  click: function() {
+                    var form = $('#messageUser').find('form');
+
+                    $.ajax({
+                        type: "POST",
+                        // async: true,
+                        headers: { 'X-XSRF-TOKEN' : token },
+                        url: '/users/messageUser',
+                        data: new FormData(form[0]),
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success:function(result){
+                          // refresh grid
+                          $('#messageUser').dialog('close');
+                          Users.RefreshUsers(el, sort, order);
+                        },
+                        error: function(xhr,status, response) {
+                          $('#messageUser').remove();
+                          Users.SendMessage(el, xhr.responseText);
+                        }
+                    });
+                  }
+                },
+                // closes dialog and cancels action
+                Cancel: {
+                    text: 'Cancel',
+                    class: 'btn im-btn lblue-btn cancel-btn',
+                    click: function() {
+                        $(this).dialog( "close" );
+                    }
+                }
+              },
+              close: function() {
+                  $(this).dialog( "close" );
+                  $('#messageUser').remove();
+              }
+            });
+        }
+     });
   }
 }
