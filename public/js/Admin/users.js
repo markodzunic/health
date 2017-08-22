@@ -241,16 +241,15 @@ var Users = {
                   if ($('#updateUser').find('#role_id').val() == 7 || $('#updateUser').find('#role_id').val() == 2)
                     $('#med-reg').show();
                   else {
-                    $('#med-reg').find('input').val('0');
+                    $('#updateUser').find('#med-reg input').val('0');
                   }
 
                   $('#updateUser').find('#role_id').change(function(){
                       if (this.value == 2 || this.value == 7) {
                         $('#med-reg').show();
                       } else {
-                        $('#med-reg').find('input').val('0');
+                        $('#updateUser').find('#med-reg input').val('0');
                         $('#med-reg').hide();
-
                       }
                   });
               },

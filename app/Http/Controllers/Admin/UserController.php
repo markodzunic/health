@@ -154,7 +154,7 @@ class UserController extends Controller {
 				'gender' => 'required',
 				'role_id' => 'required',
 				'phone' => 'required',
-				'med_reg_number' => 'required',
+				'occupation' => 'required',
 		  ]);
 
       if (isset($data['id']))
@@ -192,7 +192,7 @@ class UserController extends Controller {
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];
 			$user->role_id = $data['role_id'];
-      $user->occupation = '';
+      $user->occupation = $data['occupation'];
       $user->is_admin = 0;
 			$user->gender = $data['gender'];
 			$user->med_reg_number = $data['med_reg_number'];
