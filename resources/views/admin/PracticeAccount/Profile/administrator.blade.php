@@ -12,13 +12,13 @@
 					        	</div>
 						        <div align="center">
 						        	<div class="user-name h4 no-margin-bottom">{{ $admin->first_name }} {{ $admin->last_name }}</div>
-						        	<div class="user-role"><strong>Practice Administrator</strong></div>
+						        	<div class="user-role"><strong>{{ $admin->role->display_name }}</strong></div>
 						        	<a href="#" class="im-lblue" style="font-size: 12px;">Send Message</a>
 						        </div>
 					        </div>
 							@endforeach
 						@endif
-				</div>						
+				</div>
 			</div>
 		</div>
 	</div>

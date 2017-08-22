@@ -192,7 +192,7 @@ class UserController extends Controller {
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];
 			$user->role_id = $data['role_id'];
-      $user->occupation = '';
+      $user->occupation = $data['occupation'];
       $user->is_admin = 0;
 			$user->gender = $data['gender'];
 			$user->med_reg_number = $data['med_reg_number'];

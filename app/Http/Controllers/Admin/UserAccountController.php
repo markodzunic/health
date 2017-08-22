@@ -169,6 +169,7 @@ class UserAccountController extends Controller {
 			$user->date_of_birth = $data['date_of_birth'];
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];
+			$user->occupation = $data['occupation'];
 			$user->role_id = $data['role_id'];
 			$user->gender = $data['gender'];
 			$user->med_reg_number = $data['med_reg_number'];
