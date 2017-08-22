@@ -22,6 +22,21 @@
 	    bottom: 10px;
 	    top: auto;
 	}
+	.im-toggle-menu-item.not-read:after {
+		content: 'new';
+		position: absolute;
+	    right: 15px;
+	    top: 10px;
+	    margin: auto;
+	    color: #fff;
+	    font-weight: normal;
+	    font-size: 12px;
+	    background: rgba(255,102,255,1);
+	    width: 30px;
+	    height: 20px;
+	    text-align: center;
+	    line-height: 18px;
+	}
 </style>
 @stop
 
