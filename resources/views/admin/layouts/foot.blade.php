@@ -7,6 +7,7 @@
 	<script src="{{ URL::asset('/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 	<script src="{{ URL::asset('/plugins/bootstrap/js/Moment.js') }}"></script>
 	<script src="{{ URL::asset('/plugins/bootstrap/js/bootstrap-datetimepicker.min.js') }}"></script>
+	<script src='https://js.stripe.com/v2/' type='text/javascript'></script>
 	<script src="{{ URL::asset('/js/Admin/app.js') }}"></script>
 	<script type="text/javascript">
 		$('#collapse-sidebar').on('click', function (e) {
@@ -16,7 +17,7 @@
 		$('.side-nav').on('show.bs.collapse', function () {
 		    var actives = $(this).find('.collapse.in'),
 		        hasData;
-		    
+
 		    if (actives && actives.length) {
 		        hasData = actives.data('collapse')
 		        if (hasData && hasData.transitioning) return
@@ -27,14 +28,14 @@
 		$(document).ready(function() {
 			var getPage = $('.admin-title-section .col-md-12 a:last-child').text();
 
-			var activeItem = $('.side-nav a').filter(function(index) { 
-				return $(this).text() === getPage; 
-			});			
+			var activeItem = $('.side-nav a').filter(function(index) {
+				return $(this).text() === getPage;
+			});
 
 			if (activeItem.parent().parent().hasClass('collapse')) {
 				activeItem.parent().addClass('im-open');
 				activeItem.parent().parent().parent().addClass('im-open');
-				activeItem.parent().parent().collapse('show');			
+				activeItem.parent().parent().collapse('show');
 			} else {
 				activeItem.parent().addClass('im-open');
 			}
@@ -46,7 +47,7 @@
 
 	    	$('#im-search-form .navbar-form').css('margin-top', newHeight);
 	    }
-	    $(document).ready(function() {		 
+	    $(document).ready(function() {
 	      headerSearch ();
 	      $('#im-search-toggle, #im-search-form .im-close').on('click', function(e) {
 	      	e.preventDefault();
