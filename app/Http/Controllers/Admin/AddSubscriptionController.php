@@ -81,7 +81,7 @@ class AddSubscriptionController extends Controller {
 	    $pages = new Page();
 	    $pages = $pages->get_pages_notifications();
 	    $notifications = array_merge($blog, $pages);
-			
+
 			return view("admin.AddSubscription.PlanBasic.index", ['messages' => $this->messages, 'notifications' => $notifications,]);
 	}
 
@@ -112,6 +112,23 @@ class AddSubscriptionController extends Controller {
 			return redirect('/practice_account');
 	}
 
+	public function payment(Request $request) {
+		\Stripe\Stripe::setApiKey ( 'sk_test_yourSecretkey' );
+			try {
+				\Stripe\Charge::create ( array (
+						"amount" => 300 * 100,
+						"currency" => "usd",
+						"source" => $request->input ( 'stripeToken' ), // obtained with Stripe.js
+						"description" => "Test payment."
+				) );
+				Session::flash ( 'success-message', 'Payment done successfully !' );
+				return Redirect::back ();
+			} catch ( \Exception $e ) {
+				Session::flash ( 'fail-message', "Error! Please Try again." );
+				return Redirect::back ();
+			}
+	}
+	
 	/**
 	 * Show the form for creating a new resource.
 	 *

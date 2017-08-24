@@ -84,6 +84,9 @@ Route::post('/pages/updatePage', 'Admin\PagesController@updatePage');
 Route::get('/pages/deletePage', 'Admin\PagesController@deletePage');
 Route::post('/pages/deletePage', 'Admin\PagesController@deletePage');
 
+Route::get('/upload_images', 'Admin\PagesController@upload_images');
+Route::post('/upload_images', 'Admin\PagesController@upload_images');
+
 Route::get('/messages', 'Admin\MessagesController@index');
 Route::post('/messages', 'Admin\MessagesController@index');
 
@@ -91,6 +94,8 @@ Route::get('/messages/deleteMessage', 'Admin\MessagesController@deleteMessage');
 Route::post('/messages/deleteMessage', 'Admin\MessagesController@deleteMessage');
 
 Route::post('/messages/readMessage', 'Admin\MessagesController@readMessage');
+
+Route::post('/payment', 'Admin\AddSubscriptionController@payment');
 
 Route::post('/selectAdmin', 'Admin\PracticeAccountController@selectAdmin');
 

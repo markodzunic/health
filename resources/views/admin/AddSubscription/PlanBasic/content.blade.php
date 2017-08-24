@@ -10,14 +10,14 @@
           <div class="pricing-table-price"><strong>500 &euro;</strong>/<small>year</small></div>
         </div>
 
-        <div class="pricing-table-body im-center">            
+        <div class="pricing-table-body im-center">
             <div class="pricing-info">iMedical (1 Year)</div>
             <div class="pricing-info">Automatic Updates</div>
             <div class="pricing-info">7 Users</div>
-          </div> 
+          </div>
 
         <div class="pricing-table-footer im-center">
-                
+
         </div>
 
       </div>
@@ -26,7 +26,7 @@
     <div class="col-md-6">
       <div class="pricing-table im-blue pricing-single pricing-table-stripe bg-white small-padding">
 
-        <form accept-charset="UTF-8" action="/" class="require-validation"
+        <form accept-charset="UTF-8" action="/payment" class="require-validation"
           data-cc-on-file="false"
           data-stripe-publishable-key="test_public_key"
           id="payment-form" method="post">
@@ -82,7 +82,7 @@
           </div>
         </form>
 
-        <a href="{{ URL::to('/assignPractice?subscription='.'basic') }}" class="btn im-btn lblue-btn">Enter Practice</a>   
+        <a href="{{ URL::to('/assignPractice?subscription='.'basic') }}" class="btn im-btn lblue-btn">Enter Practice</a>
 
       </div>
     </div>
