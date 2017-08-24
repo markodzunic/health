@@ -117,6 +117,10 @@ class PagesController extends Controller {
 		}
 	}
 
+	public function upload_images(Request $request) {
+		// var_dump($_FILES);dd($request->all());
+	}
+
 	public function deletePage(Request $request) {
 			if (!$request->isMethod('post')) {
 				$data = $request->all();
