@@ -57,7 +57,6 @@ class RegisterController extends Controller
             'gender' => 'required|string',
             'phone' => 'required|string',
             'occupation' => 'required|string',
-            'med_reg_number' => 'required|string',
         ]);
     }
 
@@ -83,7 +82,7 @@ class RegisterController extends Controller
         $user->gender = $data['gender'];
         $user->phone = $data['phone'];
         $user->occupation = $data['occupation'];
-        $user->med_reg_number = $data['med_reg_number'];
+        $user->med_reg_number = 0;
         $user->authorised_user = 0;
         $user->active = 0;
         $user->save();
