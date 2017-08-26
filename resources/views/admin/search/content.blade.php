@@ -6,7 +6,7 @@
                       @foreach ($results as $result)
                         <div class="im-notification">
                             <div class="h2 notification-title bg-lblue">
-                                <a href="#" class="im-white">{{ $result->title }}</a>
+                                <a href="{{ URL::to('my_knowledge_box_features?section='.$result->section.'&pg_id='.$result->id.'&page_id='.$result->page_id) }}" class="im-white">{{ $result->title }}</a>
                             </div>
                             <div class="im-notification-content">
                                 <div class="im-lblue h3">
