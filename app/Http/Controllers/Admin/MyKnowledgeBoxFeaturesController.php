@@ -61,6 +61,7 @@ class MyKnowledgeBoxFeaturesController extends Controller {
 			'messages' => $this->messages,
 			'templates' => $templates,
 			'faq' => $faq,
+			'data' => $data,
 			'page' => $p,
 			'ressources' => $ressources
 		]);
