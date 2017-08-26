@@ -230,6 +230,25 @@ var Pages = {
               },
               open: function() {
                 $('#description').froalaEditor({
+
+                  // Set the image upload parameter.
+                  // imageUploadParam: 'image_param',
+
+                  // Set the image upload URL.
+                  imageUploadURL: '/upload_images/',
+
+                  // Additional upload params.
+                  imageUploadParams: {id: 'test'},
+
+                  // Set request type.
+                  imageUploadMethod: 'POST',
+
+                  // Set max image size to 5MB.
+                  imageMaxSize: 5 * 1024 * 1024,
+
+                  // Allow to upload PNG and JPG.
+                  imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+
                    fullPage: true,
                    theme: 'red',
                    linkList: [
