@@ -20,7 +20,7 @@
 	  <li class="menu-notification">
 	      <a>
 	          <div class="im-notification-content">
-	                <p>No notifications</p>
+	                <p style="padding-top: 15px;">No notifications</p>
 	          </div>
 	      </a>
 	  </li>

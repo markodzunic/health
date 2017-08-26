@@ -1169,7 +1169,7 @@ a:focus {
     font-size: 16px;
     line-height: 45px;
     padding: 0 15px;
-    border: 2px solid #00b0f0;
+    border: 2px solid #333;
     outline: 0 !important;
     border-radius: 0;
 }
@@ -1426,9 +1426,12 @@ input[type=radio ]:not(old) + label.im-label-sm {
 }
 .ui-dialog .ui-dialog-titlebar-close {
   right: 15px;
-  background: #fff;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 0;
+  background: rgba(0,176,240,1);
   background-image: none;
-  border: none;
+  border: 2px solid;
   text-align: center;
 }
 .ui-dialog-titlebar-close:before {
@@ -1437,14 +1440,14 @@ input[type=radio ]:not(old) + label.im-label-sm {
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
-  color: rgba(0,176,240,1);
+  color: #fff;
   font-size: 18px;
   padding-right: 0px;
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
-  line-height: 20px;
+  line-height: 26px;
   text-align: center;
   bottom: 0;
 }
@@ -1712,6 +1715,9 @@ article .blog-expert-content .blog-expert {
   margin-bottom: 10px;
   font-size: 18px;
 }
+.min-550 {
+  min-height: 550px;
+}
 .pricing-table-header {
   padding:50px 10px 10px 10px;
   background: #fff;
@@ -1781,7 +1787,45 @@ footer {
   padding: 15px 0;
   background-color: #f9f9f9;
 }
-
+.ph-logo {
+  position: relative;
+  padding: 10px 0;
+}
+.palemeron-logo {
+  position: relative;
+}
+.ph-logo:before {
+  content: ' ';
+  background: url(../img/logo-phie.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 31px;
+  position: absolute;
+  left: 0;
+  visibility: hidden;
+}
+.palemeron-logo:before {
+  content: ' ';
+  background: url(../img/logo-palmeroni.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 132px;
+  height: 30px;
+  position: absolute;
+  left: 0;
+  visibility: hidden;
+}
+.ph-logo:hover,
+.palemeron-logo:hover {
+  color: transparent;
+}
+.ph-logo:hover:before,
+.palemeron-logo:hover:before {
+  visibility: visible;
+}
 @media screen and (max-width: 767px) {
   .im-mobile-center {
     text-align: center !important;

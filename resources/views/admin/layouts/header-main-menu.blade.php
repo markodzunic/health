@@ -43,7 +43,7 @@
     </ul>
 </li> --}}
 <li>
-    <a href="{{ URL::to('/pages') }}"><i class="fa fa-fw fa-file-text"></i> Pages</a>
+    <a href="{{ URL::to('/pages') }}"><i class="fa fa-fw fa-file-text"></i> Content Editor</a>
 </li>
 <li>
     <a href="{{ URL::to('/blogs') }}"><i class="fa fa-fw fa-commenting"></i> Blog</a>

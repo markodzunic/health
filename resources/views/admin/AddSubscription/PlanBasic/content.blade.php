@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6">
-      <div class="pricing-table im-blue pricing-single">
+      <div class="pricing-table im-blue pricing-single min-550 bg-white">
 
         <div class="pricing-table-header im-center">
           <h2>STANDARD PLAN</h2>
@@ -24,11 +24,11 @@
 
     </div><!--/col-->
     <div class="col-md-6">
-      <div class="pricing-table im-blue pricing-single pricing-table-stripe bg-white small-padding">
+      <div class="pricing-table im-blue pricing-single pricing-table-stripe min-550 bg-white small-padding">
 
         <form accept-charset="UTF-8" action="/payment" class="require-validation"
           data-cc-on-file="false"
-          data-stripe-publishable-key="test_public_key"
+          data-stripe-publishable-key="pk_test_050zhbZAKuAiGDweQVIPtfVB"
           id="payment-form" method="post">
           {{ csrf_field() }}
           <div class='form-row'>

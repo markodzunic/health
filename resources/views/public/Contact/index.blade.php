@@ -29,11 +29,12 @@
 
 @section('PageBanner')
 @include('public.Contact.title')
-@include('public.Contact.content')
+
 @stop
 
 @section('MainContent')
-
+@include('public.Contact.content')
+<section class="bg-blue" style="width: 100%; height: 5px;"></section>
 @stop
 
 

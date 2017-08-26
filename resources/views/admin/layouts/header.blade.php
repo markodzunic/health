@@ -78,7 +78,7 @@
 <div id="im-search-form">
     <form class="navbar-form">        
         <div class="form-group">
-          <div class="im-close im-white"><i class="fa fa-times" aria-hidden="true"></i></div>
+          <div class="im-close im-blue"><i class="fa fa-times" aria-hidden="true"></i></div>
           <button type="submit" class="im-btn pink-btn no-margin-bottom im-btn-small"><i class="fa fa-search"></i></button>
           <input type="text" class="form-control" placeholder="Search">
         </div>

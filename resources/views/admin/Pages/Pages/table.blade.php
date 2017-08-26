@@ -2,7 +2,7 @@
     <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alert-success') !!}</em></div>
 @endif
 <table id="pages" class="table table-striped tablesorter" >
-	<thead  class="bg-white">
+	<thead  class="im-white bg-lblue">
 		<tr class="table-head">
 		   	@foreach ($columns as $c => $col)
 					<th id="{{ $c }}" order-by="" class="row" onclick="Pages.sort(this);return false;">

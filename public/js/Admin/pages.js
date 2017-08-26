@@ -183,7 +183,7 @@ var Pages = {
         success: function(result) {
           $('body').append(result);
           $('#updatePage').dialog({
-              width: 1200,
+              width: 1920,
               modal: true,
               buttons: {
                 Save: {
