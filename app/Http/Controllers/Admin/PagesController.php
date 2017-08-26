@@ -146,6 +146,28 @@ class PagesController extends Controller {
 			}
 	}
 
+	public function searchPages(Request $request) {
+			$data = $request->all();
+
+			$pages = new Page();
+			$results = $pages->search_pages($data);
+
+			$this->messages = $this->messages->get_messages(Auth::user()->id);
+
+			$blog = new Blog();
+	    $blog = $blog->get_blogs_notification();
+
+	    $pages = new Page();
+	    $pages = $pages->get_pages_notifications();
+	    $notifications = array_merge($blog, $pages);
+
+			return view("admin.search.index",[
+					'results' => $results,
+					'notifications' => $notifications,
+					'messages' => $this->messages,
+			]);
+	}
+
 	public function updatePage(Request $request) {
 		if (!$request->isMethod('post')) {
 			$data = $request->all();
