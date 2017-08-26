@@ -1,4 +1,4 @@
-<div id="updatePage" title="Edit Page">
+<div id="updatePage" title="Content Editor">
 	  {!! Form::open( ['method' => 'POST', 'id' => 'editPageInfoForm', 'files' => true ] ) !!}
 	    <fieldset>
         {{ csrf_field() }}

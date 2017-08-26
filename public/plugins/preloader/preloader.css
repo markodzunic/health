@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Helvetica-Narrow-Bold';
+    src: url(../fonts/helvetica/Helvetica-Narrow-Bold.otf);
+    font-style: bold;
+}
 #page-2 {
   background: #fff;
 }

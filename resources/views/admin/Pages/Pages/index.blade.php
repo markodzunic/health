@@ -22,6 +22,9 @@
     .fr-popup {
       z-index: 9999999999999 !important;
     }
+    .ui-dialog {
+      max-width: 100%;
+    }
   </style>
 @stop
 
@@ -34,7 +37,7 @@
 	<div class="toolbar">
 		<input type="hidden" id="orderby" name="orderby" value="{{ $orderby }}">
 		<input type="hidden" id="sortby" name="sortby" value="{{ $sortby }}">
-		<a blogs-id="0" onclick="Pages.Update(this);return false;" class="btn im-btn pink-btn">Create</a>
+		<a blogs-id="0" onclick="Pages.Update(this);return false;" class="btn im-btn pink-btn" style="font-size: 15px;">Create</a>
 	</div>
 
       <div id="table-section" class="table-section">
