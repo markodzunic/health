@@ -63,11 +63,34 @@ class Page extends Model {
 								pages.created_at as created_at,
 								pages.section as category,
 								def_pages.name as pg_name,
+								pages.section as section,
 								CONCAT(users.first_name, " ", users.last_name) as user_name
 					FROM pages
 					JOIN def_pages ON pages.page_id = def_pages.id
 					JOIN users ON pages.user_id = users.id
 					WHERE pages.created_at > NOW() - INTERVAL 1 DAY
+					ORDER BY pages.created_at DESC LIMIT '.$limit;
+
+			return DB::select(DB::Raw($sql), [
+			]);
+	}
+
+	public function search_pages($data, $limit = 10000)
+	{
+			$sql = 'SELECT pages.title as title,
+								"page" as type,
+								pages.description as description,
+								pages.created_at as created_at,
+								pages.section as category,
+								def_pages.id as page_id,
+								pages.id as id,
+								pages.section as section,
+								def_pages.name as pg_name,
+								CONCAT(users.first_name, " ", users.last_name) as user_name
+					FROM pages
+					JOIN def_pages ON pages.page_id = def_pages.id
+					JOIN users ON pages.user_id = users.id
+					WHERE pages.title LIKE "%'.$data['keywords'].'%" OR pages.description LIKE "%'.$data['keywords'].'%"
 					ORDER BY pages.created_at DESC LIMIT '.$limit;
 
 			return DB::select(DB::Raw($sql), [

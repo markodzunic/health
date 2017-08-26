@@ -22,6 +22,9 @@
     .fr-popup {
       z-index: 9999999999999 !important;
     }
+    .ui-dialog {
+      max-width: 100%;
+    }
   </style>
 
 @stop

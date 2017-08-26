@@ -7,6 +7,7 @@
 	font-size: 200px;
 	line-height: 200px;
 	font-weight: bold;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .logo:before {
     display: none;

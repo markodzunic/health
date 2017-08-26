@@ -53,7 +53,7 @@
 
 		<div class="row">
 			<div class="col-md-12">
-				<div class="bg-grey grid-col-content no-split im-left" style="min-height: 250px;">
+				<div class="bg-grey grid-col-content no-split im-left im-scroller" style="height: 250px; overflow-y: scroll;">
 					<strong>News & Announcements</strong>
 					<div style="height: 20px;"></div>				
 					@if ($notifications)

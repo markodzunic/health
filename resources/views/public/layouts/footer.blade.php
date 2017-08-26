@@ -33,7 +33,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<br>
-					<p>iMedical is created and maintained by <strong>POSITIVE</strong>HEALTH</p> 
+					<a href="https://phgp.ie/" target="_blank" class="ph-logo">iMedical is created and maintained by <strong>POSITIVE</strong>HEALTH</a>
 				</div>
 			</div>
 		</div>
@@ -42,7 +42,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 im-left im-mobile-center">© 2017 iMedical / Legal</div>
-				<div class="col-md-6 im-right im-mobile-center">Designed by <a href="https://palmeronidesign.com/" target="_blank" class="">Palmeroni Design</a></div>
+				<div class="col-md-6 im-right im-mobile-center"><a href="https://palmeronidesign.com/" target="_blank" class="palemeron-logo">Designed by Palmeroni Design</a></div>
 			</div>
 		</div>
 	</div>

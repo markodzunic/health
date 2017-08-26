@@ -7,6 +7,7 @@
 			<form method="GET" action="/report_problem/create">
 				<div class="row">
 					<div class="col-md-12">
+						<h3 class="im-lblue im-center">Report a problem</h3>
 						<p style="margin-left: -10px;"><strong>Fields marked with an asterisk are required</strong></p>
 					</div>
 				</div>

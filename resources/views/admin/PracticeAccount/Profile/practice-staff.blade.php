@@ -35,7 +35,7 @@
 				<div class="row">
 					<div class="col-md-12" align="right"">
 						<p class="no-margin-bottom">Curenly available slots for new users <span class="bg-pink im-white" style="padding: 0 5px;border-radius: 50%;">{{ $limit }}</span><br />
-						If you wish to request additional users, then please click <a href="#" class="im-pink">here</a>.</p>
+						If you wish to request additional users, then please click <a href="{{ URL::to('/contact') }}" class="im-pink">here</a>.</p>
 					</div>
 				</div>
 			</div>

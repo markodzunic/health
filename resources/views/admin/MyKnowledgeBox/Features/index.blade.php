@@ -21,16 +21,16 @@
 
 
 
-	
+
 @section('AditionalFoot')
 <script src="{{ URL::asset('/js/init-sidemenu.js') }}"></script>
 <script type="text/javascript">
 	$('.toggle').click(function(e) {
 	  	e.preventDefault();
-	  
+
 	    var $this = $(this);
-	  
-	    if (!$this.next().hasClass('show')) { 
+
+	    if (!$this.next().hasClass('show')) {
 	        $this.parent().parent().find('li .inner').removeClass('show');
 	        $this.parent().parent().find('a.toggle').removeClass('im-active');
 	        $this.parent().parent().find('li .inner').hide();
@@ -39,6 +39,18 @@
 	        $this.next().toggle();
 	    }
 	});
+
+	var pg_id = $('#pg_id').val();
+	var section = $('#section').val();
+
+	if (section)
+		$('#'+section).click();
+
+	// if (pg_id) {
+	// 	$('#wrapper').addClass('im-expande');
+	// 	resizeAcoridians();
+	// }
+
 	function resizeAcoridians() {
 		var heightWindow = $(window).height();
 		var headerHeight = $('.navbar-header ').height();
@@ -54,9 +66,10 @@
 		$('ul.accordion > li > a.toggle > span').css('margin-top', textPosition);
 		$('ul.accordion > li > a.toggle > i').css('margin-top', iconPosition);
 
-		
+
 
 	}
+
 	$(document).ready(function () {
 		$('#wrapper').addClass('im-expande');
 		resizeAcoridians();
