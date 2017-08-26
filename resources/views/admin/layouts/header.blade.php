@@ -3,7 +3,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
-   
+
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
         <li><a href="#" id="im-search-toggle"><i class="fa fa-search"></i></a></li>
@@ -48,8 +48,8 @@
 
             </ul>
         </li>
-    </ul>  
-     <div class="navbar-header navbar-left">        
+    </ul>
+     <div class="navbar-header navbar-left">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -59,7 +59,7 @@
         <a href="{{ URL::to('/home') }}" class="navbar-brand">
             <img src="{{ asset('/img/imdecial-main-logo.png') }}" alt="iMedical" style="max-height:38px;margin-bottom:0">
         </a>
-    </div>  
+    </div>
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav im-animation">
@@ -76,11 +76,11 @@
 </header>
 {{-- SEARCH FORM --}}
 <div id="im-search-form">
-    <form class="navbar-form">        
+    <form action="/searchPages" class="navbar-form">
         <div class="form-group">
-          <div class="im-close im-white"><i class="fa fa-times" aria-hidden="true"></i></div>
+          <div class="im-close im-blue"><i class="fa fa-times" aria-hidden="true"></i></div>
           <button type="submit" class="im-btn pink-btn no-margin-bottom im-btn-small"><i class="fa fa-search"></i></button>
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search">
         </div>
     </form>
 </div>

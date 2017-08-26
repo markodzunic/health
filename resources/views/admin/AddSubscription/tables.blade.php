@@ -36,7 +36,7 @@
           <div class="pricing-table-header im-center">
             <h3>BUSINESS</h3>
             <div class="pricing-table-price">
-              <div class="im-big">€500</div>
+              <div class="im-big">€950</div>
               <small>Ex VAT</small>
             </div>
           </div>
@@ -64,7 +64,7 @@
           <div class="pricing-table-header im-center">
             <h3>PREMIUM</h3>
             <div class="pricing-table-price">
-              <div class="im-big">€500</div>
+              <div class="im-big">€1750</div>
               <small>Ex VAT</small>
             </div>
           </div>
@@ -72,7 +72,7 @@
           <div class="pricing-table-body im-center">            
             <div class="pricing-info">iMedical (1 Year)</div>
             <div class="pricing-info">Automatic Updates</div>
-            <div class="pricing-info">7 Users</div>
+            <div class="pricing-info">9 Users</div>
             <div class="pricing-info">Website Development</div>
             <div class="pricing-info">(€3,000 Ex VAT including tailored website content)</div>
           </div> 

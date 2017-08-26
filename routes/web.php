@@ -84,6 +84,9 @@ Route::post('/pages/updatePage', 'Admin\PagesController@updatePage');
 Route::get('/pages/deletePage', 'Admin\PagesController@deletePage');
 Route::post('/pages/deletePage', 'Admin\PagesController@deletePage');
 
+Route::get('/searchPages', 'Admin\PagesController@searchPages');
+Route::post('/searchPages', 'Admin\PagesController@searchPages');
+
 Route::get('/upload_images', 'Admin\PagesController@upload_images');
 Route::post('/upload_images', 'Admin\PagesController@upload_images');
 

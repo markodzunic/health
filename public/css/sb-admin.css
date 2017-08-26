@@ -49,7 +49,7 @@ body {
     padding-top: 17px;
     padding-bottom: 17px;
     line-height: 35px;
-    color: #fff;
+    color: #002060;
 }
 .top-nav>li>a:hover,
 .top-nav>li>a:focus,
@@ -339,7 +339,7 @@ ul.alert-dropdown {
     color: #fff;
 }
 .navbar-inverse {
-    background-color: #002060;
+    background-color: #fff;
     border-color: #002060;
 }
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
@@ -532,6 +532,9 @@ ul.alert-dropdown {
 /*TABLE AND PAGINATION*/
 .table > thead  {
   cursor:pointer;
+}
+.table>tbody>tr>td {
+  vertical-align: middle;
 }
 .last-col,
 #actions {
@@ -1037,6 +1040,9 @@ ul.accordion > li > a.toggle:hover {
 }
 .fr-wrapper {
   min-height: 250px;
+}
+.fr-box.fr-basic .fr-wrapper {
+  border: solid 2px #333;
 }
 /*FOOTER*/
 #admin-footer .footer-col{

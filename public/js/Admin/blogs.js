@@ -181,7 +181,7 @@ var Blogs = {
         success: function(result) {
           $('body').append(result);
           $('#updateBlog').dialog({
-              width: 1200,
+              width: 1920,
               modal: true,
               buttons: {
                 Save: {
