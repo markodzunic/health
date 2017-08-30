@@ -52,7 +52,7 @@ class PagesController extends Controller {
 		$this->orderby = isset($data['order']) ? $data['order'] : 'asc';
 
 		$blogModel = new Page;
-		$pagesD = $blogModel->get_pages($this->sortby, $this->orderby);
+		$pagesD = $blogModel->get_pages($data, $this->sortby, $this->orderby);
 		$rn = [];
 		if ($pagesD) {
 			foreach ($pagesD as $key => $value) {
@@ -90,9 +90,14 @@ class PagesController extends Controller {
     $pages = $pages->get_pages_notifications();
     $notifications = array_merge($blog, $pages);
 
+		$def_pages = DefPage::all();
+		$practices = Practice::all();
+
 		if ($request->ajax()) {
 				return view('admin.Pages.Pages.table', [
 						'sortby' => $this->sortby,
+						'practices' => $practices,
+						'def_pages' => $def_pages,
 						'role_names' => $role_names,
 						'orderby' => $this->orderby,
 						'pages' => $pagesD,
@@ -106,6 +111,8 @@ class PagesController extends Controller {
 				return view('admin.Pages.Pages.index', [
 						'sortby' => $this->sortby,
 						'role_names' => $role_names,
+						'practices' => $practices,
+						'def_pages' => $def_pages,
 						'orderby' => $this->orderby,
 						'notifications' => $notifications,
 						'messages' => $this->messages,
