@@ -38,7 +38,48 @@
 		<input type="hidden" id="orderby" name="orderby" value="{{ $orderby }}">
 		<input type="hidden" id="sortby" name="sortby" value="{{ $sortby }}">
 		<a blogs-id="0" onclick="Pages.Update(this);return false;" class="btn im-btn pink-btn" style="font-size: 15px;">Create</a>
-	</div>
+
+
+        <label for="section" class=" control-label">Section</label>
+
+
+          <select id="section" name="section" class="form-control" required="" autofocus="">
+            <option value="0">All</option>
+            <option value="recommended_practice">Recommended Best Practice (RBP)</option>
+            <option value="diff_practice">How our Practice differs from RBP</option>
+            <option value="checklist">Checklists</option>
+            <option value="templates">Templates (specific to each section)</option>
+            <option value="faq">FAQs</option>
+          </select>
+
+
+        <label for="def_page" class=" control-label">Page</label>
+
+
+          <select id="def_page" name="def_page" class="form-control" required="" autofocus="">
+            <option value="0">All</option>
+            @if ($def_pages)
+              @foreach ($def_pages as $pg)
+                <option value="{{ $pg->id }}">{{ $pg->name }}</option>
+              @endforeach
+            @endif
+          </select>
+
+
+        <label for="practices" class=" control-label">Practice</label>
+
+
+          <select id="practices" name="practices" class="form-control" required="" autofocus="">
+            <option value="0">All</option>
+            @if ($practices)
+              @foreach ($practices as $pg)
+                <option value="{{ $pg->id }}">{{ $pg->name }}</option>
+              @endforeach
+            @endif
+          </select>
+
+    </div>
+
 
       <div id="table-section" class="table-section">
         {!! view('admin.Pages.Pages.table', [
