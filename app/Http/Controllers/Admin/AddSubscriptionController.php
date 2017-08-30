@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
 use App\Models\Practice;
+use App\Models\BillingAddress;
 use App\Models\Page;
 use App\Models\Blog;
 use Illuminate\Http\Request;
@@ -103,6 +104,23 @@ class AddSubscriptionController extends Controller {
 
 			$practice->save();
 
+			$billing = new BillingAddress;
+
+			$billing->practices_id = $practice->id;
+			$billing->address_1 = 'avatars/avatar.png';
+			$billing->address_2 = 'Default'.rand(10,100000);
+			$billing->city = 'City';
+			$billing->state = 'State';
+			$billing->country = 'Serbia';
+			$billing->zip = '4434234';
+			$billing->phone = 'dfsfsfs';
+			$billing->email = 'State';
+			$billing->company = 'State';			
+			$billing->first_name = 'Serbia';
+			$billing->last_name = '4434234';
+
+			$billing->save();
+
 			$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 			$u = User::find($user->id);
@@ -113,6 +131,7 @@ class AddSubscriptionController extends Controller {
 	}
 
 	public function payment(Request $request) {
+		dd($request->all());
 		\Stripe\Stripe::setApiKey ( 'sk_test_yourSecretkey' );
 			try {
 				\Stripe\Charge::create ( array (
@@ -128,7 +147,7 @@ class AddSubscriptionController extends Controller {
 				return Redirect::back ();
 			}
 	}
-	
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
