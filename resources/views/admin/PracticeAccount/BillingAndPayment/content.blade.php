@@ -23,7 +23,7 @@
 								<i class="fa fa-user-plus" aria-hidden="true"></i>
 								<div class="im-btn-info">Add User</div>
 							</div></li>
-							<li><div class="btn im-btn pink-btn" practice-id="{{ $practice->id }}" onclick="">
+							<li><div class="btn im-btn pink-btn" practice-id="{{ $practice->id }}" billing-id="{{ $billing_address ? $billing_address->id : '' }}" onclick="Billing.Update(this);return false;">
 								<i class="fa fa-euro" aria-hidden="true"></i>
 								<div class="im-btn-info">Update Billing Info</div>
 							</div></li>
@@ -63,49 +63,10 @@
 					<div class="box-content-separator"></div>
 				</div>
 
-				<div class="box-content">
-					<div class="row">
-						<div class="col-md-12">
-							<h4>Billing Address</h4>
-							<div class="row billing-info">
-								<div class="col-md-6">
-									<p><strong>First Name: </strong></p>
-								</div>
-								<div class="col-md-6">
-									<p><strong>Last Name: </strong></p>
-								</div>
-								<div class="col-md-12">
-									<p><strong>Company Name: </strong></p>
-								</div>
-								<div class="col-md-6">
-									<p><strong>Country: </strong></p>
-								</div>
-								<div class="col-md-6">
-									<p><strong>Street address: </strong></p>
-								</div>
-								<div class="col-md-6">
-									<p><strong>Street address 2: </strong></p>
-								</div>
-								<div class="col-md-6">
-									<p><strong>Town / City: </strong></p>
-								</div>
-								<div class="col-md-6">
-									<p><strong>State: </strong></p>
-								</div>
-								<div class="col-md-6">
-									<p><strong>Postcode: </strong></p>
-								</div>
-								<div class="col-md-6">
-									<p><strong>Phone: </strong></p>
-								</div>
-								<div class="col-md-6">
-									<p><strong>Email address: </strong></p>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
+				{!! view('admin.PracticeAccount.BillingAndPayment.billing-address', [
+						'practice' => $practice,
+						'billing_address' => $billing_address,
+				])->render() !!}
 			</div>
 		@endif
 </section>
