@@ -4,6 +4,18 @@ var Pages = {
 
       var sort = $('#sortby').val();
       var order = $('#orderby').val();
+
+      $('#section').on('change', function(){
+          Pages.RefreshPages('', sort, order);
+      });
+
+      $('#def_page').on('change', function(){
+          Pages.RefreshPages('', sort, order);
+      });
+
+      $('#practices').on('change', function(){
+          Pages.RefreshPages('', sort, order);
+      });
     },
 
     RefreshPages: function(el, sort, order, resetPage) {
@@ -11,6 +23,10 @@ var Pages = {
 
   		$('#sortby').val(sort);
   		$('#orderby').val(order);
+
+      var section = $('#section').val();
+      var page_id = $('#def_page').val();
+      var practice = $('#practices').val();
 
   		var page = $('#pagination').find('.active span').text();
   		if (resetPage)
@@ -24,6 +40,9 @@ var Pages = {
   			data: {
           _token: token,
   				sort: sort,
+          practice: practice,
+          page_id: page_id,
+          section: section,
   				order: order,
   				page: page
   			},
