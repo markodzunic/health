@@ -34,6 +34,9 @@ class DashboardController extends Controller {
 		$user = Auth::User();
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
+		
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 		$blog = new Blog();
@@ -45,6 +48,8 @@ class DashboardController extends Controller {
 
 		return view("admin.home.index",[
 				'practice' => $practice,
+				'status' => $status,
+        'role' => $role,
 				'messages' => $this->messages,
 				'notifications' => $notifications,
 		]);

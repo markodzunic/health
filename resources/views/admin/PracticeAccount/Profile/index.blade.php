@@ -24,6 +24,7 @@ body, #page-wrapper {
 	    {!! view('admin.PracticeAccount.Profile.practice-staff', [
 	        'practice_users' => $practice_users,
 					'limit' => $limit,
+          'role' => $role,
 					'admin_users' => $admin_users,
 	        'practice' => $practice,
 	    ]) !!}

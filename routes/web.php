@@ -132,6 +132,9 @@ Route::post('/users/logoutDialog', 'Admin\UserController@logoutDialog');
 Route::get('/users/updateUser', 'Admin\UserController@updateUser');
 Route::post('/users/updateUser', 'Admin\UserController@updateUser');
 
+Route::get('/approveUser', 'Admin\UserController@approveUser');
+Route::post('/approveUser', 'Admin\UserController@approveUser');
+
 Route::get('/users/messageUser', 'Admin\UserController@messageUser');
 Route::post('/users/messageUser', 'Admin\UserController@messageUser');
 

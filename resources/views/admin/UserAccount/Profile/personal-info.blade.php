@@ -12,6 +12,7 @@
 						<span>{{ $user->last_name }}</span>
 					</h3>
 				</div>
+				@if ($role !== 'newuser')
 				<div class="box-controles">
 					<ul>
 						<li><div class="btn im-btn pink-btn no-margin-bottom" onclick="Profile.OpenProfile([]);return false;">
@@ -28,15 +29,18 @@
 						</div></li>
 					</ul>
 				</div>
+				@endif
 			</div>
 			<div class="box-content">
 				<div class="row">
 					<div class="col-md-6 border-right">
 						<h4>Personal Information</h4>
-						<p><i class="fa fa-user-md"><span>Role</span></i>{{ $role->display_name }}</p>
+						@if ($role !== 'newuser')
+							<p><i class="fa fa-user-md"><span>Role</span></i>{{ $roleO->display_name }}</p>
+						@endif
 						<p><i class="fa fa-user"><span>Position Type</span></i>{{ $user->position_type }}</p>
 						<p><i class="fa fa-birthday-cake"><span>Date of Birth</span></i>{{ $user->date_of_birth }}</p>
-						<p><i class="fa fa-venus-mars"><span>Gender</span></i>{{ $user->gender }}</p>						
+						<p><i class="fa fa-venus-mars"><span>Gender</span></i>{{ $user->gender }}</p>
 						<p><i class="fa fa-registered"><span>Registration Number</span></i>{{ $user->med_reg_number }}</p>
 					</div>
 					<div class="col-md-6">

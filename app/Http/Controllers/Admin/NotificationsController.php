@@ -40,6 +40,9 @@ class NotificationsController extends Controller {
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
+
     $blog = new Blog();
     $blog = $blog->get_blogs_notification();
 
@@ -59,6 +62,8 @@ class NotificationsController extends Controller {
 		return view('admin.Notifications.index', [
 				'messages' => $this->messages,
 				'pagination' => true,
+				'status' => $status,
+        'role' => $role,
         'notifications' => $notifications,
 				'practice' => $practice,
 				'columns' => Practice::$sortColumns,

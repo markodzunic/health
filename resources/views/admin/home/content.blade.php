@@ -16,6 +16,7 @@
 				</div>
 			</div>
 		</div>
+		@if ($role !== 'newuser')
 		<div class="row">
 			<div class="col-md-6">
 				<a href="{{ URL::to('/my_knowledge_box') }}" class="im-lblue">
@@ -50,12 +51,13 @@
 				</a>
 			</div>
 		</div>
-
+		@endif
+		@if ($role !== 'newuser')
 		<div class="row">
 			<div class="col-md-12">
 				<div class="bg-grey grid-col-content no-split im-left im-scroller" style="height: 250px; overflow-y: scroll;">
 					<strong>News & Announcements</strong>
-					<div style="height: 20px;"></div>				
+					<div style="height: 20px;"></div>
 					@if ($notifications)
 						@foreach ($notifications as $notification)
 							<div class="im-notification im-new">
@@ -75,6 +77,6 @@
 				</div>
 			</div>
 		</div>
-
+		@endif
 	</div>
 </section>

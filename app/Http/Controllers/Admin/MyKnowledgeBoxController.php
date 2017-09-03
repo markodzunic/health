@@ -34,6 +34,9 @@ class MyKnowledgeBoxController extends Controller {
     $practice = Practice::where('user_id', '=', $user->id)->first();
 		$pagesD = DefPage::all();
 
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
+
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 		$blog = new Blog();
@@ -46,6 +49,8 @@ class MyKnowledgeBoxController extends Controller {
 		return view("admin.MyKnowledgeBox.index", [
 			'practice' => $practice,
 			'notifications' => $notifications,
+			'status' => $status,
+      'role' => $role,
 			'messages' => $this->messages,
 			'pages' => $pagesD,
 		]);

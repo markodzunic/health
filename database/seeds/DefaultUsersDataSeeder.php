@@ -44,6 +44,13 @@ class DefaultUsersDataSeeder extends Seeder
                 'updated_at'=>\Carbon\Carbon::now()->toDateTimeString(),
             ],
             [
+                'name'=>'newuser',
+                'display_name'=>'User',
+                'description'=>'User with administrator role is pillaged user',
+                'created_at'=>\Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at'=>\Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
                 'name'=>'doctor',
                 'display_name'=>'Doctor',
                 'description'=>'Doctor',
@@ -167,6 +174,35 @@ class DefaultUsersDataSeeder extends Seeder
                 'avatar' => 'avatars/avatar.png',
         				'email' => 'Example',
         				'site' => 'Example',
+            ],
+        ]);
+
+        \DB::table('billing_address')->insert([
+            [
+              'practices_id' => 1,
+              'first_name' => 'test',
+              'last_name' => 'test',
+              'phone' => 'test',
+              'email' => 'test',
+              'company' => 'test',
+              'address_1' => 'test',
+              'address_2' => 'test',
+              'city' => 'test',
+              'state' => 'test',
+              'country' => 'test',
+              'zip' => '545454',
+            ],
+        ]);
+
+        \DB::table('subscriptions')->insert([
+            [
+              'user_id' => 1,
+              'name' => 'test',
+              'stripe_id' => 'test',
+              'stripe_plan' => 'test',
+              'quantity' => 5,
+              'billing_address_id' => 1,
+              'ends_at' => \Carbon\Carbon::now()->addDays(10),
             ],
         ]);
     }

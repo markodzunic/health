@@ -2,7 +2,7 @@
 			<div class="box-content">
 				<div class="row">
 					<div class="col-md-12">
-						<h4>Practice Staff</h4>					
+						<h4>Practice Staff</h4>
 						<div class="row">
 							@if ($practice_users)
 								@foreach ($practice_users as $usr)
@@ -30,16 +30,16 @@
 			<div class="col-md-12 bg-white">
 				<div class="box-content-separator"></div>
 			</div>
-
+			@if ($role == 'practice_manager' || $role == 'admin')
 			<div class="box-content" style="padding-bottom: 15px;">
 				<div class="row">
-					<div class="col-md-12" align="right"">
+					<div class="col-md-12" align="right">
 						<p class="no-margin-bottom">Curenly available slots for new users <span class="bg-pink im-white" style="padding: 0 5px;border-radius: 50%;">{{ $limit }}</span><br />
 						If you wish to request additional users, then please click <a href="{{ URL::to('/contact') }}" class="im-pink">here</a>.</p>
 					</div>
 				</div>
 			</div>
-
+			@endif
 		</div>
 	</div>
 </section>

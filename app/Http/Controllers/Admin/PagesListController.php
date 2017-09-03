@@ -29,6 +29,9 @@ class PagesListController extends Controller {
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
+
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 		$blog = new Blog();
@@ -37,10 +40,12 @@ class PagesListController extends Controller {
     $pages = new Page();
     $pages = $pages->get_pages_notifications();
     $notifications = array_merge($blog, $pages);
-		
+
 		return view("admin.Pages.Pages.index", [
 			'practice' => $practice,
 			'messages' => $this->messages,
+			'status' => $status,
+      'role' => $role,
 			'notifications' => $notifications,
 		]);
 	}

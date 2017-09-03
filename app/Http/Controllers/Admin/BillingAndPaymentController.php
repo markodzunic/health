@@ -35,6 +35,9 @@ class BillingAndPaymentController extends Controller {
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
+
 		$limit = 0;
 		$practice_users = [];
 		$admin_users = [];
@@ -65,6 +68,8 @@ class BillingAndPaymentController extends Controller {
 					 'messages' => $this->messages,
 					 'notifications' => $notifications,
 					 'billing_address' => $billing_address,
+					 'status' => $status,
+	         'role' => $role,
 					//  'admin_users' => $admin_users,
 					//  'practice_users' => $practice_users,
 					 'practice' => $practice,
@@ -76,6 +81,8 @@ class BillingAndPaymentController extends Controller {
 				 'practice' => $practice,
 				 'billing_address' => $billing_address,
 				 'messages' => $this->messages,
+				 'status' => $status,
+         'role' => $role,
 				 'subscription' => $subscription,
 				 'notifications' => $notifications,
 				//  'admin_users' => $admin_users,

@@ -29,6 +29,9 @@ class PostsController extends Controller {
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
+		
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 		$blog = new Blog();
@@ -41,6 +44,8 @@ class PostsController extends Controller {
 		return view("admin.Blog.Posts.index", [
 			'practice' => $practice,
 			'notifications' => $notifications,
+			'status' => $status,
+      'role' => $role,
 			'messages' => $this->messages,
 		]);
 	}
