@@ -44,6 +44,13 @@ class DefaultUsersDataSeeder extends Seeder
                 'updated_at'=>\Carbon\Carbon::now()->toDateTimeString(),
             ],
             [
+                'name'=>'newuser',
+                'display_name'=>'User',
+                'description'=>'User with administrator role is pillaged user',
+                'created_at'=>\Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at'=>\Carbon\Carbon::now()->toDateTimeString(),
+            ],
+            [
                 'name'=>'doctor',
                 'display_name'=>'Doctor',
                 'description'=>'Doctor',

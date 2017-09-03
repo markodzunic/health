@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
 use App\Models\Practice;
+use App\Models\Subscription;
 use App\Models\BillingAddress;
 use App\Models\Page;
 use App\Models\Blog;
@@ -59,16 +60,25 @@ class AddSubscriptionController extends Controller {
 			$blog = new Blog();
 	    $blog = $blog->get_blogs_notification();
 
+			$user = Auth::user();
+			$status = $user->checkStatus();
+			$role = $user->checkRole();
+
 	    $pages = new Page();
 	    $pages = $pages->get_pages_notifications();
 	    $notifications = array_merge($blog, $pages);
 
-			return view("admin.AddSubscription.PlanBusiness.index", ['messages' => $this->messages, 'notifications' => $notifications,]);
+			return view("admin.AddSubscription.PlanBusiness.index", ['messages' => $this->messages, 'notifications' => $notifications, 'status' => $status,
+			'role' => $role,]);
 	}
 
 	public function plan_professional() {
 			$this->messages = $this->messages->get_messages(Auth::user()->id);
 
+			$user = Auth::user();
+			$status = $user->checkStatus();
+			$role = $user->checkRole();
+
 			$blog = new Blog();
 	    $blog = $blog->get_blogs_notification();
 
@@ -76,12 +86,17 @@ class AddSubscriptionController extends Controller {
 	    $pages = $pages->get_pages_notifications();
 	    $notifications = array_merge($blog, $pages);
 
-			return view("admin.AddSubscription.PlanProfessional.index", ['messages' => $this->messages, 'notifications' => $notifications,]);
+			return view("admin.AddSubscription.PlanProfessional.index", ['messages' => $this->messages, 'notifications' => $notifications, 'status' => $status,
+			'role' => $role,]);
 	}
 
 	public function plan_basic() {
 			$this->messages = $this->messages->get_messages(Auth::user()->id);
 
+			$user = Auth::user();
+			$status = $user->checkStatus();
+			$role = $user->checkRole();
+
 			$blog = new Blog();
 	    $blog = $blog->get_blogs_notification();
 
@@ -89,7 +104,8 @@ class AddSubscriptionController extends Controller {
 	    $pages = $pages->get_pages_notifications();
 	    $notifications = array_merge($blog, $pages);
 
-			return view("admin.AddSubscription.PlanBasic.index", ['messages' => $this->messages, 'notifications' => $notifications,]);
+			return view("admin.AddSubscription.PlanBasic.index", ['messages' => $this->messages, 'notifications' => $notifications, 'status' => $status,
+			'role' => $role,]);
 	}
 
 	public function assignPractice(Request $request) {
@@ -128,6 +144,16 @@ class AddSubscriptionController extends Controller {
 			$billing->save();
 
 			$this->messages = $this->messages->get_messages(Auth::user()->id);
+
+			$subscript = new Subscription();
+			$subscript->user_id = $user->id;
+			$subscript->name = 'test';
+			$subscript->stripe_id = 'test';
+			$subscript->stripe_plan = 'test';
+			$subscript->quantity = 5;
+			$subscript->billing_address_id = 1;
+			$subscript->ends_at = \Carbon\Carbon::now()->addDays(10);
+			$subscript->save();
 
 			$u = User::find($user->id);
 			$u->subscription = isset($data['subscription']) ? $data['subscription'] : '';

@@ -50,7 +50,7 @@ class UserController extends Controller {
 
     $status = $user->checkStatus();
 		$role = $user->checkRole();
-    
+
     # custom pagination
     $currentPage = LengthAwarePaginator::resolveCurrentPage();
     $col = new Collection($users);
@@ -95,6 +95,18 @@ class UserController extends Controller {
         ])->render();
     }
 	}
+
+  public function approveUser(Request $request) {
+    $data = $request->all();
+
+    $user = User::find($data['id']);
+    $user->authorised_user = $data['is_admin'];
+    $user->save();
+    if ($data['is_admin'] == 1)
+      $request->session()->flash('alert-success', 'User approved.');
+    else
+      $request->session()->flash('alert-success', 'User deapproved.');
+  }
 
   public function deleteUser(Request $request) {
     if (!$request->isMethod('post')) {

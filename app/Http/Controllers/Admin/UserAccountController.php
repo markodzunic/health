@@ -38,7 +38,7 @@ class UserAccountController extends Controller {
 		$status = $user->checkStatus();
 		$role = $user->checkRole();
 
-		$role = Role::find($user->role_id);
+		$roleO = Role::find($user->role_id);
 
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 
@@ -55,7 +55,7 @@ class UserAccountController extends Controller {
 				return view("admin.UserAccount.Profile.personal-info", [
             'user' => $user,
 						'messages' => $this->messages,
-            'role' => $role,
+            'roleO' => $roleO,
 						'status' => $status,
         		'role' => $role,
 						'notifications' => $notifications,
@@ -67,7 +67,7 @@ class UserAccountController extends Controller {
 					'messages' => $this->messages,
 					'role' => $role,
 					'status' => $status,
-        	'role' => $role,
+        	'roleO' => $roleO,
 					'notifications' => $notifications,
 					'practice' => $practice,
 			]);

@@ -6,7 +6,9 @@
 
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
+      @if ($role !== 'newuser')
         <li><a href="#" id="im-search-toggle"><i class="fa fa-search"></i></a></li>
+      @endif
         <li class="dropdown">
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu message-dropdown im-scroller">
@@ -18,6 +20,7 @@
 
             </ul>
         </li>
+        @if ($role !== 'newuser')
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu alert-dropdown im-scroller" style="min-width: 230px;">
@@ -30,6 +33,7 @@
                 </li>
             </ul>
         </li>
+        @endif
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             {{-- <span><img src="{{ asset('/img/'.$user->avatar) }}" alt="" style="max-height: 40px;margin-top: -17px;margin-bottom: -15px;"></span> --}}

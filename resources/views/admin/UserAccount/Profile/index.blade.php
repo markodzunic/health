@@ -13,6 +13,7 @@ body, #page-wrapper {
 	{!! view('admin.UserAccount.Profile.personal-info', [
 				'user' => $user,
 				'role' => $role,
+        'roleO' => $roleO,
 	]) !!}
 @stop
 
