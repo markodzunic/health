@@ -29,6 +29,9 @@ class ReportProblemController extends Controller {
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
+
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 		$blog = new Blog();
@@ -40,6 +43,8 @@ class ReportProblemController extends Controller {
 
 		return view("admin.ReportProblem.index",[
 			'practice' => $practice,
+			'status' => $status,
+      'role' => $role,
 			'notifications' => $notifications,
 			'messages' => $this->messages,
 		]);

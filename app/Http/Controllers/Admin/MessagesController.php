@@ -38,6 +38,9 @@ class MessagesController extends Controller {
 		$user = Auth::User();
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
+		
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 		$blog = new Blog();
@@ -51,12 +54,16 @@ class MessagesController extends Controller {
 			return view("admin.Messages.index",[
 				'messages' => $this->messages,
 				'notifications' => $notifications,
+				'status' => $status,
+        'role' => $role,
 				'practice' => $practice
 			]);
 		} else {
 			return view("admin.Messages.content",[
 				'messages' => $this->messages,
 				'notifications' => $notifications,
+				'status' => $status,
+        'role' => $role,
 				'practice' => $practice
 			]);
 		}

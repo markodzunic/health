@@ -48,6 +48,9 @@ class UserController extends Controller {
     $user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
 
+    $status = $user->checkStatus();
+		$role = $user->checkRole();
+    
     # custom pagination
     $currentPage = LengthAwarePaginator::resolveCurrentPage();
     $col = new Collection($users);
@@ -71,6 +74,8 @@ class UserController extends Controller {
             'notifications' => $notifications,
             'users' => $users,
             'messages' => $this->messages,
+            'status' => $status,
+            'role' => $role,
             'pagination' => true,
             'practice' => $practice,
             'columns' => User::$sortColumns,
@@ -80,6 +85,8 @@ class UserController extends Controller {
             'sortby' => $this->sortby,
             'orderby' => $this->orderby,
             'notifications' => $notifications,
+            'status' => $status,
+            'role' => $role,
             'users' => $users,
             'messages' => $this->messages,
             'pagination' => true,

@@ -5,7 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use DB;
-
+use App\Models\Subscription;
+use App\Models\Role;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -105,6 +106,24 @@ class User extends Authenticatable
 
         return DB::select(DB::Raw($sql), [
         ]);
+    }
+
+    public function checkStatus() {
+        $sub = Subscription::where('user_id', '=', $this->id)->where('ends_at', '>', \Carbon\Carbon::now()->toDateTimeString())->first();
+
+        if ($sub)
+          return true;
+
+        return false;
+    }
+
+    public function checkRole() {
+        $role = Role::find($this->role_id);
+
+        if ($role)
+          return $role->name;
+
+        return false;
     }
 
     public static $sortColumns = [

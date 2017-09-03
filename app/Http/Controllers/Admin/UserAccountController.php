@@ -35,6 +35,9 @@ class UserAccountController extends Controller {
 	{
 		$user = Auth::user();
 
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
+
 		$role = Role::find($user->role_id);
 
 		$practice = Practice::where('user_id', '=', $user->id)->first();
@@ -53,6 +56,8 @@ class UserAccountController extends Controller {
             'user' => $user,
 						'messages' => $this->messages,
             'role' => $role,
+						'status' => $status,
+        		'role' => $role,
 						'notifications' => $notifications,
 						'practice' => $practice,
         ])->render();
@@ -61,6 +66,8 @@ class UserAccountController extends Controller {
 					'user' => $user,
 					'messages' => $this->messages,
 					'role' => $role,
+					'status' => $status,
+        	'role' => $role,
 					'notifications' => $notifications,
 					'practice' => $practice,
 			]);

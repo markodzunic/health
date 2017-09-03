@@ -9,6 +9,7 @@ use App\Models\Practice;
 use App\Models\BillingAddress;
 use App\Models\Page;
 use App\Models\Blog;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\Message;
 
@@ -31,6 +32,9 @@ class AddSubscriptionController extends Controller {
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
+
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 		$blog = new Blog();
@@ -42,6 +46,8 @@ class AddSubscriptionController extends Controller {
 
 		return view("admin.AddSubscription.index", [
 			'practice' => $practice,
+			'status' => $status,
+			'role' => $role,
 			'notifications' => $notifications,
 			'messages' => $this->messages,
 		]);
@@ -115,7 +121,7 @@ class AddSubscriptionController extends Controller {
 			$billing->zip = '4434234';
 			$billing->phone = 'dfsfsfs';
 			$billing->email = 'State';
-			$billing->company = 'State';			
+			$billing->company = 'State';
 			$billing->first_name = 'Serbia';
 			$billing->last_name = '4434234';
 
@@ -131,7 +137,8 @@ class AddSubscriptionController extends Controller {
 	}
 
 	public function payment(Request $request) {
-		dd($request->all());
+		$data = $request->all();
+
 		\Stripe\Stripe::setApiKey ( 'sk_test_yourSecretkey' );
 			try {
 				\Stripe\Charge::create ( array (
@@ -141,6 +148,16 @@ class AddSubscriptionController extends Controller {
 						"description" => "Test payment."
 				) );
 				Session::flash ( 'success-message', 'Payment done successfully !' );
+
+				$transaction = new Transaction();
+
+				$transaction->user_id = Auth::user()->id;
+				$transaction->practices_id = $data['practices_id'];
+				$transaction->subscription_id = $data['subscription_id'];
+				$transaction->amount = $data['amount'];
+
+				$transaction->save();
+
 				return Redirect::back ();
 			} catch ( \Exception $e ) {
 				Session::flash ( 'fail-message', "Error! Please Try again." );

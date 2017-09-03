@@ -36,6 +36,9 @@ class PracticeAccountController extends Controller {
 		$practice_users = [];
 		$admin_users = [];
 
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
+
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 
 		if ($practice) {
@@ -57,6 +60,8 @@ class PracticeAccountController extends Controller {
 				return view("admin.PracticeAccount.Profile.index", [
 		       'user' => $user,
 					 'admin_users' => $admin_users,
+					 'status' => $status,
+        	 'role' => $role,
 					 'practice_users' => $practice_users,
 					 'messages' => $this->messages,
 					 'notifications' => $notifications,
@@ -68,6 +73,8 @@ class PracticeAccountController extends Controller {
 				 'user' => $user,
 				 'practice' => $practice,
 				 'admin_users' => $admin_users,
+				 'status' => $status,
+         'role' => $role,
 				 'practice_users' => $practice_users,
 				 'messages' => $this->messages,
 				 'notifications' => $notifications,

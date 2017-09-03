@@ -169,5 +169,34 @@ class DefaultUsersDataSeeder extends Seeder
         				'site' => 'Example',
             ],
         ]);
+
+        \DB::table('billing_address')->insert([
+            [
+              'practices_id' => 1,
+              'first_name' => 'test',
+              'last_name' => 'test',
+              'phone' => 'test',
+              'email' => 'test',
+              'company' => 'test',
+              'address_1' => 'test',
+              'address_2' => 'test',
+              'city' => 'test',
+              'state' => 'test',
+              'country' => 'test',
+              'zip' => '545454',
+            ],
+        ]);
+
+        \DB::table('subscriptions')->insert([
+            [
+              'user_id' => 1,
+              'name' => 'test',
+              'stripe_id' => 'test',
+              'stripe_plan' => 'test',
+              'quantity' => 5,
+              'billing_address_id' => 1,
+              'ends_at' => \Carbon\Carbon::now()->addDays(10),
+            ],
+        ]);
     }
 }
