@@ -19,7 +19,7 @@
             <div class="pricing-info">&nbsp;</div>
             <div class="pricing-info">&nbsp;</div>
           </div>
-          @if (!$status)
+          @if (!$status['sub'])
             <div class="pricing-table-footer im-center">
               <a class="btn im-btn lblue-btn"  href="{{ URL::to('/plan_basic') }}">Sign Up</a>
             </div>
@@ -48,7 +48,7 @@
             <div class="pricing-info">1-Day Onsite Consultancy</div>
             <div class="pricing-info">(€500 Ex VAT each additional day)</div>
           </div>
-          @if (!$status)
+          @if (!$status['sub'])
             <div class="pricing-table-footer im-center">
               <a class="btn im-btn lblue-btn"  href="{{ URL::to('/plan_business') }}">Sign Up</a>
             </div>
@@ -76,7 +76,7 @@
             <div class="pricing-info">Website Development</div>
             <div class="pricing-info">(€3,000 Ex VAT including tailored website content)</div>
           </div>
-          @if (!$status)
+          @if (!$status['sub'])
             <div class="pricing-table-footer im-center">
               <a class="btn im-btn lblue-btn"  href="{{ URL::to('/plan_professional') }}">Sign Up</a>
             </div>

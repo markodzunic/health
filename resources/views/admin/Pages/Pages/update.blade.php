@@ -62,7 +62,9 @@
               <select id="section" name="section" class="form-control" required="" autofocus="">
                 <option {{ $page && $page->section == 0 ? 'selected="selected"' : '' }} value="0">Select</option>
                 <option {{ $page && $page->section == 'recommended_practice' ? 'selected="selected"' : '' }} value="recommended_practice">Recommended Best Practice (RBP)</option>
+
                 <option {{ $page && $page->section == 'diff_practice' ? 'selected="selected"' : '' }} value="diff_practice">How our Practice differs from RBP</option>
+								
                 <option {{ $page && $page->section == 'checklist' ? 'selected="selected"' : '' }} value="checklist">Checklists</option>
                 <option {{ $page && $page->section == 'templates' ? 'selected="selected"' : '' }} value="templates">Templates (specific to each section)</option>
                 <option {{ $page && $page->section == 'faq' ? 'selected="selected"' : '' }} value="faq">FAQs</option>
