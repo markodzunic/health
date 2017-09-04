@@ -23,8 +23,12 @@
       <a href="javascript:;" data-toggle="collapse" data-target="#PracticeAccount"><i class="fa fa-fw fa-hospital-o"></i> Practice Account <i class="fa fa-fw fa-caret-down"></i></a>
       <ul id="PracticeAccount" class="collapse">
           <li><a href="{{ URL::to('/practice_account') }}">Practice Profile</a></li>
+          @if ($role == 'admin' || $role == 'practice_manager')
           <li><a href="{{ URL::to('/billing') }}">Billing & Payment</a></li>
+          @endif
+          @if ($role == 'admin')
           <li><a href="{{ URL::to('/practices') }}">Practices</a></li>
+          @endif
       </ul>
   </li>
 @endif
@@ -60,13 +64,13 @@
   </li> -->
 <!-- @endif -->
 
-@if ($role !== 'newuser')
+@if ($role == 'practice_manager' || $role == 'admin')
   <li>
       <a href="{{ URL::to('/pages') }}"><i class="fa fa-fw fa-file-text"></i> Content Editor</a>
   </li>
 @endif
 
-@if ($role !== 'newuser')
+@if ($role == 'admin')
   <li>
       <a href="{{ URL::to('/blogs') }}"><i class="fa fa-fw fa-commenting"></i> Blog</a>
   </li>

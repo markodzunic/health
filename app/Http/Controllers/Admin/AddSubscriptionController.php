@@ -157,6 +157,7 @@ class AddSubscriptionController extends Controller {
 
 			$u = User::find($user->id);
 			$u->subscription = isset($data['subscription']) ? $data['subscription'] : '';
+			$u->role_id = 6;
 			$u->save();
 
 			return redirect('/practice_account');
