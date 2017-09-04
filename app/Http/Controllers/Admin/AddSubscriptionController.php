@@ -19,7 +19,7 @@ class AddSubscriptionController extends Controller {
 	protected $messages;
 
 	public function __construct(Message $messages) {
-				$this->middleware('admin');
+				$this->middleware(['admin', 'newuser']);
 				$this->messages = $messages;
 	}
 

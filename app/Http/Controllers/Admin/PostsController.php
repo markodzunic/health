@@ -15,7 +15,7 @@ class PostsController extends Controller {
 	protected $messages;
 
 	public function __construct(Message $messages) {
-				$this->middleware('admin');
+				$this->middleware(['admin', 'newuser']);
 				$this->messages = $messages;
 	}
 
@@ -31,7 +31,7 @@ class PostsController extends Controller {
 
 		$status = $user->checkStatus();
 		$role = $user->checkRole();
-		
+
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 		$blog = new Blog();
