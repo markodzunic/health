@@ -20,7 +20,7 @@ class BillingAndPaymentController extends Controller {
 	protected $messageBag;
 
 	public function __construct(MessageBag $messageBag, Message $messages) {
-				$this->middleware('admin');
+				$this->middleware(['admin', 'newuser']);
 				$this->messages = $messages;
 				$this->messageBag = $messageBag;
 	}

@@ -24,7 +24,7 @@ class PracticeController extends Controller {
 	protected $messageBag;
 
 	public function __construct(MessageBag $messageBag, Message $messages) {
-				$this->middleware('admin');
+				$this->middleware(['admin', 'practiceuser', 'practicemanager', 'newuser']);
 				$this->messageBag = $messageBag;
 				$this->messages = $messages;
 	}
@@ -42,7 +42,7 @@ class PracticeController extends Controller {
 
 		$status = $user->checkStatus();
 		$role = $user->checkRole();
-		
+
 		$this->sortby = isset($data['sort']) ? $data['sort'] : 'name';
 		$this->orderby = isset($data['order']) ? $data['order'] : 'asc';
 

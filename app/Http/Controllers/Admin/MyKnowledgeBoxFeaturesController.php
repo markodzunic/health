@@ -18,7 +18,7 @@ class MyKnowledgeBoxFeaturesController extends Controller {
 	protected $messages;
 
 	public function __construct(MessageBag $messageBag, Message $messages) {
-				$this->middleware('admin');
+				$this->middleware(['admin', 'newuser']);
 				$this->messageBag = $messageBag;
 				$this->messages = $messages;
 	}
@@ -35,7 +35,7 @@ class MyKnowledgeBoxFeaturesController extends Controller {
 
 		$status = $user->checkStatus();
 		$role = $user->checkRole();
-		
+
 		$data = $request->all();
 		$p = DefPage::find($data['page_id']);
 
