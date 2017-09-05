@@ -224,8 +224,19 @@ class PagesController extends Controller {
 				}
 			}
 
+			$user = Auth::user();
+			$status = $user->checkStatus();
+			$role = $user->checkRole();
+
+			if ($role == 'practice_manager') {
+				// $practices_used_ids = [];
+				$practices = Practice::where('user_id', '=', $user->id)->get();
+				// $practices_used_ids[] = $pr->id;
+			}
+
 			return view("admin.Pages.Pages.update",[
 					'page' => $page,
+					'role' => $role,
 					'pages' => $pages,
 					'practices' => $practices,
 					'roles' => $roles,
