@@ -110,12 +110,12 @@ class DefaultUsersDataSeeder extends Seeder
                 'phone' => '5252811122',
                 'occupation' => 'None',
                 'med_reg_number' => '8282828',
-                'authorised_user' => 0,
+                'authorised_user' => 1,
                 'active' => 1,
             ],
         ]);
 
-    	factory(\App\User::class,6)->create();
+    	
 
         \DB::table('permission_role')->insert([
             [
