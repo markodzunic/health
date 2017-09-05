@@ -3,11 +3,15 @@
 <style>
 	.im-toggle-menu-item {
 		border-bottom: 1px solid rgba(0,176,240,1);
-		background-color: rgba(0,176,240,1);
-		color: #fff !important;
+		/*background-color: rgba(0,176,240,1);*/
+		/*color: rgba(0,176,240,1) !important;*/
 	}
 	.im-toggle-menu-item:before, .im-accordion-menu-item:before {
-		color: #fff;
+		color: rgba(0,176,240,1);
+	}
+	section.im-odd-bg {
+		max-width: 33.3333%;
+		padding: 5px;
 	}
 </style>
 @stop
@@ -72,7 +76,7 @@
 
 	$(document).ready(function () {
 		$('#wrapper').addClass('im-expande');
-		resizeAcoridians();
+		// resizeAcoridians();
 	})
 </script>
 @stop
