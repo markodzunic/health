@@ -23,7 +23,14 @@
       z-index: 9999999999999 !important;
     }
     .ui-dialog {
-      max-width: 100%;
+      max-width: 100% !important;
+      top: 120px !important;
+      left: 224px !important;
+      right: 0 !important;
+      width: auto !important;
+    }
+    .im-expande .ui-dialog {
+      left: 55px !important;
     }
   </style>
 @stop
@@ -38,7 +45,57 @@
 		<input type="hidden" id="orderby" name="orderby" value="{{ $orderby }}">
 		<input type="hidden" id="sortby" name="sortby" value="{{ $sortby }}">
 		<a blogs-id="0" onclick="Pages.Update(this);return false;" class="btn im-btn pink-btn" style="font-size: 15px;">Create</a>
-	</div>
+
+    <div class="row">
+      <div class="col-md-4" style="margin-bottom: 10px;">
+
+
+          <select id="section" name="section" class="form-control" required="" autofocus="">
+            <option value="0">Section</option>
+            <option value="recommended_practice">Recommended Best Practice (RBP)</option>
+            <option value="diff_practice">How our Practice differs from RBP</option>
+            <option value="checklist">Checklists</option>
+            <option value="templates">Templates (specific to each section)</option>
+            <option value="faq">FAQs</option>
+          </select>
+
+      </div>
+
+      <div class="col-md-4" style="margin-bottom: 10px;">
+
+
+          <select id="def_page" name="def_page" class="form-control" required="" autofocus="">
+            <option value="0">Page</option>
+            @if ($def_pages)
+              @foreach ($def_pages as $pg)
+                <option value="{{ $pg->id }}">{{ $pg->name }}</option>
+              @endforeach
+            @endif
+          </select>
+      </div>
+
+      <div class="col-md-4" style="margin-bottom: 10px;">
+
+
+          <select id="practices" name="practices" class="form-control" required="" autofocus="">
+            <option value="0">Practice</option>
+            @if ($practices)
+              @foreach ($practices as $pg)
+                <option value="{{ $pg->id }}">{{ $pg->name }}</option>
+              @endforeach
+            @endif
+          </select>
+        </div>
+    </div>
+        
+
+        
+
+
+        
+
+    </div>
+
 
       <div id="table-section" class="table-section">
         {!! view('admin.Pages.Pages.table', [

@@ -2,7 +2,7 @@
 			<div class="box-content">
 				<div class="row">
 					<div class="col-md-12">
-						<h4>Practice Staff</h4>					
+						<h4>Practice Staff</h4>
 						<div class="row">
 							@if ($practice_users)
 								@foreach ($practice_users as $usr)
@@ -15,7 +15,7 @@
 												<div class="user-info im-blue">
 													<div class="user-name h4 no-margin-bottom">{{ $usr->first_name?:''}} {{ $usr->last_name?:''}}</div>
 													<div class="user-role"><strong>{{ $usr->role->display_name?: '' }}</strong></div>
-													<a href="#" class="im-lblue" style="font-size: 12px;">Send Message</a>
+													<a href="#" onclick="Users.SendMessage(this);return false;" users-id="{{ $usr->id }}" class="im-lblue" style="font-size: 12px;">Send Message</a>
 												</div>
 											</div>
 										</a>
@@ -30,16 +30,16 @@
 			<div class="col-md-12 bg-white">
 				<div class="box-content-separator"></div>
 			</div>
-
+			@if ($role == 'practice_manager' || $role == 'admin')
 			<div class="box-content" style="padding-bottom: 15px;">
 				<div class="row">
-					<div class="col-md-12" align="right"">
+					<div class="col-md-12" align="right">
 						<p class="no-margin-bottom">Curenly available slots for new users <span class="bg-pink im-white" style="padding: 0 5px;border-radius: 50%;">{{ $limit }}</span><br />
 						If you wish to request additional users, then please click <a href="{{ URL::to('/contact') }}" class="im-pink">here</a>.</p>
 					</div>
 				</div>
 			</div>
-
+			@endif
 		</div>
 	</div>
 </section>

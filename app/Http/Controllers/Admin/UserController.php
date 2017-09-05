@@ -25,7 +25,7 @@ class UserController extends Controller {
     protected $messageBag;
 
   	public function __construct(MessageBag $messageBag, Message $messages) {
-          $this->middleware('admin');
+          $this->middleware(['admin', 'practiceuser', 'practicemanager', 'newuser'], ['except' => ['updateUser', 'logoutDialog', 'getUserInfo', 'messageUser']]);
           $this->messageBag = $messageBag;
           $this->messages = $messages;
     }
@@ -47,6 +47,9 @@ class UserController extends Controller {
 
     $user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
+
+    $status = $user->checkStatus();
+		$role = $user->checkRole();
 
     # custom pagination
     $currentPage = LengthAwarePaginator::resolveCurrentPage();
@@ -71,6 +74,8 @@ class UserController extends Controller {
             'notifications' => $notifications,
             'users' => $users,
             'messages' => $this->messages,
+            'status' => $status,
+            'role' => $role,
             'pagination' => true,
             'practice' => $practice,
             'columns' => User::$sortColumns,
@@ -80,6 +85,8 @@ class UserController extends Controller {
             'sortby' => $this->sortby,
             'orderby' => $this->orderby,
             'notifications' => $notifications,
+            'status' => $status,
+            'role' => $role,
             'users' => $users,
             'messages' => $this->messages,
             'pagination' => true,
@@ -88,6 +95,18 @@ class UserController extends Controller {
         ])->render();
     }
 	}
+
+  public function approveUser(Request $request) {
+    $data = $request->all();
+
+    $user = User::find($data['id']);
+    $user->authorised_user = $data['is_admin'];
+    $user->save();
+    if ($data['is_admin'] == 1)
+      $request->session()->flash('alert-success', 'User approved.');
+    else
+      $request->session()->flash('alert-success', 'User deapproved.');
+  }
 
   public function deleteUser(Request $request) {
     if (!$request->isMethod('post')) {
@@ -136,10 +155,20 @@ class UserController extends Controller {
       else {
         $user = new User();
       }
+      $usr = Auth::user();
+      $role = $usr->checkRole();
+
+      // if ($role == 'admin') {
+      //     $roles = Role::all();
+      // } else {
+        $roles = Role::where('name', '!=', 'admin')->get();
+      // }
+
       return view("admin.UserAccount.users.update",[
           'user' => $user,
+          'role' => $role,
           'practice_id' => isset($data['practice_id']) ? $data['practice_id'] : 0,
-          'roles' => Role::all(),
+          'roles' => $roles,
       ])->withErrors($errors);
     } else {
       $data = $request->all();
@@ -194,6 +223,7 @@ class UserController extends Controller {
 			$user->role_id = $data['role_id'];
       $user->occupation = $data['occupation'];
       $user->is_admin = 0;
+      $user->active = 1;
 			$user->gender = $data['gender'];
 			$user->med_reg_number = $data['med_reg_number'];
 

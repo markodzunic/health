@@ -20,7 +20,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::resource('dashboard', 'Admin\DashboardController');
 Route::resource('notification', 'Admin\NotificationsController');
 // Route::resource('messages', 'Admin\MessagesController');
-Route::resource('billing', 'Admin\BillingAndPaymentController');
+// Route::resource('billing', 'Admin\BillingAndPaymentController');
 Route::resource('feedback', 'Admin\FeedbackController');
 Route::resource('my_knowledge_box', 'Admin\MyKnowledgeBoxController');
 Route::resource('my_knowledge_box_features', 'Admin\MyKnowledgeBoxFeaturesController');
@@ -46,6 +46,12 @@ Route::post('/practice_account_billing', 'Admin\BillingAndPaymentController@inde
 Route::get('/practice_account_billing', 'Admin\BillingAndPaymentController@index');
 
 Route::post('/getUserInfo', 'Admin\UserController@getUserInfo');
+
+Route::get('/billing/updateBilling', 'Admin\BillingAndPaymentController@updateBilling');
+Route::post('/billing/updateBilling', 'Admin\BillingAndPaymentController@updateBilling');
+
+Route::get('/billing', 'Admin\BillingAndPaymentController@index');
+Route::post('/billing', 'Admin\BillingAndPaymentController@index');
 
 Route::get('/practice_account', 'Admin\PracticeAccountController@index');
 
@@ -125,6 +131,9 @@ Route::post('/users/logoutDialog', 'Admin\UserController@logoutDialog');
 
 Route::get('/users/updateUser', 'Admin\UserController@updateUser');
 Route::post('/users/updateUser', 'Admin\UserController@updateUser');
+
+Route::get('/approveUser', 'Admin\UserController@approveUser');
+Route::post('/approveUser', 'Admin\UserController@approveUser');
 
 Route::get('/users/messageUser', 'Admin\UserController@messageUser');
 Route::post('/users/messageUser', 'Admin\UserController@messageUser');

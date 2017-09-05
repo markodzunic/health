@@ -2,8 +2,8 @@
     <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alert-success') !!}</em></div>
 @endif
 <table id="users" class="table tablesorter table-striped" >
-	<thead class="bg-white">
-		<tr class="table-head">
+	<thead class="bg-lblue">
+		<tr class="table-head im-white">
 		   	@foreach ($columns as $c => $col)
 					<th id="{{ $c }}" order-by="" class="row" onclick="Users.sort(this);return false;">
 
@@ -49,6 +49,24 @@
 					users-id="{{ $user->id }}">
 				<i class="fa fa-envelope" aria-hidden="true"></i>
 				<div class="im-btn-info">Send Message</div></a>
+
+        @if (isset($user->authorised_user) && !$user->authorised_user)
+          <div onclick="Users.ApproveUser(this);return false;"
+            is-admin = "1"
+            class="select btn im-btn no-margin-bottom im-btn-small"
+            users-id="{{ $user->id }}">
+            <i class="fa fa-check" aria-hidden="true"></i>
+              <div class="im-btn-info">Approve</div>
+          </div>
+        @else
+            <div onclick="Users.ApproveUser(this);return false;"
+              is-admin = "0"
+              class="select btn im-btn no-margin-bottom im-btn-small"
+              users-id="{{ $user->id }}">
+              <i class="fa fa-times" aria-hidden="true"></i>
+                <div class="im-btn-info">Remove</div>
+            </div>
+        @endif
           </td>
 				</tr>
 			@endforeach

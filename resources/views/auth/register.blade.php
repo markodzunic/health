@@ -24,6 +24,7 @@
                         <select id="title" name="title" class="form-control" required autofocus>
                             <option value="dr">Dr</option>
                             <option value="mr">Mr</option>
+                            <option value="ms">Ms</option>
                             <option value="mrs">Mrs</option>
                         </select>
 

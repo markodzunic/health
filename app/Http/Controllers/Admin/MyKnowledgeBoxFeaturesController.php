@@ -18,7 +18,7 @@ class MyKnowledgeBoxFeaturesController extends Controller {
 	protected $messages;
 
 	public function __construct(MessageBag $messageBag, Message $messages) {
-				$this->middleware('admin');
+				$this->middleware(['admin', 'newuser']);
 				$this->messageBag = $messageBag;
 				$this->messages = $messages;
 	}
@@ -32,6 +32,9 @@ class MyKnowledgeBoxFeaturesController extends Controller {
 	{
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
+
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
 
 		$data = $request->all();
 		$p = DefPage::find($data['page_id']);
@@ -59,6 +62,8 @@ class MyKnowledgeBoxFeaturesController extends Controller {
 			'checklist' => $checklist,
 			'notifications' => $notifications,
 			'messages' => $this->messages,
+			'status' => $status,
+      'role' => $role,
 			'templates' => $templates,
 			'faq' => $faq,
 			'data' => $data,

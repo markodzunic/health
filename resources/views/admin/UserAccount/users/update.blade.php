@@ -12,6 +12,7 @@
                     <option {{ $user->title == 'dr' ? 'selected="selected"' : '' }} value="dr">Dr</option>
                     <option {{ $user->title == 'mr' ? 'selected="selected"' : '' }} value="mr">Mr</option>
                     <option {{ $user->title == 'mrs' ? 'selected="selected"' : '' }} value="mrs">Mrs</option>
+                    <option {{ $user->title == 'ms' ? 'selected="selected"' : '' }} value="ms">Ms</option>
                 </select>
 
                 @if ($errors->has('title'))

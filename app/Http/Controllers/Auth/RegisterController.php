@@ -70,7 +70,7 @@ class RegisterController extends Controller
     {
         $user = new User;
 
-        $user->role_id = 1;
+        $user->role_id = 2;
         $user->email = $data['email'];
         $user->password = bcrypt($data['password']);
         $user->title = $data['title'];
@@ -84,7 +84,7 @@ class RegisterController extends Controller
         $user->occupation = $data['occupation'];
         $user->med_reg_number = 0;
         $user->authorised_user = 0;
-        $user->active = 0;
+        $user->active = 1;
         $user->save();
 
         return $user;

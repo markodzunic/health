@@ -14,16 +14,20 @@
   <link rel="stylesheet" href="{{ URL::asset('/plugins/text-editor/css/themes/red.css') }}">
   {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css"> --}}
   <style>
-    .ui-dialog {
-      width: 1240px;
-    }
     .fr-modal,
     .fr-modal-wrapper,
     .fr-popup {
       z-index: 9999999999999 !important;
     }
     .ui-dialog {
-      max-width: 100%;
+      max-width: 100% !important;
+      top: 120px !important;
+      left: 224px !important;
+      right: 0 !important;
+      width: auto !important;
+    }
+    .im-expande .ui-dialog {
+      left: 55px !important;
     }
   </style>
 

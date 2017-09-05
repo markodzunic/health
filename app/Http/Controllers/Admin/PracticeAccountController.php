@@ -18,7 +18,7 @@ class PracticeAccountController extends Controller {
 	protected $messages;
 
 	public function __construct(MessageBag $messageBag, Message $messages) {
-				$this->middleware('admin');
+				$this->middleware(['admin', 'newuser']);
 				$this->messageBag = $messageBag;
 				$this->messages = $messages;
 	}
@@ -35,6 +35,9 @@ class PracticeAccountController extends Controller {
 		$limit = 0;
 		$practice_users = [];
 		$admin_users = [];
+
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
 
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 
@@ -57,6 +60,8 @@ class PracticeAccountController extends Controller {
 				return view("admin.PracticeAccount.Profile.index", [
 		       'user' => $user,
 					 'admin_users' => $admin_users,
+					 'status' => $status,
+        	 'role' => $role,
 					 'practice_users' => $practice_users,
 					 'messages' => $this->messages,
 					 'notifications' => $notifications,
@@ -68,6 +73,8 @@ class PracticeAccountController extends Controller {
 				 'user' => $user,
 				 'practice' => $practice,
 				 'admin_users' => $admin_users,
+				 'status' => $status,
+         'role' => $role,
 				 'practice_users' => $practice_users,
 				 'messages' => $this->messages,
 				 'notifications' => $notifications,
@@ -81,6 +88,8 @@ class PracticeAccountController extends Controller {
 		$limit = 0;
 		$practice_users = [];
 
+		$role = $user->checkRole();
+
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 		if ($practice) {
 			$limit = 6 - User::where('authorised_user', '=', $practice->id)->count();
@@ -89,6 +98,7 @@ class PracticeAccountController extends Controller {
 
 		return view("admin.PracticeAccount.Profile.practice-staff", [
 			 'user' => $user,
+			 'role' => $role,
 			 'practice' => $practice,
 			 'practice_users' => $practice_users,
 			 'limit' => $limit,
@@ -99,6 +109,7 @@ class PracticeAccountController extends Controller {
 		$user = Auth::user();
 
 		$admin_users = [];
+		$role = $user->checkRole();
 
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 		if ($practice) {
@@ -107,6 +118,7 @@ class PracticeAccountController extends Controller {
 
 		return view("admin.PracticeAccount.Profile.administrator", [
 			 'practice' => $practice,
+			 'role' => $role,
 			 'admin_users' => $admin_users,
 		]);
 	}

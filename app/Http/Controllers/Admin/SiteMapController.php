@@ -35,6 +35,9 @@ class SiteMapController extends Controller {
 		$user = Auth::User();
 		$practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
+		
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 		$blog = new Blog();
@@ -47,6 +50,8 @@ class SiteMapController extends Controller {
 		return view("admin.SiteMap.index",[
 			'messages' => $this->messages,
 			'notifications' => $notifications,
+			'status' => $status,
+      'role' => $role,
 			'practice' => $practice
 		]);
 	}
