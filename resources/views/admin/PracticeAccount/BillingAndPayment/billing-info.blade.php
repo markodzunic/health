@@ -116,7 +116,7 @@
         </div>
 
         <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
-            <label for="state" class="col-md-4 control-label">State</label>
+            <label for="state" class="col-md-4 control-label">County </label>
 
             <div class="col-md-8">
                 <input id="state" type="text" class="form-control" name="state" value="{{ $practice->state?:'' }}" required autofocus>
@@ -144,7 +144,7 @@
         </div>
 
         <div class="form-group{{ $errors->has('zip') ? ' has-error' : '' }}">
-            <label for="zip" class="col-md-4 control-label">Zip</label>
+            <label for="zip" class="col-md-4 control-label">Eircode </label>
 
             <div class="col-md-8">
                 <input id="zip" type="text" class="form-control" name="zip" value="{{ $practice->zip?:'' }}" required autofocus>

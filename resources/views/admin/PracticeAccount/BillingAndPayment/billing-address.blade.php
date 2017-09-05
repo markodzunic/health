@@ -25,10 +25,10 @@
           <p><strong>Town / City: </strong>{{ $billing_address->city ? $billing_address->city : '' }}</p>
         </div>
         <div class="col-md-6">
-          <p><strong>State: </strong>{{ $billing_address->state ? $billing_address->state : '' }}</p>
+          <p><strong>County: </strong>{{ $billing_address->state ? $billing_address->state : '' }}</p>
         </div>
         <div class="col-md-6">
-          <p><strong>Postcode: </strong>{{ $billing_address->zip ? $billing_address->zip : '' }}</p>
+          <p><strong>Eircode: </strong>{{ $billing_address->zip ? $billing_address->zip : '' }}</p>
         </div>
         <div class="col-md-6">
           <p><strong>Phone: </strong>{{ $billing_address->phone ? $billing_address->phone : '' }}</p>

@@ -2,8 +2,8 @@
     <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alert-success') !!}</em></div>
 @endif
 <table id="practices" class="table tablesorter table-striped" >
-	<thead  class="bg-white">
-		<tr class="table-head">
+	<thead  class="bg-lblue">
+		<tr class="table-head im-white">
 		   	@foreach ($columns as $c => $col)
 					<th id="{{ $c }}" order-by="" class="row" onclick="Users.sort(this);return false;">
 

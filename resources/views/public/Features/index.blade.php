@@ -65,7 +65,7 @@
 		  	  	item.toggle('fast');
 
 		  	  	$('html,body').animate({
-		        scrollTop: $("#im-accordion-content").offset().top - 90},
+		        scrollTop: $("#im-accordion-content").offset().top - 400},
 		        'slow');
 
 		  	  } else {

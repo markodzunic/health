@@ -2,7 +2,7 @@
 @section('AditionalHead')
 <style type="text/css">
 	#page-wrapper, body {
-		background-color: #f9f9f9;
+		background-color: #fff;
 	}
 	.form-box {
 		background: #fff;
