@@ -2,7 +2,7 @@
 @section('AditionalHead')
 <style type="text/css">
 body, #page-wrapper {
-    background-color: #F9F9F9;
+    background-color: #fff;
 }
 </style>
 @stop
@@ -13,6 +13,7 @@ body, #page-wrapper {
 	{!! view('admin.UserAccount.Profile.personal-info', [
 				'user' => $user,
 				'role' => $role,
+        'roleO' => $roleO,
 	]) !!}
 @stop
 

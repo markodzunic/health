@@ -2,12 +2,59 @@
 @section('AditionalHead')
 <style>
 	.im-toggle-menu-item {
-		border-bottom: 1px solid rgba(0,176,240,1);
-		background-color: rgba(0,176,240,1);
-		color: #fff !important;
+		border: 1px solid rgba(0,176,240,1);
+		/*background-color: rgba(0,176,240,1);*/
+		/*color: rgba(0,176,240,1) !important;*/
 	}
 	.im-toggle-menu-item:before, .im-accordion-menu-item:before {
-		color: #fff;
+		color: rgba(0,176,240,1);
+	}
+	section.im-odd-bg {
+		max-width: 33.3333%;
+		padding: 5px;
+		background: #fff;
+	}
+	.im-expande ul.accordion .inner{
+		 left: 55px;
+	}
+	section.im-odd-bg > .im-toggle-menu-item.im-open {
+		position: fixed;
+	    left: 55px;
+	    right: 0;
+	    top: 177px;
+	    z-index: 1;
+	    height: 53px;
+	    overflow: hidden;
+	}
+	section.im-odd-bg > .im-toggle-content.im-active {
+		position: fixed;
+	    left: 70px;
+	    right: 15px;
+	    top: 230px;
+	    bottom: 0;
+	    z-index: 1;
+	    background: #fff;
+	    overflow-y: scroll;
+	}
+	section.im-odd-bg >.im-toggle-menu-item.im-open:before,
+	section.im-odd-bg >.im-accordion-menu-item.im-open:before {
+		position: relative;
+		font-weight: normal;
+	    border: 1px solid #fff;
+	    top: 0;
+	    left: 0;
+	    width: 35px;
+	    height: 35px;
+	    float: right;
+	    text-align: center;
+	    line-height: 1;
+	    padding: 0;
+	    margin-top: -5px;
+	    margin-right: 40px;
+	}
+	ul.accordion .inner {
+		background: #fff;
+   		z-index: 1;
 	}
 </style>
 @stop
@@ -72,7 +119,7 @@
 
 	$(document).ready(function () {
 		$('#wrapper').addClass('im-expande');
-		resizeAcoridians();
+		// resizeAcoridians();
 	})
 </script>
 @stop

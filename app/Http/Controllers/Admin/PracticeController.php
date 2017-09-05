@@ -24,7 +24,7 @@ class PracticeController extends Controller {
 	protected $messageBag;
 
 	public function __construct(MessageBag $messageBag, Message $messages) {
-				$this->middleware('admin');
+				$this->middleware(['admin', 'practiceuser', 'practicemanager', 'newuser'], ['except' => ['updatePractice', 'deletePractice']]);
 				$this->messageBag = $messageBag;
 				$this->messages = $messages;
 	}
@@ -39,6 +39,9 @@ class PracticeController extends Controller {
 
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
+
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
 
 		$this->sortby = isset($data['sort']) ? $data['sort'] : 'name';
 		$this->orderby = isset($data['order']) ? $data['order'] : 'asc';
@@ -67,6 +70,8 @@ class PracticeController extends Controller {
 						'sortby' => $this->sortby,
 						'orderby' => $this->orderby,
 						'practices' => $practices,
+						'status' => $status,
+        		'role' => $role,
 						'notifications' => $notifications,
 						'messages' => $this->messages,
 						'pagination' => true,
@@ -77,6 +82,8 @@ class PracticeController extends Controller {
 				return view('admin.PracticeAccount.practices.index', [
 						'sortby' => $this->sortby,
 						'orderby' => $this->orderby,
+						'status' => $status,
+        		'role' => $role,
 						'practices' => $practices,
 						'messages' => $this->messages,
 						'pagination' => true,

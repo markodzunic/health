@@ -9,6 +9,7 @@
 				<div class="box-title">
 					<h3><span>{{ $practice->name?:'N/A' }}</span></h3>
 				</div>
+				@if ($role == 'practice_manager' || $role == 'admin')
 				<div class="box-controles">
 					<ul>
 						<li><div class="btn im-btn pink-btn" practices-id="{{ $practice->id }}" onclick="Practices.Update(this);return false;">
@@ -29,6 +30,7 @@
 						</div></li>
 					</ul>
 				</div>
+				@endif
 			</div>
 			<div class="box-content">
 				<div class="row">

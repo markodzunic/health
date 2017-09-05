@@ -1173,6 +1173,9 @@ a:focus {
     outline: 0 !important;
     border-radius: 0;
 }
+.bg-lblue .form-control {
+    border-color: transparent;
+}
 input[type=checkbox]:not(old),
 input[type=radio   ]:not(old){
   width     : 40px;

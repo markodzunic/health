@@ -28,7 +28,7 @@ class BlogController extends Controller {
 	protected $messageBag;
 
 	public function __construct(MessageBag $messageBag, Message $messages) {
-				$this->middleware('admin');
+				$this->middleware(['admin', 'newuser', 'practicemanager', 'practiceuser']);
 				$this->messageBag = $messageBag;
 				$this->messages = $messages;
 	}
@@ -45,6 +45,9 @@ class BlogController extends Controller {
 
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
+
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
 
 		$this->sortby = isset($data['sort']) ? $data['sort'] : 'title';
 		$this->orderby = isset($data['order']) ? $data['order'] : 'asc';
@@ -85,6 +88,8 @@ class BlogController extends Controller {
 						'sortby' => $this->sortby,
 						'orderby' => $this->orderby,
 						'blogs' => $blogs,
+						'status' => $status,
+        		'role' => $role,
 						'messages' => $this->messages,
 						'notifications' => $notifications,
 						'blog_data' => $blog_data,
@@ -97,6 +102,8 @@ class BlogController extends Controller {
 						'sortby' => $this->sortby,
 						'orderby' => $this->orderby,
 						'messages' => $this->messages,
+						'status' => $status,
+        		'role' => $role,
 						'blog_data' => $blog_data,
 						'notifications' => $notifications,
 						'blogs' => $blogs,

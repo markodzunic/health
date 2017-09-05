@@ -26,7 +26,7 @@ class PagesController extends Controller {
 	protected $messageBag;
 
 	public function __construct(MessageBag $messageBag, Message $messages) {
-				$this->middleware('admin');
+				$this->middleware(['admin', 'practiceuser', 'newuser']);
 				$this->messageBag = $messageBag;
 				$this->messages = $messages;
 	}
@@ -47,6 +47,9 @@ class PagesController extends Controller {
 
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
+
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
 
 		$this->sortby = isset($data['sort']) ? $data['sort'] : 'title';
 		$this->orderby = isset($data['order']) ? $data['order'] : 'asc';
@@ -103,6 +106,8 @@ class PagesController extends Controller {
 						'pages' => $pagesD,
 						'notifications' => $notifications,
 						'messages' => $this->messages,
+						'status' => $status,
+        		'role' => $role,
 						'pagination' => true,
 						'practice' => $practice,
 						'columns' => Page::$sortColumns,
@@ -113,6 +118,8 @@ class PagesController extends Controller {
 						'role_names' => $role_names,
 						'practices' => $practices,
 						'def_pages' => $def_pages,
+						'status' => $status,
+        		'role' => $role,
 						'orderby' => $this->orderby,
 						'notifications' => $notifications,
 						'messages' => $this->messages,
@@ -159,6 +166,10 @@ class PagesController extends Controller {
 			$pages = new Page();
 			$results = $pages->search_pages($data);
 
+			$user = Auth::user();
+			$status = $user->checkStatus();
+			$role = $user->checkRole();
+
 			$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 			$blog = new Blog();
@@ -171,6 +182,8 @@ class PagesController extends Controller {
 			return view("admin.search.index",[
 					'results' => $results,
 					'notifications' => $notifications,
+					'status' => $status,
+        	'role' => $role,
 					'messages' => $this->messages,
 			]);
 	}
@@ -211,8 +224,19 @@ class PagesController extends Controller {
 				}
 			}
 
+			$user = Auth::user();
+			$status = $user->checkStatus();
+			$role = $user->checkRole();
+
+			if ($role == 'practice_manager') {
+				// $practices_used_ids = [];
+				$practices = Practice::where('user_id', '=', $user->id)->get();
+				// $practices_used_ids[] = $pr->id;
+			}
+
 			return view("admin.Pages.Pages.update",[
 					'page' => $page,
+					'role' => $role,
 					'pages' => $pages,
 					'practices' => $practices,
 					'roles' => $roles,

@@ -4,11 +4,11 @@
 		<input type="hidden" id="pg_id" name="pg_id" value="{{ isset($data['pg_id']) ? $data['pg_id'] : '' }}">
 		<ul class="accordion">
 		  <li>
-		    <a id="recommended_practice" class="toggle bg-lblue im-active" href="javascript:void(0);">
+		    <a id="recommended_practice" class="toggle bg-lblue" href="javascript:void(0);">
 		    	<i class="fa fa-trophy" aria-hidden="true"></i>
 				<span>RBP</span>
 			</a>
-		    <div class="inner show">
+		    <div class="inner">
 		     	<div class="container">
 						@if ($recommended_practice)
 							@foreach ($recommended_practice as $rp)
@@ -99,5 +99,23 @@
 		    </div>
 		  </li>
 		 </ul>
+
+		  	<div id="welcome-content" class="small-padding">
+		  		<div class="container">
+		  			<div class="row">
+		  				<div class="col-md-12" align="center">
+		  					<img src="{{ asset('/img/welcome-img.jpg') }}" alt="">
+		  				</div>
+		  				<div class="col-md-12">
+		  					<p>Medical practices are getting busier whilst the resources available to help with increased demand have reduced. The only option for practice owners, operators and staff is to increase and preserve efficiency daily to create and operate an efficient and organised practice.</p>
+
+							<p>The importance of all staff understanding and implementing the same approach to processes and completion of tasks is critical to ensuring consistency, productivity and best practice. </p>
+
+							<p>This section sets out information relating to Appointment Management, Telephone Administration, Post / Mail, Email & Fax communications, Practice Visitors and Internal Communication.
+							</p>
+		  				</div>
+		  			</div>
+		  		</div>
+		  	</div>
 	</div>
 </section>

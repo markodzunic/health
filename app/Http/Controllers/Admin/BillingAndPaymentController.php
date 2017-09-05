@@ -7,18 +7,22 @@ use App\Http\Controllers\Controller;
 use App\Models\Practice;
 use App\Models\Page;
 use App\Models\Blog;
+use App\Models\BillingAddress;
 use App\User;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\MessageBag;
 use App\Models\Message;
 
 class BillingAndPaymentController extends Controller {
 
 	protected $messages;
+	protected $messageBag;
 
-	public function __construct(Message $messages) {
-				$this->middleware('admin');
+	public function __construct(MessageBag $messageBag, Message $messages) {
+				$this->middleware(['admin', 'newuser']);
 				$this->messages = $messages;
+				$this->messageBag = $messageBag;
 	}
 
 	/**
@@ -31,10 +35,14 @@ class BillingAndPaymentController extends Controller {
 		$user = Auth::user();
     $practice = Practice::where('user_id', '=', $user->id)->first();
 
+		$status = $user->checkStatus();
+		$role = $user->checkRole();
+
 		$limit = 0;
 		$practice_users = [];
 		$admin_users = [];
 
+		$billing_address = BillingAddress::where('practices_id', '=', $practice->id)->first();
 		// $practice = Practice::where('user_id', '=', $user->id)->first();
 
 		if ($practice) {
@@ -59,6 +67,9 @@ class BillingAndPaymentController extends Controller {
 					 'subscription' => $subscription,
 					 'messages' => $this->messages,
 					 'notifications' => $notifications,
+					 'billing_address' => $billing_address,
+					 'status' => $status,
+	         'role' => $role,
 					//  'admin_users' => $admin_users,
 					//  'practice_users' => $practice_users,
 					 'practice' => $practice,
@@ -68,12 +79,72 @@ class BillingAndPaymentController extends Controller {
 			return view("admin.PracticeAccount.BillingAndPayment.content", [
 				 'user' => $user,
 				 'practice' => $practice,
+				 'billing_address' => $billing_address,
 				 'messages' => $this->messages,
+				 'status' => $status,
+         'role' => $role,
 				 'subscription' => $subscription,
 				 'notifications' => $notifications,
 				//  'admin_users' => $admin_users,
 				//  'practice_users' => $practice_users,
 				 'limit' => $limit,
+			]);
+		}
+	}
+
+	public function updateBilling(Request $request) {
+		if (!$request->isMethod('post')) {
+			$data = $request->all();
+			$errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
+
+			if ($errors) {
+				foreach ($errors as $key => $value) {
+					$this->messageBag->add($key, $value);
+				}
+			}
+
+			$practice = BillingAddress::find($data['id']);
+
+			return view("admin.PracticeAccount.BillingAndPayment.billing-info",[
+					'practice' => $practice
+			])->withErrors($errors);
+		} else {
+			$data = $request->all();
+
+			$this->validate($request, [
+				'first_name' => 'required',
+				'last_name' => 'required',
+				'address_1' => 'required',
+				'address_2' => 'required',
+				'email' => 'required|email',
+				'city' => 'required',
+				'state' => 'required',
+				'country' => 'required',
+				'zip' => 'required',
+				'phone' => 'required',
+				'company' => 'required',
+			]);
+
+			$billing = BillingAddress::find($data['id']);
+
+			$billing->address_1 = $data['address_1'];
+			$billing->address_2 = $data['address_2'];
+			$billing->city = $data['city'];
+			$billing->state = $data['state'];
+			$billing->country = $data['country'];
+			$billing->zip = $data['zip'];
+			$billing->phone = $data['phone'];
+			$billing->email = $data['email'];
+			$billing->company = $data['company'];
+			$billing->first_name = $data['first_name'];
+			$billing->last_name = $data['last_name'];
+
+			$billing->save();
+
+			$request->session()->flash('alert-success', 'Billing Info Updated.');
+
+			return view("admin.PracticeAccount.BillingAndPayment.billing-address",[
+					'billing_address' => $billing
 			]);
 		}
 	}

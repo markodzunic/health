@@ -302,6 +302,30 @@ var Users = {
       });
   },
 
+  ApproveUser: function(el) {
+    var token = $('meta[name="csrf-token"]').attr('content');
+    var user_id = $(el).attr('users-id');
+    var is_admin = $(el).attr('is-admin');
+
+    var sort = $('#sortby').val();
+    var order = $('#orderby').val();
+
+    $.ajax({
+        type: "POST",
+        headers: { 'X-XSRF-TOKEN' : token },
+        url: '/approveUser',
+        // dataType: 'html',
+        data: {
+          _token: token,
+          is_admin: is_admin,
+          id: user_id,
+        },
+        success: function(result) {
+          Users.RefreshUsers(el, sort, order, false);
+        }
+      });
+  },
+
   RefreshPracticeAdmin: function() {
     var token = $('meta[name="csrf-token"]').attr('content');
 
@@ -379,7 +403,8 @@ var Users = {
                         success:function(result){
                           // refresh grid
                           $('#messageUser').dialog('close');
-                          Users.RefreshUsers(el, sort, order);
+                          if ($('#users').length > 0)
+                            Users.RefreshUsers(el, sort, order);
                         },
                         error: function(xhr,status, response) {
                           $('#messageUser').remove();

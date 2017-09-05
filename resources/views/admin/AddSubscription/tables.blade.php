@@ -12,22 +12,22 @@
             </div>
           </div>
 
-          <div class="pricing-table-body im-center">            
+          <div class="pricing-table-body im-center">
             <div class="pricing-info">iMedical (1 Year)</div>
             <div class="pricing-info">Automatic Updates</div>
             <div class="pricing-info">7 Users</div>
             <div class="pricing-info">&nbsp;</div>
             <div class="pricing-info">&nbsp;</div>
-          </div> 
-
-          <div class="pricing-table-footer im-center">            
-            <a class="btn im-btn lblue-btn"  href="{{ URL::to('/plan_basic') }}">Sign Up</a>
-          </div>         
-
+          </div>
+          @if (!$status['sub'])
+            <div class="pricing-table-footer im-center">
+              <a class="btn im-btn lblue-btn"  href="{{ URL::to('/plan_basic') }}">Sign Up</a>
+            </div>
+          @endif
         </div>
 
 
-      </div><!--/col--> 
+      </div><!--/col-->
 
 
        <div class="col-md-4">
@@ -41,21 +41,21 @@
             </div>
           </div>
 
-          <div class="pricing-table-body im-center">            
+          <div class="pricing-table-body im-center">
             <div class="pricing-info">iMedical (1 Year)</div>
             <div class="pricing-info">Automatic Updates</div>
             <div class="pricing-info">8 Users</div>
             <div class="pricing-info">1-Day Onsite Consultancy</div>
             <div class="pricing-info">(€500 Ex VAT each additional day)</div>
-          </div> 
-
-          <div class="pricing-table-footer im-center">
-            <a class="btn im-btn lblue-btn"  href="{{ URL::to('/plan_business') }}">Sign Up</a>
           </div>
-
+          @if (!$status['sub'])
+            <div class="pricing-table-footer im-center">
+              <a class="btn im-btn lblue-btn"  href="{{ URL::to('/plan_business') }}">Sign Up</a>
+            </div>
+          @endif
         </div>
 
-      </div><!--/col--> 
+      </div><!--/col-->
 
 
        <div class="col-md-4">
@@ -69,21 +69,21 @@
             </div>
           </div>
 
-          <div class="pricing-table-body im-center">            
+          <div class="pricing-table-body im-center">
             <div class="pricing-info">iMedical (1 Year)</div>
             <div class="pricing-info">Automatic Updates</div>
             <div class="pricing-info">9 Users</div>
             <div class="pricing-info">Website Development</div>
             <div class="pricing-info">(€3,000 Ex VAT including tailored website content)</div>
-          </div> 
-
-          <div class="pricing-table-footer im-center">
-            <a class="btn im-btn lblue-btn"  href="{{ URL::to('/plan_professional') }}">Sign Up</a>
           </div>
-
+          @if (!$status['sub'])
+            <div class="pricing-table-footer im-center">
+              <a class="btn im-btn lblue-btn"  href="{{ URL::to('/plan_professional') }}">Sign Up</a>
+            </div>
+          @endif
         </div>
 
-      </div><!--/col-->   
+      </div><!--/col-->
     </div><!--/row-->
   </div>
 </section><!--/container-->
