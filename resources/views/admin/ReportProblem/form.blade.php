@@ -7,7 +7,7 @@
 			<form method="GET" action="/report_problem/create">
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="im-lblue im-center">Report a problem</h3>
+						<h3 style="margin-left: -10px;">Report a problem</h3>
 						<p style="margin-left: -10px;"><strong>Fields marked with an asterisk are required</strong></p>
 					</div>
 				</div>
@@ -53,9 +53,10 @@
 			                <input id="UrgentForm" type="checkbox" name="urgent" value="1" ><label for="UrgentForm">If this problem is urgent, then please tick this box<span></span></label>
 			              </div>
 			            </div>
-					</div>						
+					</div>	
+
 					
-					<input type="submit" class="btn im-btn lblue-btn" value="Send">
+					<input type="submit" class="btn im-btn lblue-btn" value="Send" style="margin-top: 15px;margin-left: 5px">
 				</div>
 			</form>
 		</div>
