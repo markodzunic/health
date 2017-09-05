@@ -15,7 +15,7 @@
 												<div class="user-info im-blue">
 													<div class="user-name h4 no-margin-bottom">{{ $usr->first_name?:''}} {{ $usr->last_name?:''}}</div>
 													<div class="user-role"><strong>{{ $usr->role->display_name?: '' }}</strong></div>
-													<a href="#" class="im-lblue" style="font-size: 12px;">Send Message</a>
+													<a href="#" onclick="Users.SendMessage(this);return false;" users-id="{{ $usr->id }}" class="im-lblue" style="font-size: 12px;">Send Message</a>
 												</div>
 											</div>
 										</a>
