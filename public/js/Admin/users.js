@@ -403,7 +403,8 @@ var Users = {
                         success:function(result){
                           // refresh grid
                           $('#messageUser').dialog('close');
-                          Users.RefreshUsers(el, sort, order);
+                          if ($('#users').length > 0)
+                            Users.RefreshUsers(el, sort, order);
                         },
                         error: function(xhr,status, response) {
                           $('#messageUser').remove();

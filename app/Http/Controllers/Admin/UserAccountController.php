@@ -136,7 +136,7 @@ class UserAccountController extends Controller {
 				}
 			}
 
-			$roles = Role::all();
+			$roles = Role::where('name', '!=', 'admin')->get();
 
 			return view("admin.UserAccount.Profile.edit-info-popup",[
 					'roles' => $roles,

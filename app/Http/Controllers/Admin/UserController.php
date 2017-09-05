@@ -25,7 +25,7 @@ class UserController extends Controller {
     protected $messageBag;
 
   	public function __construct(MessageBag $messageBag, Message $messages) {
-          $this->middleware(['admin', 'practiceuser', 'practicemanager', 'newuser'], ['except' => ['updateUser', 'logoutDialog']]);
+          $this->middleware(['admin', 'practiceuser', 'practicemanager', 'newuser'], ['except' => ['updateUser', 'logoutDialog', 'getUserInfo', 'messageUser']]);
           $this->messageBag = $messageBag;
           $this->messages = $messages;
     }
@@ -155,10 +155,20 @@ class UserController extends Controller {
       else {
         $user = new User();
       }
+      $usr = Auth::user();
+      $role = $usr->checkRole();
+
+      // if ($role == 'admin') {
+      //     $roles = Role::all();
+      // } else {
+        $roles = Role::where('name', '!=', 'admin')->get();
+      // }
+
       return view("admin.UserAccount.users.update",[
           'user' => $user,
+          'role' => $role,
           'practice_id' => isset($data['practice_id']) ? $data['practice_id'] : 0,
-          'roles' => Role::all(),
+          'roles' => $roles,
       ])->withErrors($errors);
     } else {
       $data = $request->all();
@@ -213,6 +223,7 @@ class UserController extends Controller {
 			$user->role_id = $data['role_id'];
       $user->occupation = $data['occupation'];
       $user->is_admin = 0;
+      $user->active = 1;
 			$user->gender = $data['gender'];
 			$user->med_reg_number = $data['med_reg_number'];
 
