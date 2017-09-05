@@ -24,7 +24,7 @@ class PracticeController extends Controller {
 	protected $messageBag;
 
 	public function __construct(MessageBag $messageBag, Message $messages) {
-				$this->middleware(['admin', 'practiceuser', 'practicemanager', 'newuser']);
+				$this->middleware(['admin', 'practiceuser', 'practicemanager', 'newuser'], ['except' => ['updatePractice', 'deletePractice']]);
 				$this->messageBag = $messageBag;
 				$this->messages = $messages;
 	}
