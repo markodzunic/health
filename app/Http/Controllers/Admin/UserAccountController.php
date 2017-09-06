@@ -136,7 +136,16 @@ class UserAccountController extends Controller {
 				}
 			}
 
-			$roles = Role::where('name', '!=', 'admin')->where('name', '!=', 'newuser')->get();
+			$user = Auth::user();
+
+			$status = $user->checkStatus();
+			$role = $user->checkRole();
+			
+			if ($role == 'admin')
+				$roles = Role::where('name', '!=', 'admin')->where('name', '!=', 'newuser')->get();
+			else {
+				$roles = Role::where('name', '!=', 'admin')->where('name', '!=', 'newuser')->where('name', '!=', 'practice_manager')->get();
+			}
 
 			return view("admin.UserAccount.Profile.edit-info-popup",[
 					'roles' => $roles,

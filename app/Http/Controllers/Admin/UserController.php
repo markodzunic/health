@@ -161,7 +161,14 @@ class UserController extends Controller {
       // if ($role == 'admin') {
       //     $roles = Role::all();
       // } else {
+      // $status = $user->checkStatus();
+      // $role = $user->checkRole();
+
+      if ($role == 'admin')
         $roles = Role::where('name', '!=', 'admin')->where('name', '!=', 'newuser')->get();
+      else {
+        $roles = Role::where('name', '!=', 'admin')->where('name', '!=', 'newuser')->where('name', '!=', 'practice_manager')->get();
+      }
       // }
 
       return view("admin.UserAccount.users.update",[
