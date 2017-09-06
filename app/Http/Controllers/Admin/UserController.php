@@ -25,7 +25,7 @@ class UserController extends Controller {
     protected $messageBag;
 
   	public function __construct(MessageBag $messageBag, Message $messages) {
-          $this->middleware(['admin', 'practiceuser', 'practicemanager', 'newuser'], ['except' => ['updateUser', 'logoutDialog', 'getUserInfo', 'messageUser']]);
+          $this->middleware(['admin', 'practiceuser', 'practicemanager', 'newuser'], ['except' => ['updateUser', 'logoutDialog', 'getUserInfo', 'messageUser', 'approveUser']]);
           $this->messageBag = $messageBag;
           $this->messages = $messages;
     }
