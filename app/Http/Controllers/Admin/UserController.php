@@ -224,6 +224,7 @@ class UserController extends Controller {
       $user->occupation = $data['occupation'];
       $user->is_admin = 0;
       $user->active = 1;
+      $user->approved = isset($data['practice_id']) && $data['practice_id'] ? 1 : 0;
 			$user->gender = $data['gender'];
 			$user->med_reg_number = $data['med_reg_number'];
 
