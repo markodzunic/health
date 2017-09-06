@@ -179,6 +179,7 @@ class UserAccountController extends Controller {
 			$user->occupation = $data['occupation'];
 			$user->role_id = $data['role_id'];
 			$user->gender = $data['gender'];
+			$user->approved = 1;
 			$user->med_reg_number = $data['med_reg_number'];
 
 			$user->save();
