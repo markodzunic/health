@@ -100,7 +100,7 @@ class UserController extends Controller {
     $data = $request->all();
 
     $user = User::find($data['id']);
-    $user->authorised_user = $data['is_admin'];
+    $user->approved = $data['is_admin'];
     $user->save();
     if ($data['is_admin'] == 1)
       $request->session()->flash('alert-success', 'User approved.');
