@@ -34,7 +34,7 @@ class NewUser
      */
     public function handle($request, Closure $next)
     {
-      if ($this->auth->guest() || $this->auth->user()->authorised_user == 0 ) {
+      if ($this->auth->guest() || $this->auth->user()->approved == 0 ) {
           return response('Unauthorized.', 401);
       } else if ($this->auth->check() && $this->auth->user()->active == 0) {
           $this->auth->user()->sessions()->delete();
