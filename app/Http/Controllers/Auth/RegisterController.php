@@ -84,6 +84,7 @@ class RegisterController extends Controller
         $user->occupation = $data['occupation'];
         $user->med_reg_number = 0;
         $user->authorised_user = 0;
+        $user->approved = 0;
         $user->active = 1;
         $user->save();
 
