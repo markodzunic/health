@@ -39,7 +39,11 @@ class PracticeAccountController extends Controller {
 		$status = $user->checkStatus();
 		$role = $user->checkRole();
 
-		$practice = Practice::where('user_id', '=', $user->id)->first();
+		if ($role == 'practice_manager' || $role == 'admin') {
+			$practice = Practice::where('user_id', '=', $user->id)->first();
+		} else {
+			$practice = Practice::find($user->authorised_user);
+		}
 
 		if ($practice) {
 			$admin_users = User::where('authorised_user', '=', $practice->id)->where('is_admin', '=', 1)->get();
