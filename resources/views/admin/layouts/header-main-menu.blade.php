@@ -33,7 +33,7 @@
   </li>
 @endif
 
-@if ($status['approved'] || $role == 'practice_manager')
+@if ($role == 'practice_manager' || ($role == 'newuser' && $status['approved']))
 <li>
     <a href="{{ URL::to('/add_subscription') }}"><i class="fa fa-fw fa-envelope"></i> Add Subscription</a>
 </li>
