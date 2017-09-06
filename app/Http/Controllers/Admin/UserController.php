@@ -161,7 +161,7 @@ class UserController extends Controller {
       // if ($role == 'admin') {
       //     $roles = Role::all();
       // } else {
-        $roles = Role::where('name', '!=', 'admin')->get();
+        $roles = Role::where('name', '!=', 'admin')->where('name', '!=', 'newuser')->get();
       // }
 
       return view("admin.UserAccount.users.update",[
