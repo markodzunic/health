@@ -112,13 +112,13 @@ class User extends Authenticatable
         $sub = Subscription::where('user_id', '=', $this->id)->where('ends_at', '>', \Carbon\Carbon::now()->toDateTimeString())->first();
 
         if ($sub)
-          return ['sub' => true, 'approved' => $this->authorised_user];
+          return ['sub' => true, 'approved' => $this->approved];
 
-        return ['sub' => false, 'approved' => $this->authorised_user];
+        return ['sub' => false, 'approved' => $this->approved];
     }
 
     public function checkApproved() {
-      return $this->authorised_user;
+      return $this->approved;
     }
 
     public function checkRole() {
