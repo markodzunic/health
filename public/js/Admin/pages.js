@@ -250,14 +250,34 @@ var Pages = {
               open: function() {
                 $('#description').froalaEditor({
 
+                  
+
+                   fullPage: true,
+                   theme: 'red',
+                   linkList: [
+                     {
+                       text: 'asd',
+                       href: 'https://froala.com',
+                       target: '_blank'
+                     },
+                     {
+                       text: 'dsa',
+                       href: 'https://google.com',
+                       target: '_blank'
+                     },
+                     {
+                       text: 'asda',
+                       href: 'https://facebook.com'
+                     }
+                   ],
                   // Set the image upload parameter.
-                  // imageUploadParam: 'image_param',
+                  imageUploadParam: 'up',
 
                   // Set the image upload URL.
-                  imageUploadURL: '/upload_images/',
+                  imageUploadURL: '/img',
 
                   // Additional upload params.
-                  imageUploadParams: {id: 'test'},
+                  imageUploadParams: {id: 'testss'},
 
                   // Set request type.
                   imageUploadMethod: 'POST',
@@ -266,26 +286,7 @@ var Pages = {
                   imageMaxSize: 5 * 1024 * 1024,
 
                   // Allow to upload PNG and JPG.
-                  imageAllowedTypes: ['jpeg', 'jpg', 'png'],
-
-                   fullPage: true,
-                   theme: 'red',
-                   linkList: [
-                   {
-                     text: 'asd',
-                     href: 'https://froala.com',
-                     target: '_blank'
-                   },
-                   {
-                     text: 'dsa',
-                     href: 'https://google.com',
-                     target: '_blank'
-                   },
-                   {
-                     text: 'asda',
-                     href: 'https://facebook.com'
-                   }
-                 ]
+                  imageAllowedTypes: ['jpeg', 'jpg', 'png']
                  })
               }
             });

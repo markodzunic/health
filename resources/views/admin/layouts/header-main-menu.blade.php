@@ -1,11 +1,11 @@
 <li class="active">
     <a href="{{ URL::to('/dashboard') }}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
 </li>
-{{-- <li id="user-info-side">
-  {!! view('admin.layouts.sidebar-user', [
+<li id="user-info-side">
+  {!! view('admin.layouts.profile-image', [
       'user' => Auth::user(),
   ]) !!}
-</li> --}}
+</li>
 
   <li class="has-open">
       <a href="javascript:;" data-toggle="collapse" data-target="#UserAccount"><i class="fa fa-fw fa-user"></i> My Account <i class="fa fa-fw fa-caret-down"></i></a>

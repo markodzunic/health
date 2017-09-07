@@ -2,7 +2,10 @@
 @section('AditionalHead')
 <style>
 #page-wrapper {
-	background-color: #f9f9f9;
+	background-color: #fff;
+}
+.box-grid .grid-col-content {
+    border: 2px solid #f9f9f9;
 }
 </style>
 @stop

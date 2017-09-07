@@ -1420,12 +1420,14 @@ input[type=radio ]:not(old) + label.im-label-sm {
   padding: 0;
 }
 .ui-widget-header {
-  background-color: rgba(0,176,240,1);
-  color:#fff;
+  background-color: #fff;
+  /*color:#fff;*/
   border: 0;
   border-radius: 0;
   padding: 10px 15px;
   margin-bottom: 15px;
+  
+  border: 2px solid #f9f9f9;
 }
 .ui-dialog .ui-dialog-titlebar-close {
   right: 15px;
