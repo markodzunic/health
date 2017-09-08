@@ -173,6 +173,7 @@ class UserController extends Controller {
 
       return view("admin.UserAccount.users.update",[
           'user' => $user,
+          'uid' => isset($data['id']) ? $data['id'] : 0,
           'role' => $role,
           'practice_id' => isset($data['practice_id']) ? $data['practice_id'] : 0,
           'roles' => $roles,
@@ -188,7 +189,6 @@ class UserController extends Controller {
 				'date_of_birth' => 'required',
 				'position_type' => 'required',
 				'gender' => 'required',
-				'role_id' => 'required',
 				'phone' => 'required',
 				'occupation' => 'required',
 		  ]);
@@ -200,10 +200,12 @@ class UserController extends Controller {
         $this->validate($request, [
           'email' => 'required|string|email|max:255|unique:users',
           'password' => 'required|string|min:6|confirmed',
+          'role_id' => 'required',
         ]);
 
         $user = new User();
-
+        $user->role_id = $data['role_id'];
+        $user->prev_role_id = $data['role_id'];
         $user->authorised_user = $data['practice_id'];
         $user->email = $data['email'];
         $user->password = bcrypt($data['password']);
@@ -227,7 +229,6 @@ class UserController extends Controller {
 			$user->date_of_birth = $data['date_of_birth'];
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];
-			$user->role_id = $data['role_id'];
       $user->occupation = $data['occupation'];
       $user->is_admin = 0;
       $user->active = 1;
