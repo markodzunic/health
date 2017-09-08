@@ -47,7 +47,7 @@ body {
 }
 .top-nav>li>a {
     padding-top: 17px;
-    padding-bottom: 17px;
+    padding-bottom: 18px;
     line-height: 35px;
     color: #002060;
 }
@@ -512,9 +512,13 @@ ul.alert-dropdown {
     border-bottom: 10px solid  rgba(0,176,240,1);
 }
 .box-controles .im-btn.pink-btn {
-  background-color: rgba(0,176,240,1);
+  /*background-color: rgba(0,176,240,1);*/
   color: #fff;
-  border-color: rgba(0,176,240,1);
+  /*border-color: rgba(0,176,240,1);*/
+
+  background-color: rgba(255,255,255,1);
+  border-color: #2e2e2e;
+  color: #2e2e2e;
 }
 .im-btn-small {
   display: inline-block;
@@ -578,11 +582,19 @@ ul.alert-dropdown {
 }
 /*FORM*/
 label {
-  color: #002060;
+  color: #999;
 }
 label span {
   font-weight: 700;
   color: #ff66ff;
+}
+.control-label.im-label.bg-lblue.im-white {
+  background: #fff;
+  color: #555;
+  border-bottom: 2px solid #f9f9f9;
+}
+.control-group .controls{
+  float: left;
 }
 .form-box label{
   width: 100%;

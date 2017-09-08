@@ -26,6 +26,9 @@
 	    height: 53px;
 	    overflow: hidden;
 	}
+	.im-fixed section.im-odd-bg > .im-toggle-menu-item.im-open {
+		left: 220px;
+	}
 	section.im-odd-bg > .im-toggle-content.im-active {
 		position: fixed;
 	    left: 70px;
@@ -118,7 +121,7 @@
 	}
 
 	$(document).ready(function () {
-		$('#wrapper').addClass('im-expande');
+		// $('#wrapper').addClass('im-expande');
 		// resizeAcoridians();
 	})
 </script>
