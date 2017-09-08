@@ -103,26 +103,6 @@
             </div>
         </div>
 
-        <div class="form-group{{ $errors->has('role_id') ? ' has-error' : '' }}">
-            <label for="role_id" class="col-md-4 control-label">Role</label>
-
-            <div class="col-md-8">
-                <select id="role_id" name="role_id" class="form-control" required autofocus>
-                    @if ($roles)
-                      @foreach ($roles as $role)
-                        <option {{ $role->id == $user->role_id ? 'selected="selected"' : '' }} value="{{ $role->id }}">{{ $role->display_name }}</option>
-                      @endforeach
-                    @endif
-                </select>
-
-                @if ($errors->has('role_id'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('role_id') }}</strong>
-                    </span>
-                @endif
-            </div>
-        </div>
-
         <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
             <label for="phone" class="col-md-4 control-label">Mobile Phone</label>
 
