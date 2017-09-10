@@ -45,16 +45,29 @@ class DocumentsController extends Controller {
 		$documents = new Document();
 	    $documents = $documents->get_documents('created_at', 'desc');
 
+	    $this->messages = $this->messages->get_messages(Auth::user()->id);
+
+	    $blog = new Blog();
+		$blog = $blog->get_blogs_notification();
+
+		$pages = new Page();
+		$pages = $pages->get_pages_notifications();
+		$notifications = array_merge($blog, $pages);
+
 		if (!$request->ajax()) {
 			return view("admin.Media.Documents.index",[
+				'messages' => $this->messages,
 				'documents' => $documents,
 				'status' => $status,
+				'notifications' => $notifications,
         		'role' => $role,
 				'practice' => $practice
 			]);
 		} else {
 			return view("admin.Media.Documents.content",[
 				'documents' => $documents,
+				'messages' => $this->messages,
+				'notifications' => $notifications,
 				'status' => $status,
         		'role' => $role,
 				'practice' => $practice
