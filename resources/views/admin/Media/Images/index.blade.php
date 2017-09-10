@@ -102,13 +102,31 @@ body, #page-wrapper {
 
 @section('MainContent')
 	@include('admin.Media.Images.title')
-	@include('admin.Media.Images.content')
+
+	<div id="toolbar">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<a onclick="Media.UploadImage(this); return false;" class="btn im-btn empty-btn im-border-btn">Add New</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="table-section" class="table-section">
+        {!! view('admin.Media.Images.content', [
+            'images' => $images
+        ]) !!}
+    </div>
+
+	{{-- @include('admin.Media.Images.content') --}}
 
 @stop
 
 
 @section('AditionalFoot')
+	<script src="{{ URL::asset('/js/Admin/media.js') }}"></script>
 	<script type="text/javascript">
-    
+    	Media.init();
     </script>
 @stop

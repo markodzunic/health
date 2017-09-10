@@ -15,16 +15,16 @@ class ImagesTables extends Migration
     {
         Schema::create('images', function ($table) {
             $table->increments('id');
-            $table->integer('name');
-            $table->integer('path');
-            $table->integer('thumb');
+            $table->string('name');
+            $table->string('path');
+            $table->string('thumb');
             $table->timestamps();
           });
         
         Schema::create('documents', function ($table) {
             $table->increments('id');
-            $table->integer('name');
-            $table->integer('path');
+            $table->string('name');
+            $table->string('path');
             $table->timestamps();
           });
     }

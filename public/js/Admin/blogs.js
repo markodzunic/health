@@ -248,7 +248,9 @@ var Blogs = {
                   ]
                   })
               }
-            });
+          });
+
+          $('#updateBlog').parent().attr('id', 'update-blog');
         }
      });
   },
