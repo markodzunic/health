@@ -45,9 +45,20 @@ class GalleryController extends Controller {
 		$galleries = new Gallery();
 	    $galleries = $galleries->get_images('created_at', 'desc');
 
+	    $this->messages = $this->messages->get_messages(Auth::user()->id);
+
+	    $blog = new Blog();
+		$blog = $blog->get_blogs_notification();
+
+		$pages = new Page();
+		$pages = $pages->get_pages_notifications();
+		$notifications = array_merge($blog, $pages);
+
 		if (!$request->ajax()) {
 			return view("admin.Media.Images.index",[
 				'galleries' => $galleries,
+				'messages' => $this->messages,
+				'notifications' => $notifications,
 				'status' => $status,
         		'role' => $role,
 				'practice' => $practice
@@ -55,6 +66,8 @@ class GalleryController extends Controller {
 		} else {
 			return view("admin.Media.Images.content",[
 				'galleries' => $galleries,
+				'messages' => $this->messages,
+				'notifications' => $notifications,
 				'status' => $status,
         		'role' => $role,
 				'practice' => $practice
