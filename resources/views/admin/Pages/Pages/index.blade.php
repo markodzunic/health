@@ -22,15 +22,29 @@
     .fr-popup {
       z-index: 9999999999999 !important;
     }
-    .ui-dialog {
+    #update-blog.ui-dialog {
       max-width: 100% !important;
       top: 120px !important;
       left: 224px !important;
       right: 0 !important;
+      /*bottom: 0 !important;*/
       width: auto !important;
     }
-    .im-expande .ui-dialog {
+    .im-expande #update-blog.ui-dialog  {
       left: 55px !important;
+    }
+    .acc-title {
+      padding: 15px;
+      color: #fff;
+      background: rgba(0,176,240,1);
+    }
+    .acc-content {
+      padding: 15px;
+      border: 1px solid;
+    }
+    #imageUpload-1,
+    #fr-image-upload-layer-1 {
+      display: none !important;
     }
   </style>
 @stop
