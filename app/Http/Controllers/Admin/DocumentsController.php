@@ -10,6 +10,8 @@ use App\Models\Document;
 use App\Models\Message;
 use App\Models\Page;
 use App\Models\Blog;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\MessageBag;
 
 class DocumentsController extends Controller {
@@ -43,7 +45,19 @@ class DocumentsController extends Controller {
 		$role = $user->checkRole();
 
 		$documents = new Document();
-	    $documents = $documents->get_documents('created_at', 'desc');
+
+		$this->sortby = isset($data['sort']) ? $data['sort'] : 'name';
+		$this->orderby = isset($data['order']) ? $data['order'] : 'asc';
+
+	    $documents = $documents->get_documents($this->sortby, $this->orderby);
+
+	    # custom pagination
+		$currentPage = LengthAwarePaginator::resolveCurrentPage();
+		$col = new Collection($documents);
+		$perPage = 2;
+		$currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+		$documents = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage, ['path' => LengthAwarePaginator::resolveCurrentPath()]);
+
 
 	    $this->messages = $this->messages->get_messages(Auth::user()->id);
 
@@ -58,24 +72,69 @@ class DocumentsController extends Controller {
 			return view("admin.Media.Documents.index",[
 				'messages' => $this->messages,
 				'documents' => $documents,
+				'columns' => Document::$sortColumns,
+				'sortby' => $this->sortby,
+				'orderby' => $this->orderby,
 				'status' => $status,
 				'notifications' => $notifications,
         		'role' => $role,
+        		'pagination' => true,
 				'practice' => $practice
 			]);
 		} else {
 			return view("admin.Media.Documents.content",[
 				'documents' => $documents,
 				'messages' => $this->messages,
+				'columns' => Document::$sortColumns,
+				'sortby' => $this->sortby,
+				'orderby' => $this->orderby,
 				'notifications' => $notifications,
 				'status' => $status,
         		'role' => $role,
+        		'pagination' => true,
 				'practice' => $practice
 			]);
 		}
 	}
 
-	public function deleteImage(Request $request) {
+	public function uploadDocument(Request $request) {
+		$data = $request->all();
+
+		if ($request->isMethod('post')) {
+			$path = '';
+
+			$this->validate($request, [
+				'document' => 'required|mimes:txt,doc,docx,pdf',
+		  	]);
+
+			$img = new Document;
+			$img->name = $data['name'];
+
+			if ($request->file('document')) {
+	         	$path = '/'.$img->id.'_'.$request->file('document')->getClientOriginalName().'.'.$request->file('document')->getClientOriginalExtension();
+	         	$request->file('document')->move(public_path('doc').'/', $path);
+		    } 
+
+		    $img->path = $path;
+		    $img->save();
+		    $request->session()->flash('alert-success', 'Document uploaded.');
+		 } else {
+
+			$errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
+
+			if ($errors) {
+				foreach ($errors as $key => $value) {
+					$this->messageBag->add($key, $value);
+				}
+			}
+
+			return view("admin.Media.Documents.upload",[
+					'data' => $data,
+			])->withErrors($errors);
+		 }
+	}
+
+	public function deleteDocument(Request $request) {
 		if (!$request->isMethod('post')) {
 			$data = $request->all();
 
@@ -87,16 +146,19 @@ class DocumentsController extends Controller {
 				}
 			}
 
-			return view("admin.Messages.delete",[
+			return view("admin.Media.Documents.delete",[
 					'data' => $data,
 			])->withErrors($errors);
 		} else {
 			$data = $request->all();
 
-			$blog = Message::find($data['id']);
-			$blog->delete();
+			$gallery = Document::find($data['id']);
 
-			$request->session()->flash('alert-success', 'Message deleted.');
+			unlink(public_path('doc').'/'.$gallery->path);
+
+			$gallery->delete();
+
+			$request->session()->flash('alert-success', 'Document deleted.');
 		}
 	}
 
