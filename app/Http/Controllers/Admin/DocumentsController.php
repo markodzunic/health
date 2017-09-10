@@ -54,7 +54,7 @@ class DocumentsController extends Controller {
 	    # custom pagination
 		$currentPage = LengthAwarePaginator::resolveCurrentPage();
 		$col = new Collection($documents);
-		$perPage = 2;
+		$perPage = 15;
 		$currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
 		$documents = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage, ['path' => LengthAwarePaginator::resolveCurrentPath()]);
 
