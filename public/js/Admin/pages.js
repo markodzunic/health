@@ -248,6 +248,16 @@ var Pages = {
                   $('#updatePage').remove();
               },
               open: function() {
+                $.FroalaEditor.DefineIcon('insert', {NAME: 'plus'});
+                  $.FroalaEditor.RegisterCommand('insert', {
+                    title: 'Insert Accordian',
+                    focus: true,
+                    undo: true,
+                    refreshAfterCallback: true,
+                    callback: function () {
+                      this.html.insert('<div class="acc-inner"><div class="acc-title" style="padding: 15px;color: #fff;background: rgba(0,176,240,1);"> INNER ACCORDIAN TITLE </div><div class="acc-content" style="padding: 15px;border:1px solid">INNER ACCODRIAN CONTENT </div></div>');
+                    }
+                  });
                 $('#description').froalaEditor({
 
                   
@@ -256,25 +266,16 @@ var Pages = {
                    theme: 'red',
                    linkList: [
                      {
-                       text: 'asd',
-                       href: 'https://froala.com',
+                       text: 'Documents',
+                       href: '/doc/',
                        target: '_blank'
-                     },
-                     {
-                       text: 'dsa',
-                       href: 'https://google.com',
-                       target: '_blank'
-                     },
-                     {
-                       text: 'asda',
-                       href: 'https://facebook.com'
                      }
                    ],
                   // Set the image upload parameter.
                   imageUploadParam: 'up',
 
                   // Set the image upload URL.
-                  imageUploadURL: '/img',
+                  imageUploadURL: '/img/load-files',
 
                   // Additional upload params.
                   imageUploadParams: {id: 'testss'},
@@ -284,9 +285,15 @@ var Pages = {
 
                   // Set max image size to 5MB.
                   imageMaxSize: 5 * 1024 * 1024,
+imageInsertingStrategy: "url",
+imageAllowDragAndDrop: "false",
+
 
                   // Allow to upload PNG and JPG.
-                  imageAllowedTypes: ['jpeg', 'jpg', 'png']
+                  imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+                  toolbarButtons: [ 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'paragraphFormat', 'fontSize', 'color', 'formatBlock', 'blockStyle', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'insertHR', 'insertLink', 'insertImage', 'insertTable', 'insert', 'undo', 'redo', 'html', 'insertHorizontalRule', 'uploadFile', 'removeFormat', 'fullscreen', '|', 'selectAll', 'clearFormatting']
+
+
                  })
               }
           });
