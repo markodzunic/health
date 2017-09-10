@@ -11,6 +11,7 @@ use App\Models\Message;
 use App\Models\Page;
 use App\Models\Blog;
 use Illuminate\Support\MessageBag;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class GalleryController extends Controller {
 
@@ -56,7 +57,7 @@ class GalleryController extends Controller {
 
 		if (!$request->ajax()) {
 			return view("admin.Media.Images.index",[
-				'galleries' => $galleries,
+				'images' => $galleries,
 				'messages' => $this->messages,
 				'notifications' => $notifications,
 				'status' => $status,
@@ -65,7 +66,7 @@ class GalleryController extends Controller {
 			]);
 		} else {
 			return view("admin.Media.Images.content",[
-				'galleries' => $galleries,
+				'images' => $galleries,
 				'messages' => $this->messages,
 				'notifications' => $notifications,
 				'status' => $status,
@@ -73,6 +74,52 @@ class GalleryController extends Controller {
 				'practice' => $practice
 			]);
 		}
+	}
+
+	public function uploadImage(Request $request) {
+		$data = $request->all();
+
+		if ($request->isMethod('post')) {
+			$path = $path_thumb = '';
+
+			$this->validate($request, [
+				'image' => 'required|mimes:jpeg,bmp,png,gif',
+		  	]);
+
+			$img = new Gallery;
+			$img->name = $data['name'];
+
+			if ($request->file('image')) {
+				Image::make($request->file('image'))->resize(1200, null, function($constraint) {
+					$constraint->aspectRatio();
+				})->save(public_path('img/uploads').'/'.$img->id.'_'.$request->file('image')->getClientOriginalName());
+
+				Image::make($request->file('image'))->resize(150, null, function($constraint) {
+					$constraint->aspectRatio();
+				})->save(public_path('img/uploads/thumbs').'/'.$img->id.'_'.$request->file('image')->getClientOriginalName());
+
+	         	$path = 'uploads/'.$img->id.'_'.$request->file('image')->getClientOriginalName();
+	         	$path_thumb = 'uploads/thumbs/'.$img->id.'_'.$request->file('image')->getClientOriginalName();
+		    } 
+
+		    $img->path = $path;
+		    $img->thumb = $path_thumb;
+		    $img->save();
+
+		 } else {
+
+			$errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
+
+			if ($errors) {
+				foreach ($errors as $key => $value) {
+					$this->messageBag->add($key, $value);
+				}
+			}
+
+			return view("admin.Media.Images.upload",[
+					'data' => $data,
+			])->withErrors($errors);
+		 }
 	}
 
 	public function deleteImage(Request $request) {
@@ -87,16 +134,20 @@ class GalleryController extends Controller {
 				}
 			}
 
-			return view("admin.Messages.delete",[
+			return view("admin.Media.Images.delete",[
 					'data' => $data,
 			])->withErrors($errors);
 		} else {
 			$data = $request->all();
 
-			$blog = Message::find($data['id']);
-			$blog->delete();
+			$gallery = Gallery::find($data['id']);
 
-			$request->session()->flash('alert-success', 'Message deleted.');
+			unlink(public_path('img').'/'.$gallery->path);
+			unlink(public_path('img').'/'.$gallery->thumb);
+
+			$gallery->delete();
+
+			$request->session()->flash('alert-success', 'Image deleted.');
 		}
 	}
 

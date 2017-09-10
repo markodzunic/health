@@ -289,7 +289,9 @@ var Pages = {
                   imageAllowedTypes: ['jpeg', 'jpg', 'png']
                  })
               }
-            });
+          });
+
+          $('#updatePage').parent().attr('id', 'update-blog');
         }
      });
   }
