@@ -1,12 +1,1 @@
-[
-{"url":"/photo1.jpg","thumb":"/thumbs/photo1.jpg","name":"","type":"image","id":1,"tag":""},
-{"url":"/photo2.jpg","thumb":"/thumbs/photo2.jpg","name":"","type":"image","id":2,"tag":""},
-{"url":"/photo3.jpg","thumb":"/thumbs/photo3.jpg","name":"","type":"image","id":3,"tag":""},
-{"url":"/photo4.jpg","thumb":"/thumbs/photo4.jpg","name":"","type":"image","id":4,"tag":""},
-{"url":"/photo5.jpg","thumb":"/thumbs/photo5.jpg","name":"","type":"image","id":5,"tag":""},
-{"url":"/photo6.jpg","thumb":"/thumbs/photo6.jpg","name":"","type":"image","id":6,"tag":""},
-{"url":"/photo7.jpg","thumb":"/thumbs/photo7.jpg","name":"","type":"image","id":7,"tag":""},
-{"url":"/photo8.jpg","thumb":"/thumbs/photo8.jpg","name":"","type":"image","id":8,"tag":""},
-{"url":"/photo9.jpg","thumb":"/thumbs/photo9.jpg","name":"","type":"image","id":9,"tag":""},
-{"url":"/photo10.jpg","thumb":"/thumbs/photo10.jpg","name":"","type":"image","id":10,"tag":""}
-]
+[]

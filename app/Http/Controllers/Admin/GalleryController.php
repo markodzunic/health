@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Practice;
 use Illuminate\Http\Request;
 use Auth;
+use File;
 use App\Models\Gallery;
 use App\Models\Message;
 use App\Models\Page;
@@ -106,6 +107,21 @@ class GalleryController extends Controller {
 		    $img->thumb = $path_thumb;
 		    $img->save();
 
+		    $img_info = [
+		    	'url' => asset('/img/'.$path),
+		    	'thumb' => asset('/img/'.$path_thumb),
+		    	'name' => $img->name,
+		    	'type' => 'image',
+		    	'id' => $img->id,
+		    	'tag' => ''
+		    ];
+
+		    $content = File::get(public_path('img/load-files'));
+		    $content = json_decode($content, 1);
+			$content[] = $img_info;
+
+		    File::put(public_path('img/load-files'), json_encode($content));
+
 		 } else {
 
 			$errors = isset($data['error']) ? json_decode($data['error'],1) : $this->messageBag;
@@ -145,6 +161,18 @@ class GalleryController extends Controller {
 			unlink(public_path('img').'/'.$gallery->path);
 			unlink(public_path('img').'/'.$gallery->thumb);
 
+			$content = File::get(public_path('img/load-files'));
+		    $content = json_decode($content, 1);
+
+		    if ($content) {
+		    	foreach ($content as $key => $value) {
+		    		if ($value['id'] == $gallery->id) {
+		    			unset($content[$key]);
+		    		}
+		    	}
+		    }
+		    File::put(public_path('img/load-files'), json_encode($content));
+		    
 			$gallery->delete();
 
 			$request->session()->flash('alert-success', 'Image deleted.');
