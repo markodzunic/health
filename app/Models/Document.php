@@ -34,10 +34,9 @@ class Document extends Model {
 			]);
 	}
 
-	// public static $sortColumns = [
-	// 		'title' => 'Title',
-	// 		'user_name' => 'Author',
-	// 		'created_at' => 'Date',
-	// ];
+	public static $sortColumns = [
+			'name' => 'Title',
+			'path' => 'Path',
+	];
 
 }

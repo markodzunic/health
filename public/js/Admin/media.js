@@ -19,6 +19,9 @@ var Media = {
   			success:function(result){
   				$('#img-prev').remove();
           		$('#table-section').append(result);
+          		$('#close').on('click', function(){
+					$(this).parent().parent().removeClass('active');
+				});
   			}
   		});
 	},
