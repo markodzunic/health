@@ -99,6 +99,12 @@ Route::post('/upload_images', 'Admin\PagesController@upload_images');
 Route::get('/messages', 'Admin\MessagesController@index');
 Route::post('/messages', 'Admin\MessagesController@index');
 
+Route::get('/galleries', 'Admin\GalleryController@index');
+Route::post('/galleries', 'Admin\GalleryController@index');
+
+Route::get('/documents', 'Admin\DocumentsController@index');
+Route::post('/documents', 'Admin\DocumentsController@index');
+
 Route::get('/messages/deleteMessage', 'Admin\MessagesController@deleteMessage');
 Route::post('/messages/deleteMessage', 'Admin\MessagesController@deleteMessage');
 
