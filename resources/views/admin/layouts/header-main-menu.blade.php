@@ -64,6 +64,16 @@
   </li> -->
 <!-- @endif -->
 
+@if ($role == 'admin')
+  <li class="has-open">
+      <a href="javascript:;" data-toggle="collapse" data-target="#Media"><i class="fa fa-fw fa-image"></i> Media <i class="fa fa-fw fa-caret-down"></i></a>
+      <ul id="Media" class="collapse">
+          <li><a href="{{ URL::to('/images') }}">Images</a></li>
+          <li><a href="{{ URL::to('/Documents') }}">Documents</a></li>
+      </ul>
+  </li>
+@endif
+
 @if ($role == 'practice_manager' || $role == 'admin')
   <li>
       <a href="{{ URL::to('/pages') }}"><i class="fa fa-fw fa-file-text"></i> Content Editor</a>
