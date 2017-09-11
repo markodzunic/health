@@ -248,16 +248,37 @@ var Pages = {
                   $('#updatePage').remove();
               },
               open: function() {
+                $.FroalaEditor.DefineIcon('insert', {NAME: 'plus'});
+                  $.FroalaEditor.RegisterCommand('insert', {
+                    title: 'Insert Accordian',
+                    focus: true,
+                    undo: true,
+                    refreshAfterCallback: true,
+                    callback: function () {
+                      this.html.insert('<div class="acc-inner"><div class="acc-title" style="padding: 15px;color: #fff;background: rgba(0,176,240,1);"> INNER ACCORDIAN TITLE </div><div class="acc-content" style="padding: 15px;border:1px solid">INNER ACCODRIAN CONTENT </div></div>');
+                    }
+                  });
                 $('#description').froalaEditor({
 
+                  
+
+                   fullPage: true,
+                   theme: 'red',
+                   linkList: [
+                     {
+                       text: 'Documents',
+                       href: '/doc/',
+                       target: '_blank'
+                     }
+                   ],
                   // Set the image upload parameter.
-                  // imageUploadParam: 'image_param',
+                  imageUploadParam: 'up',
 
                   // Set the image upload URL.
-                  imageUploadURL: '/upload_images/',
+                  imageUploadURL: '/img/load-files',
 
                   // Additional upload params.
-                  imageUploadParams: {id: 'test'},
+                  imageUploadParams: {id: 'testss'},
 
                   // Set request type.
                   imageUploadMethod: 'POST',
@@ -265,30 +286,17 @@ var Pages = {
                   // Set max image size to 5MB.
                   imageMaxSize: 5 * 1024 * 1024,
 
+
                   // Allow to upload PNG and JPG.
                   imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+                  toolbarButtons: [ 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'paragraphFormat', 'fontSize', 'color', 'formatBlock', 'blockStyle', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'insertHR', 'insertLink', 'insertImage', 'insertTable', 'insert', 'undo', 'redo', 'html', 'insertHorizontalRule', 'uploadFile', 'removeFormat', 'fullscreen', '|', 'selectAll', 'clearFormatting']
 
-                   fullPage: true,
-                   theme: 'red',
-                   linkList: [
-                   {
-                     text: 'asd',
-                     href: 'https://froala.com',
-                     target: '_blank'
-                   },
-                   {
-                     text: 'dsa',
-                     href: 'https://google.com',
-                     target: '_blank'
-                   },
-                   {
-                     text: 'asda',
-                     href: 'https://facebook.com'
-                   }
-                 ]
+
                  })
               }
-            });
+          });
+
+          $('#updatePage').parent().attr('id', 'update-blog');
         }
      });
   }

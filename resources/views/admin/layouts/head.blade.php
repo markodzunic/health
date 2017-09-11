@@ -13,6 +13,7 @@
 
 <link href="{{ URL::asset('/fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 <link href="{{ URL::asset('/css/sb-admin.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('/plugins/owl/owl.theme.default.min.css') }}" rel="stylesheet">
 {{-- <link href="{{ URL::asset('/plugins/morris/morris.css') }}" rel="stylesheet"> --}}
 
 <!-- LOADING FONTS AND ICONS -->

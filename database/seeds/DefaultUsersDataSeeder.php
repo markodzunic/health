@@ -97,6 +97,7 @@ class DefaultUsersDataSeeder extends Seeder
         \App\User::insert([
             [
                 'role_id' => 1,
+                'prev_role_id' => 1,
                 'title' => 'title',
                 'email' => 'admin@admin.com',
                 'avatar' => 'avatar.jpg',

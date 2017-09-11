@@ -1,6 +1,12 @@
 <section class="im-center small-padding ">
   <div class="container">
     <div class="row">
+      <div class="col-md-12 im-center">
+        <h3 class="im-blue">Choose a plan that works best for you.</h3>
+        <br>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-4">
         <div class="pricing-table im-blue">
 

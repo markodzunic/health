@@ -132,6 +132,7 @@ class PracticeAccountController extends Controller {
 
 			$user = User::find($data['id']);
 			$user->is_admin = $data['is_admin'];
+			$user->role_id = $data['is_admin'] == 0 ? $user->prev_role_id : 6;
 			$user->save();
 	}
 

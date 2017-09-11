@@ -733,13 +733,13 @@ a:focus {
      line-height: 40px;
   }
   #main-navigation a.menu-item {  
-    color: #b9b9b9;
+    color: #333;
     cursor: pointer;
   }
   #main-navigation a.menu-btn {  
-    color: #b9b9b9;
+    color: #333;
     line-height: 38px;
-    border: 2px solid #b9b9b9;
+    border: 2px solid #333;
   }
   #main-navigation a.menu-item:hover,
   #main-navigation a.menu-item:focus,
@@ -1420,12 +1420,14 @@ input[type=radio ]:not(old) + label.im-label-sm {
   padding: 0;
 }
 .ui-widget-header {
-  background-color: rgba(0,176,240,1);
-  color:#fff;
+  background-color: #fff;
+  /*color:#fff;*/
   border: 0;
   border-radius: 0;
   padding: 10px 15px;
   margin-bottom: 15px;
+  
+  border: 2px solid #f9f9f9;
 }
 .ui-dialog .ui-dialog-titlebar-close {
   right: 15px;
@@ -1434,7 +1436,7 @@ input[type=radio ]:not(old) + label.im-label-sm {
   margin: -15px 0 0 0;
   background: rgba(0,176,240,1);
   background-image: none;
-  border: 2px solid;
+  border: 2px solid #f9f9f9;
   text-align: center;
 }
 .ui-dialog-titlebar-close:before {
@@ -1489,6 +1491,12 @@ input[type=radio ]:not(old) + label.im-label-sm {
   margin: auto;
   padding: 15px;
   float: none;
+}
+.promo-add .item {
+  display: none;
+}
+.promo-add .item.active {
+  display: block;
 }
 /*BLOG*/
 #blog-grid {

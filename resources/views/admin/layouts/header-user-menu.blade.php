@@ -5,9 +5,9 @@
   <li>
       <a href="{{ URL::to('/messages') }}"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
   </li>
-  <li>
+{{--   <li>
       <a href="javascript:;"><i class="fa fa-fw fa-gear"></i> Settings</a>
-  </li>
+  </li> --}}
 @endif
 <li class="divider"></li>
 <li>
