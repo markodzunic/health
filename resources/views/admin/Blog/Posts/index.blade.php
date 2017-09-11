@@ -14,20 +14,37 @@
   <link rel="stylesheet" href="{{ URL::asset('/plugins/text-editor/css/themes/red.css') }}">
   {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css"> --}}
   <style>
+    .ui-dialog {
+      width: 1240px;
+    }
     .fr-modal,
     .fr-modal-wrapper,
     .fr-popup {
       z-index: 9999999999999 !important;
     }
-    .ui-dialog {
+    #update-blog.ui-dialog {
       max-width: 100% !important;
       top: 120px !important;
       left: 224px !important;
       right: 0 !important;
+      /*bottom: 0 !important;*/
       width: auto !important;
     }
-    .im-expande .ui-dialog {
+    .im-expande #update-blog.ui-dialog  {
       left: 55px !important;
+    }
+    .acc-title {
+      padding: 15px;
+      color: #fff;
+      background: rgba(0,176,240,1);
+    }
+    .acc-content {
+      padding: 15px;
+      border: 1px solid;
+    }
+    #imageUpload-1,
+    #fr-image-upload-layer-1 {
+      display: none !important;
     }
   </style>
 
@@ -41,7 +58,7 @@
     <div class="container-fluid">
 
       <div class="toolbar">
-        <a blogs-id="0" onclick="Blogs.Update(this);return false;" class="btn im-btn pink-btn">Create</a>
+        <a blogs-id="0" onclick="Blogs.Update(this);return false;" class="btn im-btn empty-btn im-border-btn" style="font-size: 15px;">Create</a>
         <input type="hidden" id="orderby" name="orderby" value="{{ $orderby }}">
         <input type="hidden" id="sortby" name="sortby" value="{{ $sortby }}">
       </div>

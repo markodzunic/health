@@ -22,7 +22,7 @@ var Billing = {
         success: function(result) {
           $('body').append(result);
           $('#updateBilling').dialog({
-              width: 1920,
+              width: 800,
               modal: true,
               buttons: {
                 Save: {

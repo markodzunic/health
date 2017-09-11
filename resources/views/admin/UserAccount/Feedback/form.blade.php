@@ -1,10 +1,11 @@
 <section class="small-padding">
-	<div class="container bg-white" style="padding-top: 30px; border: 2px solid #efefef;">
+	<div class="container bg-white" style="padding-top: 30px;">
 		<div class="row">
 			@if(Session::has('alert-success'))
 			    <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alert-success') !!}</em></div>
 			@endif
 		    <div class="col-md-12">
+		    	<h3>Feedback</h3>
 		        <p>We appreciate you taking the time out to let us know how we can improve the iMedical Knowledge Box. Please include your feedback in the box below.</p>
 		    </div>
 		</div>

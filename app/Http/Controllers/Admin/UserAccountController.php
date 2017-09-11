@@ -136,7 +136,16 @@ class UserAccountController extends Controller {
 				}
 			}
 
-			$roles = Role::where('name', '!=', 'admin')->get();
+			$user = Auth::user();
+
+			$status = $user->checkStatus();
+			$role = $user->checkRole();
+			
+			if ($role == 'admin')
+				$roles = Role::where('name', '!=', 'admin')->where('name', '!=', 'newuser')->get();
+			else {
+				$roles = Role::where('name', '!=', 'admin')->where('name', '!=', 'newuser')->where('name', '!=', 'practice_manager')->get();
+			}
 
 			return view("admin.UserAccount.Profile.edit-info-popup",[
 					'roles' => $roles,
@@ -153,7 +162,7 @@ class UserAccountController extends Controller {
 				'date_of_birth' => 'required',
 				'position_type' => 'required',
 				'gender' => 'required',
-				'role_id' => 'required',
+				// 'role_id' => 'required',
 				'phone' => 'required',
 				'occupation' => 'required',
 		  ]);
@@ -177,8 +186,9 @@ class UserAccountController extends Controller {
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];
 			$user->occupation = $data['occupation'];
-			$user->role_id = $data['role_id'];
+			
 			$user->gender = $data['gender'];
+			// $user->approved = 1;
 			$user->med_reg_number = $data['med_reg_number'];
 
 			$user->save();

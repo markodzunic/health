@@ -70,6 +70,7 @@
 	                <option {{ $page && $page->section == 'checklist' ? 'selected="selected"' : '' }} value="checklist">Checklists</option>
 	                <option {{ $page && $page->section == 'templates' ? 'selected="selected"' : '' }} value="templates">Templates (specific to each section)</option>
 	                <option {{ $page && $page->section == 'faq' ? 'selected="selected"' : '' }} value="faq">FAQs</option>
+	                <option {{ $page && $page->section == 'ressources' ? 'selected="selected"' : '' }} value="ressources">Resources</option>
 								@endif
               </select>
 

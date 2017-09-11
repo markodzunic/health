@@ -4,11 +4,11 @@
 		<input type="hidden" id="pg_id" name="pg_id" value="{{ isset($data['pg_id']) ? $data['pg_id'] : '' }}">
 		<ul class="accordion">
 		  <li>
-		    <a id="recommended_practice" class="toggle bg-lblue" href="javascript:void(0);">
+		    <a id="recommended_practice" class="toggle bg-lblue im-active" href="javascript:void(0);">
 		    	<i class="fa fa-trophy" aria-hidden="true"></i>
 				<span>RBP</span>
 			</a>
-		    <div class="inner">
+		    <div class="inner show">
 		     	<div class="container">
 						@if ($recommended_practice)
 							@foreach ($recommended_practice as $rp)
@@ -100,7 +100,7 @@
 		  </li>
 		 </ul>
 
-		  	<div id="welcome-content" class="small-padding">
+		  	{{-- <div id="welcome-content" class="small-padding">
 		  		<div class="container">
 		  			<div class="row">
 		  				<div class="col-md-12" align="center">
@@ -116,6 +116,6 @@
 		  				</div>
 		  			</div>
 		  		</div>
-		  	</div>
+		  	</div> --}}
 	</div>
 </section>

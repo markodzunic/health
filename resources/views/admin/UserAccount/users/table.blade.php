@@ -50,7 +50,7 @@
 				<i class="fa fa-envelope" aria-hidden="true"></i>
 				<div class="im-btn-info">Send Message</div></a>
 
-        @if (isset($user->authorised_user) && !$user->authorised_user)
+        @if (isset($user->approved) && !$user->approved)
           <div onclick="Users.ApproveUser(this);return false;"
             is-admin = "1"
             class="select btn im-btn no-margin-bottom im-btn-small"

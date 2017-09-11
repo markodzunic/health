@@ -25,7 +25,7 @@ class UserController extends Controller {
     protected $messageBag;
 
   	public function __construct(MessageBag $messageBag, Message $messages) {
-          $this->middleware(['admin', 'practiceuser', 'practicemanager', 'newuser'], ['except' => ['updateUser', 'logoutDialog', 'getUserInfo', 'messageUser']]);
+          $this->middleware(['admin', 'practiceuser', 'practicemanager', 'newuser'], ['except' => ['updateUser', 'logoutDialog', 'getUserInfo', 'messageUser', 'approveUser']]);
           $this->messageBag = $messageBag;
           $this->messages = $messages;
     }
@@ -161,11 +161,19 @@ class UserController extends Controller {
       // if ($role == 'admin') {
       //     $roles = Role::all();
       // } else {
-        $roles = Role::where('name', '!=', 'admin')->get();
+      // $status = $user->checkStatus();
+      // $role = $user->checkRole();
+
+      if ($role == 'admin')
+        $roles = Role::where('name', '!=', 'admin')->where('name', '!=', 'newuser')->get();
+      else {
+        $roles = Role::where('name', '!=', 'admin')->where('name', '!=', 'newuser')->where('name', '!=', 'practice_manager')->get();
+      }
       // }
 
       return view("admin.UserAccount.users.update",[
           'user' => $user,
+          'uid' => isset($data['id']) ? $data['id'] : 0,
           'role' => $role,
           'practice_id' => isset($data['practice_id']) ? $data['practice_id'] : 0,
           'roles' => $roles,
@@ -181,7 +189,6 @@ class UserController extends Controller {
 				'date_of_birth' => 'required',
 				'position_type' => 'required',
 				'gender' => 'required',
-				'role_id' => 'required',
 				'phone' => 'required',
 				'occupation' => 'required',
 		  ]);
@@ -193,10 +200,12 @@ class UserController extends Controller {
         $this->validate($request, [
           'email' => 'required|string|email|max:255|unique:users',
           'password' => 'required|string|min:6|confirmed',
+          'role_id' => 'required',
         ]);
 
         $user = new User();
-
+        $user->role_id = $data['role_id'];
+        $user->prev_role_id = $data['role_id'];
         $user->authorised_user = $data['practice_id'];
         $user->email = $data['email'];
         $user->password = bcrypt($data['password']);
@@ -220,10 +229,10 @@ class UserController extends Controller {
 			$user->date_of_birth = $data['date_of_birth'];
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];
-			$user->role_id = $data['role_id'];
       $user->occupation = $data['occupation'];
       $user->is_admin = 0;
       $user->active = 1;
+      $user->approved = isset($data['practice_id']) && $data['practice_id'] ? 1 : 0;
 			$user->gender = $data['gender'];
 			$user->med_reg_number = $data['med_reg_number'];
 

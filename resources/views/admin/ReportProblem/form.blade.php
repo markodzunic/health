@@ -1,6 +1,6 @@
 <section class="big-padding">
 	<div class="container">
-		<div class="form-box" style="padding: 30px;">
+		<div class="form-box" style="padding: 30px; border: 0">
 			@if(Session::has('alert-success'))
 				<div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alert-success') !!}</em></div>
 			@endif

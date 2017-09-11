@@ -22,15 +22,29 @@
     .fr-popup {
       z-index: 9999999999999 !important;
     }
-    .ui-dialog {
+    #update-blog.ui-dialog {
       max-width: 100% !important;
       top: 120px !important;
       left: 224px !important;
       right: 0 !important;
+      /*bottom: 0 !important;*/
       width: auto !important;
     }
-    .im-expande .ui-dialog {
+    .im-expande #update-blog.ui-dialog  {
       left: 55px !important;
+    }
+    .acc-title {
+      padding: 15px;
+      color: #fff;
+      background: rgba(0,176,240,1);
+    }
+    .acc-content {
+      padding: 15px;
+      border: 1px solid;
+    }
+    #imageUpload-1,
+    #fr-image-upload-layer-1 {
+      display: none !important;
     }
   </style>
 @stop
@@ -44,7 +58,7 @@
 	<div class="toolbar">
 		<input type="hidden" id="orderby" name="orderby" value="{{ $orderby }}">
 		<input type="hidden" id="sortby" name="sortby" value="{{ $sortby }}">
-		<a blogs-id="0" onclick="Pages.Update(this);return false;" class="btn im-btn pink-btn" style="font-size: 15px;">Create</a>
+		<a blogs-id="0" onclick="Pages.Update(this);return false;" class="btn im-btn empty-btn im-border-btn" style="font-size: 15px;">Create</a>
 
     <div class="row">
       <div class="col-md-4" style="margin-bottom: 10px;">
@@ -57,6 +71,7 @@
             <option value="checklist">Checklists</option>
             <option value="templates">Templates (specific to each section)</option>
             <option value="faq">FAQs</option>
+            <option value="ressources">Resources</option>
           </select>
 
       </div>
