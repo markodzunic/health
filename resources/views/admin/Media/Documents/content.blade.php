@@ -1,4 +1,5 @@
-@if(Session::has('alert-success'))
+<div class="container-fluid">
+	@if(Session::has('alert-success'))
     <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alert-success') !!}</em></div>
 @endif
 <table id="documents" class="table tablesorter table-striped" >
@@ -47,3 +48,6 @@
 		</div>
 	</div>
 @endif
+
+
+</div>

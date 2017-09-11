@@ -17,17 +17,17 @@
 	.im-expande ul.accordion .inner{
 		 left: 55px;
 	}
-	section.im-odd-bg > .im-toggle-menu-item.im-open {
+	.im-toggle-menu-item.im-open {
 		position: fixed;
-	    left: 55px;
+	    left: 220px;
 	    right: 0;
 	    top: 177px;
 	    z-index: 1;
 	    height: 53px;
 	    overflow: hidden;
 	}
-	.im-fixed section.im-odd-bg > .im-toggle-menu-item.im-open {
-		left: 220px;
+	.im-expande .im-toggle-menu-item.im-open {
+		left: 55px !important;
 	}
 	section.im-odd-bg > .im-toggle-content.im-active {
 		position: fixed;
@@ -58,6 +58,67 @@
 	ul.accordion .inner {
 		background: #fff;
    		z-index: 1;
+	}
+	.im-toggle-content  ol {
+	    display: block;
+	    list-style-type: decimal;
+	    -webkit-margin-before: 1em;
+	    -webkit-margin-after: 1em;
+	    -webkit-margin-start: 0px;
+	    -webkit-margin-end: 0px;
+	    -webkit-padding-start: 40px;
+	}
+	.im-toggle-content  ul {
+	    display: block;
+	    list-style-type: disc;
+	    -webkit-margin-before: 1em;
+	    -webkit-margin-after: 1em;
+	    -webkit-margin-start: 0px;
+	    -webkit-margin-end: 0px;
+	    -webkit-padding-start: 40px;
+	}
+	.im-toggle-content ul li {
+	    display: list-item;
+	    text-align: -webkit-match-parent;
+	    list-style: inherit;
+	}
+	.acc-inner  {		
+		margin-bottom: 20px;
+	}
+	.acc-inner .acc-title {
+		cursor: pointer;
+		font-weight: bold;
+    	font-size: 20px;
+    	position: relative;
+    	line-height: 20px;
+	}
+	.acc-inner .acc-title:before {
+		content: '+';
+	    position: absolute;
+	    right: 15px;
+	    top: 10px;
+	    bottom: 10px;
+	    margin: auto;
+	    color: #fff;
+	    font-size: 30px;
+	    line-height: 1;
+	    color: #000;
+	    font-weight: normal;
+	    color: #fff;
+	}
+	.acc-inner.active .acc-title:before {
+		content: '-';
+	}
+	.acc-inner .acc-content {
+		display: none;
+		border: 0 !important;
+		border-bottom: 2px solid #f9f9f9 !important;
+	}
+	.acc-inner.active .acc-content {
+		display: block;
+	}
+	.im-toggle-menu-item:before {
+		display: none !important;
 	}
 </style>
 @stop
@@ -123,6 +184,11 @@
 	$(document).ready(function () {
 		// $('#wrapper').addClass('im-expande');
 		// resizeAcoridians();
-	})
+	});
+	$(document).ready(function () {
+		$('.acc-inner .acc-title').on('click', function() {
+			$(this).parent().toggleClass('active');
+		})
+	});
 </script>
 @stop

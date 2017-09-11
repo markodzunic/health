@@ -13,7 +13,7 @@ body, #page-wrapper {
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
-					<a onclick="Document.UploadDocument(this); return false;" class="btn im-btn empty-btn im-border-btn">Add New</a>
+					<a onclick="Document.UploadDocument(this); return false;" class="btn im-btn empty-btn im-border-btn" style="font-size: 15px;">Add New</a>
 				</div>
 			</div>
 		</div>

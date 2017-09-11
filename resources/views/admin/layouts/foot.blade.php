@@ -7,6 +7,7 @@
 	<script src="{{ URL::asset('/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 	<script src="{{ URL::asset('/plugins/bootstrap/js/Moment.js') }}"></script>
 	<script src="{{ URL::asset('/plugins/bootstrap/js/bootstrap-datetimepicker.min.js') }}"></script>
+	<script src="{{ URL::asset('/plugins/owl/owl.carousel.min.js') }}"></script>
 	<script src='https://js.stripe.com/v2/' type='text/javascript'></script>
 	<script src="{{ URL::asset('/js/Admin/app.js') }}"></script>
 	<script type="text/javascript">
@@ -47,12 +48,31 @@
 
 	    	$('#im-search-form .navbar-form').css('margin-top', newHeight);
 	    }
+	    function counterNtf () {
+	    	if (!$('#im-ntf-counter .dropdown-menu li').hasClass('im-empty')) {
+	    		var ntf = $("#im-ntf-counter > ul > li.menu-notification").length;
+	    		$('#im-ntf-counter .counter-val').text(ntf);
+	    	} else {
+	    		$('#im-ntf-counter .counter-val').remove();
+	    	}
+	    }
+	    function counterMsg () {
+	    	if (!$('#im-msg-counter .dropdown-menu li').hasClass('im-empty')) {
+	    		var msg = $("#im-msg-counter > ul > li.msg-item").length;
+	    		$('#im-msg-counter .counter-val').text(msg);
+	    	} else {
+	    		$('#im-msg-counter .counter-val').remove();
+	    	}
+	    }
 	    $(document).ready(function() {
 	      headerSearch ();
+	      counterMsg ();
+	      counterNtf();
 	      $('#im-search-toggle, #im-search-form .im-close').on('click', function(e) {
 	      	e.preventDefault();
 	      	$('#im-search-form').toggle('300');
-	      })
+	      	$('body').toggleClass('im-blur');
+	      });
 		});
 		$( window ).resize(function() {
 		  headerSearch ();

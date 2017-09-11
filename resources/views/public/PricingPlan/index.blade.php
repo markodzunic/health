@@ -33,6 +33,7 @@
 
 @section('MainContent')
 @include('public.PricingPlan.content')
+<section style="background: #333; width: 100%; height: 5px;"></section>
 @stop
 
 
