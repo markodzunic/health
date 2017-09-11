@@ -285,8 +285,6 @@ var Pages = {
 
                   // Set max image size to 5MB.
                   imageMaxSize: 5 * 1024 * 1024,
-imageInsertingStrategy: "url",
-imageAllowDragAndDrop: "false",
 
 
                   // Allow to upload PNG and JPG.

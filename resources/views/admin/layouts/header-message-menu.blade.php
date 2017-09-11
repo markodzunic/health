@@ -1,7 +1,7 @@
 @if ($messages)
   @foreach ($messages as $message)
-    <li class="message-preview">
-        <a href="javascript:;">
+    <li class="message-preview msg-item">
+        <a href="{{ URL::to('/messages') }}">
             <div class="media">
                 <span class="pull-left">
                     <img class="media-object" src="{{ asset('/img/'.$message->avatar) }}" alt="">
@@ -17,7 +17,7 @@
     </li>
   @endforeach
 @else
-  <li class="message-preview">
+  <li class="message-preview im-empty">
       <a>
           <div class="media">
               <div class="media-body">
