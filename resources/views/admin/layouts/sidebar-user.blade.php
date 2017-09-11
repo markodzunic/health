@@ -1,5 +1,5 @@
 <span id="profile-image">
-  <img src="{{ asset('/img/'.$user->avatar) }}" alt="" style="max-height: 40px;margin-top: -17px;margin-bottom: -15px;"></span>
+  <img src="{{ asset('/img/'.$user->avatar) }}" alt="" style="width: 40px;margin-top: -17px;margin-bottom: -15px;height:40px;"></span>
 </span>
 
 

@@ -1,7 +1,7 @@
     @if ($notifications)
       @foreach ($notifications as $notification)
       	<li class="menu-notification">
-      		<a href="#" class="im-white">
+      		<a href="{{ URL::to('/notification') }}" class="im-white">
 	       		<div class="im-notification">
 					<div class="notification-title">
 						<strong>{{ $notification->title }}</strong>
@@ -17,7 +17,7 @@
 		</li>
       @endforeach
 	@else
-	  <li class="menu-notification">
+	  <li class="menu-notification im-empty">
 	      <a>
 	          <div class="im-notification-content">
 	                <p style="padding-top: 15px;">No notifications</p>

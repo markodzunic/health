@@ -33,7 +33,7 @@
 
 @section('MainContent')
 	@include('public.Faqs.content')
-	<section class="bg-blue" style="width: 100%; height: 5px;"></section>
+	<section style="background: #333; width: 100%; height: 5px;"></section>
 @stop
 
 

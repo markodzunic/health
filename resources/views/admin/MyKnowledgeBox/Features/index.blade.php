@@ -17,17 +17,17 @@
 	.im-expande ul.accordion .inner{
 		 left: 55px;
 	}
-	section.im-odd-bg > .im-toggle-menu-item.im-open {
+	.im-toggle-menu-item.im-open {
 		position: fixed;
-	    left: 55px;
+	    left: 220px;
 	    right: 0;
 	    top: 177px;
 	    z-index: 1;
 	    height: 53px;
 	    overflow: hidden;
 	}
-	.im-fixed section.im-odd-bg > .im-toggle-menu-item.im-open {
-		left: 220px;
+	.im-expande .im-toggle-menu-item.im-open {
+		left: 55px !important;
 	}
 	section.im-odd-bg > .im-toggle-content.im-active {
 		position: fixed;
@@ -116,6 +116,9 @@
 	}
 	.acc-inner.active .acc-content {
 		display: block;
+	}
+	.im-toggle-menu-item:before {
+		display: none !important;
 	}
 </style>
 @stop

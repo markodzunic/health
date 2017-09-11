@@ -9,8 +9,8 @@
       @if ($role !== 'newuser')
         <li><a href="#" id="im-search-toggle"><i class="fa fa-search"></i></a></li>
       @endif
-        <li class="dropdown">
-            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+        <li class="dropdown" id="im-msg-counter">
+            <a href="javascript:;" class="dropdown-toggle im-counter" data-toggle="dropdown" ><span class="counter-val">0</span><i class="fa fa-envelope"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu message-dropdown im-scroller">
 
                 @include('admin.layouts.header-message-menu')
@@ -21,8 +21,8 @@
             </ul>
         </li>
         @if ($role !== 'newuser')
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+        <li class="dropdown" id="im-ntf-counter">
+            <a href="#" class="dropdown-toggle im-counter" data-toggle="dropdown" ><span class="counter-val">0</span><i class="fa fa-bell"></i> <b class="caret"></b></a>
             <ul class="dropdown-menu alert-dropdown im-scroller" style="min-width: 230px;">
 
                 @include('admin.layouts.header-alert-menu')
@@ -61,7 +61,7 @@
             <span class="icon-bar"></span>
         </button>
         <a href="{{ URL::to('/home') }}" class="navbar-brand">
-            <img src="{{ asset('/img/imdecial-main-logo.png') }}" alt="iMedical" style="max-height:38px;margin-bottom:0">
+            <img src="{{ asset('/img/imdecial-main-logo.png') }}" alt="iMedical" style="height:38px;margin-bottom:0">
         </a>
     </div>
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
@@ -82,7 +82,7 @@
 <div id="im-search-form">
     <form action="/searchPages" class="navbar-form">
         <div class="form-group">
-          <div class="im-close im-blue"><i class="fa fa-times" aria-hidden="true"></i></div>
+          <div class="im-close im-white"><i class="fa fa-times" aria-hidden="true"></i></div>
           <button type="submit" class="im-btn pink-btn no-margin-bottom im-btn-small"><i class="fa fa-search"></i></button>
           <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search">
         </div>
