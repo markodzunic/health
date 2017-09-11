@@ -228,24 +228,19 @@ var Blogs = {
               },
               open: function() {
                  $('#edit').froalaEditor({
-                    fullPage: true,
-                    theme: 'red',
-                    linkList: [
-                    {
-                      text: 'asd',
-                      href: 'https://froala.com',
-                      target: '_blank'
-                    },
-                    {
-                      text: 'dsa',
-                      href: 'https://google.com',
-                      target: '_blank'
-                    },
-                    {
-                      text: 'asda',
-                      href: 'https://facebook.com'
-                    }
-                  ]
+                   fullPage: true,
+                   theme: 'red',
+                   linkList: [
+                     {
+                       text: 'Documents',
+                       href: '/doc/',
+                       target: '_blank'
+                     }
+                   ],
+                   // Allow to upload PNG and JPG.
+                  imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+                  toolbarButtons: [ 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'paragraphFormat', 'fontSize', 'color', 'formatBlock', 'blockStyle', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'insertHR', 'insertLink', 'insertImage', 'insertTable', 'insert', 'undo', 'redo', 'html', 'insertHorizontalRule', 'uploadFile', 'removeFormat', 'fullscreen', '|', 'selectAll', 'clearFormatting']
+
                   })
               }
           });

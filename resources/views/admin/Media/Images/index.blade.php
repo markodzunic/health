@@ -17,6 +17,7 @@ body, #page-wrapper {
 #gallery-grid ul li {
 	margin-right: 15px;
 	margin-bottom: 15px;
+	float: left;
 }
 #gallery-grid  .gallery-item {
 	position: relative;
@@ -97,6 +98,11 @@ body, #page-wrapper {
 	display: table-cell;
 	vertical-align: middle;
 }
+
+#image-preview img {
+	max-width: 100%;
+	max-height: 80vh;
+}
 </style>
 @stop
 
@@ -107,7 +113,7 @@ body, #page-wrapper {
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
-					<a onclick="Media.UploadImage(this); return false;" class="btn im-btn empty-btn im-border-btn">Add New</a>
+					<a onclick="Media.UploadImage(this); return false;" class="btn im-btn empty-btn im-border-btn" style="font-size: 15px;">Add New</a>
 				</div>
 			</div>
 		</div>

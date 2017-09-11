@@ -58,7 +58,7 @@
 	<div class="toolbar">
 		<input type="hidden" id="orderby" name="orderby" value="{{ $orderby }}">
 		<input type="hidden" id="sortby" name="sortby" value="{{ $sortby }}">
-		<a blogs-id="0" onclick="Pages.Update(this);return false;" class="btn im-btn pink-btn" style="font-size: 15px;">Create</a>
+		<a blogs-id="0" onclick="Pages.Update(this);return false;" class="btn im-btn empty-btn im-border-btn" style="font-size: 15px;">Create</a>
 
     <div class="row">
       <div class="col-md-4" style="margin-bottom: 10px;">
@@ -71,6 +71,7 @@
             <option value="checklist">Checklists</option>
             <option value="templates">Templates (specific to each section)</option>
             <option value="faq">FAQs</option>
+            <option value="ressources">Resources</option>
           </select>
 
       </div>
