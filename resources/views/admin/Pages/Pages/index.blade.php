@@ -66,12 +66,16 @@
 
           <select id="section" name="section" class="form-control" required="" autofocus="">
             <option value="0">Section</option>
-            <option value="recommended_practice">Recommended Best Practice (RBP)</option>
-            <option value="diff_practice">How our Practice differs from RBP</option>
-            <option value="checklist">Checklists</option>
-            <option value="templates">Templates (specific to each section)</option>
-            <option value="faq">FAQs</option>
-            <option value="ressources">Resources</option>
+            @if($role == 'admin')
+              <option value="recommended_practice">Recommended Best Practice (RBP)</option>
+            @endif
+              <option value="diff_practice">How our Practice differs from RBP</option>
+            @if($role == 'admin')
+              <option value="checklist">Checklists</option>
+              <option value="templates">Templates (specific to each section)</option>
+              <option value="faq">FAQs</option>
+              <option value="ressources">Resources</option>
+            @endif
           </select>
 
       </div>
@@ -93,7 +97,7 @@
 
 
           <select id="practices" name="practices" class="form-control" required="" autofocus="">
-            <option value="0">Practice</option>
+            <option value="0">Select Practice</option>
             @if ($practices)
               @foreach ($practices as $pg)
                 <option value="{{ $pg->id }}">{{ $pg->name }}</option>
@@ -102,12 +106,12 @@
           </select>
         </div>
     </div>
-        
-
-        
 
 
-        
+
+
+
+
 
     </div>
 
