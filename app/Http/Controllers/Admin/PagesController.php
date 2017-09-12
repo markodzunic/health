@@ -96,6 +96,12 @@ class PagesController extends Controller {
 		$def_pages = DefPage::all();
 		$practices = Practice::all();
 
+		if ($role == 'practice_manager') {
+			// $practices_used_ids = [];
+			$practices = Practice::where('user_id', '=', $user->id)->get();
+			// $practices_used_ids[] = $pr->id;
+		}
+
 		if ($request->ajax()) {
 				return view('admin.Pages.Pages.table', [
 						'sortby' => $this->sortby,

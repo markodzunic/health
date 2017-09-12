@@ -66,6 +66,9 @@ class Page extends Model {
 								"page" as type,
 								pages.created_at as created_at,
 								pages.section as category,
+								def_pages.id as page_id,
+								pages.id as id,
+								pages.section as section,
 								def_pages.name as pg_name,
 								CONCAT(users.first_name, " ", users.last_name) as user_name
 					FROM pages
@@ -83,6 +86,8 @@ class Page extends Model {
 								"page" as type,
 								pages.created_at as created_at,
 								pages.section as category,
+								def_pages.id as page_id,
+								pages.id as id,
 								def_pages.name as pg_name,
 								pages.section as section,
 								CONCAT(users.first_name, " ", users.last_name) as user_name
