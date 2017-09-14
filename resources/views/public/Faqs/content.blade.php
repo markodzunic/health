@@ -25,7 +25,8 @@
 					<div class="im-toggle-content">
 					<p>Authorised Practice staff must access iMedical using a commercial browser (we recommend Chrome) by logging in using their unique credentials. This browser should be left open (minimised as and when required) throughout the working day and iMedical used as required. The Search function within the GP Knowledge Box will make navigation quick and easy. </p>
 					</div>
-				</div>
+				</div>				
+				
 
 				<div class="im-toggle-container">
 					<a href="#" class="h5 im-toggle-menu-item">Can I suggest improvements? </a>
@@ -45,14 +46,13 @@
 					</div>
 				</div>
 
-
 				<div class="im-toggle-container">
-					<a href="#" class="h5 im-toggle-menu-item">What if I need more professional help in my Practice? </a>
-
+					<a href="#" class="h5 im-toggle-menu-item">How quickly will I get access after signing up?</a>
 					<div class="im-toggle-content">
-					<p>We are extremely confident that iMedical will allow your Practice team to improve your Practice in a structured and simple way. Sign up and Get Started today! However, if you decide that you want or need a further helping hand then we can help with that too. Our Healthcare Management Consultancy Team at POSITIVEHEALTH will be delighted to help! Click here for more details. </p>
+						<p>Once you have registered and chosen a plan then you will receive an email confirming that your application has been received. Once we have had an opportunity to review and approve your application, you will receive a subsequent email requesting you to complete your application which will include making payment. Once payment has been received, you will have access to and can start enjoying use of iMedical for the subscription period. </p>
 					</div>
 				</div>
+
 
 				<div class="im-toggle-container">
 					<a href="#" class="h5 im-toggle-menu-item">How long is the contract with iMedical? </a>
@@ -69,6 +69,15 @@
 					</div>
 				</div>
 
+
+				<div class="im-toggle-container">
+					<a href="#" class="h5 im-toggle-menu-item">What if I need more professional help in my Practice? </a>
+
+					<div class="im-toggle-content">
+					<p>We are extremely confident that iMedical will allow your Practice team to improve your Practice in a structured and simple way. Sign up and Get Started today! However, if you decide that you want or need a further helping hand then we can help with that too. Our Healthcare Management Consultancy Team at POSITIVEHEALTH will be delighted to help! Click here for more details. </p>
+					</div>
+				</div>
+
 				<div class="im-toggle-container">
 					<a href="#" class="h5 im-toggle-menu-item">What if I have more questions?</a>
 					<div class="im-toggle-content">
@@ -77,12 +86,7 @@
 				</div>
 
 
-				<div class="im-toggle-container">
-					<a href="#" class="h5 im-toggle-menu-item">How quickly will I get access after signing up?</a>
-					<div class="im-toggle-content">
-						<p>Once you have registered and chosen a plan then you will receive an email confirming that your application has been received. Once we have had an opportunity to review and approve your application, you will receive a subsequent email requesting you to complete your application which will include making payment. Once payment has been received, you will have access to and can start enjoying use of iMedical for the subscription period. </p>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>
