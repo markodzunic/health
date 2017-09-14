@@ -2,17 +2,17 @@
 	<div class="row">
 		<div class="col-md-9">
 			<section class="box-grid">
-				<div class="container">
+				<div class="">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="col-md-6" style="padding: 0;">
-								<div class="bg-grey grid-col-content im-left no-split" id="Date">
+								<div class="bg-grey grid-col-content im-left no-split center-sm" id="Date">
 									<span class="h3 no-margin-bottom">26th July 2017</span><br />
 									<span class="h5 no-margin-bottom">Sunday</span>
 								</div>
 							</div>
 							<div class="col-md-6" style="padding: 0;">
-								<div class="bg-grey grid-col-content im-right no-split"  id="weather">
+								<div class="bg-grey grid-col-content im-right no-split center-sm"  id="weather">
 								</div>
 							</div>
 						</div>
