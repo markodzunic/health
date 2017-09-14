@@ -56,7 +56,7 @@
 
 
 		$.simpleWeather({
-			location: 'Dublin, IR',
+			location: 'County Roscommon, IR',
 			unit: 'c',
 			success: function(weather) {
 				html = '<span class="h3 no-margin-bottom">'+weather.temp+'&deg; '+weather.units.temp+'</span><br />';

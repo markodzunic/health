@@ -771,6 +771,9 @@ a:focus {
   }
 }
 @media screen and (max-width: 991px) {
+  #main-navigation {
+    background: #fff;
+  }
   #main-navigation .container {
     width: 100%;
   }
