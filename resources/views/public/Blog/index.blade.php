@@ -2,7 +2,7 @@
 @section('AditionalHead')
 <style>
 	.title-section {
-		background-color: rgba(0,32,96,1);
+		background-color: rgba(255,102,255,1);
 	}
 	@media screen and (min-width: 992px) {
 		#main-navigation a.menu-item {
@@ -18,6 +18,16 @@
 		.im-fixed #main-navigation a.menu-btn {
 		    color: #333;
 		    border: 2px solid #333;
+		}
+		#home:not(.im-fixed) #main-navigation a.menu-item:hover,
+		#home:not(.im-fixed) #main-navigation a.menu-item:focus,
+		#home:not(.im-fixed) #main-navigation a.menu-item.im-active {
+		    color: #fff;
+		}
+		#home:not(.im-fixed) #main-navigation a.menu-item.im-active:before,
+		#home:not(.im-fixed) #main-navigation a.menu-item:hover:before {
+		    display: block;
+		    background: #fff;
 		}
 	}
 </style>

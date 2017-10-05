@@ -20,6 +20,11 @@
   
   <section>
     <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <p>PRACTICES</p>
+        </div>
+      </div>
       <div id="table-section" class="table-section">
         {!! view('admin.PracticeAccount.practices.table', [
             'practices' => $practices,

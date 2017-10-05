@@ -1,5 +1,5 @@
 <section class="title-section">
-	<div class="parallax-window bg-pink"
+	<div class="parallax-window bg-blue"
 		 data-parallax="scroll"
 		 {{-- data-image-src="{{ URL::asset('/img/600073876.jpg') }}" --}}
 		 data-image-src=""

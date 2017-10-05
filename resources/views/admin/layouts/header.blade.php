@@ -82,9 +82,11 @@
 <div id="im-search-form">
     <form action="/searchPages" class="navbar-form">
         <div class="form-group">
+            <h2 class="im-white">Search site</h2>
           <div class="im-close im-white"><i class="fa fa-times" aria-hidden="true"></i></div>
+
           <button type="submit" class="im-btn pink-btn no-margin-bottom im-btn-small"><i class="fa fa-search"></i></button>
-          <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Search">
+          <input type="text" name="keywords" id="keywords" class="form-control" placeholder="Enter keywords and press enter/tap go">
         </div>
     </form>
 </div>
