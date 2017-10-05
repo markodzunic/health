@@ -25,6 +25,7 @@
 	    z-index: 1;
 	    height: 53px;
 	    overflow: hidden;
+	    line-height: 24px;
 	}
 	.im-expande .im-toggle-menu-item.im-open {
 		left: 55px !important;
@@ -48,7 +49,7 @@
 	    left: 0;
 	    width: 35px;
 	    height: 35px;
-	    float: right;
+	    float: left;
 	    text-align: center;
 	    line-height: 1;
 	    padding: 0;
@@ -118,14 +119,15 @@
 		display: block;
 	}
 	.im-toggle-menu-item:before {
-		display: none !important;
+		/*display: none !important;*/
+		font-size: 20px;
+    right: 5px;
+    top: 11px;
 	}
 	ul.accordion {
-	    display: inline-block;
 	        background: #efefef;
 	}
 	ul.accordion > li {
-		width: auto;
 		border: 0px solid transparent;
 	}
 	ul.accordion > li > a.toggle:before {
@@ -213,10 +215,15 @@
 		// $('#wrapper').addClass('im-expande');
 		// resizeAcoridians();
 	});
-	$(document).ready(function () {
+	$(document).ready(function () {		
 		$('.acc-inner .acc-title').on('click', function() {
 			$(this).parent().toggleClass('active');
-		})
+		});
+		$('.accordion a.toggle ').on('click', function() {
+			$('.im-toggle-menu-item').removeClass('im-open').removeClass('bg-lblue');
+			$('.im-toggle-content').removeClass('im-active');
+			$('.im-toggle-content').hide();
+		});
 	});
 </script>
 @stop

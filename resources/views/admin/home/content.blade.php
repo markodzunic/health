@@ -101,7 +101,7 @@
 				@if ($role !== 'newuser')
 				<div class="row">
 					<div class="col-md-12">
-						<div class="bg-grey grid-col-content no-split im-left im-scroller" style="height: 35vh; overflow-y: scroll;">
+						<div class="bg-grey grid-col-content no-split im-left im-scroller" style="height: 262px; overflow-y: scroll;">
 							<strong>News & Announcements</strong>
 							<div style="height: 20px;"></div>
 							@if ($notifications)
@@ -126,7 +126,7 @@
 
 				<div class="row">
 					<div class="col-md-12">
-						<div class="bg-grey grid-col-content no-split im-left im-scroller" style="height: 35vh; overflow-y: scroll;">
+						<div class="bg-grey grid-col-content no-split im-left im-scroller" style="height: 262px; overflow-y: scroll;">
 							<strong>From the Newsdesk</strong>
 							<div style="height: 20px;"></div>
 							{{-- @if ($notifications)
