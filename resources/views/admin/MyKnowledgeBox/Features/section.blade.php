@@ -1,6 +1,6 @@
 <section class="im-odd-bg " title="Emergency Planning" align="justify">
 
-	<a id="{{ $rp->id }}" href="#" class="h4 im-toggle-menu-item">{{ $rp->title }}</a>
+	<a id="{{ $rp->id }}" href="#" class="im-toggle-menu-item">{{ $rp->title }}</a>
 	<div class="im-toggle-content">
 
 		<div class="container">

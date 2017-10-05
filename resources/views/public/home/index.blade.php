@@ -2,6 +2,14 @@
 @section('AditionalHead')
 	<!-- PRELOADER -->
 	<link href="{{ URL::asset('/plugins/preloader/preloader.css') }}" rel="stylesheet">
+	<style>
+		body {
+			background: rgba(0,176,240,1);
+		}
+		#page-2 {
+			opacity: 0;
+		}
+	</style>
 @stop
 
 @section('StartPreloader')

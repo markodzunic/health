@@ -13,6 +13,8 @@ function init() {
         // update..
         currentPage = currentPage ? 0 : 1;
         classie.addClass( pages[ currentPage ], 'show' );
+        $('#page-2').css('opacity', '1');
+        $('body').css('background', 'white');
         setTimeout( function() {
         	$('#loader').remove();
     	}, 1000);

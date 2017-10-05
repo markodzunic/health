@@ -120,6 +120,34 @@
 	.im-toggle-menu-item:before {
 		display: none !important;
 	}
+	ul.accordion {
+	    display: inline-block;
+	        background: #efefef;
+	}
+	ul.accordion > li {
+		width: auto;
+		border: 0px solid transparent;
+	}
+	ul.accordion > li > a.toggle:before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+    	z-index: 1;
+
+		background: transparent;
+	}
+	ul.accordion > li > a.toggle,
+	ul.accordion > li > a.toggle.im-active {
+		color: #00b0f0 !important;
+    	background-color: transparent !important;
+	}
+	ul.accordion > li > a.toggle.im-active:before {
+		background: #00b0f0;
+
+	}
 </style>
 @stop
 

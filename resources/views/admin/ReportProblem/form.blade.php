@@ -1,4 +1,4 @@
-<section class="big-padding">
+<section class="">
 	<div class="container">
 		<div class="form-box" style="padding: 30px; border: 0">
 			@if(Session::has('alert-success'))

@@ -52,6 +52,24 @@
 							</a>
 						</div>
 					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<a href="#" class="im-blue">
+								<div class="bg-grey grid-col-content">
+									<strong>Placeholder</strong>
+								</div>
+							</a>
+						</div>
+
+						<div class="col-md-6">
+							<a href="#" class="im-lblue">
+								<div class="bg-grey grid-col-content">
+									<strong>Placeholder</strong>
+								</div>
+							</a>
+						</div>
+					</div>
 					@endif
 
 					@if ($role == 'newuser')
@@ -83,7 +101,7 @@
 				@if ($role !== 'newuser')
 				<div class="row">
 					<div class="col-md-12">
-						<div class="bg-grey grid-col-content no-split im-left im-scroller" style="height: 50vh; overflow-y: scroll;">
+						<div class="bg-grey grid-col-content no-split im-left im-scroller" style="height: 35vh; overflow-y: scroll;">
 							<strong>News & Announcements</strong>
 							<div style="height: 20px;"></div>
 							@if ($notifications)
@@ -102,6 +120,31 @@
 									</div>
 								@endforeach
 							@endif
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="bg-grey grid-col-content no-split im-left im-scroller" style="height: 35vh; overflow-y: scroll;">
+							<strong>From the Newsdesk</strong>
+							<div style="height: 20px;"></div>
+							{{-- @if ($notifications)
+								@foreach ($notifications as $notification)
+									<div class="im-notification im-new">
+											<div class="notification-title bg-lblue">
+												<a href="{{ URL::to('/notification') }}" class="im-white">{{ $notification->title }}</a>
+											</div>
+											<div class="im-notification-content">
+												<div class="im-lblue">
+													<strong>{{ $notification->type == 'blog' ? $notification->category : $notification->pg_name. ' - '.$notification->category }}</strong>
+												</div>
+												<div class="not-autor"><i class="fa fa-user"></i> <span>{{ $notification->user_name }}</span></div>
+												<div class="not-date"><i class="fa fa-clock-o"></i> <span>{{ $notification->created_at }}</span></div>
+											</div>
+									</div>
+								@endforeach
+							@endif --}}
 						</div>
 					</div>
 				</div>
