@@ -7,7 +7,7 @@
             <div class="vertical-center">
                 <div class="image-wrapper im-center">
                     <a href="{{ URL::to('/home') }}">
-                        <img src="{{ asset('/img/imdeical-logo-icon.png') }}" alt="iMedical">
+                        <img src="{{ asset('/img/imdeical-logo-icon-210.png') }}" alt="iMedical">
                     </a>
                 </div>
             </div>

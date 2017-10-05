@@ -16,18 +16,21 @@
 	#intro-text span {
 		font-size: 130px;
 		line-height: 130px;
+		letter-spacing: -2px;
 	}
 }
 @media screen and (max-width: 776px) {
 	#intro-text span {
 		font-size: 100px;
 		line-height: 100px;
+		letter-spacing: -3px;
 	}
 }
 @media screen and (max-width: 480px) {
 	#intro-text span {
 		font-size: 50px;
 		line-height: 50px;
+		letter-spacing: -4px;
 	}
 }
 </style>

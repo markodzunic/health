@@ -1,3 +1,8 @@
+<div class="row">
+	<div class="col-md-12">
+		<p>USERS</p>
+	</div>
+</div>
 @if(Session::has('alert-success'))
     <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('alert-success') !!}</em></div>
 @endif
