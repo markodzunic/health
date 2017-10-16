@@ -46,6 +46,14 @@ class Page extends Model {
 					$where .= 'practice_pages.practices_id = "'.$data['practice'].'" AND ';
 				}
 
+				if (isset($data['user_id']) && $data['user_id']) {
+					$where .= 'pages.user_id = "'.$data['user_id'].'" AND ';
+				}
+
+				if (isset($data['section']) && $data['section']) {
+					$where .= 'pages.section = "'.$data['section'].'" AND ';
+				}
+
 				$where .= '1';
 			}
 
