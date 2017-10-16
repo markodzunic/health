@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
+use Session;
 use App\User;
 use App\Models\Practice;
 use App\Models\Subscription;
@@ -166,11 +167,12 @@ class AddSubscriptionController extends Controller {
 	public function payment(Request $request) {
 		$data = $request->all();
 
-		\Stripe\Stripe::setApiKey ( 'sk_test_yourSecretkey' );
+		\Stripe\Stripe::setApiKey ( 'sk_test_JYM3PD8m43wyDYS1tOsMwB7C' );
 			try {
 				\Stripe\Charge::create ( array (
 						"amount" => 300 * 100,
 						"currency" => "usd",
+						"customer" => Auth::user()->email,
 						"source" => $request->input ( 'stripeToken' ), // obtained with Stripe.js
 						"description" => "Test payment."
 				) );
@@ -180,15 +182,14 @@ class AddSubscriptionController extends Controller {
 
 				$transaction->user_id = Auth::user()->id;
 				$transaction->practices_id = $data['practices_id'];
-				$transaction->subscription_id = $data['subscription_id'];
+				$transaction->subscriptions_id = $data['subscription_id'];
 				$transaction->amount = $data['amount'];
 
 				$transaction->save();
-
-				return Redirect::back ();
+				return redirect('/practice_account');
 			} catch ( \Exception $e ) {
 				Session::flash ( 'fail-message', "Error! Please Try again." );
-				return Redirect::back ();
+				return redirect('/practice_account');
 			}
 	}
 
