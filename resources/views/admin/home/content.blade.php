@@ -82,13 +82,7 @@
 							</div>
 						</div>
 					</div>
-					@endif
-
-					<div class="row">
-						<div class="col-md-12">
-							@include('admin.layouts.promo')
-						</div>
-					</div>
+					@endif			
 
 					
 				</div>
@@ -96,7 +90,7 @@
 
 		</div>
 		<div class="col-md-3">
-			<section class="box-grid">
+			<section class="box-grid side-grid">
 
 				@if ($role !== 'newuser')
 				<div class="row">
@@ -153,4 +147,4 @@
 
 		</div>
 	</div>
-</div>
+</div>b

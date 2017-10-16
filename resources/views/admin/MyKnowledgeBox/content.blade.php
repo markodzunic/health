@@ -36,10 +36,6 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-md-12">
-				@include('admin.layouts.promo')
-			</div>
-		</div>
+		
 	</div>
 </section>
