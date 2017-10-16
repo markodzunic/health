@@ -45,6 +45,7 @@ class Blog extends Model {
 								CONCAT(users.first_name, " ", users.last_name) as user_name
 					FROM blogs
 					JOIN users ON blogs.user_id = users.id
+					WHERE blogs.created_at > NOW() - INTERVAL 1 DAY
 					ORDER BY blogs.created_at DESC LIMIT '.$limit;
 
 			return DB::select(DB::Raw($sql), [
