@@ -37,6 +37,9 @@
 	    text-align: center;
 	    line-height: 18px;
 	}
+	#table-section {
+	    overflow-x: visible;
+	}
 </style>
 @stop
 

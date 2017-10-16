@@ -130,6 +130,12 @@
 	ul.accordion > li {
 		border: 0px solid transparent;
 	}
+	ul.accordion > li > a {
+		text-align: center;
+	}
+	ul.accordion > li > a.toggle > span {
+		float: none !important;
+	}
 	ul.accordion > li > a.toggle:before {
 		content: '';
 		position: absolute;
@@ -143,11 +149,11 @@
 	}
 	ul.accordion > li > a.toggle,
 	ul.accordion > li > a.toggle.im-active {
-		color: #00b0f0 !important;
+		color: #002060 !important;
     	background-color: transparent !important;
 	}
 	ul.accordion > li > a.toggle.im-active:before {
-		background: #00b0f0;
+		background: #002060;
 
 	}
 </style>

@@ -14,7 +14,11 @@
 @include('admin.MyKnowledgeBox.title')
 @include('admin.MyKnowledgeBox.content')
 {{-- @include('admin.MyKnowledgeBox.site-map-popup') --}}
-
+<div class="row">
+	<div class="col-md-12">
+		@include('admin.layouts.promo')
+	</div>
+</div>
 @stop
 
 

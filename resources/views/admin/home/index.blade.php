@@ -13,6 +13,11 @@
 @section('MainContent')
 @include('admin.home.title')
 @include('admin.home.content')
+<div class="row">
+	<div class="col-md-12">
+		@include('admin.layouts.promo')
+	</div>
+</div>
 
 @stop
 	
