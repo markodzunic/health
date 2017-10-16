@@ -1109,6 +1109,7 @@ a:focus {
   float: left;
   margin-bottom: 0;
   position: relative;
+  text-align: left;
 }
 .im-toggle-menu-item:before,
 .im-toggle-menu-item.im-open:before,
@@ -1392,7 +1393,7 @@ input[type=radio ]:not(old) + label.im-label-sm {
   border-bottom: 2px solid #ff66ff;
 }
 .line-form input {
-  color: #00b0f0;
+  color: #002060;
 }
 .search {
   width: 100%;
@@ -1437,9 +1438,9 @@ input[type=radio ]:not(old) + label.im-label-sm {
   width: 30px;
   height: 30px;
   margin: -15px 0 0 0;
-  background: rgba(0,176,240,1);
+  background: #fff;
   background-image: none;
-  border: 2px solid #f9f9f9;
+  border: 2px solid #333;
   text-align: center;
 }
 .ui-dialog-titlebar-close:before {
@@ -1448,7 +1449,7 @@ input[type=radio ]:not(old) + label.im-label-sm {
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
-  color: #fff;
+  color: #333;
   font-size: 18px;
   padding-right: 0px;
   position: absolute;

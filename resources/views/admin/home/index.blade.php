@@ -2,7 +2,7 @@
 @section('AditionalHead')
 <style type="text/css">
 	body, #page-wrapper {
-		background-color: #f9f9f9;
+		background-color: #efefef;
 	}
 	.bg-grey {
 		background: #fff;

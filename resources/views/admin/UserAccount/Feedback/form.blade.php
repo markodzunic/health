@@ -1,4 +1,4 @@
-<section class="small-padding">
+<section class="">
 	<div class="container bg-white" style="padding-top: 30px;">
 		<div class="row">
 			@if(Session::has('alert-success'))

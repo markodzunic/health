@@ -43,8 +43,8 @@
 		});
 		function headerSearch () {
 	    	var heightSection = $(window).height();
-	    	var heightContainer = $('#im-search-form .navbar-form').height();
-	    	var newHeight = (heightSection - heightContainer)/2;
+	    	var heightContainer = $('#im-search-form .navbar-form').outerHeight();
+	    	var newHeight = (heightSection - heightContainer - 250)/2;
 
 	    	$('#im-search-form .navbar-form').css('margin-top', newHeight);
 	    }
