@@ -1,10 +1,10 @@
-<section class="small-padding no-padding-top" align="center">
+<section class="small-padding" align="center">
       <div class="container">
         <div class="row" style="margin: 0;">
             <div class="col-1-5">
                 <a href="{{ URL::to('/home') }}">
                     <div class="site-map-btn2">
-                        <div class="site-map-btn2-left im-blue"><i class="fa fa-home"></i></div>
+                        <div class="site-map-btn2-left im-grey"><i class="fa fa-home"></i></div>
                         <div class="site-map-btn2-right">
                             <strong class="white-text">HOME PAGE</strong>
                         </div>  
@@ -14,7 +14,7 @@
             <div class="col-1-5">
                 <a href="{{ URL::to('/dashboard') }}">
                     <div class="site-map-btn2">
-                        <div class="site-map-btn2-left im-blue"><i class="fa fa-dashboard"></i></div>
+                        <div class="site-map-btn2-left im-grey"><i class="fa fa-dashboard"></i></div>
                         <div class="site-map-btn2-right">
                             <strong class="white-text">DASHBOARD</strong>
                         </div>  
@@ -25,9 +25,9 @@
 		<div class="row" style="margin: 0;">
 
 			<div class="col-1-5">
-				<a href="#">
+				<a href="{{ URL::to('/user_account') }}">
                     <div class="site-map-btn2">
-                        <div class="site-map-btn2-left im-blue">1.0</div>
+                        <div class="site-map-btn2-left im-grey">1.0</div>
                         <div class="site-map-btn2-right">
                             <strong class="white-text">ACCOUNT</strong>
                             <span>User/Practice</span>
@@ -36,41 +36,41 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="{{ URL::to('/user_account') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">1.1</div>
+                                <div class="site-map-btn2-left im-grey">1.1</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">USER ACCOUNT</strong>
+                                    <strong class="im-grey">USER ACCOUNT</strong>
                                 </div>  
                             </div>            
                         </a>
                         <ul>
                             <li>
-                                <a href="#">
+                                <a href="{{ URL::to('/user_account') }}">
                                     <div class="site-map-btn2">
-                                        <div class="site-map-btn2-left im-blue">1.1.1</div>
+                                        <div class="site-map-btn2-left im-grey">1.1.1</div>
                                         <div class="site-map-btn2-right">
-                                            <strong class="im-blue">Profile</strong>
+                                            <strong class="im-grey">Profile</strong>
                                         </div>  
                                     </div>            
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{ URL::to('/feedback') }}">
                                     <div class="site-map-btn2">
-                                        <div class="site-map-btn2-left im-blue">1.1.2</div>
+                                        <div class="site-map-btn2-left im-grey">1.1.2</div>
                                         <div class="site-map-btn2-right">
-                                            <strong class="im-blue">Feedback</strong>
+                                            <strong class="im-grey">Feedback</strong>
                                         </div>  
                                     </div>            
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{ URL::to('/users') }}">
                                     <div class="site-map-btn2">
-                                        <div class="site-map-btn2-left im-blue">1.1.3</div>
+                                        <div class="site-map-btn2-left im-grey">1.1.3</div>
                                         <div class="site-map-btn2-right">
-                                            <strong class="im-blue">Users</strong>
+                                            <strong class="im-grey">Users</strong>
                                         </div>  
                                     </div>            
                                 </a>
@@ -78,41 +78,41 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ URL::to('/practice_account') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">1.2</div>
+                                <div class="site-map-btn2-left im-grey">1.2</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">PRACTICE ACCOUNT</strong>
+                                    <strong class="im-grey">PRACTICE ACCOUNT</strong>
                                 </div>  
                             </div>            
                         </a>
                          <ul>
                             <li>
-                                <a href="#">
+                                <a href="{{ URL::to('/practice_account') }}">
                                     <div class="site-map-btn2">
-                                        <div class="site-map-btn2-left im-blue">1.2.1</div>
+                                        <div class="site-map-btn2-left im-grey">1.2.1</div>
                                         <div class="site-map-btn2-right">
-                                            <strong class="im-blue">Practice Profile</strong>
+                                            <strong class="im-grey">Practice Profile</strong>
                                         </div>  
                                     </div>            
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{ URL::to('/billing') }}">
                                     <div class="site-map-btn2">
-                                        <div class="site-map-btn2-left im-blue">1.2.2</div>
+                                        <div class="site-map-btn2-left im-grey">1.2.2</div>
                                         <div class="site-map-btn2-right">
-                                            <strong class="im-blue">Billing & Payment</strong>
+                                            <strong class="im-grey">Billing & Payment</strong>
                                         </div>  
                                     </div>            
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{ URL::to('/practices') }}">
                                     <div class="site-map-btn2">
-                                        <div class="site-map-btn2-left im-blue">1.2.3</div>
+                                        <div class="site-map-btn2-left im-grey">1.2.3</div>
                                         <div class="site-map-btn2-right">
-                                            <strong class="im-blue">Practices</strong>
+                                            <strong class="im-grey">Practices</strong>
                                         </div>  
                                     </div>            
                                 </a>
@@ -123,9 +123,9 @@
 			</div>
 
             <div class="col-1-5">
-                <a href="#">
+                <a href="{{ URL::to('/my_knowledge_box') }}">
                     <div class="site-map-btn2">
-                        <div class="site-map-btn2-left im-blue">2.0</div>
+                        <div class="site-map-btn2-left im-grey">2.0</div>
                         <div class="site-map-btn2-right">
                             <strong class="white-text">MY KNOWLADGE BOX</strong>
                         </div>  
@@ -134,101 +134,101 @@
 
                 <ul>
                     <li>
-                        <a href="http://imedical.local/my_knowledge_box_features?page_id=1">
+                        <a href="{{ URL::to('/my_knowledge_box_features?page_id=1') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">2.1</div>
+                                <div class="site-map-btn2-left im-grey">2.1</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">Clinical  Management</strong>
+                                    <strong class="im-grey">Clinical  Management</strong>
                                 </div>  
                             </div>            
                         </a>
                     </li>
                     <li>
-                        <a href="http://imedical.local/my_knowledge_box_features?page_id=2">
+                        <a href="{{ URL::to('/my_knowledge_box_features?page_id=2') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">2.2</div>
+                                <div class="site-map-btn2-left im-grey">2.2</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">Infection Prevention & Control</strong>
+                                    <strong class="im-grey">Infection Prevention & Control</strong>
                                 </div>  
                             </div>            
                         </a>
                     </li>
                     <li>
-                        <a href="http://imedical.local/my_knowledge_box_features?page_id=3">
+                        <a href="{{ URL::to('/my_knowledge_box_features?page_id=3') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">2.3</div>
+                                <div class="site-map-btn2-left im-grey">2.3</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">Practice  Operations</strong>
+                                    <strong class="im-grey">Practice  Operations</strong>
                                 </div>  
                             </div>            
                         </a>
                     </li>
                     <li>
-                        <a href="http://imedical.local/my_knowledge_box_features?page_id=4">
+                        <a href="{{ URL::to('/my_knowledge_box_features?page_id=4') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">2.4</div>
+                                <div class="site-map-btn2-left im-grey">2.4</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">Patient Management</strong>
+                                    <strong class="im-grey">Patient Management</strong>
                                 </div>  
                             </div>            
                         </a>
                     </li>
                     <li>
-                        <a href="http://imedical.local/my_knowledge_box_features?page_id=5">
+                        <a href="{{ URL::to('/my_knowledge_box_features?page_id=5') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">2.5</div>
+                                <div class="site-map-btn2-left im-grey">2.5</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">Privacy & Data Protection </strong>
+                                    <strong class="im-grey">Privacy & Data Protection </strong>
                                 </div>  
                             </div>            
                         </a>
                     </li>
                     <li>
-                        <a href="http://imedical.local/my_knowledge_box_features?page_id=6">
+                        <a href="{{ URL::to('/my_knowledge_box_features?page_id=6') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">2.6</div>
+                                <div class="site-map-btn2-left im-grey">2.6</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">Human Resources</strong>
+                                    <strong class="im-grey">Human Resources</strong>
                                 </div>  
                             </div>            
                         </a>
                     </li>
                     <li>
-                        <a href="http://imedical.local/my_knowledge_box_features?page_id=7">
+                        <a href="{{ URL::to('/my_knowledge_box_features?page_id=7') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">2.7</div>
+                                <div class="site-map-btn2-left im-grey">2.7</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">Finances</strong>
+                                    <strong class="im-grey">Finances</strong>
                                 </div>  
                             </div>            
                         </a>
                     </li>
                     <li>
-                        <a href="http://imedical.local/my_knowledge_box_features?page_id=8">
+                        <a href="{{ URL::to('/my_knowledge_box_features?page_id=8') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">2.8</div>
+                                <div class="site-map-btn2-left im-grey">2.8</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">Health & Safety </strong>
+                                    <strong class="im-grey">Health & Safety </strong>
                                 </div>  
                             </div>            
                         </a>
                     </li>
                     <li>
-                        <a href="http://imedical.local/my_knowledge_box_features?page_id=9">
+                        <a href="{{ URL::to('/my_knowledge_box_features?page_id=9') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">2.9</div>
+                                <div class="site-map-btn2-left im-grey">2.9</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">Emergency & Disaster Recovery</strong>
+                                    <strong class="im-grey">Emergency & Disaster Recovery</strong>
                                 </div>  
                             </div>            
                         </a>
                     </li>
                     <li>
-                        <a href="http://imedical.local/documentation">
+                        <a href="{{ URL::to('/documentation') }}">
                             <div class="site-map-btn2 locked">
-                                <div class="site-map-btn2-left im-blue">2.10</div>
+                                <div class="site-map-btn2-left im-grey">2.10</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">Documentation</strong>
+                                    <strong class="im-grey">Documentation</strong>
                                 </div>  
                             </div>            
                         </a>
@@ -237,9 +237,9 @@
             </div>
 
             <div class="col-1-5">
-                <a href="#">
+                <a href="{{ URL::to('/add_subscription') }}">
                     <div class="site-map-btn2">
-                        <div class="site-map-btn2-left im-blue">3.0</div>
+                        <div class="site-map-btn2-left im-grey">3.0</div>
                         <div class="site-map-btn2-right">
                             <strong class="white-text">SUBSCRIPTION</strong>
                             <span>Choose Plan</span>
@@ -248,33 +248,33 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="{{ URL::to('/plan_basic') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">3.1</div>
+                                <div class="site-map-btn2-left im-grey">3.1</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">BASIC</strong>
+                                    <strong class="im-grey">BASIC</strong>
                                     <span>Plan</span>
                                 </div>  
                             </div>            
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ URL::to('/plan_business') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">3.2</div>
+                                <div class="site-map-btn2-left im-grey">3.2</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">BUSINESS</strong>
+                                    <strong class="im-grey">BUSINESS</strong>
                                     <span>Plan</span>
                                 </div>  
                             </div>            
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ URL::to('/plan_professional') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">3.3</div>
+                                <div class="site-map-btn2-left im-grey">3.3</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">PREMIUM</strong>
+                                    <strong class="im-grey">PREMIUM</strong>
                                     <span>Plan</span>
                                 </div>  
                             </div>            
@@ -284,9 +284,9 @@
             </div>
 
             <div class="col-1-5">
-                <a href="#">
+                <a href="{{ URL::to('/plan_professional') }}">
                     <div class="site-map-btn2">
-                        <div class="site-map-btn2-left im-blue">4.0</div>
+                        <div class="site-map-btn2-left im-grey">4.0</div>
                         <div class="site-map-btn2-right">
                             <strong class="white-text">MANAGE CONTENT</strong>
                         </div>  
@@ -294,31 +294,31 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="{{ URL::to('/images') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">4.1</div>
+                                <div class="site-map-btn2-left im-grey">4.1</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">MEDIA</strong>
+                                    <strong class="im-grey">MEDIA</strong>
                                 </div>  
                             </div>            
                         </a>
                         <ul>
                             <li>
-                                <a href="#">
+                                <a href="{{ URL::to('/images') }}">
                                     <div class="site-map-btn2">
-                                        <div class="site-map-btn2-left im-blue">4.1.1</div>
+                                        <div class="site-map-btn2-left im-grey">4.1.1</div>
                                         <div class="site-map-btn2-right">
-                                            <strong class="im-blue">Images</strong>
+                                            <strong class="im-grey">Images</strong>
                                         </div>  
                                     </div>            
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{ URL::to('/documents') }}">
                                     <div class="site-map-btn2">
-                                        <div class="site-map-btn2-left im-blue">4.1.2</div>
+                                        <div class="site-map-btn2-left im-grey">4.1.2</div>
                                         <div class="site-map-btn2-right">
-                                            <strong class="im-blue">Documents</strong>
+                                            <strong class="im-grey">Documents</strong>
                                         </div>  
                                     </div>            
                                 </a>
@@ -326,21 +326,21 @@
                         </ul>                        
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ URL::to('/pages') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">4.2</div>
+                                <div class="site-map-btn2-left im-grey">4.2</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">CONTENT EDITOR</strong>
+                                    <strong class="im-grey">CONTENT EDITOR</strong>
                                 </div>  
                             </div>            
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ URL::to('/blogs') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">4.3</div>
+                                <div class="site-map-btn2-left im-grey">4.3</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">BLOG EDITOR</strong>
+                                    <strong class="im-grey">BLOG EDITOR</strong>
                                 </div>  
                             </div>            
                         </a>
@@ -349,9 +349,9 @@
             </div>
 
             <div class="col-1-5">
-                <a href="#">
+                <a href="{{ URL::to('/contact') }}">
                     <div class="site-map-btn2">
-                        <div class="site-map-btn2-left im-blue">5.0</div>
+                        <div class="site-map-btn2-left im-grey">5.0</div>
                         <div class="site-map-btn2-right">
                             <strong class="white-text">CONTACT US</strong>
                         </div>  
@@ -359,31 +359,31 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="{{ URL::to('/report_problem') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">5.1</div>
+                                <div class="site-map-btn2-left im-grey">5.1</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">REPORT A PROBLEM</strong>
+                                    <strong class="im-grey">REPORT A PROBLEM</strong>
                                 </div>  
                             </div>            
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ URL::to('/notification') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">5.2</div>
+                                <div class="site-map-btn2-left im-grey">5.2</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">NEWS & ANNOUNCMENTS</strong>
+                                    <strong class="im-grey">NEWS & ANNOUNCMENTS</strong>
                                 </div>  
                             </div>            
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ URL::to('/messages') }}">
                             <div class="site-map-btn2">
-                                <div class="site-map-btn2-left im-blue">5.3</div>
+                                <div class="site-map-btn2-left im-grey">5.3</div>
                                 <div class="site-map-btn2-right">
-                                    <strong class="im-blue">INBOX</strong>
+                                    <strong class="im-grey">INBOX</strong>
                                 </div>  
                             </div>            
                         </a>

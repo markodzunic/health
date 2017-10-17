@@ -29,6 +29,11 @@
 		    display: block;
 		    background: #fff;
 		}
+		@media screen and (min-width: 992px) {
+			#blog-page .im-blog-col:nth-child(n + 5) {
+				 width: 20%;
+			}
+		}
 	}
 </style>
 @stop

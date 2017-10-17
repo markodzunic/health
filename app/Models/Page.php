@@ -46,6 +46,14 @@ class Page extends Model {
 					$where .= 'practice_pages.practices_id = "'.$data['practice'].'" AND ';
 				}
 
+				if (isset($data['user_id']) && $data['user_id']) {
+					$where .= 'pages.user_id = "'.$data['user_id'].'" AND ';
+				}
+
+				if (isset($data['section']) && $data['section']) {
+					$where .= 'pages.section = "'.$data['section'].'" AND ';
+				}
+
 				$where .= '1';
 			}
 
@@ -74,6 +82,7 @@ class Page extends Model {
 					FROM pages
 					JOIN def_pages ON pages.page_id = def_pages.id
 					JOIN users ON pages.user_id = users.id
+					WHERE pages.created_at > NOW() - INTERVAL 1 DAY
 					ORDER BY pages.created_at DESC LIMIT '.$limit;
 
 			return DB::select(DB::Raw($sql), [

@@ -53,6 +53,11 @@ class PagesController extends Controller {
 
 		$this->sortby = isset($data['sort']) ? $data['sort'] : 'title';
 		$this->orderby = isset($data['order']) ? $data['order'] : 'asc';
+		if ($role !== 'admin') {
+			$data['user_id'] = Auth::User()->id;
+			$data['practice'] = $practice->id;
+			$data['section'] = 'recommended_practice';
+		}
 
 		$blogModel = new Page;
 		$pagesD = $blogModel->get_pages($data, $this->sortby, $this->orderby);

@@ -121,7 +121,15 @@ ul.alert-dropdown {
 }
 #profile-image img {
     max-width: 100%;
-    margin-bottom: 0;    
+    margin-bottom: 0;
+    border-radius: 50%;
+}
+#user-info-side img {
+  width: 120px;
+  height: 120px;
+}
+.im-expande #user-info-side {
+  display: none;
 }
 #collapse-sidebar {
     display: none;
@@ -131,7 +139,7 @@ ul.alert-dropdown {
     position: absolute;
     font-size: 10px;
     bottom: 0;
-    left: 70px;
+    left: 20%;
     display: block;
     width: 130px;
     overflow: hidden;
@@ -402,7 +410,7 @@ im-blur .navbar-fixed-top a#im-search-toggle {
     height: 100%;
 }
 #page-wrapper {
-    min-height: 83vh;
+    /*min-height: 83vh;*/
 }
 /*ADMIN BOXES*/
 .personal-image {
@@ -464,26 +472,29 @@ im-blur .navbar-fixed-top a#im-search-toggle {
 .box-content i span {
     position: absolute;
     right: 0;
-    font-size: 13px;
+    font-size: 14px;
     text-align: center;
     top: 45px;
     line-height: 1;
     padding: 5px 10px;
-    background-color: #00b0f0;
-    border: 1px solid #fff;
+    background-color: #efefef;
+    border: 1px solid #ccc;
     display: none;
     z-index: 100;
+    color: #222;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 .box-content i span:before {
     content: '';
     position: absolute;
     top: -10px;
-    right: 15px;
+
     width: 0;
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-bottom: 10px solid #00b0f0;
+    border-bottom: 10px solid #efefef;
 }
 .box-content i:hover span,
 .box-content i:focus span {
@@ -799,7 +810,9 @@ label input {
 .box-grid .grid-col-content.no-split.im-right {
   text-align: right;
 }
-
+.side-grid .grid-col-content {
+  border: 3px solid #002060;
+}
 /*SITE MAP*/
 .site-map-btn {
     width: 190px;
@@ -1008,7 +1021,7 @@ ul.accordion > li > a.toggle:hover {
 .kb-container-padding {
   padding-left: 1px;
   padding-right: 1px;
-  margin-top: -13px;
+  margin-top: -16px;
 }
 .navbar-inverse .navbar-toggle {
     border-color: #002060;
@@ -1030,6 +1043,7 @@ ul.accordion > li > a.toggle:hover {
   margin-bottom: 5px;
   padding: 5px 45px 5px 15px;
   position: relative;
+  font-size: 20px;
 } 
 .notification-title:before {
   content: 'NEW';

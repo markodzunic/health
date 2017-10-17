@@ -7,15 +7,15 @@
         <div class="pricing-table-header im-center">
           <h2>PREMIUM PLAN</h2>
 
-          <div class="pricing-table-price"><strong>1750 &euro;</strong>/<small>year</small></div>
+          <div class="pricing-table-price"><strong>2500 &euro;</strong>/<small>year</small></div>
         </div>
 
         <div class="pricing-table-body im-center">            
             <div class="pricing-info">iMedical (1 Year)</div>
             <div class="pricing-info">Automatic Updates</div>
-            <div class="pricing-info">9 Users</div>
+            <div class="pricing-info">7 Users</div>
             <div class="pricing-info">Website Development</div>
-            <div class="pricing-info">(€3,000 Ex VAT including tailored website content)</div>
+            <div class="pricing-info">(€5,000 Ex VAT including tailored website content)</div>
           </div> 
 
         <div class="pricing-table-footer im-center">

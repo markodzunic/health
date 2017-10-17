@@ -4,7 +4,7 @@
 		<input type="hidden" id="pg_id" name="pg_id" value="{{ isset($data['pg_id']) ? $data['pg_id'] : '' }}">
 		<ul class="accordion">
 		  <li>
-		    <a id="recommended_practice" class="toggle bg-lblue im-active" href="javascript:void(0);">
+		    <a id="recommended_practice" class="toggle bg-lblue bg-blue im-active" href="javascript:void(0);">
 		    	<i class="fa fa-trophy" aria-hidden="true"></i>
 				<span>RBP</span>
 			</a>
@@ -20,7 +20,7 @@
 		  </li>
 
 		  <li>
-		    <a id="diff_practice" class="toggle bg-lblue" href="javascript:void(0);">
+		    <a id="diff_practice" class="toggle bg-lblue bg-blue" href="javascript:void(0);">
 		    	<i class="fa fa-info-circle" aria-hidden="true"></i>
 				<span>Our Practice Differences</span>
 		    </a>
@@ -36,7 +36,7 @@
 		  </li>
 
 		  <li>
-		    <a id="checklist" class="toggle bg-lblue" href="javascript:void(0);">
+		    <a id="checklist" class="toggle bg-lblue bg-blue" href="javascript:void(0);">
 		    	<i class="fa fa-check-circle" aria-hidden="true"></i>
 				<span>Checklists</span>
 		    </a>
@@ -52,7 +52,7 @@
 		  </li>
 
 		  <li>
-		    <a id="templates" class="toggle bg-lblue" href="javascript:void(0);">
+		    <a id="templates" class="toggle bg-lblue bg-blue" href="javascript:void(0);">
 		    	<i class="fa fa- fa-columns" aria-hidden="true"></i>
 				<span>Templates</span>
 		    </a>
@@ -68,7 +68,7 @@
 		  </li>
 
 		  <li>
-		    <a id="faq" class="toggle bg-lblue" href="javascript:void(0);">
+		    <a id="faq" class="toggle bg-lblue bg-blue" href="javascript:void(0);">
 		    	<i class="fa  fa-question-circle" aria-hidden="true"></i>
 				<span>FAQs</span>
 		    </a>
@@ -84,7 +84,7 @@
 		  </li>
 
 		  <li>
-		    <a id="resources" class="toggle bg-lblue" href="javascript:void(0);">
+		    <a id="resources" class="toggle bg-lblue bg-blue" href="javascript:void(0);">
 		    	<i class="fa fa-cogs" aria-hidden="true"></i>
 				<span>Resources</span>
 		    </a>
