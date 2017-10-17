@@ -7,7 +7,7 @@
         <div class="pricing-table-header im-center">
           <h2>STANDARD PLAN</h2>
 
-          <div class="pricing-table-price"><strong>500 &euro;</strong>/<small>year</small></div>
+          <div class="pricing-table-price"><strong>750 &euro;</strong>/<small>year</small></div>
         </div>
 
         <div class="pricing-table-body im-center">

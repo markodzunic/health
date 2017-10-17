@@ -2,12 +2,15 @@
 @section('AditionalHead')
 <style>
 	.im-toggle-menu-item {
-		border: 1px solid rgba(0,176,240,1);
-		/*background-color: rgba(0,176,240,1);*/
-		/*color: rgba(0,176,240,1) !important;*/
+		border: 1px solid #002060;
+		/*background-color: #002060;*/
+		/*color: #002060 !important;*/
+	}
+	.im-toggle-menu-item.im-open {
+		background: #002060;
 	}
 	.im-toggle-menu-item:before, .im-accordion-menu-item:before {
-		color: rgba(0,176,240,1);
+		color: #002060;
 	}
 	section.im-odd-bg {
 		max-width: 33.3333%;
@@ -32,13 +35,17 @@
 	}
 	section.im-odd-bg > .im-toggle-content.im-active {
 		position: fixed;
-	    left: 70px;
-	    right: 15px;
+	    left: 220px;
+	    right: 0;
 	    top: 230px;
 	    bottom: 0;
 	    z-index: 1;
 	    background: #fff;
 	    overflow-y: scroll;
+	    width: auto;
+	}
+	.im-expande section.im-odd-bg > .im-toggle-content.im-active {
+		left: 70px;
 	}
 	section.im-odd-bg >.im-toggle-menu-item.im-open:before,
 	section.im-odd-bg >.im-accordion-menu-item.im-open:before {

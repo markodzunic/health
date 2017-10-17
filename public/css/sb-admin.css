@@ -139,7 +139,7 @@ ul.alert-dropdown {
     position: absolute;
     font-size: 10px;
     bottom: 0;
-    left: 70px;
+    left: 20%;
     display: block;
     width: 130px;
     overflow: hidden;
@@ -410,7 +410,7 @@ im-blur .navbar-fixed-top a#im-search-toggle {
     height: 100%;
 }
 #page-wrapper {
-    min-height: 83vh;
+    /*min-height: 83vh;*/
 }
 /*ADMIN BOXES*/
 .personal-image {
@@ -1043,6 +1043,7 @@ ul.accordion > li > a.toggle:hover {
   margin-bottom: 5px;
   padding: 5px 45px 5px 15px;
   position: relative;
+  font-size: 20px;
 } 
 .notification-title:before {
   content: 'NEW';
