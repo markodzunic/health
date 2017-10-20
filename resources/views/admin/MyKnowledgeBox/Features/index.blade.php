@@ -20,6 +20,18 @@
 	section.im-odd-bg > a:not(.im-open) {
 		padding-top: 50px;
 		padding-bottom: 50px;
+		border:2px solid #00b0f0;
+		color: #00b0f0;
+	}
+	section.im-odd-bg > a:not(.im-open):before {
+		color: #00b0f0;
+	}
+	section.im-odd-bg > a:not(.im-open):hover {
+		background: #00b0f0;
+		color: #fff;
+	}
+	section.im-odd-bg > a:not(.im-open):hover:before {
+		color: #fff;
 	}
 	.im-expande ul.accordion .inner{
 		 left: 55px;
@@ -93,6 +105,9 @@
 	    display: list-item;
 	    text-align: -webkit-match-parent;
 	    list-style: inherit;
+	}
+	.im-toggle-content  ol li {
+		list-style-type: decimal;
 	}
 	.acc-inner  {		
 		margin-bottom: 20px;
