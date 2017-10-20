@@ -607,7 +607,8 @@ a:focus {
   background-color: #efefef;
   border: 1px solid #fff;
   display: none;
-  z-index: 100
+  z-index: 100;
+  color: #222;
 }
 .im-btn-info:before {
   content: '';

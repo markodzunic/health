@@ -96,7 +96,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="bg-grey grid-col-content no-split im-left im-scroller" style="height: 262px; overflow-y: scroll;">
-							<strong>News & Announcements</strong>
+							<div class="bg-blue im-white" style="margin: -15px -15px 0 -15px;padding: 10px;"><strong>News & Announcements</strong></div>
 							<div style="height: 20px;"></div>
 							@if ($notifications)
 								@foreach ($notifications as $notification)
@@ -121,7 +121,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="bg-grey grid-col-content no-split im-left im-scroller" style="height: 262px; overflow-y: scroll;">
-							<strong>From the Newsdesk</strong>
+							<div class="bg-blue im-white" style="margin: -15px -15px 0 -15px;padding: 10px;"><strong>From the Newsdesk</strong></div>
 							<div style="height: 20px;"></div>
 							{{-- @if ($notifications)
 								@foreach ($notifications as $notification)
