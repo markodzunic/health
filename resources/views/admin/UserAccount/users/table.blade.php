@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-12">
-		<p>USERS</p>
+		<p class="btn im-btn empty-btn im-border-btn">USERS</p>
 	</div>
 </div>
 @if(Session::has('alert-success'))

@@ -22,7 +22,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <p>PRACTICES</p>
+          <p class="btn im-btn empty-btn im-border-btn">PRACTICES</p>
         </div>
       </div>
       <div id="table-section" class="table-section">

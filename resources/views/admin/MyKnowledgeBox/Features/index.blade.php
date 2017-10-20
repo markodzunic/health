@@ -14,8 +14,12 @@
 	}
 	section.im-odd-bg {
 		max-width: 33.3333%;
-		padding: 5px;
+		padding: 15px;
 		background: #fff;
+	}
+	section.im-odd-bg > a:not(.im-open) {
+		padding-top: 50px;
+		padding-bottom: 50px;
 	}
 	.im-expande ul.accordion .inner{
 		 left: 55px;
@@ -129,7 +133,7 @@
 		/*display: none !important;*/
 		font-size: 20px;
     right: 5px;
-    top: 11px;
+    top: 45px;
 	}
 	ul.accordion {
 	        background: #efefef;
