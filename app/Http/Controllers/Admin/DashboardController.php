@@ -36,21 +36,29 @@ class DashboardController extends Controller {
 
 		$status = $user->checkStatus();
 		$role = $user->checkRole();
-		
+
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 		$blog = new Blog();
-    $blog = $blog->get_blogs_notification(5);
+    $blogs = $blog->get_blogs_notification(5);
 
     $pages = new Page();
     $pages = $pages->get_pages_notifications(5);
-    $notifications = array_merge($blog, $pages);
+
+		$blogN = new Blog();
+    $blogsN = $blogN->get_blogs_notification_new();
+
+    $pagesN = new Page();
+    $pagesN = $pagesN->get_pages_notifications_new();
+    $notifications = array_merge($blogsN, $pagesN);
 
 		return view("admin.home.index",[
 				'practice' => $practice,
 				'status' => $status,
         'role' => $role,
 				'messages' => $this->messages,
+				'pages' => $pages,
+				'blogs' => $blogs,
 				'notifications' => $notifications,
 		]);
 	}

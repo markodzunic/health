@@ -40,10 +40,10 @@ class MyKnowledgeBoxController extends Controller {
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 		$blog = new Blog();
-    $blog = $blog->get_blogs_notification();
+    $blog = $blog->get_blogs_notification_new();
 
     $pages = new Page();
-    $pages = $pages->get_pages_notifications();
+    $pages = $pages->get_pages_notifications_new();
     $notifications = array_merge($blog, $pages);
 
 		return view("admin.MyKnowledgeBox.index", [

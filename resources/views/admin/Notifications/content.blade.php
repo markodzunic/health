@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-md-12">
 
-                    @if ($notifications)
-                      @foreach ($notifications as $notification)
+                    @if ($notificationsN)
+                      @foreach ($notificationsN as $notification)
                         <div class="im-notification {{ $notification->created_at > \Carbon\Carbon::now()->subDays(1) ? 'im-new' : '' }}">
                             <div class="h2 notification-title bg-lblue">
                               @if ($notification->category == 'page')
