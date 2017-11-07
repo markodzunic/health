@@ -28,7 +28,7 @@
 
         <form accept-charset="UTF-8" action="/payment" class="require-validation"
           data-cc-on-file="false"
-          data-stripe-publishable-key="pk_test_050zhbZAKuAiGDweQVIPtfVB"
+          data-stripe-publishable-key="pk_test_cQgFysLq5ZUV1z757YaQ3j2d"
           id="payment-form" method="post">
           {{ csrf_field() }}
           <div class='form-row'>
@@ -64,7 +64,7 @@
           <div class='form-row'>
               <div class='col-md-12'>
                   <div class='form-control total btn btn-info'>
-                      Total: <span class='amount'>&euro;580</span>
+                      Total: <span class='amount'>&euro;900</span>
                   </div>
               </div>
           </div>
