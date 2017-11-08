@@ -62,10 +62,10 @@ class DocumentsController extends Controller {
 	    $this->messages = $this->messages->get_messages(Auth::user()->id);
 
 	    $blog = new Blog();
-		$blog = $blog->get_blogs_notification();
+		$blog = $blog->get_blogs_notification_new();
 
 		$pages = new Page();
-		$pages = $pages->get_pages_notifications();
+		$pages = $pages->get_pages_notifications_new();
 		$notifications = array_merge($blog, $pages);
 
 		if (!$request->ajax()) {
@@ -113,7 +113,7 @@ class DocumentsController extends Controller {
 			if ($request->file('document')) {
 	         	$path = '/'.$img->id.'_'.$request->file('document')->getClientOriginalName().'.'.$request->file('document')->getClientOriginalExtension();
 	         	$request->file('document')->move(public_path('doc').'/', $path);
-		    } 
+		    }
 
 		    $img->path = $path;
 		    $img->save();

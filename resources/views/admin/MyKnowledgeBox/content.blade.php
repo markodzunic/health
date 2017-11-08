@@ -14,21 +14,21 @@
 				@endforeach
 			@endif
 			<div class="col-md-4">
-				<a href="{{ URL::to('/documentation') }}" class="im-blue">
+				<a href="{{ URL::to('/documentation') }}" class="im-lblue">
 					<div class="bg-white grid-col-content">
 						<strong>Inspection & Regulation </strong>
 					</div>
 				</a>
 			</div>
 			<div class="col-md-4">
-				<a href="{{ URL::to('/documentation') }}" class="im-blue">
+				<a href="{{ URL::to('/documentation') }}" class="im-lblue">
 					<div class="bg-white grid-col-content">
 						<strong>Placeholder</strong>
 					</div>
 				</a>
 			</div>
 			<div class="col-md-4">
-				<a href="{{ URL::to('/documentation') }}" class="im-blue">
+				<a href="{{ URL::to('/documentation') }}" class="im-lblue">
 					<div class="bg-white grid-col-content">
 						<strong>Placeholder</strong>
 					</div>
@@ -36,10 +36,6 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-md-12">
-				@include('admin.layouts.promo')
-			</div>
-		</div>
+		
 	</div>
 </section>

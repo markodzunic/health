@@ -604,10 +604,11 @@ a:focus {
   top: 45px;
   line-height: 1;
   padding: 5px 10px;
-  background-color: rgba(255,102,255,.8);
+  background-color: #efefef;
   border: 1px solid #fff;
   display: none;
-  z-index: 100
+  z-index: 100;
+  color: #222;
 }
 .im-btn-info:before {
   content: '';
@@ -618,7 +619,7 @@ a:focus {
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-bottom: 10px solid rgba(255,102,255,1);
+  border-bottom: 10px solid #efefef;
 }
 .btn.im-btn:hover .im-btn-info {
   display: block;

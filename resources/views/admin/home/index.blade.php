@@ -13,12 +13,17 @@
 @section('MainContent')
 @include('admin.home.title')
 @include('admin.home.content')
+<div class="row">
+	<div class="col-md-12">
+		@include('admin.layouts.promo')
+	</div>
+</div>
 
 @stop
 	
 @section('AditionalFoot')
 <script src="{{ URL::asset('/js/simple-weather.min.js') }}"></script>
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyBYypRLa1NPizMVwobgO4Z9jmE61LVrsZY"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		var latitudeAndLongitude=document.getElementById("latitudeAndLongitude"),

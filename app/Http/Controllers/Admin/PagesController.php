@@ -53,6 +53,11 @@ class PagesController extends Controller {
 
 		$this->sortby = isset($data['sort']) ? $data['sort'] : 'title';
 		$this->orderby = isset($data['order']) ? $data['order'] : 'asc';
+		if ($role !== 'admin') {
+			$data['user_id'] = Auth::User()->id;
+			$data['practice'] = $practice->id;
+			$data['section'] = 'recommended_practice';
+		}
 
 		$blogModel = new Page;
 		$pagesD = $blogModel->get_pages($data, $this->sortby, $this->orderby);
@@ -87,10 +92,10 @@ class PagesController extends Controller {
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 		$blog = new Blog();
-    $blog = $blog->get_blogs_notification();
+    $blog = $blog->get_blogs_notification_new();
 
     $pages = new Page();
-    $pages = $pages->get_pages_notifications();
+    $pages = $pages->get_pages_notifications_new();
     $notifications = array_merge($blog, $pages);
 
 		$def_pages = DefPage::all();

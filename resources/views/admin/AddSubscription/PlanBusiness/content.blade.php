@@ -7,15 +7,15 @@
         <div class="pricing-table-header im-center">
           <h2>BUSINESS PLAN</h2>
 
-          <div class="pricing-table-price"><strong>950 &euro;</strong>/<small>year</small></div>
+          <div class="pricing-table-price"><strong>1450 &euro;</strong>/<small>year</small></div>
         </div>
 
         <div class="pricing-table-body im-center">            
             <div class="pricing-info">iMedical (1 Year)</div>
             <div class="pricing-info">Automatic Updates</div>
-            <div class="pricing-info">8 Users</div>
+            <div class="pricing-info">7 Users</div>
             <div class="pricing-info">1-Day Onsite Consultancy</div>
-            <div class="pricing-info">(€500 Ex VAT each additional day)</div>
+            <div class="pricing-info">(€750 Ex VAT each additional day)</div>
           </div> 
 
         <div class="pricing-table-footer im-center">
@@ -66,7 +66,7 @@
           <div class='form-row'>
               <div class='col-md-12'>
                   <div class='form-control total btn btn-info'>
-                      Total: <span class='amount'>&euro;1100</span>
+                      Total: <span class='amount'>&euro;1740</span>
                   </div>
               </div>
           </div>

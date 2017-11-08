@@ -50,6 +50,9 @@ Route::post('/getUserInfo', 'Admin\UserController@getUserInfo');
 Route::get('/billing/updateBilling', 'Admin\BillingAndPaymentController@updateBilling');
 Route::post('/billing/updateBilling', 'Admin\BillingAndPaymentController@updateBilling');
 
+Route::get('/report_problem/create', 'Admin\ReportProblemController@create');
+Route::post('/report_problem/create', 'Admin\ReportProblemController@create');
+
 Route::get('/billing', 'Admin\BillingAndPaymentController@index');
 Route::post('/billing', 'Admin\BillingAndPaymentController@index');
 
@@ -192,3 +195,9 @@ Route::resource('public_part', 'PublicPart\PublicPartController');
 
 Route::get('/blogCategory', 'PublicPart\BlogController@blogCategory');
 Route::post('/blogCategory', 'PublicPart\BlogController@blogCategory');
+
+Route::get('/contact/create', 'PublicPart\ContactController@create');
+Route::post('/contact/create', 'PublicPart\ContactController@create');
+
+Route::get('/public_part/create', 'PublicPart\PublicPartController@create');
+Route::post('/public_part/create', 'PublicPart\PublicPartController@create');

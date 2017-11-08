@@ -5,8 +5,9 @@
 	background-color: #fff;
 }
 .box-grid .grid-col-content {
-    border: 2px solid #f9f9f9;
+    border: 2px solid #00b0f0;
 }
+
 </style>
 @stop
 
@@ -14,7 +15,11 @@
 @include('admin.MyKnowledgeBox.title')
 @include('admin.MyKnowledgeBox.content')
 {{-- @include('admin.MyKnowledgeBox.site-map-popup') --}}
-
+<div class="row">
+	<div class="col-md-12">
+		@include('admin.layouts.promo')
+	</div>
+</div>
 @stop
 
 
