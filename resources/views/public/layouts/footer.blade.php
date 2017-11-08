@@ -16,6 +16,7 @@
 						<li><a href="{{ URL::to('/register') }}">Register</a></li>
 						<li><a href="{{ URL::to('/faqs') }}">FAQs</a></li>
 						<li><a href="{{ URL::to('/legals') }}">Legal</a></li>
+						<li><a href="{{ URL::to('/pricing-plan') }}">Plans & Pricing</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4">

@@ -40,10 +40,10 @@ class AddSubscriptionController extends Controller {
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 		$blog = new Blog();
-    $blog = $blog->get_blogs_notification();
+    $blog = $blog->get_blogs_notification_new();
 
     $pages = new Page();
-    $pages = $pages->get_pages_notifications();
+    $pages = $pages->get_pages_notifications_new();
     $notifications = array_merge($blog, $pages);
 
 		return view("admin.AddSubscription.index", [
@@ -59,14 +59,14 @@ class AddSubscriptionController extends Controller {
 			$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 			$blog = new Blog();
-	    $blog = $blog->get_blogs_notification();
+	    $blog = $blog->get_blogs_notification_new();
 
 			$user = Auth::user();
 			$status = $user->checkStatus();
 			$role = $user->checkRole();
 
 	    $pages = new Page();
-	    $pages = $pages->get_pages_notifications();
+	    $pages = $pages->get_pages_notifications_new();
 	    $notifications = array_merge($blog, $pages);
 
 			return view("admin.AddSubscription.PlanBusiness.index", ['messages' => $this->messages, 'notifications' => $notifications, 'status' => $status,
@@ -81,10 +81,10 @@ class AddSubscriptionController extends Controller {
 			$role = $user->checkRole();
 
 			$blog = new Blog();
-	    $blog = $blog->get_blogs_notification();
+	    $blog = $blog->get_blogs_notification_new();
 
 	    $pages = new Page();
-	    $pages = $pages->get_pages_notifications();
+	    $pages = $pages->get_pages_notifications_new();
 	    $notifications = array_merge($blog, $pages);
 
 			return view("admin.AddSubscription.PlanProfessional.index", ['messages' => $this->messages, 'notifications' => $notifications, 'status' => $status,
@@ -99,10 +99,10 @@ class AddSubscriptionController extends Controller {
 			$role = $user->checkRole();
 
 			$blog = new Blog();
-	    $blog = $blog->get_blogs_notification();
+	    $blog = $blog->get_blogs_notification_new();
 
 	    $pages = new Page();
-	    $pages = $pages->get_pages_notifications();
+	    $pages = $pages->get_pages_notifications_new();
 	    $notifications = array_merge($blog, $pages);
 
 			return view("admin.AddSubscription.PlanBasic.index", ['messages' => $this->messages, 'notifications' => $notifications, 'status' => $status,

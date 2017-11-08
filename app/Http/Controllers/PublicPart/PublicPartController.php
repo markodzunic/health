@@ -1,9 +1,9 @@
-<?php 
+<?php
 namespace App\Http\Controllers\PublicPart;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Mail;
 use Illuminate\Http\Request;
 
 class PublicPartController extends Controller {
@@ -23,10 +23,28 @@ class PublicPartController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Request $request)
 	{
-		//
-	} 
+		$data = $request->all();
+
+		$this->validate($request, [
+			'first_name' => 'required',
+			'last_name' => 'required',
+			'position' => 'required',
+			'practice_name' => 'required',
+			'phone' => 'required',
+			'email' => 'required|email',
+	    ]);
+
+		$request->session()->flash('alert-success', 'Message Sent.');
+
+		Mail::send('admin.emails.download', ['contact' => $data], function ($m) use ($data) {
+        $m->from($data['email'], 'Imedical');
+        $m->to('imedical.ie@gmail.com', $data['first_name'])->subject('Download Message');
+    });
+
+		return redirect('/home');
+	}
 
 	/**
 	 * Store a newly created resource in storage.

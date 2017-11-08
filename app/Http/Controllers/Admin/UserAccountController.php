@@ -45,10 +45,10 @@ class UserAccountController extends Controller {
 		$this->messages = $this->messages->get_messages(Auth::user()->id);
 
 		$blog = new Blog();
-    $blog = $blog->get_blogs_notification();
+    $blog = $blog->get_blogs_notification_new();
 
     $pages = new Page();
-    $pages = $pages->get_pages_notifications();
+    $pages = $pages->get_pages_notifications_new();
     $notifications = array_merge($blog, $pages);
 
 		if ($request->ajax()) {
@@ -140,7 +140,7 @@ class UserAccountController extends Controller {
 
 			$status = $user->checkStatus();
 			$role = $user->checkRole();
-			
+
 			if ($role == 'admin')
 				$roles = Role::where('name', '!=', 'admin')->where('name', '!=', 'newuser')->get();
 			else {
@@ -186,7 +186,7 @@ class UserAccountController extends Controller {
 			$user->position_type = $data['position_type'];
 			$user->phone = $data['phone'];
 			$user->occupation = $data['occupation'];
-			
+
 			$user->gender = $data['gender'];
 			// $user->approved = 1;
 			$user->med_reg_number = $data['med_reg_number'];

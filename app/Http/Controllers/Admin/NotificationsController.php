@@ -43,12 +43,19 @@ class NotificationsController extends Controller {
 		$status = $user->checkStatus();
 		$role = $user->checkRole();
 
-    $blog = new Blog();
-    $blog = $blog->get_blogs_notification();
+		$blog = new Blog();
+    $blog = $blog->get_blogs_notification_new();
 
     $pages = new Page();
-    $pages = $pages->get_pages_notifications();
+    $pages = $pages->get_pages_notifications_new();
     $notifications = array_merge($blog, $pages);
+
+    $blogN = new Blog();
+    $blogN = $blogN->get_blogs_notification();
+
+    $pagesN = new Page();
+    $pagesN = $pagesN->get_pages_notifications();
+    $notificationsN = array_merge($blogN, $pagesN);
 
 		# custom pagination
 		$currentPage = LengthAwarePaginator::resolveCurrentPage();
@@ -65,6 +72,7 @@ class NotificationsController extends Controller {
 				'status' => $status,
         'role' => $role,
         'notifications' => $notifications,
+				'notificationsN' => $notificationsN,
 				'practice' => $practice,
 				'columns' => Practice::$sortColumns,
 		])->render();

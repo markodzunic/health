@@ -2,20 +2,40 @@
 @section('AditionalHead')
 <style>
 	.im-toggle-menu-item {
-		border: 1px solid rgba(0,176,240,1);
-		/*background-color: rgba(0,176,240,1);*/
-		/*color: rgba(0,176,240,1) !important;*/
+		border: 1px solid #002060;
+		/*background-color: #002060;*/
+		/*color: #002060 !important;*/
+	}
+	.im-toggle-menu-item.im-open {
+		background: #002060;
 	}
 	.im-toggle-menu-item:before, .im-accordion-menu-item:before {
-		color: rgba(0,176,240,1);
+		color: #002060;
 	}
 	section.im-odd-bg {
 		max-width: 33.3333%;
-		padding: 5px;
+		padding: 15px;
 		background: #fff;
 	}
-	.im-expande ul.accordion .inner{
+	section.im-odd-bg > a:not(.im-open) {
+		padding-top: 50px;
+		padding-bottom: 50px;
+		border:2px solid #00b0f0;
+		color: #00b0f0;
+	}
+	section.im-odd-bg > a:not(.im-open):before {
+		color: #00b0f0;
+	}
+	section.im-odd-bg > a:not(.im-open):hover {
+		background: #00b0f0;
+		color: #fff;
+	}
+	section.im-odd-bg > a:not(.im-open):hover:before {
+		color: #fff;
+	}
+	.im-expande ul.accordion .inner.show{
 		 left: 55px;
+		 top: 170px;
 	}
 	.im-toggle-menu-item.im-open {
 		position: fixed;
@@ -32,13 +52,17 @@
 	}
 	section.im-odd-bg > .im-toggle-content.im-active {
 		position: fixed;
-	    left: 70px;
-	    right: 15px;
+	    left: 220px;
+	    right: 0;
 	    top: 230px;
 	    bottom: 0;
 	    z-index: 1;
 	    background: #fff;
 	    overflow-y: scroll;
+	    width: auto;
+	}
+	.im-expande section.im-odd-bg > .im-toggle-content.im-active {
+		left: 70px;
 	}
 	section.im-odd-bg >.im-toggle-menu-item.im-open:before,
 	section.im-odd-bg >.im-accordion-menu-item.im-open:before {
@@ -83,6 +107,9 @@
 	    text-align: -webkit-match-parent;
 	    list-style: inherit;
 	}
+	.im-toggle-content  ol li {
+		list-style-type: decimal;
+	}
 	.acc-inner  {		
 		margin-bottom: 20px;
 	}
@@ -122,7 +149,7 @@
 		/*display: none !important;*/
 		font-size: 20px;
     right: 5px;
-    top: 11px;
+    top: 45px;
 	}
 	ul.accordion {
 	        background: #efefef;

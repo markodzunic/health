@@ -50,10 +50,10 @@ class GalleryController extends Controller {
 	    $this->messages = $this->messages->get_messages(Auth::user()->id);
 
 	    $blog = new Blog();
-		$blog = $blog->get_blogs_notification();
+		$blog = $blog->get_blogs_notification_new();
 
 		$pages = new Page();
-		$pages = $pages->get_pages_notifications();
+		$pages = $pages->get_pages_notifications_new();
 		$notifications = array_merge($blog, $pages);
 
 		if (!$request->ajax()) {
@@ -101,7 +101,7 @@ class GalleryController extends Controller {
 
 	         	$path = 'uploads/'.$img->id.'_'.$request->file('image')->getClientOriginalName();
 	         	$path_thumb = 'uploads/thumbs/'.$img->id.'_'.$request->file('image')->getClientOriginalName();
-		    } 
+		    }
 
 		    $img->path = $path;
 		    $img->thumb = $path_thumb;
@@ -172,7 +172,7 @@ class GalleryController extends Controller {
 		    	}
 		    }
 		    File::put(public_path('img/load-files'), json_encode($content));
-		    
+
 			$gallery->delete();
 
 			$request->session()->flash('alert-success', 'Image deleted.');

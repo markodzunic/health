@@ -5,8 +5,9 @@
 	background-color: #fff;
 }
 .box-grid .grid-col-content {
-    border: 2px solid #f9f9f9;
+    border: 2px solid #00b0f0;
 }
+
 </style>
 @stop
 
