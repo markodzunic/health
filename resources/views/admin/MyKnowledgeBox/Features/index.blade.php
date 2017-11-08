@@ -33,8 +33,9 @@
 	section.im-odd-bg > a:not(.im-open):hover:before {
 		color: #fff;
 	}
-	.im-expande ul.accordion .inner{
+	.im-expande ul.accordion .inner.show{
 		 left: 55px;
+		 top: 170px;
 	}
 	.im-toggle-menu-item.im-open {
 		position: fixed;

@@ -66,7 +66,7 @@
           <div class='form-row'>
               <div class='col-md-12'>
                   <div class='form-control total btn btn-info'>
-                      Total: <span class='amount'>&euro;1900</span>
+                      Total: <span class='amount'>&euro;3000</span>
                   </div>
               </div>
           </div>

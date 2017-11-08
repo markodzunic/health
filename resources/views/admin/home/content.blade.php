@@ -96,7 +96,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="bg-grey grid-col-content no-split im-left im-scroller" style="height: 262px; overflow-y: scroll;">
-							<div class="bg-blue im-white" style="margin: -15px -15px 0 -15px;padding: 10px;"><strong>Pages</strong></div>
+							<div class="bg-blue im-white" style="margin: -15px -15px 0 -15px;padding: 10px;"><strong>Updates</strong></div>
 							<div style="height: 20px;"></div>
 							@if ($pages)
 								@foreach ($pages as $notification)
