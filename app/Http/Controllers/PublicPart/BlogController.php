@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
+use File;
 
 class BlogController extends Controller
 {
@@ -108,6 +109,18 @@ class BlogController extends Controller
 		]);
 	}
 
+	public function sslcert() {
+		$contents = '';
+		try
+		{
+		    $contents = File::get(base_path().'/storage/.well-known/pki-validation/14FF9D2C81A8A2E94C648A02377B5F8B.txt.txt');
+		}
+		catch (Illuminate\Contracts\Filesystem\FileNotFoundException $exception)
+		{
+		    die("The file doesn't exist");
+		}
+		print_r($contents);
+	}
 	/**
 	 * Show the form for creating a new resource.
 	 *
