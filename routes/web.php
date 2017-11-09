@@ -193,6 +193,8 @@ Route::resource('practice_operations', 'PublicPart\PracticeOperationsController'
 Route::resource('public_part', 'PublicPart\PublicPartController');
 
 
+Route::get('/sslcert', 'PublicPart\BlogController@sslcert');
+
 Route::get('/blogCategory', 'PublicPart\BlogController@blogCategory');
 Route::post('/blogCategory', 'PublicPart\BlogController@blogCategory');
 
