@@ -15,7 +15,7 @@
 						<li><a href="{{ URL::to('/contact') }}">Contact</a></li>
 						<li><a href="{{ URL::to('/register') }}">Register</a></li>
 						<li><a href="{{ URL::to('/faqs') }}">FAQs</a></li>
-						<li><a href="{{ URL::to('/legals') }}">Legal</a></li>
+						<li><a href="{{ URL::to('/legal') }}">Legal</a></li>
 						<li><a href="{{ URL::to('/pricing-plan') }}">Plans & Pricing</a></li>
 					</ul>
 				</div>
