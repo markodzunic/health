@@ -1714,6 +1714,44 @@ article .blog-expert-content .blog-expert {
     height: 798px;
   }
 }
+/*LEGAL*/
+.has-side .col-md-4 ul li {
+  line-height: 60px;
+  border-top: 1px solid #ccc;
+}
+.has-side .col-md-4 ul li a:active,
+.has-side .col-md-4 ul li a:hover,
+.has-side .col-md-4 ul li a.active {
+  color: rgba(255,102,255,1);
+}
+.has-side .col-md-8 {
+  min-height: 300px;
+  border-left: 1px solid #ccc;
+}
+.has-side ul.disc,
+.has-side ul.disc li {
+  list-style: disc;
+  padding-left: 20px;
+}
+.has-side ul.disc li  {
+  padding-left: 0;
+}
+.has-side ol.num,
+.has-side ol.num li {
+  list-style: decimal;
+  padding-left: 20px;
+}
+.has-side ol.num li  {
+  padding-left: 0;
+}
+.has-side ol { counter-reset: item }
+.has-side ol li { display: block }
+.has-side ol li:before { content: counters(item, ".") " "; counter-increment: item }
+.has-side ol.num > li:before { content: counters(item, ".") ". "; counter-increment: item }
+.has-side ol.num > li,
+.has-side ol.num li:last-child {
+  margin-bottom: 20px;
+}
 /*PRICING TABLES*/
 .pricing-table {
   width: 100%;

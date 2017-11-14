@@ -201,3 +201,9 @@ Route::post('/contact/create', 'PublicPart\ContactController@create');
 
 Route::get('/public_part/create', 'PublicPart\PublicPartController@create');
 Route::post('/public_part/create', 'PublicPart\PublicPartController@create');
+
+
+Route::resource('legal', 'PublicPart\LegalController');
+Route::resource('terms_conditions_for_services', 'PublicPart\LegalServicesTermsController');
+Route::resource('website_terms_conditions', 'PublicPart\LegalWebsiteTermsController');
+Route::resource('privacy_statement', 'PublicPart\LegalPrivacyController');
