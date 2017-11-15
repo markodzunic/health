@@ -80,7 +80,7 @@ class BlogController extends Controller
 		$categories = [];
 
 		$blog = Blog::find($data['id']);
-		$user = User::find($blog->id);
+		$user = User::find($blog->user_id);
 		$tagsB = BlogTag::where('blogs_id', '=', $blog->id)->get();
 
 		if ($tagsB) {
