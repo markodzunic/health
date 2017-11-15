@@ -42,7 +42,7 @@
 					<option value="0">Select</option>
 					@if ($pages)
 						@foreach ($pages as $pag)
-							<option {{ $pag && $page && $pag->id == $page->id ? 'selected="selected"' : '' }} value="{{ $pag->id }}">{{ $pag->name }}</option>
+							<option {{ $pag && $page && $pag->id == $page->page_id ? 'selected="selected"' : '' }} value="{{ $pag->id }}">{{ $pag->name }}</option>
 						@endforeach
 					@endif
 					<option value="all">All</option>
@@ -88,7 +88,21 @@
 					Practices
 				</label>
 			    <!-- <select id="category" name="category" class="form-control" multiple required autofocus> -->
-			    @if (isset($practices) && $practices)
+					@if (isset($practices) && $practices && $page->permission == 'all')
+
+					@foreach ($practices as $practice)
+						<div class="control-group">
+							<div class="controls">
+								<input id="{{ $practice->name }}" type="checkbox" name="practice[]" value="{{ $practice->id }}"><label for="{{ $practice->name }}">{{ $practice->name }}<span></span></label>
+							</div>
+						</div>
+						<!-- <option value="{{ $practice->system_name }}">{{ $practice->name }}</option> -->
+					@endforeach
+
+							@if ($role == 'admin')
+							<input id="all-practice" type="checkbox" name="practice[]" checked value="all-practice"><label for="all-practice">All<span></span></label>
+							@endif
+			    @else if (isset($practices) && $practices)
 			        @foreach ($practices as $practice)
 			          <div class="control-group">
 			            <div class="controls">
