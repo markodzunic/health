@@ -43,7 +43,10 @@ class PublicPartController extends Controller {
         $m->to('imedical.ie@gmail.com', $data['first_name'])->subject('Download Message');
     });
 
-		return redirect('/home');
+		$headers = array(
+       'Content-Type: application/octet-stream',
+    );
+    return response()->download(storage_path().'/iMedicalBrochure2017.pdf', '', $headers);
 	}
 
 	/**
