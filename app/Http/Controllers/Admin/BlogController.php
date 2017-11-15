@@ -63,7 +63,7 @@ class BlogController extends Controller {
 									$cat_names[] = Category::find($pv->categories_id)->name;
 								}
 							}
-						$blog_data[$value->id]['categories'] = implode(',', $cat_names);
+						$blog_data[$value->id]['categories'] = implode(',', array_unique($cat_names));
 				}
 		}
 
@@ -184,7 +184,7 @@ class BlogController extends Controller {
 					'blog' => $blog,
 					'categories' => $categories,
 					'tags_ids' => implode(',', $tag_names),
-					'categories_used_ids' => $categories_used_ids,
+					'categories_used_ids' => array_unique($categories_used_ids),
 					'tags' => $tags,
 					'tags_used' => $tags_used,
 					'categories_used' => $categories_used,
