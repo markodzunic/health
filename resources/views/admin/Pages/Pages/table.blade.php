@@ -53,7 +53,7 @@
 @if($pagination)
 	<div id="pagination" class="no-print">
 		<div class="sales-query-pagination">
-			{!! $pages->links() !!}
+			{!! $pages->count()>0 ? $pages->links():'' !!}
 			<span class="pagination-total">Total: {{ $pages->total() }}</span>
 		</div>
 	</div>

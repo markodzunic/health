@@ -65,6 +65,10 @@ var Pages = {
 		$('#pagination a').on('click', function(e){
 			e.preventDefault();
 
+      var section = $('#section').val();
+      var page_id = $('#def_page').val();
+      var practice = $('#practices').val();
+
 			var url = $(this).attr('href');
 
 			$.ajax({
@@ -72,6 +76,11 @@ var Pages = {
 				headers: { 'X-XSRF-TOKEN' : token },
 				data: {
           _token: token,
+          sort: sort,
+          practice: practice,
+          page_id: page_id,
+          section: section,
+  				order: order
         },
 				url: url,
 				success: function(data){
@@ -260,7 +269,7 @@ var Pages = {
                   });
                 $('#description').froalaEditor({
 
-                  
+
 
                    fullPage: true,
                    theme: 'red',

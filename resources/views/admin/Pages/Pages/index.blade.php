@@ -113,7 +113,6 @@
 
     </div>
 
-
       <div id="table-section" class="table-section">
         {!! view('admin.Pages.Pages.table', [
             'pages' => $pages,
