@@ -15,7 +15,7 @@
 							<p class="blog-expert">{{ $blog->description ? str_limit(strip_tags(HTMLDomParser::str_get_html($blog->description)->find('body p')[0]), 80) : 'N/A' }}</p>
 						</div>
 						<div class="blog-footer">
-							<a><i class="fa fa-user"></i>{{ $blog->user_first }} {{ $blog->user_last }}</a>
+							<a><i class="fa fa-user"></i>{{ $blog->first_name }} {{ $blog->last_name }}</a>
 						</div>
 					</article>
 				</div>

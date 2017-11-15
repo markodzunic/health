@@ -60,17 +60,21 @@ class BlogController extends Controller
 		$blogs = [];
 
 		$cat = BlogCategory::where('categories_id', '=', $data['category'])->get();
-
+		$category = Category::find($data['category']);
 		if ($cat) {
 				foreach ($cat as $key => $value) {
-					$b = Blog::find($value->blogs_id);
+					$b = Blog::find($value->blogs_id)->toArray();
+					$u = User::find($b['user_id']);
+					$b['first_name'] = $u->first_name;
+					$b['last_name'] = $u->last_name;
 					if ($b)
-						$blogs[] = $b;
+						$blogs[] = (object) $b;
 				}
 		}
-
+// dd($blogs);
 		return view('public.Blog.BlogCategory.index', [
 			'blogs' => $blogs,
+			'category' => $category,
 		]);
 	}
 
@@ -80,7 +84,7 @@ class BlogController extends Controller
 		$categories = [];
 
 		$blog = Blog::find($data['id']);
-		$user = User::find($blog->id);
+		$user = User::find($blog->user_id);
 		$tagsB = BlogTag::where('blogs_id', '=', $blog->id)->get();
 
 		if ($tagsB) {

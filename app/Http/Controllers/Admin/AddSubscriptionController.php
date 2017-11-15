@@ -7,6 +7,7 @@ use Auth;
 use Session;
 use App\User;
 use App\Models\Practice;
+use App\Models\PracticePage;
 use App\Models\Subscription;
 use App\Models\BillingAddress;
 use App\Models\Page;
@@ -126,6 +127,20 @@ class AddSubscriptionController extends Controller {
 			$practice->site = 'Your site link';
 
 			$practice->save();
+
+			$pages = Page::where('permission', '=', 'all')->get();
+
+			if ($pages) {
+				foreach ($pages as $pg) {
+					$pp = PracticePage::where('pages_id', '=', $pg->id)->first();
+
+					$practicePages = new PracticePage();
+					$practicePages->practices_id = $practice->id;
+					$practicePages->pages_id = $pg->id;
+					$practicePages->role_ids = $pp ? $pp->role_ids : '';
+					$practicePages->save();
+				}
+			}
 
 			$billing = new BillingAddress;
 
