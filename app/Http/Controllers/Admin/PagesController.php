@@ -278,6 +278,12 @@ class PagesController extends Controller {
 				$blog->section = $data['section'];
 				$blog->description = isset($data['description']) ? $data['description']: '';
 
+				if (in_array('all-practice', $data['practice'])) {
+					 $blog->permission = 'all';
+				} else {
+						$blog->permission = '';
+				}
+
 				$blog->save();
 
 				$practicePagesUsed = PracticePage::where('pages_id', '=', $blog->id)->get();
