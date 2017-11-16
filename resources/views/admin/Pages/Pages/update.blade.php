@@ -102,7 +102,7 @@
 							@if ($role == 'admin')
 							<input id="all-practice" type="checkbox" name="practice[]" checked value="all-practice"><label for="all-practice">All<span></span></label>
 							@endif
-			    @else if (isset($practices) && $practices)
+			    @elseif (isset($practices) && $practices)
 			        @foreach ($practices as $practice)
 			          <div class="control-group">
 			            <div class="controls">
