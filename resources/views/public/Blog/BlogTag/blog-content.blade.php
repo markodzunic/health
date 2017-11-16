@@ -4,7 +4,7 @@
 		<div class="col-md-12 col-sm-12">
 			<article>
 				<div class="featured-image no-padding-top ">
-					<img src="https://placehold.it/1920x1080" alt="">
+					<img src="http://placehold.it/1920x1080" alt="">
 				</div>
 				<div class="blog-expert-content">
 					<a href="{{ URL::to('/blog-single') }}"><h4 class="blog-title im-pink">Lorem ipsum dolor</h4></a>
@@ -17,7 +17,7 @@
 		<div class="col-md-12 col-sm-12">
 			<article>
 				<div class="featured-image no-padding-top ">
-					<img src="https://placehold.it/1920x1080" alt="">
+					<img src="http://placehold.it/1920x1080" alt="">
 				</div>
 				<div class="blog-expert-content">
 					<a href="{{ URL::to('/blog-single') }}"><h4 class="blog-title im-pink">Lorem ipsum dolor</h4></a>
@@ -30,7 +30,7 @@
 		<div class="col-md-12 col-sm-12">
 			<article>
 				<div class="featured-image no-padding-top ">
-					<img src="https://placehold.it/1920x1080" alt="">
+					<img src="http://placehold.it/1920x1080" alt="">
 				</div>
 				<div class="blog-expert-content">
 					<a href="{{ URL::to('/blog-single') }}"><h4 class="blog-title im-pink">Lorem ipsum dolor</h4></a>
@@ -43,7 +43,7 @@
 		<div class="col-md-12 col-sm-12">
 			<article>
 				<div class="featured-image no-padding-top ">
-					<img src="https://placehold.it/1920x1080" alt="">
+					<img src="http://placehold.it/1920x1080" alt="">
 				</div>
 				<div class="blog-expert-content">
 					<a href="{{ URL::to('/blog-single') }}"><h4 class="blog-title im-pink">Lorem ipsum dolor</h4></a>
@@ -56,7 +56,7 @@
 		<div class="col-md-12 col-sm-12">
 			<article>
 				<div class="featured-image no-padding-top ">
-					<img src="https://placehold.it/1920x1080" alt="">
+					<img src="http://placehold.it/1920x1080" alt="">
 				</div>
 				<div class="blog-expert-content">
 					<a href="{{ URL::to('/blog-single') }}"><h4 class="blog-title im-pink">Lorem ipsum dolor</h4></a>

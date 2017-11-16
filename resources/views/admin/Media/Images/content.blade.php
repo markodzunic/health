@@ -31,7 +31,7 @@
 
 		<a href="#" id="close" class="close2"><i class="fa fa-close im-white"></i></a>
 			<div class="container-i im-center">
-				<img src="https://via.placeholder.com/1200x800">
+				<img src="http://via.placeholder.com/1200x800">
 			</div>
 		</div>
 	</div>

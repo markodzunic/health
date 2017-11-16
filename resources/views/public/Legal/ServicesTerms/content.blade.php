@@ -48,7 +48,7 @@
 		<p>“<strong>Subscription</strong>” shall mean the subscription to access the Services for the Subscription Period following payment of the Subscription Price.</p>
 		<p>“<strong>Subscription Period</strong>” shall mean the Initial Subscription Period and any Renewal Period.</p>
 		<p>“<strong>Subscription Price</strong>” shall mean the subscription price payable by the Customer to the Supplier to access the Services.</p>
-		<p>“<strong>Website</strong>” shall mean the website <a href="https://www.imedical.ie">www.imedical.ie</a> through which the Digital Content can be accessed.</p>
+		<p>“<strong>Website</strong>” shall mean the website <a href="http://www.imedical.ie">www.imedical.ie</a> through which the Digital Content can be accessed.</p>
 	</li>
 
 	<li><strong>SUBSCRIPTIONS</strong>
