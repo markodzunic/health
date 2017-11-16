@@ -17,7 +17,7 @@
 {{-- <link href="{{ URL::asset('/plugins/morris/morris.css') }}" rel="stylesheet"> --}}
 
 <!-- LOADING FONTS AND ICONS -->
-<link href="http://fonts.googleapis.com/css?family=Fredoka+One:400%7CPoppins:500%2C400%2C700" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One:400%7CPoppins:500%2C400%2C700" rel="stylesheet" property="stylesheet" type="text/css" media="all">
 
 
 <!-- STYLE -->

@@ -183,6 +183,29 @@
 		background: #002060;
 
 	}
+	.im-grey-box {
+		padding-top: 20px;
+	    padding-bottom: 10px;
+	    background: #efefef;
+	    margin-left: -15px;
+	    margin-right: -15px;
+	    padding-left: 15px;
+	    padding-right: 15px;
+	    margin-bottom: 20px;
+	}
+	.im-empty-box {
+		padding-top: 20px;
+	    padding-bottom: 10px;
+	    border: 1px solid #222;
+	    margin-left: -15px;
+	    margin-right: -15px;
+	    padding-left: 15px;
+	    padding-right: 15px;
+	    margin-bottom: 20px;
+	}
+	.table-bordered td {
+		padding: 15px;
+	}
 </style>
 @stop
 

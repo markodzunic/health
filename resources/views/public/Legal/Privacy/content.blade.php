@@ -42,7 +42,7 @@
 <ul class="disc">
 <li>When you first visit this website, you will see a message informing you about cookies. If you click the <strong>‘ACCEPT’</strong> button, a cookie will be set which records your preference.</li>
 <li>Cookies from Google are set because this website uses Google Analytics to analyse website usage.</li>
-<li>This website uses Google Custom Search to provide the site’s search functionality. Google may set cookies when you use the search function. You can find Google’s privacy policy here: http://www.google.com/policies/privacy/. </li>
+<li>This website uses Google Custom Search to provide the site’s search functionality. Google may set cookies when you use the search function. You can find Google’s privacy policy here: https://www.google.com/policies/privacy/. </li>
 <li>Cookies from Google may also be set when Google Maps are displayed on this website.</li>
 <li>Cookies from Google may also be set when YouTube or Vimeo videos are displayed on this website.</li>
 </ul>
