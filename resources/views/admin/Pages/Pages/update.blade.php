@@ -88,7 +88,7 @@
 					Practices
 				</label>
 			    <!-- <select id="category" name="category" class="form-control" multiple required autofocus> -->
-					@if (isset($practices) && $practices && $page->permission == 'all')
+					@if (isset($practices) && $practices && isset($page->permission) && $page->permission == 'all')
 
 					@foreach ($practices as $practice)
 						<div class="control-group">
