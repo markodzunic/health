@@ -295,7 +295,16 @@ var Pages = {
                   // Set max image size to 5MB.
                   imageMaxSize: 5 * 1024 * 1024,
 
-
+                  colorsBackground: [
+                    '#000000', '#333333', '#efefef', '#FFFFFF', 'RED', 'REMOVE',
+                    '#00b0f0', '#002060', '#ff66ff', '#00ff00', 'ORANGE', 'YELLOW'
+                  ],
+                  colorsDefaultTab: 'background',
+                  colorsStep: 6,
+                  colorsText: [
+                    '#000000', '#333333', '#efefef', '#FFFFFF', 'RED', 'REMOVE',
+                    '#00b0f0', '#002060', '#ff66ff', '#00ff00', 'ORANGE', 'YELLOW'
+                  ],
                   // Allow to upload PNG and JPG.
                   imageAllowedTypes: ['jpeg', 'jpg', 'png'],
                   toolbarButtons: [ 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'paragraphFormat', 'fontSize', 'color', 'formatBlock', 'blockStyle', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'insertHR', 'insertLink', 'insertImage', 'insertTable', 'insert', 'undo', 'redo', 'html', 'insertHorizontalRule', 'uploadFile', 'removeFormat', 'fullscreen', '|', 'selectAll', 'clearFormatting']

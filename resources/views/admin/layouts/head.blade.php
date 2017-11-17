@@ -1,11 +1,11 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="SLOGAN" />
-<meta name="author" content="iMedical&trade;" />
+<meta name="description" content="Innovative Resource Platform" />
+<meta name="author" content="iMedical" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Favicon -->
-<link rel="shortcut icon" href=""/>
+<link rel="shortcut icon" href="{{ asset('/img/favicon.png') }}"/>
 <!-- CSS & JS Library -->
 <link href="{{ URL::asset('/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 <link href="{{ URL::asset('/plugins/bootstrap/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
@@ -17,7 +17,7 @@
 {{-- <link href="{{ URL::asset('/plugins/morris/morris.css') }}" rel="stylesheet"> --}}
 
 <!-- LOADING FONTS AND ICONS -->
-<link href="http://fonts.googleapis.com/css?family=Fredoka+One:400%7CPoppins:500%2C400%2C700" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+{{-- <link href="http://fonts.googleapis.com/css?family=Fredoka+One:400%7CPoppins:500%2C400%2C700" rel="stylesheet" property="stylesheet" type="text/css" media="all"> --}}
 
 
 <!-- STYLE -->

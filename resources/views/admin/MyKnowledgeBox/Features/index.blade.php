@@ -110,17 +110,17 @@
 	.im-toggle-content  ol li {
 		list-style-type: decimal;
 	}
-	.acc-inner  {		
+	.acc-inner {		
 		margin-bottom: 20px;
 	}
-	.acc-inner .acc-title {
+	.acc-inner > .acc-title {
 		cursor: pointer;
 		font-weight: bold;
     	font-size: 20px;
     	position: relative;
     	line-height: 20px;
 	}
-	.acc-inner .acc-title:before {
+	.acc-inner > .acc-title:before {
 		content: '+';
 	    position: absolute;
 	    right: 15px;
@@ -134,15 +134,15 @@
 	    font-weight: normal;
 	    color: #fff;
 	}
-	.acc-inner.active .acc-title:before {
+	.acc-inner.active  > .acc-title:before {
 		content: '-';
 	}
-	.acc-inner .acc-content {
+	.acc-inner  > .acc-content {
 		display: none;
 		border: 0 !important;
 		border-bottom: 2px solid #f9f9f9 !important;
 	}
-	.acc-inner.active .acc-content {
+	.acc-inner.active  > .acc-content {
 		display: block;
 	}
 	.im-toggle-menu-item:before {
@@ -182,6 +182,47 @@
 	ul.accordion > li > a.toggle.im-active:before {
 		background: #002060;
 
+	}
+	.im-grey-box {
+		padding-top: 30px;
+		padding-bottom: 10px;
+		background: #efefef;
+		margin-left: -15px;
+		margin-right: -15px;
+		padding-left: 15px;
+		padding-right: 15px;
+		margin-bottom: 20px
+	}
+	.im-empty-box {
+		padding-top: 30px;
+		padding-bottom: 10px;
+		border: 1px solid #222;
+		margin-left: -15px;
+		margin-right: -15px;
+		padding-left: 15px;
+		padding-right: 15px;
+		margin-bottom: 20px
+	}
+	.table-boarded td,
+	.table-boarded th {
+		padding: 15px;
+	}
+	table th,
+	table td {
+		border: 1px solid;
+		padding: 15px;
+	}
+	.bg-grey {
+		background: #efefef;
+	}
+	#page-wrapper .im-toggle-content,
+	#page-wrapper .im-toggle-content p,
+	#page-wrapper .im-toggle-content a,
+	#page-wrapper .im-toggle-content ul li,
+	#page-wrapper .im-toggle-content ol li,
+	#page-wrapper .im-toggle-content table td,
+	#page-wrapper .im-toggle-content table th {
+	    font-size: 17px;
 	}
 </style>
 @stop
