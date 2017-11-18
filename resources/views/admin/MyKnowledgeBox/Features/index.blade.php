@@ -16,12 +16,19 @@
 		max-width: 33.3333%;
 		padding: 15px;
 		background: #fff;
+		display: table;
+		vertical-align: middle;
 	}
 	section.im-odd-bg > a:not(.im-open) {
 		padding-top: 50px;
 		padding-bottom: 50px;
 		border:2px solid #00b0f0;
 		color: #00b0f0;
+		height: 140px;
+	    padding: 15px;
+	    display: table-cell;
+	    vertical-align: middle;
+	    float: none;
 	}
 	section.im-odd-bg > a:not(.im-open):before {
 		color: #00b0f0;
@@ -149,7 +156,7 @@
 		/*display: none !important;*/
 		font-size: 20px;
     right: 5px;
-    top: 45px;
+    top: 57px;
 	}
 	ul.accordion {
 	        background: #efefef;
