@@ -14,7 +14,7 @@
 				@endforeach
 			@endif
 			<div class="col-md-4">
-				<a href="{{ URL::to('/documentation') }}" class="im-lblue">
+				<a href="#" class="im-lblue">
 					<div class="bg-white grid-col-content">
 						<strong>Inspection & Regulation </strong>
 					</div>
