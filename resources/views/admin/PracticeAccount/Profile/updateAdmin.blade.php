@@ -33,6 +33,16 @@
 												<div class="im-btn-info">Unselect Admin</div>
 										</div>
 								@endif
+								<div onclick="Users.Delete(this);return false;"
+									class="delete btn im-btn  pink-btn no-margin-bottom im-btn-small"
+									users-id="{{ $user->id }}">
+								<i class="fa fa-trash" aria-hidden="true"></i>
+								<div class="im-btn-info">Delete Account</div></div>
+								<div onclick="Users.Update(this);return false;"
+									class="update btn im-btn pink-btn no-margin-bottom im-btn-small"
+									users-id="{{ $user->id }}">
+								<i class="fa fa-edit" aria-hidden="true"></i>
+								<div class="im-btn-info">Edit Info</div></div>
 							</td>
 						</tr>
 					@endforeach

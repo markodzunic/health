@@ -77,7 +77,7 @@
 						<div class="col-md-12">
 							<div class="bg-grey grid-col-content no-split im-center im-scroller">
 								<div style="height: 50px;"></div>
-								<strong class="h1">Wellcome</strong>
+								<strong class="h1">Welcome</strong>
 								<div style="height: 50px;"></div>
 							</div>
 						</div>

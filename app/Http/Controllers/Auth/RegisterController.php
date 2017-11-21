@@ -89,6 +89,18 @@ class RegisterController extends Controller
         $user->active = 1;
         $user->save();
 
+
+    
+        \Mail::send('auth.template', [], function ($message)
+        {
+
+            $message->from('no-reply@imedical.ie', "iMedical");
+            $message->subject("New User Regiestered ".$user->first_name." ".$user->last_name);
+            $message->to("cian.crosbie@phgp.ie");
+
+        });
+
+
         return $user;
     }
 }
