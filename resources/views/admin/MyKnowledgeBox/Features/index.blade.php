@@ -29,9 +29,11 @@
 	    display: table-cell;
 	    vertical-align: middle;
 	    float: none;
+	    text-align: center;
 	}
 	section.im-odd-bg > a:not(.im-open):before {
 		color: #00b0f0;
+		display: none;
 	}
 	section.im-odd-bg > a:not(.im-open):hover {
 		background: #00b0f0;
