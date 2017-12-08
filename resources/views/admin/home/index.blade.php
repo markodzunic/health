@@ -20,7 +20,7 @@
 @section('AditionalFoot')
 @include('admin.layouts.promo')
 <script src="{{ URL::asset('/js/simple-weather.min.js') }}"></script>
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyBYypRLa1NPizMVwobgO4Z9jmE61LVrsZY"></script>
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyBYypRLa1NPizMVwobgO4Z9jmE61LVrsZY"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		if (navigator.geolocation){
