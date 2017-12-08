@@ -151,6 +151,14 @@
                     <div class="form-group" align="left">
                         <button type="submit" class="btn im-btn blue-btn">Register</button>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="im-white">
+                                <em>Your registration with and subsequent use of iMedical is strictly subject to the <a href="{{ URL::to('/terms_conditions_for_services') }}" class="im-white">Terms & Conditions for Services</a>. Please see our <a href="{{ URL::to('/legal') }}" class="im-white">Legal page</a> for details. By registering with iMedical, you confirm your agreement to the <a href="{{ URL::to('/terms_conditions_for_services') }}" class="im-white">Terms & Conditions for Services</a>.</em>
+                            </p>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

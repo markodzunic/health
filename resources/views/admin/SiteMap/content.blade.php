@@ -127,7 +127,7 @@
                     <div class="site-map-btn2">
                         <div class="site-map-btn2-left im-grey">2.0</div>
                         <div class="site-map-btn2-right">
-                            <strong class="white-text">MY KNOWLADGE BOX</strong>
+                            <strong class="white-text">MY KNOWLEDGE BOX</strong>
                         </div>  
                     </div>            
                 </a>

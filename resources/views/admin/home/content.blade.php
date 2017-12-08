@@ -75,9 +75,20 @@
 					@if ($role == 'newuser')
 					<div class="row">
 						<div class="col-md-12">
-							<div class="bg-grey grid-col-content no-split im-center im-scroller">
+							<div class="bg-grey grid-col-content no-split im-left im-scroller">
 								<div style="height: 50px;"></div>
-								<strong class="h1">Welcome</strong>
+								<strong class="h2 im-pink">Welcome to iMedical!</strong>
+								<div style="height: 20px;"></div>
+								<p>We are delighted that you have chosen to register with iMedical. We have received your application. We expect to approve this very shortly. Once approved, we will notify you promptly. </p>
+
+								<p>You can then log in to your own profile using the login portal on the iMedical website (and your email address and selected password). You will then be able to complete your Practice subscription to iMedical and include your nominated users. </p>
+
+								<p>Life in Practice just got a whole lot easier!</p>
+
+								<p>Thanks!</p>
+
+								<p><strong>The iMedical Team</strong></p>
+
 								<div style="height: 50px;"></div>
 							</div>
 						</div>

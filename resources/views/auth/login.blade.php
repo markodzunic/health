@@ -54,7 +54,11 @@
                             Forgotten Password?
                         </a>
                     </div>
+                    <p class="im-white">
+                        <em>Your use of iMedical is strictly subject to the <a href="{{ URL::to('/terms_conditions_for_services') }}" class="im-white">Terms & Conditions for Services</a>. Please see our <a href="{{ URL::to('/legal') }}" class="im-white">Legal page</a> for details. By logging in to use iMedical, you confirm your agreement to the <a href="{{ URL::to('/terms_conditions_for_services') }}" class="im-white">Terms & Conditions for Services</a>.</em>
+                    </p>
                 </form>
+                
             </div>
         </div>
     </div>
