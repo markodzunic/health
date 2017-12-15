@@ -10,13 +10,14 @@
 								<a href="#" class="show-additional-content">
 						        	<div class="image-container practice-user">
 						        		<img src="{{ asset('/img/'.$admin->avatar) }}" alt="" style="max-width:200px; border-radius: 50%;">
-						        	</div>
+						        	</div>						        
+								</a>
 							        <div align="center">
 							        	<div class="user-name h4 no-margin-bottom">{{ $admin->first_name }} {{ $admin->last_name }}</div>
 							        	<div class="user-role"><strong>{{ $admin->role->display_name }}</strong></div>
 							        	<a href="#" class="im-lblue" style="font-size: 12px;">Send Message</a>
 							        </div>
-						        </div>
+						    
 						        <div class="user-aditional-info im-left">
 									<div  class="additiontal-wrapper">
 										<div class="container">
@@ -57,7 +58,7 @@
 											</div>
 										</div>
 									</div>
-								</a>
+								</div>
 							</div>
 							@endforeach
 						@endif

@@ -7,19 +7,21 @@
 							@if ($practice_users)
 								@foreach ($practice_users as $usr)
 									<div class="col-sm-4">
-										<a href="#" class="show-additional-content">
 											<div class="user-box bg-white" align="center">
+
+											<a href="#" class="show-additional-content">
 												<div class="image-wrapper practice-user">
 													{{ Html::image(asset('/img/'.$usr->avatar)) }}
 												</div>
+											</a>
 												<div class="user-info im-blue">
 													<div class="user-name h4 no-margin-bottom">{{ $usr->first_name?:''}} {{ $usr->last_name?:''}}</div>
 													<div class="user-role"><strong>{{ $usr->role->display_name?: '' }}</strong></div>
 													<a href="#" onclick="Users.SendMessage(this);return false;" users-id="{{ $usr->id }}" class="im-lblue" style="font-size: 12px;">Send Message</a>
 												</div>
-											</div>
+											
 
-											<div class="user-aditional-info">
+											<div class="user-aditional-info" style="text-align: left;">
 												<div  class="additiontal-wrapper">
 													<div class="container">
 														<div class="form-box editable-info">
@@ -60,8 +62,8 @@
 													</div>
 												</div>
 											</div>
-
-										</a>
+											</div>
+										
 									</div>
 								@endforeach
 							@endif

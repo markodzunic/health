@@ -19,7 +19,7 @@ body, #page-wrapper {
 
 }
 .user-aditional-info > .additiontal-wrapper {
-	margin-top: 250px;
+	margin-top: 200px;
 }
 @media screen and (max-width: 767px) {
 	.user-aditional-info > .additiontal-wrapper {
@@ -66,12 +66,12 @@ body, #page-wrapper {
 		$(document).ready(function(){
 			$('.show-additional-content').on('click', function(e){
 				e.preventDefault();
-				$('.user-aditional-info').toggle('fast');
+				$(this).parent().find('.user-aditional-info').show('fast');
 
 			})
 			$('.hide-additional-content').on('click', function(e){
 				e.preventDefault();
-				$('.user-aditional-info').toggle('fast');
+				$('.user-aditional-info').hide('fast');
 			})
 		});
 	</script>
