@@ -259,12 +259,12 @@ var Pages = {
               open: function() {
                 $.FroalaEditor.DefineIcon('insert', {NAME: 'plus'});
                   $.FroalaEditor.RegisterCommand('insert', {
-                    title: 'Insert Accordian',
+                    title: 'Insert Accordion',
                     focus: true,
                     undo: true,
                     refreshAfterCallback: true,
                     callback: function () {
-                      this.html.insert('<div class="acc-inner"><div class="acc-title" style="padding: 15px;color: #fff;background: rgba(0,176,240,1);"> INNER ACCORDIAN TITLE </div><div class="acc-content" style="padding: 15px;border:1px solid">INNER ACCODRIAN CONTENT </div></div>');
+                      this.html.insert('<div class="acc-inner"><div class="acc-title" style="padding: 15px;color: #fff;background: rgba(0,176,240,1);"> Title </div><div class="acc-content" style="padding: 15px;border:1px solid"><div>Content</div></div></div><p>&nbsp</p>');
                     }
                   });
                 $('#description').froalaEditor({
