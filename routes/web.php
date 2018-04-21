@@ -184,6 +184,7 @@ Route::resource('features', 'PublicPart\FeaturesController');
 Route::resource('data_protection', 'PublicPart\DataProtectionController');
 Route::resource('emergency_planning', 'PublicPart\EmergencyPlanningController');
 Route::resource('faqs', 'PublicPart\FaqsController');
+Route::resource('about', 'PublicPart\AboutController');
 Route::resource('health_safety', 'PublicPart\HealthSafetyController');
 Route::resource('human_resources', 'PublicPart\HumanResourcesController');
 Route::resource('infection_prevention', 'PublicPart\InfectionPreventionControlController');

@@ -43,20 +43,27 @@
                       </div>
                     </div> --}}
 
+                    <div class="form-group">
+                      <div class="controls"> 
+                       <input id="Terms-agree" type="checkbox" name="remember" checked><label for="Terms-agree"><span></span> <small style="font-size: 13px; color: #fff; font-weight: normal;">I have read and agree to the <a class="im-white" href="{{ URL::to('/terms_conditions_for_services') }}" target="_blank"><u>Terms & Conditions</u></a> and <a class="im-white" href="{{ URL::to('/legal') }}" target="_blank"><u>Privacy Statement</u></a></small></label>
+                      </div>
+                    </div>
+ 
+
                     <div class="form-group user-forms-btn-set">
                         <button type="submit" class="btn im-btn blue-btn">
                             Sign In
                         </button>
-                        <a class="btn im-btn white-btn btn-link" href="{{ URL::to('/register') }}">
+                       {{--  <a class="btn im-btn white-btn btn-link" href="{{ URL::to('/register') }}">
                             Website Registration
-                        </a>
+                        </a> --}}
                         <a class="btn im-btn white-btn btn-link" href="{{ route('password.request') }}">
                             Forgotten Password?
                         </a>
                     </div>
-                    <p class="im-white">
+                  {{--   <p class="im-white">
                         <em>Your use of iMedical is strictly subject to the <a href="{{ URL::to('/terms_conditions_for_services') }}" class="im-white">Terms & Conditions for Services</a>. Please see our <a href="{{ URL::to('/legal') }}" class="im-white">Legal page</a> for details. By logging in to use iMedical, you confirm your agreement to the <a href="{{ URL::to('/terms_conditions_for_services') }}" class="im-white">Terms & Conditions for Services</a>.</em>
-                    </p>
+                    </p> --}}
                 </form>
                 
             </div>
@@ -84,6 +91,13 @@
     }
     $(document).ready(function () {
         resizeAcoridians();
+        $('#Terms-agree').on('change', function() {
+            if ($('#Terms-agree').prop('checked') == true) {
+                $(':input[type="submit"]').prop('disabled', false);
+            } else {
+                $(':input[type="submit"]').prop('disabled', true);
+            }
+        })
     })
     $( window ).resize(function() {
       resizeAcoridians();

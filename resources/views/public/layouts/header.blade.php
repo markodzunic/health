@@ -11,18 +11,20 @@
                 <div class="main-menu-conainer">
                     <div class="left-nav">
                         <a class="menu-item" href="{{ URL::to('/home') }}">Home</a>
+                        <a class="menu-item" href="{{ URL::to('/about') }}">About</a>
                         <a class="menu-item" href="{{ URL::to('/features') }}">Features</a>
-                        <a class="menu-item" href="{{ URL::to('/faqs') }}">FAQs</a>
+                        
                     </div>
                     <div class="right-nav">
+                        <a class="menu-item" href="{{ URL::to('/faqs') }}">FAQs</a>
                         <a class="menu-item" href="{{ URL::to('/blog') }}">Blog</a>
                         @if (!Auth::user())
                             {{-- <a class="menu-item" onclick="Login.Login();return false;">Log in</a>                           --}}
                             <a class="menu-item" href="{{ URL::to('/login') }}">Log in</a>
-                            <a class="menu-btn" href="{{ URL::to('/register') }}">Get started</a>
+                            {{-- <a class="menu-btn" href="{{ URL::to('/register') }}">Get started</a> --}}
                         @else
                           <a class="menu-item" href="{{ route('logout') }}">Logout</a>
-                          <a class="menu-btn" href="{{ URL::to('/dashboard') }}">Get started</a>
+                          {{-- <a class="menu-btn" href="{{ URL::to('/dashboard') }}">Get started</a> --}}
                         @endif
                     </div>
                 </div>
