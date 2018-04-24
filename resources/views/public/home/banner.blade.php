@@ -51,11 +51,12 @@
 				<p class="h3">Life in Practice just got a whole lot easier.</p>
 			</div>
 			<div class="im-center">
-				@if (!Auth::user())                          
+				<a class="btn im-btn pink-btn" href="{{ URL::to('/contact') }}">Book a Demo</a>
+				{{-- @if (!Auth::user())                          
 	                <a class="btn im-btn pink-btn" href="{{ URL::to('/register') }}">Get started</a>
 	            @else
 	               <a class="btn im-btn pink-btn" href="{{ URL::to('/dashboard') }}">Get started</a>
-	            @endif
+	            @endif --}}
 			</div>
 		</div>
 		<a href="#" id="next-section" title="Back to top" style="display: block;">↓</a>

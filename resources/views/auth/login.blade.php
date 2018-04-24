@@ -45,13 +45,13 @@
 
                     <div class="form-group">
                       <div class="controls"> 
-                       <input id="Terms-agree" type="checkbox" name="remember" checked><label for="Terms-agree"><span></span> <small style="font-size: 13px; color: #fff; font-weight: normal;">I have read and agree to the <a class="im-white" href="{{ URL::to('/terms_conditions_for_services') }}" target="_blank"><u>Terms & Conditions</u></a> and <a class="im-white" href="{{ URL::to('/legal') }}" target="_blank"><u>Privacy Statement</u></a></small></label>
+                       <input id="Terms-agree" type="checkbox" name="remember"><label for="Terms-agree"><span></span> <small style="font-size: 13px; color: #fff; font-weight: normal;">I have read and agree to the <a class="im-white" href="{{ URL::to('/terms_conditions_for_services') }}" target="_blank"><u>Terms & Conditions</u></a> and <a class="im-white" href="{{ URL::to('/legal') }}" target="_blank"><u>Privacy Statement</u></a></small></label>
                       </div>
                     </div>
  
 
                     <div class="form-group user-forms-btn-set">
-                        <button type="submit" class="btn im-btn blue-btn">
+                        <button type="submit" class="btn im-btn blue-btn" disabled>
                             Sign In
                         </button>
                        {{--  <a class="btn im-btn white-btn btn-link" href="{{ URL::to('/register') }}">

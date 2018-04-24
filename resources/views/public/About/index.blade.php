@@ -56,7 +56,7 @@
 		$(document).ready(function() {
 		$('.logo .icon-logo').attr('src',$('.logo .icon-logo').attr('src').replace('imdeical-logo-icon','imdeical-logo-icon-w'));
 
-		   $('#main-navigation .left-nav .menu-item:nth-child(3)').addClass('im-active');
+		   $('#main-navigation .left-nav .menu-item:nth-child(2)').addClass('im-active');
 		});
 	</script>
 @stop

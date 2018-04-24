@@ -75,7 +75,7 @@
 		  	  	item.parent().find('.im-toggle-menu-item').removeClass('bg-lblue im-open');
 		  	  }
 		  });
-		  $('#main-navigation .left-nav .menu-item:nth-child(3)').addClass('im-active');
+		  $('#main-navigation .right-nav .menu-item:nth-child(1)').addClass('im-active');
 		});
 	</script>
 @stop

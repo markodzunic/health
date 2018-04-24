@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<h2 class="im-lblue">iMedical</h2>
+				<h1 class="im-lblue">iMedical</h1>
 			</div>
 		</div>
 		<div class="row small-padding">				
@@ -25,18 +25,17 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<h2 class="im-lblue">Selected Clients</h2>
+				<h1 class="im-lblue">Featured Clients</h1>
 			</div>
 		</div>
 		<div class="row small-padding">				
 			<div class="col-md-10 col-md-offset-1">
 				<div class="row">
 					<ul class="list-inline flex-list">
-						<li><a href="#" target="_blank"><img src="http://via.placeholder.com/200x200" alt=""></a></li>
-						<li><a href="#" target="_blank"><img src="http://via.placeholder.com/200x200" alt=""></a></li>
-						<li><a href="#" target="_blank"><img src="http://via.placeholder.com/200x200" alt=""></a></li>
-						<li><a href="#" target="_blank"><img src="http://via.placeholder.com/200x200" alt=""></a></li>
-						<li><a href="#" target="_blank"><img src="http://via.placeholder.com/200x200" alt=""></a></li>
+						<li><a href="javascript:void(0)" target="_blank"><img src="{{ asset('/img/about/Rathangan.png') }}" alt=""></a></li>
+						<li><a href="javascript:void(0)" target="_blank"><img src="{{ asset('/img/about/Castle-Street-Surgery.png') }}" alt=""></a></li>
+						<li><a href="javascript:void(0)" target="_blank"><img src="{{ asset('/img/about/Rathangan-Medical-Centre.png') }}" alt=""></a></li>
+						<li><a href="javascript:void(0)" target="_blank"><img src="{{ asset('/img/about/Parkhouse-Family-Practice.png') }}" alt=""></a></li>
 					</ul>
 				</div>
 			</div>
@@ -51,7 +50,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<h2 class="im-lblue">Our Team</h2>
+				<h1 class="im-lblue">Leadership</h1>
 			</div>
 		</div>
 		<div class="row small-padding">				
@@ -65,11 +64,13 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="ds-team-person">
-							<img src="http://via.placeholder.com/350x350" alt="">
+							<img src="{{ asset('/img/about/cian-picture.jpg') }}" alt="">
 							<h3>CIAN CROSBIE</h3>
 							<h4>Founder & CEO</h4>
 
-							<p>Cian is qualified as a solicitor in Ireland, and England and Wales. He has worked for law firms in Ireland, the UK and Australia. Prior to starting iMedical, Cian spent 5 years working as the General Counsel for an international medical software company specialising in the development and supply of complex medical solutions for international healthcare organisations operating in the primary and community care sectors. Cian has also provided management consulting services to General Practitioners in Ireland.
+							<p>Cian is qualified as a solicitor in Ireland, and England and Wales. He holds Masters Degrees in Laws from Trinity College Dublin and in Commercial Law from Cardiff University. Cian is also a European Certified Data Protection Officer by the Irish Computer Society. He has worked for law firms in Ireland, the UK and Australia. 
+							<br><br>
+							Prior to starting iMedical, Cian spent 5 years working as the General Counsel for an international medical software company specialising in the development and supply of complex medical solutions for international healthcare organisations operating in the primary and community care sectors. Cian has also provided management consulting services to General Practitioners in Ireland.
 							<br><br>
 							Cian has used his legal background, knowledge of technology and front-line experience of General Practice to develop iMedical with the simple aim of making practice management easier, safer and more efficient.
 							</p>
