@@ -20,7 +20,7 @@
 <!-- Open Graph data -->
 <meta property="og:title" content="iMedical - Innovative Resource Platform " />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.iMedical.com/" />
+<meta property="og:url" content="https://www.iMedical.ie/" />
 <meta property="og:image" content="{{ asset('/img/twitter_card.jpg') }}" />
 <meta property="og:description" content="iMedical is an innovative resource platform that makes important and relevant information and documentation easily available to healthcare professionals and support staff in the primary care sector in Ireland." />
 <meta property="og:site_name" content="iMedical" />
