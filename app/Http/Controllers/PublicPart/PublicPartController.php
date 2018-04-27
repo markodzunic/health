@@ -40,7 +40,7 @@ class PublicPartController extends Controller {
 
 		Mail::send('admin.emails.download', ['contact' => $data], function ($m) use ($data) {
         $m->from($data['email'], 'Imedical');
-        $m->to('imedical.ie@gmail.com', $data['first_name'])->subject('Download Message');
+        $m->to('cian@imedical.ie', $data['first_name'])->subject('Download Message');
     });
 
 		$headers = array(

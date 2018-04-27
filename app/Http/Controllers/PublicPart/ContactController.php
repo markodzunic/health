@@ -41,7 +41,7 @@ class ContactController extends Controller {
 
 		Mail::send('admin.emails.contact', ['contact' => $data], function ($m) use ($data) {
         $m->from($data['email'], 'Imedical');
-        $m->to('imedical.ie@gmail.com', $data['first_name'])->subject('Contact Message');
+        $m->to('cian@imedical.ie', $data['first_name'])->subject('Contact Message');
     });
 
 		return redirect('/contact');

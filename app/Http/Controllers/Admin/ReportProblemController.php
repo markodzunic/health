@@ -89,7 +89,7 @@ class ReportProblemController extends Controller {
 		Mail::send('admin.emails.report_problem', ['report_problem' => $report_problem], function ($m) use ($report_problem, $user) {
         $m->from($user->email, 'Imedical');
 				$m->priority(isset($report_problem->urgent) ? $report_problem->urgent : 0);
-        $m->to('imedical.ie@gmail.com', $user->first_name)->subject('Report A Problem');
+        $m->to('cian@imedical.ie', $user->first_name)->subject('Report A Problem');
     });
 
 		return redirect('/report_problem');
