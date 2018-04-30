@@ -78,7 +78,7 @@
                                 <strong>{{ $errors->first('date_of_birth') }}</strong>
                             </span>
                         @endif
-                    </div> --}}
+                    </div>
 
                     <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
                         <label for="gender" class="control-label">Gender</label>
