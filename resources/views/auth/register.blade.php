@@ -56,8 +56,20 @@
                         @endif
                     </div>
 
-                    <div style="position: absolute; visibility: hidden; opacity: 0;">
-                
+                    <div class="form-group{{ $errors->has('date_of_birth') ? ' has-error' : '' }}">
+                        <label for="date_of_birth" class="control-label">Date of Birth</label>
+                        <div class='input-group date' id='date_of_birth'>
+                            <input type='text' name="date_of_birth" class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+
+                        @if ($errors->has('date_of_birth'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('date_of_birth') }}</strong>
+                            </span>
+                        @endif
                     </div>
 
                     <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
@@ -123,9 +135,16 @@
                         @endif
                     </div>
 
-                    <div style="visibility: hidden;opacity: 0;position: absolute;">
-                      
-                    </div>
+                    <!-- <div class="form-group{{ $errors->has('med_reg_number') ? ' has-error' : '' }}">
+                        <label for="med_reg_number" class="control-label">Medical Council Registration Number</label>
+                        <input id="med_reg_number" type="text" class="form-control" name="med_reg_number" value="{{ old('med_reg_number') }}" required autofocus>
+
+                        @if ($errors->has('med_reg_number'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('med_reg_number') }}</strong>
+                            </span>
+                        @endif
+                    </div> -->
 
                     <div style="width: 100%;float: left;"></div>
 
