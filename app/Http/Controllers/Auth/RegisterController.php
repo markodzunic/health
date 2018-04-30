@@ -1,9 +1,12 @@
 <?php
+
 namespace App\Http\Controllers\Auth;
+
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+
 class RegisterController extends Controller
 {
     /*
@@ -16,13 +19,16 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
+
     use RegistersUsers;
+
     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
     protected $redirectTo = '/dashboard';
+
     /**
      * Create a new controller instance.
      *
@@ -32,6 +38,7 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -52,6 +59,7 @@ class RegisterController extends Controller
             'occupation' => 'required|string',
         ]);
     }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -61,6 +69,7 @@ class RegisterController extends Controller
     public function create($data)
     {
         $user = new User;
+
         $user->role_id = 2;
         $user->prev_role_id = 2;
         $user->email = $data['email'];
@@ -79,13 +88,19 @@ class RegisterController extends Controller
         $user->approved = 0;
         $user->active = 1;
         $user->save();
+
+
     
-        \Mail::send('auth.template', [], function ($message)
+        \Mail::send('auth.template', [], function ($message) use ($user)
         {
+
             $message->from('no-reply@imedical.ie', "iMedical");
             $message->subject("New User Regiestered ".$user->first_name." ".$user->last_name);
             $message->to("cian.crosbie@phgp.ie");
+
         });
+
+
         return $user;
     }
 }
