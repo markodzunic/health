@@ -12,6 +12,9 @@
       Phone: {{ $report_problem->phone?:'N/A' }}
     </div>
     <div class="">
+      Email: {{ $contact['email']?:'N/A' }}
+    </div>
+    <div class="">
       Details: {{ $report_problem->description?:'N/A' }}
     </div>
 </div>
