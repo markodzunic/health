@@ -2,7 +2,7 @@
 	<div class="small-padding">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-10 col-sm-12 col-md-offset-1">
+				<div class="col-md-10 col-sm-12 col-md-offset-1 class-test">
 					<p>If you would like to arrange a demo of iMedical or if you have questions, then please submit the online form below and we will get back to you as soon as possible. 
 					<br>
 					<br>
