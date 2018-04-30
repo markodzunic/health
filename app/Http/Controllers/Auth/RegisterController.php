@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'title' => 'required|string',
             'first_name' => 'required|string',
             'last_name' => 'required|string',
-            'date_of_birth' => 'required|date',
+            // 'date_of_birth' => 'required|date',
             'gender' => 'required|string',
             'phone' => 'required|string',
             'occupation' => 'required|string',
@@ -77,7 +77,7 @@ class RegisterController extends Controller
         $user->title = $data['title'];
         $user->first_name = $data['first_name'];
         $user->last_name = $data['last_name'];
-        $user->date_of_birth = $data['date_of_birth'];
+        // $user->date_of_birth = $data['date_of_birth'];
         $user->position_type = 'User';
         $user->avatar = 'avatar.png';
         $user->gender = $data['gender'];
