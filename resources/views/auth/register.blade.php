@@ -60,7 +60,7 @@
                         <div class="form-group{{ $errors->has('date_of_birth') ? ' has-error' : '' }}">
                             <label for="date_of_birth" class="control-label">Date of Birth</label>
                             <div class='input-group date' id='date_of_birth'>
-                                <input type='text' name="date_of_birth" class="form-control" value="04/10/2018" />
+                                <input type='text' name="date_of_birth" class="form-control" />
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
