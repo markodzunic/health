@@ -12,9 +12,6 @@
       Phone: {{ $contact['phone']?:'N/A' }}
     </div>
     <div class="">
-      Email: {{ $contact['email']?:'N/A' }}
-    </div>
-    <div class="">
       Message: {{ $contact['description']?:'N/A' }}
     </div>
 </div>
