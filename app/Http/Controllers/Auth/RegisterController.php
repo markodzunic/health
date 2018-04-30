@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'title' => 'required|string',
             'first_name' => 'required|string',
             'last_name' => 'required|string',
-            'date_of_birth' => '',
+            // 'date_of_birth' => 'required|date',
             'gender' => 'required|string',
             'phone' => 'required|string',
             'occupation' => 'required|string',
