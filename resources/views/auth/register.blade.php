@@ -143,16 +143,18 @@
                         @endif
                     </div>
 
-                    <!-- <div class="form-group{{ $errors->has('med_reg_number') ? ' has-error' : '' }}">
-                        <label for="med_reg_number" class="control-label">Medical Council Registration Number</label>
-                        <input id="med_reg_number" type="text" class="form-control" name="med_reg_number" value="{{ old('med_reg_number') }}" required autofocus>
+                    <div style="visibility: hidden;opacity: 0;position: absolute;">
+                        <div class="form-group{{ $errors->has('med_reg_number') ? ' has-error' : '' }}">
+                            <label for="med_reg_number" class="control-label">Medical Council Registration Number</label>
+                            <input id="med_reg_number" type="text" class="form-control" name="med_reg_number" value="{{ old('med_reg_number') }}" required autofocus>
 
-                        @if ($errors->has('med_reg_number'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('med_reg_number') }}</strong>
-                            </span>
-                        @endif
-                    </div> -->
+                            @if ($errors->has('med_reg_number'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('med_reg_number') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
 
                     <div style="width: 100%;float: left;"></div>
 
