@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller {
 
+
 	protected $sortby;
 	protected $orderby;
 	protected $messages;
