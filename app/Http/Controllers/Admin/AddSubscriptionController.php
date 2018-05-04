@@ -187,7 +187,7 @@ class AddSubscriptionController extends Controller {
 				\Stripe\Charge::create ( array (
 						"amount" => 300,
 						"currency" => 'usd',
-						"customer" => 'dushan887@gmail.com',
+						"receipt_email" => 'dushan887@gmail.com',
 						"source" => $request->input ( 'stripeToken' ), // obtained with Stripe.js
 						"description" => "Test payment."
 				) );
