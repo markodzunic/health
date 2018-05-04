@@ -1922,6 +1922,13 @@ footer {
 .palemeron-logo:hover:before {
   visibility: visible;
 }
+#knoledge-grid .row > .col-md-4:last-child strong:after {
+  content: '!';
+  position: relative;
+  display: inline-block;
+  font-size: inherit;
+  color: inherit;
+}
 @media screen and (max-width: 767px) {
   .im-mobile-center {
     text-align: center !important;

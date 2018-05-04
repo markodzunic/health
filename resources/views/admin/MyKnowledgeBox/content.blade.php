@@ -13,7 +13,7 @@
 					</div>
 				@endforeach
 			@endif
-			<div class="col-md-4">
+			{{-- <div class="col-md-4">
 				<a href="#" class="im-lblue">
 					<div class="bg-white grid-col-content">
 						<strong>Inspection & Regulation </strong>
@@ -33,7 +33,7 @@
 						<strong>Placeholder</strong>
 					</div>
 				</a>
-			</div>
+			</div> --}}
 		</div>
 
 		
