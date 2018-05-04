@@ -122,6 +122,8 @@ ul.im-list ul li:before{
 #got-to-dashboard {  
   background-color: rgba(255,102,255,0.7);
   border-color: rgba(255,102,255,1);
+  right: auto;
+  left: 40px;
 }
 #next-section {
   position: absolute;
