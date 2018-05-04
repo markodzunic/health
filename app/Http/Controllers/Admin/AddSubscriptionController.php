@@ -181,7 +181,7 @@ class AddSubscriptionController extends Controller {
 
 	public function payment(Request $request) {
 		$data = $request->all();
-
+dd($data);
 		\Stripe\Stripe::setApiKey ( 'sk_test_JYM3PD8m43wyDYS1tOsMwB7C' );
 			try {
 				\Stripe\Charge::create ( array (
