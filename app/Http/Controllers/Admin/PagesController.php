@@ -68,7 +68,8 @@ class PagesController extends Controller {
 				if ($pp) {
 						foreach ($pp as $p => $pv) {
 							$rn = [];
-							$role_names[$value->id]['practices_names'] = Practice::find($pv->practices_id)->name;
+							$s = Practice::find($pv->practices_id);
+							$role_names[$value->id]['practices_names'] = isset($s->name)? $s->name :'';
 							$role_names[$value->id]['roles'] = '';
 
 							// if ($pv->role_ids) {
