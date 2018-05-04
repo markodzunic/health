@@ -42,10 +42,15 @@
 	<div id="footer-bottom">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 im-left im-mobile-center">© 2017 iMedical</div>
+				<div class="col-md-6 im-left im-mobile-center">© 2018 iMedical</div>
 				<div class="col-md-6 im-right im-mobile-center"><a href="https://palmeronidesign.com/" target="_blank" class="palemeron-logo">Designed by Palmeroni Design</a></div>
 			</div>
 		</div>
 	</div>
 	<a href="#" id="back-to-top" title="Back to top">&uarr;</a>
+	
+	 @if (!Auth::user())
+	    @else
+	      <a href="{{ URL::to('/dashboard') }}" id="got-to-dashboard" title="Dashboard"><i class="fa fa-dashboard"></i></a>
+	    @endif
 </footer>

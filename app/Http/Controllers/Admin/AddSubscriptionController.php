@@ -185,7 +185,7 @@ class AddSubscriptionController extends Controller {
 		\Stripe\Stripe::setApiKey ( 'sk_test_JYM3PD8m43wyDYS1tOsMwB7C' );
 			try {
 				\Stripe\Charge::create ( array (
-						"amount" => 300,
+						"amount" => 90000,
 						"currency" => 'usd',
 						// "receipt_email" => 'dushan887@gmail.com',
 						"source" => $request->input ( 'stripeToken' ), // obtained with Stripe.js
@@ -195,13 +195,13 @@ class AddSubscriptionController extends Controller {
 				Session::flash ( 'success-message', 'Payment done successfully !' );
 
 				\Mail::send('auth.template', [], function ($message)
-        {
+		        {
 
-            $message->from('no-reply@imedical.ie', "iMedical");
-            $message->subject("New Practice Registration");
-            $message->to("cian.crosbie@phgp.ie");
+		            $message->from('no-reply@imedical.ie', "iMedical");
+		            $message->subject("New Practice Registration");
+		            $message->to("cian.crosbie@phgp.ie");
 
-        });
+		        });
 				// $transaction = new Transaction();
         //
 				// $transaction->user_id = Auth::user()->id;
@@ -210,10 +210,10 @@ class AddSubscriptionController extends Controller {
 				// $transaction->amount = $data['amount'];
         //
 				// $transaction->save();
-				return redirect('/practice_account');
+				return redirect('/assignPractice?subscription='.'basic');
 			} catch ( \Exception $e ) {
 				Session::flash ( 'fail-message', "Error! Please Try again." );
-				return redirect('/practice_account');
+				// return redirect('/practice_account');
 			}
 	}
 
