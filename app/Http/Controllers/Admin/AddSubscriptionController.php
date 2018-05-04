@@ -181,7 +181,7 @@ class AddSubscriptionController extends Controller {
 
 	public function payment(Request $request) {
 		$data = $request->all();
-dd($data);
+// dd($data);
 		\Stripe\Stripe::setApiKey ( 'sk_test_JYM3PD8m43wyDYS1tOsMwB7C' );
 			try {
 				\Stripe\Charge::create ( array (
@@ -191,20 +191,23 @@ dd($data);
 						"source" => $request->input ( 'stripeToken' ), // obtained with Stripe.js
 						"description" => "Test payment."
 				) );
+
+				dd('succesfull');
 				Session::flash ( 'success-message', 'Payment done successfully !' );
 
-				$transaction = new Transaction();
-
-				$transaction->user_id = Auth::user()->id;
-				$transaction->practices_id = $data['practices_id'];
-				$transaction->subscriptions_id = $data['subscription_id'];
-				$transaction->amount = $data['amount'];
-
-				$transaction->save();
+				// $transaction = new Transaction();
+        //
+				// $transaction->user_id = Auth::user()->id;
+				// $transaction->practices_id = $data['practices_id'];
+				// $transaction->subscriptions_id = $data['subscription_id'];
+				// $transaction->amount = $data['amount'];
+        //
+				// $transaction->save();
 				return redirect('/practice_account');
 			} catch ( \Exception $e ) {
 				Session::flash ( 'fail-message', "Error! Please Try again." );
-				return redirect('/practice_account');
+				// return redirect('/practice_account');
+				dd('not succesfull');
 			}
 	}
 
