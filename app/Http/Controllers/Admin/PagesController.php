@@ -71,12 +71,12 @@ class PagesController extends Controller {
 							$role_names[$value->id]['practices_names'] = Practice::find($pv->practices_id)->name;
 							$role_names[$value->id]['roles'] = '';
 
-							if ($pv->role_ids) {
-									foreach (explode(',', $pv->role_ids) as $rol) {
-											$rn[] = Role::find($rol)->display_name;
-									}
-									$role_names[$value->id]['roles'] = $rn = implode(',', $rn);
-							}
+							// if ($pv->role_ids) {
+							// 		foreach (explode(',', $pv->role_ids) as $rol) {
+							// 				$rn[] = Role::find($rol)->display_name;
+							// 		}
+							// 		$role_names[$value->id]['roles'] = $rn = implode(',', $rn);
+							// }
 						}
 				}
 			}
@@ -85,7 +85,7 @@ class PagesController extends Controller {
 		# custom pagination
 		$currentPage = LengthAwarePaginator::resolveCurrentPage();
 		$col = new Collection($pagesD);
-		$perPage = 5;
+		$perPage = 10;
 		$currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
 		$pagesD = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage, $currentPage, ['path' => LengthAwarePaginator::resolveCurrentPath()]);
 
