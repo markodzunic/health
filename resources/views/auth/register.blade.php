@@ -56,7 +56,7 @@
                         @endif
                     </div>
 
-                 {{--    <div class="form-group{{ $errors->has('date_of_birth') ? ' has-error' : '' }}">
+                    <div class="form-group{{ $errors->has('date_of_birth') ? ' has-error' : '' }}">
                         <label for="date_of_birth" class="control-label">Date of Birth</label>
                         <div class='input-group date' id='date_of_birth'>
                             <input type='text' name="date_of_birth" class="form-control" />
@@ -70,7 +70,7 @@
                                 <strong>{{ $errors->first('date_of_birth') }}</strong>
                             </span>
                         @endif
-                    </div> --}}
+                    </div>
 
                     <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
                         <label for="gender" class="control-label">Gender</label>
