@@ -182,11 +182,11 @@ class AddSubscriptionController extends Controller {
 	public function payment(Request $request) {
 		$data = $request->all();
 
-		\Stripe\Stripe::setApiKey ( 'sk_test_JYM3PD8m43wyDYS1tOsMwB7C' );
+		\Stripe\Stripe::setApiKey ( 'sk_test_UEPCPa7g0RAnskFGwC9sdll1' );
 			try {
 				\Stripe\Charge::create ( array (
-						"amount" => 90000,
-						"currency" => 'usd',
+						"amount" => 75000,
+						"currency" => 'eur',
 						// "receipt_email" => 'dushan887@gmail.com',
 						"source" => $request->input ( 'stripeToken' ), // obtained with Stripe.js
 						"description" => "Test payment."

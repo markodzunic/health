@@ -28,7 +28,7 @@
 
         <form accept-charset="UTF-8" action="/payment" class="require-validation"
           data-cc-on-file="false"
-          data-stripe-publishable-key="pk_test_cQgFysLq5ZUV1z757YaQ3j2d"
+          data-stripe-publishable-key="pk_test_0BuXu9yvZt0Vko5RUCVCMvBd"
           id="payment-form" method="post">
           {{ csrf_field() }}
           <div class='form-row'>

@@ -91,14 +91,14 @@ class RegisterController extends Controller
 
 
     
-        \Mail::send('auth.template', [], function ($message)
-        {
+        // \Mail::send('auth.template', [], function ($message)
+        // {
 
-            $message->from('no-reply@imedical.ie', "iMedical");
-            $message->subject("New User Regiestered ".$user->first_name." ".$user->last_name);
-            $message->to("cian.crosbie@phgp.ie");
+        //     $message->from('no-reply@imedical.ie', "iMedical");
+        //     $message->subject("New User Regiestered ".$user->first_name." ".$user->last_name);
+        //     $message->to("cian.crosbie@phgp.ie");
 
-        });
+        // });
 
 
         return $user;
