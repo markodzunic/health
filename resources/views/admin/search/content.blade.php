@@ -16,7 +16,12 @@
                                     <strong>{{ $result->pg_name }}</strong>
                                 </div>
                                 <div class="">
-                                    {{ $result->description ? str_limit(isset(strip_tags(HTMLDomParser::str_get_html($result->description)->find('body p')[0]) ? strip_tags(HTMLDomParser::str_get_html($result->description)->find('body p')[0] : "", 80) : 'N/A' }}
+                                    <?php
+                                      $t = isset(HTMLDomParser::str_get_html($result->description)->find('body p')[0]) ? HTMLDomParser::str_get_html($result->description)->find('body p')[0] : "";
+                                      if ($t)
+                                        $t = strip_tags($t)
+                                    ?>
+                                    {{ $result->description ? str_limit($t, 80) : 'N/A' }}
                                 </div>
                             </div></div>
                         </div>
