@@ -16,7 +16,7 @@
                                     <strong>{{ $result->pg_name }}</strong>
                                 </div>
                                 <div class="">
-                                    {{ $result->description ? str_limit(isset(strip_tags(HTMLDomParser::str_get_html($result->description)->find('body p')[0]) ? strip_tags(HTMLDomParser::str_get_html($result->description)->find('body p')[0] : ""), 80) : 'N/A' }}
+                                    {{ $result->description ? str_limit(isset(strip_tags(HTMLDomParser::str_get_html($result->description)->find('body p')[0]) ? strip_tags(HTMLDomParser::str_get_html($result->description)->find('body p')[0] : "", 80) : 'N/A' }}
                                 </div>
                             </div></div>
                         </div>
