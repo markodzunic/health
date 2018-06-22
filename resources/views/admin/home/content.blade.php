@@ -109,21 +109,23 @@
 						<div class="bg-grey grid-col-content no-split im-left im-scroller" style="height: 262px; overflow-y: scroll;">
 							<div class="bg-blue im-white" style="margin: -15px -15px 0 -15px;padding: 10px;"><strong>Updates</strong></div>
 							<div style="height: 20px;"></div>
-							@if ($pages)
-								@foreach ($pages as $notification)
-									<div class="im-notification im-new">
-											<div class="notification-title bg-lblue">
-												<a href="{{ URL::to('/notification') }}" class="im-white">{{ $notification->title }}</a>
-											</div>
-											<div class="im-notification-content">
-												<div class="im-lblue">
-													<strong>{{ $notification->type == 'blog' ? $notification->category : $notification->pg_name. ' - '.$notification->category }}</strong>
+							@if ($role == 'admin')
+								@if ($pages)
+									@foreach ($pages as $notification)
+										<div class="im-notification im-new">
+												<div class="notification-title bg-lblue">
+													<a href="{{ URL::to('/notification') }}" class="im-white">{{ $notification->title }}</a>
 												</div>
-												<div class="not-autor"><i class="fa fa-user"></i> <span>{{ $notification->user_name }}</span></div>
-												<div class="not-date"><i class="fa fa-clock-o"></i> <span>{{ $notification->created_at }}</span></div>
-											</div>
-									</div>
-								@endforeach
+												<div class="im-notification-content">
+													<div class="im-lblue">
+														<strong>{{ $notification->type == 'blog' ? $notification->category : $notification->pg_name. ' - '.$notification->category }}</strong>
+													</div>
+													<div class="not-autor"><i class="fa fa-user"></i> <span>{{ $notification->user_name }}</span></div>
+													<div class="not-date"><i class="fa fa-clock-o"></i> <span>{{ $notification->created_at }}</span></div>
+												</div>
+										</div>
+									@endforeach
+								@endif
 							@endif
 						</div>
 					</div>
